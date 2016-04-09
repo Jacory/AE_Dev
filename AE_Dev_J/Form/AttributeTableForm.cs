@@ -63,7 +63,7 @@ namespace AE_Dev_J.Form
                 dt.Rows.Add(dr);
                 pFeature = pFeatureCuror.NextFeature();
             }
-            gridControl1.DataSource = dt;
+            att_gridControl.DataSource = dt;
 
             //worksheet.Columns.AutoFit(0, m_featureclass.Fields.FieldCount-1);
             //spreadsheetControl1.EndUpdate();
