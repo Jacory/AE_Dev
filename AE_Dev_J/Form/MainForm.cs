@@ -243,7 +243,7 @@ namespace AE_Dev_J
                 if (selectedLayer.DataSourceType == "Shapefile Feature Class")
                 {   // 打开属性表窗口，如果当前没有属性表，就创建一个，如果当前有，就在原有窗口中添加一张表格
                     if (m_attForm == null || m_attForm.IsDisposed == true)
-                        m_attForm = new AttributeTableForm(selectedLayer, this);
+                        m_attForm = new AttributeTableForm(selectedLayer, this.getMapControl());
                     else
                         m_attForm.appendTable(selectedLayer);
                     m_attForm.Show();
@@ -294,7 +294,7 @@ namespace AE_Dev_J
         }
         #endregion
 
-        #region tocControl鼠标事件
+        #region m_tocControl鼠标事件
         /// <summary>
         /// tocControl鼠标按下事件
         /// </summary>
@@ -327,7 +327,7 @@ namespace AE_Dev_J
                 }
             }
         }
-        #endregion
+        #endregion m_tocControl鼠标事件
 
         #region m_mapControl右键菜单项
         /// <summary>
@@ -371,7 +371,7 @@ namespace AE_Dev_J
         }
         #endregion
 
-        #region mapControl鼠标事件
+        #region m_mapControl鼠标事件
         /// <summary>
         /// mapControl鼠标移动事件
         /// </summary>
@@ -409,7 +409,7 @@ namespace AE_Dev_J
             }
         }
 
-        #endregion
+        #endregion m_mapControl鼠标事件
 
 
         /// <summary>

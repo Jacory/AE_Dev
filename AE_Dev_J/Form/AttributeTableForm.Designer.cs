@@ -28,13 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.att_gridControl = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.splitterControl1 = new DevExpress.XtraEditors.SplitterControl();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.attForm_dockManager = new DevExpress.XtraBars.Docking.DockManager(this.components);
+            this.attForm_dockManager = new DevExpress.XtraBars.Docking.DockManager();
             this.filter_dockPanel = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.tool_dockPanel = new DevExpress.XtraBars.Docking.DockPanel();
@@ -58,7 +57,7 @@
             this.att_gridControl.Location = new System.Drawing.Point(0, 0);
             this.att_gridControl.MainView = this.gridView1;
             this.att_gridControl.Name = "att_gridControl";
-            this.att_gridControl.Size = new System.Drawing.Size(627, 355);
+            this.att_gridControl.Size = new System.Drawing.Size(627, 366);
             this.att_gridControl.TabIndex = 8;
             this.att_gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -72,7 +71,7 @@
             // splitterControl1
             // 
             this.splitterControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.splitterControl1.Location = new System.Drawing.Point(144, 139);
+            this.splitterControl1.Location = new System.Drawing.Point(144, 128);
             this.splitterControl1.MinSize = 20;
             this.splitterControl1.Name = "splitterControl1";
             this.splitterControl1.Size = new System.Drawing.Size(633, 5);
@@ -130,24 +129,24 @@
             this.tool_dockPanel.ID = new System.Guid("d57e8816-6859-4077-be05-c7787179e0ac");
             this.tool_dockPanel.Location = new System.Drawing.Point(144, 0);
             this.tool_dockPanel.Name = "tool_dockPanel";
-            this.tool_dockPanel.OriginalSize = new System.Drawing.Size(200, 139);
-            this.tool_dockPanel.Size = new System.Drawing.Size(633, 139);
+            this.tool_dockPanel.OriginalSize = new System.Drawing.Size(200, 128);
+            this.tool_dockPanel.Size = new System.Drawing.Size(633, 128);
             this.tool_dockPanel.Text = "Tool";
             // 
             // dockPanel2_Container
             // 
             this.dockPanel2_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel2_Container.Name = "dockPanel2_Container";
-            this.dockPanel2_Container.Size = new System.Drawing.Size(625, 112);
+            this.dockPanel2_Container.Size = new System.Drawing.Size(625, 101);
             this.dockPanel2_Container.TabIndex = 0;
             // 
             // xtraTabControl1
             // 
             this.xtraTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.xtraTabControl1.Location = new System.Drawing.Point(144, 139);
+            this.xtraTabControl1.Location = new System.Drawing.Point(144, 128);
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.SelectedTabPage = this.xtraTabPage1;
-            this.xtraTabControl1.Size = new System.Drawing.Size(633, 384);
+            this.xtraTabControl1.Size = new System.Drawing.Size(633, 395);
             this.xtraTabControl1.TabIndex = 0;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage1,
@@ -157,7 +156,7 @@
             // 
             this.xtraTabPage1.Controls.Add(this.att_gridControl);
             this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(627, 355);
+            this.xtraTabPage1.Size = new System.Drawing.Size(627, 366);
             this.xtraTabPage1.Text = "xtraTabPage1";
             // 
             // xtraTabPage2

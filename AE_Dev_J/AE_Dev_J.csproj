@@ -174,6 +174,11 @@
     <Compile Include="Form\TargetDetectionForm.Designer.cs">
       <DependentUpon>TargetDetectionForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="testForForm.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -193,14 +198,9 @@
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -278,6 +278,120 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\8638.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Calendar_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Drafts_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Inbox_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mail_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Organizer_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Outbox_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ribbon_AlignCenter_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ribbon_AlignLeft_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ribbon_AlignRight_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ribbon_Bold_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ribbon_Close_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ribbon_Close_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ribbon_Content_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ribbon_Content_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ribbon_Exit_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ribbon_Exit_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ribbon_Find_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ribbon_Find_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ribbon_Info_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ribbon_Info_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ribbon_Italic_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ribbon_New_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ribbon_New_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ribbon_Open_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ribbon_Open_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ribbon_Save_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ribbon_Save_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ribbon_SaveAs_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ribbon_SaveAs_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ribbon_Underline_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tasks_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Trash_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\529382.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\529912.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\529939.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1116262.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1173784.png" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

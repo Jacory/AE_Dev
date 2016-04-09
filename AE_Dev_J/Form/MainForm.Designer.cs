@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
@@ -44,13 +43,13 @@
             this.trashItem = new DevExpress.XtraNavBar.NavBarItem();
             this.calendarItem = new DevExpress.XtraNavBar.NavBarItem();
             this.tasksItem = new DevExpress.XtraNavBar.NavBarItem();
-            this.navbarImageCollectionLarge = new DevExpress.Utils.ImageCollection(this.components);
-            this.navbarImageCollection = new DevExpress.Utils.ImageCollection(this.components);
+            this.navbarImageCollectionLarge = new DevExpress.Utils.ImageCollection();
+            this.navbarImageCollection = new DevExpress.Utils.ImageCollection();
             this.axLicenseControl1 = new ESRI.ArcGIS.Controls.AxLicenseControl();
             this.m_mapControl = new ESRI.ArcGIS.Controls.AxMapControl();
             this.m_esritoolbarControl = new ESRI.ArcGIS.Controls.AxToolbarControl();
             this.ribbonMenu = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.appMenu = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
+            this.appMenu = new DevExpress.XtraBars.Ribbon.ApplicationMenu();
             this.iNewProject = new DevExpress.XtraBars.BarButtonItem();
             this.iOpenProject = new DevExpress.XtraBars.BarButtonItem();
             this.iSaveProject = new DevExpress.XtraBars.BarButtonItem();
@@ -58,7 +57,7 @@
             this.iHelp = new DevExpress.XtraBars.BarButtonItem();
             this.iAbout = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonImageCollection = new DevExpress.Utils.ImageCollection(this.components);
+            this.ribbonImageCollection = new DevExpress.Utils.ImageCollection();
             this.iCloseProject = new DevExpress.XtraBars.BarButtonItem();
             this.iFindProject = new DevExpress.XtraBars.BarButtonItem();
             this.siStatus = new DevExpress.XtraBars.BarStaticItem();
@@ -69,8 +68,6 @@
             this.iRgbSeg = new DevExpress.XtraBars.BarButtonItem();
             this.iClassification = new DevExpress.XtraBars.BarButtonItem();
             this.iTargetDetection = new DevExpress.XtraBars.BarButtonItem();
-            this.mianWindowProgressBar = new DevExpress.XtraBars.BarEditItem();
-            this.repositoryItemMarqueeProgressBar1 = new DevExpress.XtraEditors.Repository.RepositoryItemMarqueeProgressBar();
             this.coordinate_textEdit = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
@@ -85,7 +82,7 @@
             this.barButtonItem10 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem11 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem12 = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonImageCollectionLarge = new DevExpress.Utils.ImageCollection(this.components);
+            this.ribbonImageCollectionLarge = new DevExpress.Utils.ImageCollection();
             this.homeRibbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.project_RibbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.file_ribbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -99,23 +96,24 @@
             this.skinsRibbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.helpRibbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.repositoryItemProgressBar1 = new DevExpress.XtraEditors.Repository.RepositoryItemProgressBar();
+            this.repositoryItemMarqueeProgressBar1 = new DevExpress.XtraEditors.Repository.RepositoryItemMarqueeProgressBar();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            this.galleryImageCollection = new DevExpress.Utils.ImageCollection(this.components);
-            this.popupControlContainer2 = new DevExpress.XtraBars.PopupControlContainer(this.components);
+            this.galleryImageCollection = new DevExpress.Utils.ImageCollection();
+            this.popupControlContainer2 = new DevExpress.XtraBars.PopupControlContainer();
             this.buttonEdit = new DevExpress.XtraEditors.ButtonEdit();
-            this.popupControlContainer1 = new DevExpress.XtraBars.PopupControlContainer(this.components);
+            this.popupControlContainer1 = new DevExpress.XtraBars.PopupControlContainer();
             this.someLabelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.someLabelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.tocControlLayer_ContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tocControlLayer_ContextMenu = new System.Windows.Forms.ContextMenuStrip();
             this.openAttTable_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeLayer_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.zoomToLayer_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mapControl_contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.mapControl_contextMenuStrip = new System.Windows.Forms.ContextMenuStrip();
             this.indentify_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pan_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.zoomIn_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.zoomOut_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tocControl_contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tocControl_contextMenuStrip = new System.Windows.Forms.ContextMenuStrip();
             this.addData_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl)).BeginInit();
             this.splitContainerControl.SuspendLayout();
@@ -129,10 +127,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonImageCollection)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMarqueeProgressBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonImageCollectionLarge)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMarqueeProgressBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.galleryImageCollection)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupControlContainer2)).BeginInit();
             this.popupControlContainer2.SuspendLayout();
@@ -302,7 +300,6 @@
             this.iRgbSeg,
             this.iClassification,
             this.iTargetDetection,
-            this.mianWindowProgressBar,
             this.coordinate_textEdit,
             this.barButtonItem2,
             this.barButtonItem3,
@@ -548,20 +545,6 @@
             this.iTargetDetection.Name = "iTargetDetection";
             this.iTargetDetection.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.iTargetDetection_ItemClick);
             // 
-            // mianWindowProgressBar
-            // 
-            this.mianWindowProgressBar.Caption = "Progress";
-            this.mianWindowProgressBar.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-            this.mianWindowProgressBar.Edit = this.repositoryItemMarqueeProgressBar1;
-            this.mianWindowProgressBar.Id = 9;
-            this.mianWindowProgressBar.Name = "mianWindowProgressBar";
-            this.mianWindowProgressBar.Visibility = DevExpress.XtraBars.BarItemVisibility.OnlyInCustomizing;
-            this.mianWindowProgressBar.Width = 100;
-            // 
-            // repositoryItemMarqueeProgressBar1
-            // 
-            this.repositoryItemMarqueeProgressBar1.Name = "repositoryItemMarqueeProgressBar1";
-            // 
             // coordinate_textEdit
             // 
             this.coordinate_textEdit.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
@@ -774,11 +757,14 @@
             // 
             this.repositoryItemProgressBar1.Name = "repositoryItemProgressBar1";
             // 
+            // repositoryItemMarqueeProgressBar1
+            // 
+            this.repositoryItemMarqueeProgressBar1.Name = "repositoryItemMarqueeProgressBar1";
+            // 
             // ribbonStatusBar
             // 
             this.ribbonStatusBar.ItemLinks.Add(this.siStatus);
             this.ribbonStatusBar.ItemLinks.Add(this.siInfo);
-            this.ribbonStatusBar.ItemLinks.Add(this.mianWindowProgressBar);
             this.ribbonStatusBar.ItemLinks.Add(this.coordinate_textEdit);
             this.ribbonStatusBar.Location = new System.Drawing.Point(0, 606);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
@@ -869,6 +855,7 @@
             // 
             // openAttTable_ToolStripMenuItem
             // 
+            this.openAttTable_ToolStripMenuItem.Image = global::AE_Dev_J.Properties.Resources.attributeTable;
             this.openAttTable_ToolStripMenuItem.Name = "openAttTable_ToolStripMenuItem";
             this.openAttTable_ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.openAttTable_ToolStripMenuItem.Text = "打开属性表";
@@ -876,6 +863,7 @@
             // 
             // removeLayer_ToolStripMenuItem
             // 
+            this.removeLayer_ToolStripMenuItem.Image = global::AE_Dev_J.Properties.Resources.removeLayer;
             this.removeLayer_ToolStripMenuItem.Name = "removeLayer_ToolStripMenuItem";
             this.removeLayer_ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.removeLayer_ToolStripMenuItem.Text = "移除图层";
@@ -883,6 +871,7 @@
             // 
             // zoomToLayer_ToolStripMenuItem
             // 
+            this.zoomToLayer_ToolStripMenuItem.Image = global::AE_Dev_J.Properties.Resources.zoomToLayer;
             this.zoomToLayer_ToolStripMenuItem.Name = "zoomToLayer_ToolStripMenuItem";
             this.zoomToLayer_ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.zoomToLayer_ToolStripMenuItem.Text = "缩放至到图层";
@@ -935,6 +924,7 @@
             // 
             // addData_toolStripMenuItem
             // 
+            this.addData_toolStripMenuItem.Image = global::AE_Dev_J.Properties.Resources.addLayer;
             this.addData_toolStripMenuItem.Name = "addData_toolStripMenuItem";
             this.addData_toolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.addData_toolStripMenuItem.Text = "添加图层";
@@ -963,10 +953,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.appMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonImageCollection)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMarqueeProgressBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonImageCollectionLarge)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMarqueeProgressBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.galleryImageCollection)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupControlContainer2)).EndInit();
             this.popupControlContainer2.ResumeLayout(false);
@@ -1045,7 +1035,6 @@
         private DevExpress.XtraBars.BarButtonItem iClassification;
         private DevExpress.XtraBars.BarButtonItem iTargetDetection;
         private DevExpress.XtraEditors.Repository.RepositoryItemProgressBar repositoryItemProgressBar1;
-        private DevExpress.XtraBars.BarEditItem mianWindowProgressBar;
         private DevExpress.XtraEditors.Repository.RepositoryItemMarqueeProgressBar repositoryItemMarqueeProgressBar1;
         private DevExpress.XtraBars.BarEditItem coordinate_textEdit;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit1;

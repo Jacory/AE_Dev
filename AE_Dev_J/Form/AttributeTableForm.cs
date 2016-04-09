@@ -22,12 +22,12 @@ namespace AE_Dev_J.Form
         private IFeatureLayer m_layer = null;
         private AxMapControl m_mapControl = null; // 属性表需要与mapControl做交互
 
-        public AttributeTableForm(IFeatureLayer layer, MainForm mainForm)
+        public AttributeTableForm(IFeatureLayer layer, AxMapControl mapControl)
         {
             InitializeComponent();
 
             m_layer = layer;
-            m_mapControl= mainForm.getMapControl();
+            m_mapControl = mapControl;
         }
 
         private void AttributeTableForm_Load(object sender, EventArgs e)
@@ -36,14 +36,17 @@ namespace AE_Dev_J.Form
             //+ m_layer.FeatureClass.FeatureCount(new ESRI.ArcGIS.Geodatabase.QueryFilter()).ToString() + " features";
             importAttribute(m_layer);
         }
+
+        /// <summary>
+        /// 导入vector layer的属性到grid view中
+        /// **每一个有意义的方法都要具有方法注释**
+        /// </summary>
+        /// <param name="featurelayer">矢量数据</param>
         private void importAttribute(IFeatureLayer featurelayer)
         {
             DataTable dt = new DataTable();
             IFeatureClass m_featureclass = featurelayer.FeatureClass;
-            if (m_featureclass == null)
-            {
-                return;
-            }
+            if (m_featureclass == null){return;}
             //spreadsheetControl1.BeginUpdate();
             //DevExpress.Spreadsheet.Worksheet worksheet = spreadsheetControl1.Document.Worksheets[0];
             for (int i = 0; i < m_featureclass.Fields.FieldCount; i++)
@@ -68,7 +71,12 @@ namespace AE_Dev_J.Form
             //worksheet.Columns.AutoFit(0, m_featureclass.Fields.FieldCount-1);
             //spreadsheetControl1.EndUpdate();
         }
-        public void appendTable(IFeatureLayer layer)
+
+        /// <summary>
+        /// 添加新table来显示新传入矢量图层的属性
+        /// </summary>
+        /// <param name="vecLayer">适量图层</param>
+        public void appendTable(IFeatureLayer vecLayer)
         {
 
         }
