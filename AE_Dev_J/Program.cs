@@ -19,7 +19,6 @@ namespace AE_Dev_J
             DevExpress.Skins.SkinManager.EnableFormSkins();
             DevExpress.UserSkins.BonusSkins.Register();
             UserLookAndFeel.Default.SetSkinStyle("Office 2013");
-
             Application.Run(new MainForm());
         }
     }

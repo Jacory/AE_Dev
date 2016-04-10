@@ -12,6 +12,30 @@ namespace AE_Dev_J.Form
 {
     public partial class ClassificationForm : DevExpress.XtraEditors.XtraForm
     {
+        private string m_idlPath = "../../IDL_pro/"; // IDL的pro文件路径
+
+        private string m_inDataPath = ""; // 输入文件路径，若是批处理模式，则为文件夹路径
+        private string m_outDataPath = ""; // 输出文件路径，若是批处理模式，则为文件夹路径
+
+        /// <summary>
+        /// 分类方法枚举
+        /// </summary>
+        public enum ClassfyMethod
+        {
+            None,
+            Parallelepiped,
+            MinimumDistance,
+            MahalanobisDistance,
+            MaximumLikelihood,
+            SpectralAngleMapper,
+            SpectralInformationDivergence,
+            BinaryEncoding,
+            NeuralNet,
+            SupportVectrorMachine,
+            IsoData,
+            KMeans
+        };
+
         public ClassificationForm()
         {
             InitializeComponent();
@@ -39,8 +63,8 @@ namespace AE_Dev_J.Form
             showOnlyIndexTabPage(0, this.unsuper_param_xtraTabControl);
         }
 
-        #region Select Method Page
-        
+        #region Select Method 面板界面逻辑
+
         /// <summary>
         /// choose supervised method
         /// </summary>
@@ -57,7 +81,7 @@ namespace AE_Dev_J.Form
                 this.paramSetting_xtraTabControl.TabPages[1].PageVisible = false;
                 this.paramSetting_xtraTabControl.TabPages[0].PageVisible = true;
             }
-            else { this.superviseMethod_radioGroup.Enabled = false;}
+            else { this.superviseMethod_radioGroup.Enabled = false; }
         }
 
         /// <summary>
@@ -76,74 +100,12 @@ namespace AE_Dev_J.Form
                 this.paramSetting_xtraTabControl.TabPages[0].PageVisible = false;
                 this.paramSetting_xtraTabControl.TabPages[1].PageVisible = true;
             }
-            else{ this.unsuperviseMethod_radioGroup.Enabled = false; }
+            else { this.unsuperviseMethod_radioGroup.Enabled = false; }
         }
 
-        #endregion Select Method Page
+        #endregion Select Method 面板界面逻辑
 
-        /// <summary>
-        /// 用于控制面板的翻页
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void tabPageControl_windowsUIButtonPanel_ButtonClick(object sender, DevExpress.XtraBars.Docking2010.ButtonEventArgs e)
-        {
-            DevExpress.XtraEditors.ButtonPanel.IBaseButton preBtn = this.tabPageControl_windowsUIButtonPanel.Buttons[0];
-            DevExpress.XtraEditors.ButtonPanel.IBaseButton nextBtn = this.tabPageControl_windowsUIButtonPanel.Buttons[1];
-
-            if (e.Button == preBtn && 
-                this.classfication_backstageViewControl.SelectedTabIndex != 0)
-            {
-                this.classfication_backstageViewControl.SelectedTabIndex -= 1;
-            }
-            else if(e.Button == nextBtn)
-            {
-                if ( preBtn.Properties.Enabled == false)
-                    preBtn.Properties.Enabled = true;
-                this.classfication_backstageViewControl.SelectedTabIndex += 1;
-                if (this.classfication_backstageViewControl.SelectedTab != null)
-                    this.classfication_backstageViewControl.SelectedTab.Enabled = true;
-            }
-        }
-
-        /// <summary>
-        /// 分类方法选择事件，控制监督分类参数配置面板显示的方法参数
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void superviseMethod_radioGroup_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            int index = this.superviseMethod_radioGroup.SelectedIndex;
-
-            showOnlyIndexTabPage(index, this.super_param_xtraTabControl);
-        }
-
-        /// <summary>
-        /// 分类方法选择事件，控制非监督分类参数配置面板显示的方法参数
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void unsuperviseMethod_radioGroup_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            int index = this.unsuperviseMethod_radioGroup.SelectedIndex;
-            showOnlyIndexTabPage(index, this.unsuper_param_xtraTabControl);
-        }
-
-        /// <summary>
-        /// 用于设置仅显示指定index位置的tab页面
-        /// </summary>
-        /// <param name="index">要显示页面的index</param>
-        /// <param name="tabControl">Tab Control</param>
-        private void showOnlyIndexTabPage(int index, DevExpress.XtraTab.XtraTabControl tabControl)
-        {
-            if (index < 0 || index >= tabControl.TabPages.Count) return;
-
-            for (int i = 0; i < tabControl.TabPages.Count; i++)
-            {
-               tabControl.TabPages[i].PageVisible = false;
-            }
-            tabControl.TabPages[index].PageVisible = true;
-        }
+        #region set parameters 面板界面逻辑
 
         #region 平行六面体
 
@@ -174,7 +136,7 @@ namespace AE_Dev_J.Form
         #endregion 平行六面体
 
         #region 最小距离法
-       
+
         private void minDis_std_radioGroup_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (this.minDis_std_radioGroup.SelectedIndex == 0)
@@ -367,6 +329,15 @@ namespace AE_Dev_J.Form
             this.svm_bias_trackBarControl.Value = (Int32)this.svm_bias_spinEdit.Value;
         }
 
+        private void svm_thresh_trackBarControl_EditValueChanged(object sender, EventArgs e)
+        {
+            this.svm_thresh_spinEdit.Value = (Decimal)this.svm_thresh_trackBarControl.Value;
+        }
+
+        private void svm_thresh_spinEdit_EditValueChanged(object sender, EventArgs e)
+        {
+            this.svm_thresh_trackBarControl.Value = (Int32)this.svm_thresh_spinEdit.Value;
+        }
         #endregion 支持向量机
 
         #region ISODATA
@@ -411,14 +382,61 @@ namespace AE_Dev_J.Form
         }
         #endregion ISODATA
 
-        private void svm_thresh_trackBarControl_EditValueChanged(object sender, EventArgs e)
+        #endregion set parameters 面板界面逻辑
+
+        #region Export Data面板界面逻辑
+
+        private void singleMode_checkEdit_CheckedChanged(object sender, EventArgs e)
         {
-            this.svm_thresh_spinEdit.Value = (Decimal)this.svm_thresh_trackBarControl.Value;
+            if (this.singleMode_checkEdit.Checked == true)
+            {
+                this.singleMode_groupControl.Enabled = true;
+                this.batchMode_checkEdit.Checked = false;
+            }
+            else
+                this.singleMode_groupControl.Enabled = false;
         }
 
-        private void svm_thresh_spinEdit_EditValueChanged(object sender, EventArgs e)
+        private void batchMode_checkEdit_CheckedChanged(object sender, EventArgs e)
         {
-            this.svm_thresh_trackBarControl.Value = (Int32)this.svm_thresh_spinEdit.Value;
+            if (this.batchMode_checkEdit.Checked == true)
+            {
+                this.batchMode_groupControl.Enabled = true;
+                this.singleMode_checkEdit.Checked = false;
+            }
+            else
+                this.batchMode_groupControl.Enabled = false;
+        }
+
+        private void inDataFile_btn_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openDialog = new OpenFileDialog();
+            openDialog.Filter = "image files(*.img)|*.img";
+            if (openDialog.ShowDialog() == DialogResult.OK)
+            {
+                this.inDataFile_btn.Text = openDialog.FileName;
+                this.m_inDataPath = this.inDataFile_btn.Text;
+            }
+        }
+
+        private void inDataFolder_btn_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog folderDialog = new FolderBrowserDialog();
+            if (folderDialog.ShowDialog() == DialogResult.OK)
+            {
+                this.inDataFolder_btn.Text = folderDialog.SelectedPath;
+                this.m_inDataPath = this.inDataFolder_btn.Text;
+            }
+        }
+
+        private void outDataFolder_btn_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog folderDialog = new FolderBrowserDialog();
+            if (folderDialog.ShowDialog() == DialogResult.OK)
+            {
+                this.outDataFolder_btn.Text = folderDialog.SelectedPath;
+                this.m_outDataPath = this.outDataFolder_btn.Text;
+            }
         }
 
         /// <summary>
@@ -426,16 +444,188 @@ namespace AE_Dev_J.Form
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void expData_buttonEdit_Click(object sender, EventArgs e)
+        private void outDataFile_btn_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveDialog = new SaveFileDialog();
             saveDialog.Filter = "image files(*.img)|*.img";
             if (saveDialog.ShowDialog() == DialogResult.OK)
             {
-                this.expData_buttonEdit.Text = saveDialog.FileName;
+                this.outDataFile_btn.Text = saveDialog.FileName;
+                this.m_inDataPath = this.outDataFile_btn.Text;
             }
         }
 
+        #endregion Export Data面板界面逻辑
 
+        #region run 面板界面逻辑
+
+        /// <summary>
+        /// 运行分类算法
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ok_btn_Click(object sender, EventArgs e)
+        {
+            // 确认用户配置
+            ClassfyMethod classifyMethod = ClassfyMethod.None;
+
+            if (this.supervise_checkEdit.Checked == true)
+                classifyMethod = (ClassfyMethod)this.superviseMethod_radioGroup.SelectedIndex;
+            else if (this.unsupervise_checkEdit.Checked == true)
+                classifyMethod = (ClassfyMethod)this.unsuperviseMethod_radioGroup.SelectedIndex + 9; // 这里加上的数应该是监督分类方法的个数
+            else
+                throw new Exception("method select error");
+
+            if (classifyMethod == ClassfyMethod.None) return;
+
+            string proFilename = null;
+            string runStr = null;
+            switch (classifyMethod)
+            {
+                case ClassfyMethod.Parallelepiped:
+                    proFilename = "parallelepiped_classify.pro";
+                    break;
+
+                case ClassfyMethod.MinimumDistance:
+                    proFilename = "minimumdistance_classify.pro";
+                    break;
+
+                case ClassfyMethod.MahalanobisDistance:
+                    proFilename = "mahalanobis_classify.pro";
+                    break;
+
+                case ClassfyMethod.MaximumLikelihood:
+                    proFilename = "maximumlikelihood_classify.pro";
+                    break;
+
+                case ClassfyMethod.SpectralAngleMapper:
+                    proFilename = "SAM_classify.pro";
+                    break;
+
+                case ClassfyMethod.SpectralInformationDivergence:
+                    proFilename = "SIM_classify.pro";
+                    break;
+
+                case ClassfyMethod.BinaryEncoding:
+                    proFilename = "BinaryEncoding_classify.pro";
+                    break;
+
+                case ClassfyMethod.NeuralNet:
+                    proFilename = "ANN_classify.pro";
+                    break;
+
+                case ClassfyMethod.SupportVectrorMachine:
+                    proFilename = "svm_classify.pro";
+                    break;
+
+                case ClassfyMethod.IsoData:
+                    proFilename = "isodata.pro";
+                    break;
+
+                case ClassfyMethod.KMeans:
+                    proFilename = "k_means.pro";
+                    break;
+
+                default:
+                    break;
+            }
+
+            // 初始化 IDLConnector, 并运行分类算法
+            string proFullPath = m_idlPath + proFilename;
+            System.IO.FileInfo proFileInfo = new System.IO.FileInfo(proFullPath);
+            if (proFileInfo.Exists == true && runStr != null)
+            {
+                try
+                {
+                    IdlConnector idlCon = new IdlConnector(proFileInfo.FullName);
+                    idlCon.RunStr = runStr;
+                    idlCon.run();
+                }
+                catch (Exception exception)
+                {
+                    MessageBox.Show(exception.ToString(), "Error");
+                }
+            }
+        }
+
+        /// <summary>
+        /// 取消分类窗口
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cancel_Btn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        #endregion run 面板界面逻辑
+
+        /// <summary>
+        /// 用于控制面板的翻页
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tabPageControl_windowsUIButtonPanel_ButtonClick(object sender, DevExpress.XtraBars.Docking2010.ButtonEventArgs e)
+        {
+            DevExpress.XtraEditors.ButtonPanel.IBaseButton preBtn = this.tabPageControl_windowsUIButtonPanel.Buttons[0];
+            DevExpress.XtraEditors.ButtonPanel.IBaseButton nextBtn = this.tabPageControl_windowsUIButtonPanel.Buttons[1];
+
+            if (e.Button == preBtn &&
+                this.classfication_backstageViewControl.SelectedTabIndex != 0)
+            {
+                this.classfication_backstageViewControl.SelectedTabIndex -= 1;
+            }
+            else if (e.Button == nextBtn)
+            {
+                if (preBtn.Properties.Enabled == false)
+                    preBtn.Properties.Enabled = true;
+                this.classfication_backstageViewControl.SelectedTabIndex += 1;
+                if (this.classfication_backstageViewControl.SelectedTab != null)
+                    this.classfication_backstageViewControl.SelectedTab.Enabled = true;
+            }
+        }
+
+        /// <summary>
+        /// 分类方法选择事件，控制监督分类参数配置面板显示的方法参数
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void superviseMethod_radioGroup_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = this.superviseMethod_radioGroup.SelectedIndex;
+
+            showOnlyIndexTabPage(index, this.super_param_xtraTabControl);
+        }
+
+        /// <summary>
+        /// 分类方法选择事件，控制非监督分类参数配置面板显示的方法参数
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void unsuperviseMethod_radioGroup_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = this.unsuperviseMethod_radioGroup.SelectedIndex;
+            showOnlyIndexTabPage(index, this.unsuper_param_xtraTabControl);
+        }
+
+        /// <summary>
+        /// 用于设置仅显示指定index位置的tab页面
+        /// </summary>
+        /// <param name="index">要显示页面的index</param>
+        /// <param name="tabControl">Tab Control</param>
+        private void showOnlyIndexTabPage(int index, DevExpress.XtraTab.XtraTabControl tabControl)
+        {
+            if (index < 0 || index >= tabControl.TabPages.Count) return;
+
+            for (int i = 0; i < tabControl.TabPages.Count; i++)
+            {
+                tabControl.TabPages[i].PageVisible = false;
+            }
+            tabControl.TabPages[index].PageVisible = true;
+        }
+
+       
+
+        
     }
 }
