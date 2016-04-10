@@ -17,6 +17,28 @@ namespace AE_Dev_J.Form
             InitializeComponent();
         }
 
+        /// <summary>
+        /// 初始化面板中的控件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ClassificationForm_Load(object sender, EventArgs e)
+        {
+            this.setParam_TabItem.Enabled = false;
+            this.expData_TabItem.Enabled = false;
+            this.run_TabItem.Enabled = false;
+            this.finish_TabItem.Enabled = false;
+
+            this.tabPageControl_windowsUIButtonPanel.Buttons[0].Properties.Enabled = false;
+
+            this.selectMethod_TabItem.Selected = true;
+
+            // 参数设置面板
+            showOnlyIndexTabPage(0, this.paramSetting_xtraTabControl);
+            showOnlyIndexTabPage(0, this.super_param_xtraTabControl);
+            showOnlyIndexTabPage(0, this.unsuper_param_xtraTabControl);
+        }
+
         #region Select Method Page
         
         /// <summary>
@@ -30,6 +52,10 @@ namespace AE_Dev_J.Form
             {
                 this.superviseMethod_radioGroup.Enabled = true;
                 this.unsupervise_checkEdit.Checked = false;
+
+                // 设置非监督分类的参数配置界面不可见
+                this.paramSetting_xtraTabControl.TabPages[1].PageVisible = false;
+                this.paramSetting_xtraTabControl.TabPages[0].PageVisible = true;
             }
             else { this.superviseMethod_radioGroup.Enabled = false;}
         }
@@ -45,6 +71,10 @@ namespace AE_Dev_J.Form
             {
                 this.unsuperviseMethod_radioGroup.Enabled = true;
                 this.supervise_checkEdit.Checked = false;
+
+                // 设置监督分类的参数配置界面不可见
+                this.paramSetting_xtraTabControl.TabPages[0].PageVisible = false;
+                this.paramSetting_xtraTabControl.TabPages[1].PageVisible = true;
             }
             else{ this.unsuperviseMethod_radioGroup.Enabled = false; }
         }
@@ -58,12 +88,61 @@ namespace AE_Dev_J.Form
         /// <param name="e"></param>
         private void tabPageControl_windowsUIButtonPanel_ButtonClick(object sender, DevExpress.XtraBars.Docking2010.ButtonEventArgs e)
         {
-            
+            DevExpress.XtraEditors.ButtonPanel.IBaseButton preBtn = this.tabPageControl_windowsUIButtonPanel.Buttons[0];
+            DevExpress.XtraEditors.ButtonPanel.IBaseButton nextBtn = this.tabPageControl_windowsUIButtonPanel.Buttons[1];
+
+            if (e.Button == preBtn && 
+                this.classfication_backstageViewControl.SelectedTabIndex != 0)
+            {
+                this.classfication_backstageViewControl.SelectedTabIndex -= 1;
+            }
+            else if(e.Button == nextBtn)
+            {
+                if ( preBtn.Properties.Enabled == false)
+                    preBtn.Properties.Enabled = true;
+                this.classfication_backstageViewControl.SelectedTabIndex += 1;
+                if (this.classfication_backstageViewControl.SelectedTab != null)
+                    this.classfication_backstageViewControl.SelectedTab.Enabled = true;
+            }
         }
 
-        private void groupControl1_Paint(object sender, PaintEventArgs e)
+        /// <summary>
+        /// 分类方法选择事件，控制监督分类参数配置面板显示的方法参数
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void superviseMethod_radioGroup_SelectedIndexChanged(object sender, EventArgs e)
         {
+            int index = this.superviseMethod_radioGroup.SelectedIndex;
 
+            showOnlyIndexTabPage(index, this.super_param_xtraTabControl);
+        }
+
+        /// <summary>
+        /// 分类方法选择事件，控制非监督分类参数配置面板显示的方法参数
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void unsuperviseMethod_radioGroup_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = this.unsuperviseMethod_radioGroup.SelectedIndex;
+            showOnlyIndexTabPage(index, this.unsuper_param_xtraTabControl);
+        }
+
+        /// <summary>
+        /// 用于设置仅显示指定index位置的tab页面
+        /// </summary>
+        /// <param name="index">要显示页面的index</param>
+        /// <param name="tabControl">Tab Control</param>
+        private void showOnlyIndexTabPage(int index, DevExpress.XtraTab.XtraTabControl tabControl)
+        {
+            if (index < 0 || index >= tabControl.TabPages.Count) return;
+
+            for (int i = 0; i < tabControl.TabPages.Count; i++)
+            {
+               tabControl.TabPages[i].PageVisible = false;
+            }
+            tabControl.TabPages[index].PageVisible = true;
         }
 
         #region 平行六面体
@@ -120,7 +199,7 @@ namespace AE_Dev_J.Form
             }
         }
 
-        private void minDis_std_spinEdit_ValueChanged(object sender, EventArgs e)
+        private void minDis_std_spinEdit_EditValueChanged(object sender, EventArgs e)
         {
             this.minDis_std_trackBarControl.Value = (Int32)this.minDis_std_spinEdit.Value;
         }
@@ -140,10 +219,6 @@ namespace AE_Dev_J.Form
             this.minDis_error_spinEdit.Value = (Decimal)this.minDis_error_trackBarControl.Value;
         }
 
-        private void spinEdit4_EditValueChanged(object sender, EventArgs e)
-        {
-
-        }
         #endregion 最小距离法
 
         #region 马氏距离
@@ -156,7 +231,7 @@ namespace AE_Dev_J.Form
                 this.mahDis_groupBox.Enabled = true;
         }
 
-        private void mahDis_thresh_spinEdit_ValueChanged(object sender, EventArgs e)
+        private void mahDis_thresh_spinEdit_EditValueChanged(object sender, EventArgs e)
         {
             this.mahDis_thresh_trackBarControl.Value = (Int32)this.mahDis_thresh_spinEdit.Value;
         }
@@ -185,7 +260,7 @@ namespace AE_Dev_J.Form
                 this.maxLike_ratio_groupBox.Enabled = true;
         }
 
-        private void maxLike_thresh_spinEdit_ValueChanged(object sender, EventArgs e)
+        private void maxLike_thresh_spinEdit_EditValueChanged(object sender, EventArgs e)
         {
             this.maxLike_thresh_trackBarControl.Value = (Int32)this.maxLike_thresh_spinEdit.Value;
         }
@@ -208,62 +283,62 @@ namespace AE_Dev_J.Form
 
         #region 神经网络
 
-        private void ann_thresh_trackBarControl_ValueChanged(object sender, EventArgs e)
+        private void ann_thresh_trackBarControl_EditValueChanged(object sender, EventArgs e)
         {
             this.ann_thresh_spinEdit.Value = (Decimal)this.ann_thresh_trackBarControl.Value;
         }
 
-        private void ann_thresh_spinEdit_ValueChanged(object sender, EventArgs e)
+        private void ann_thresh_spinEdit_EditValueChanged(object sender, EventArgs e)
         {
             this.ann_thresh_trackBarControl.Value = (Int32)this.ann_thresh_spinEdit.Value;
         }
 
-        private void ann_weightSpeed_trackBarControl_ValueChanged(object sender, EventArgs e)
+        private void ann_weightSpeed_trackBarControl_EditValueChanged(object sender, EventArgs e)
         {
             this.ann_weightSpeed_spinEdit.Value = (Decimal)this.ann_weightSpeed_trackBarControl.Value;
         }
 
-        private void ann_weightSpeed_spinEdit_ValueChanged(object sender, EventArgs e)
+        private void ann_weightSpeed_spinEdit_EditValueChanged(object sender, EventArgs e)
         {
             this.ann_weightSpeed_trackBarControl.Value = (Int32)this.ann_weightSpeed_spinEdit.Value;
         }
 
-        private void ann_weight_trackBarControl_ValueChanged(object sender, EventArgs e)
+        private void ann_weight_trackBarControl_EditValueChanged(object sender, EventArgs e)
         {
             this.ann_weight_spinEdit.Value = (Decimal)this.ann_weight_trackBarControl.Value;
         }
 
-        private void ann_weight_spinEdit_ValueChanged(object sender, EventArgs e)
+        private void ann_weight_spinEdit_EditValueChanged(object sender, EventArgs e)
         {
             this.ann_weight_trackBarControl.Value = (Int32)this.ann_weight_spinEdit.Value;
         }
 
-        private void ann_rms_trackBarControl_ValueChanged(object sender, EventArgs e)
+        private void ann_rms_trackBarControl_EditValueChanged(object sender, EventArgs e)
         {
             this.ann_rms_spinEdit.Value = (Decimal)this.ann_rms_trackBarControl.Value;
         }
 
-        private void ann_rms_spinEdit_ValueChanged(object sender, EventArgs e)
+        private void ann_rms_spinEdit_EditValueChanged(object sender, EventArgs e)
         {
             this.ann_rms_trackBarControl.Value = (Int32)this.ann_rms_spinEdit.Value;
         }
 
-        private void ann_hideLayer_trackBarControl_ValueChanged(object sender, EventArgs e)
+        private void ann_hideLayer_trackBarControl_EditValueChanged(object sender, EventArgs e)
         {
             this.ann_hideLayer_spinEdit.Value = (Decimal)this.ann_hideLayer_trackBarControl.Value;
         }
 
-        private void ann_hideLayer_spinEdit_ValueChanged(object sender, EventArgs e)
+        private void ann_hideLayer_spinEdit_EditValueChanged(object sender, EventArgs e)
         {
             this.ann_hideLayer_trackBarControl.Value = (Int32)this.ann_hideLayer_spinEdit.Value;
         }
 
-        private void ann_iterCount_trackBarControl_ValueChanged(object sender, EventArgs e)
+        private void ann_iterCount_trackBarControl_EditValueChanged(object sender, EventArgs e)
         {
             this.ann_iterCount_spinEdit.Value = (Decimal)this.ann_iterCount_trackBarControl.Value;
         }
 
-        private void ann_iterCount_spinEdit_ValueChanged(object sender, EventArgs e)
+        private void ann_iterCount_spinEdit_EditValueChanged(object sender, EventArgs e)
         {
             this.ann_iterCount_trackBarControl.Value = (Int32)this.ann_iterCount_spinEdit.Value;
         }
@@ -272,56 +347,29 @@ namespace AE_Dev_J.Form
 
         #region 支持向量机
 
-        private void svm_thresh_trackBarControl_ValueChanged(object sender, EventArgs e)
-        {
-            this.svm_thresh_spinEdit.Value = (Decimal)this.svm_thresh_trackBarControl.Value;
-        }
-
-        private void svm_thresh_spinEdit_ValueChanged(object sender, EventArgs e)
-        {
-            this.svm_thresh_trackBarControl.Value = (Int32)this.svm_thresh_spinEdit.Value;
-        }
-
-        private void svm_balance_trackBarControl_ValueChanged(object sender, EventArgs e)
+        private void svm_balance_trackBarControl_EditValueChanged(object sender, EventArgs e)
         {
             this.svm_balance_spinEdit.Value = (Decimal)this.svm_balance_trackBarControl.Value;
         }
 
-        private void svm_balance_spinEdit_ValueChanged(object sender, EventArgs e)
+        private void svm_balance_spinEdit_EditValueChanged(object sender, EventArgs e)
         {
             this.svm_balance_trackBarControl.Value = (Int32)this.svm_balance_spinEdit.Value;
         }
 
-        private void svm_bias_trackBarControl_ValueChanged(object sender, EventArgs e)
+        private void svm_bias_trackBarControl_EditValueChanged(object sender, EventArgs e)
         {
             this.svm_bias_spinEdit.Value = (Decimal)this.svm_bias_trackBarControl.Value;
         }
 
-        private void svm_bias_spinEdit_ValueChanged(object sender, EventArgs e)
+        private void svm_bias_spinEdit_EditValueChanged(object sender, EventArgs e)
         {
             this.svm_bias_trackBarControl.Value = (Int32)this.svm_bias_spinEdit.Value;
         }
 
         #endregion 支持向量机
 
-        /// <summary>
-        /// 分类方法选择事件，控制参数配置面板显示的方法参数
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void superviseMethod_radioGroup_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //int index = this.superviseMethod_radioGroup.SelectedIndex;
-            //for (int i = 0; i < 8; i++)
-            //{
-            //    this.param_xtraTabControl.SelectedTabPageIndex = i;
-            //    if(this.param_xtraTabControl.SelectedTabPage.PageEnabled == true)
-            //        this.param_xtraTabControl.SelectedTabPage.PageEnabled = false;
-            //}
-            //this.param_xtraTabControl.SelectedTabPageIndex = index;
-            //this.param_xtraTabControl.SelectedTabPage.PageEnabled = true;
-        }
-
+        #region ISODATA
         private void isodata_maxIter_spinEdit_ValueChanged(object sender, EventArgs e)
         {
             this.isodata_maxIter_trackBarControl.Value = (Int32)this.isodata_maxIter_spinEdit.Value;
@@ -361,5 +409,33 @@ namespace AE_Dev_J.Form
         {
             this.isodata_minClassPixels_trackBarControl.Value = (Int32)this.isodata_minClassPixels_spinEdit.Value;
         }
+        #endregion ISODATA
+
+        private void svm_thresh_trackBarControl_EditValueChanged(object sender, EventArgs e)
+        {
+            this.svm_thresh_spinEdit.Value = (Decimal)this.svm_thresh_trackBarControl.Value;
+        }
+
+        private void svm_thresh_spinEdit_EditValueChanged(object sender, EventArgs e)
+        {
+            this.svm_thresh_trackBarControl.Value = (Int32)this.svm_thresh_spinEdit.Value;
+        }
+
+        /// <summary>
+        /// 浏览输出文件路径
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void expData_buttonEdit_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveDialog = new SaveFileDialog();
+            saveDialog.Filter = "image files(*.img)|*.img";
+            if (saveDialog.ShowDialog() == DialogResult.OK)
+            {
+                this.expData_buttonEdit.Text = saveDialog.FileName;
+            }
+        }
+
+
     }
 }
