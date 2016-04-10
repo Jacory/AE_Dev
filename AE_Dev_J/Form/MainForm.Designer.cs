@@ -35,7 +35,6 @@
             DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem1 = new DevExpress.Utils.ToolTipSeparatorItem();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
             this.splitContainerControl = new DevExpress.XtraEditors.SplitContainerControl();
-            this.axLicenseControl1 = new ESRI.ArcGIS.Controls.AxLicenseControl();
             this.m_tocControl = new ESRI.ArcGIS.Controls.AxTOCControl();
             this.navBarControl = new DevExpress.XtraNavBar.NavBarControl();
             this.inboxItem = new DevExpress.XtraNavBar.NavBarItem();
@@ -46,6 +45,7 @@
             this.tasksItem = new DevExpress.XtraNavBar.NavBarItem();
             this.navbarImageCollectionLarge = new DevExpress.Utils.ImageCollection();
             this.navbarImageCollection = new DevExpress.Utils.ImageCollection();
+            this.axLicenseControl1 = new ESRI.ArcGIS.Controls.AxLicenseControl();
             this.m_mapControl = new ESRI.ArcGIS.Controls.AxMapControl();
             this.m_esritoolbarControl = new ESRI.ArcGIS.Controls.AxToolbarControl();
             this.ribbonMenu = new DevExpress.XtraBars.Ribbon.RibbonControl();
@@ -68,20 +68,35 @@
             this.iRgbSeg = new DevExpress.XtraBars.BarButtonItem();
             this.iClassification = new DevExpress.XtraBars.BarButtonItem();
             this.iTargetDetection = new DevExpress.XtraBars.BarButtonItem();
-            this.mianWindowProgressBar = new DevExpress.XtraBars.BarEditItem();
-            this.repositoryItemMarqueeProgressBar1 = new DevExpress.XtraEditors.Repository.RepositoryItemMarqueeProgressBar();
             this.coordinate_textEdit = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
+            this.iNewFeature = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem8 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem9 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem10 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem11 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem12 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonImageCollectionLarge = new DevExpress.Utils.ImageCollection();
             this.homeRibbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.project_RibbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.file_ribbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.imgProcess_ribbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.helpRibbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.skinsRibbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.helpRibbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.repositoryItemProgressBar1 = new DevExpress.XtraEditors.Repository.RepositoryItemProgressBar();
+            this.repositoryItemMarqueeProgressBar1 = new DevExpress.XtraEditors.Repository.RepositoryItemMarqueeProgressBar();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.galleryImageCollection = new DevExpress.Utils.ImageCollection();
             this.popupControlContainer2 = new DevExpress.XtraBars.PopupControlContainer();
@@ -100,38 +115,22 @@
             this.zoomOut_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tocControl_contextMenuStrip = new System.Windows.Forms.ContextMenuStrip();
             this.addData_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
-            this.iNewFeature = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem8 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem9 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem10 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem11 = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barButtonItem12 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl)).BeginInit();
             this.splitContainerControl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.axLicenseControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_tocControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navbarImageCollectionLarge)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navbarImageCollection)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axLicenseControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_mapControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_esritoolbarControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonImageCollection)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMarqueeProgressBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonImageCollectionLarge)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMarqueeProgressBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.galleryImageCollection)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupControlContainer2)).BeginInit();
             this.popupControlContainer2.SuspendLayout();
@@ -149,10 +148,10 @@
             this.splitContainerControl.Location = new System.Drawing.Point(0, 145);
             this.splitContainerControl.Name = "splitContainerControl";
             this.splitContainerControl.Padding = new System.Windows.Forms.Padding(6);
-            this.splitContainerControl.Panel1.Controls.Add(this.axLicenseControl1);
             this.splitContainerControl.Panel1.Controls.Add(this.m_tocControl);
             this.splitContainerControl.Panel1.Controls.Add(this.navBarControl);
             this.splitContainerControl.Panel1.Text = "Panel1";
+            this.splitContainerControl.Panel2.Controls.Add(this.axLicenseControl1);
             this.splitContainerControl.Panel2.Controls.Add(this.m_mapControl);
             this.splitContainerControl.Panel2.Controls.Add(this.m_esritoolbarControl);
             this.splitContainerControl.Panel2.Text = "Panel2";
@@ -160,15 +159,6 @@
             this.splitContainerControl.SplitterPosition = 183;
             this.splitContainerControl.TabIndex = 0;
             this.splitContainerControl.Text = "splitContainerControl1";
-            // 
-            // axLicenseControl1
-            // 
-            this.axLicenseControl1.Enabled = true;
-            this.axLicenseControl1.Location = new System.Drawing.Point(100, 454);
-            this.axLicenseControl1.Name = "axLicenseControl1";
-            this.axLicenseControl1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axLicenseControl1.OcxState")));
-            this.axLicenseControl1.Size = new System.Drawing.Size(32, 32);
-            this.axLicenseControl1.TabIndex = 2;
             // 
             // m_tocControl
             // 
@@ -256,6 +246,15 @@
             this.navbarImageCollection.Images.SetKeyName(4, "Calendar_16x16.png");
             this.navbarImageCollection.Images.SetKeyName(5, "Tasks_16x16.png");
             // 
+            // axLicenseControl1
+            // 
+            this.axLicenseControl1.Enabled = true;
+            this.axLicenseControl1.Location = new System.Drawing.Point(723, 414);
+            this.axLicenseControl1.Name = "axLicenseControl1";
+            this.axLicenseControl1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axLicenseControl1.OcxState")));
+            this.axLicenseControl1.Size = new System.Drawing.Size(32, 32);
+            this.axLicenseControl1.TabIndex = 2;
+            // 
             // m_mapControl
             // 
             this.m_mapControl.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -301,7 +300,6 @@
             this.iRgbSeg,
             this.iClassification,
             this.iTargetDetection,
-            this.mianWindowProgressBar,
             this.coordinate_textEdit,
             this.barButtonItem2,
             this.barButtonItem3,
@@ -547,20 +545,6 @@
             this.iTargetDetection.Name = "iTargetDetection";
             this.iTargetDetection.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.iTargetDetection_ItemClick);
             // 
-            // mianWindowProgressBar
-            // 
-            this.mianWindowProgressBar.Caption = "Progress";
-            this.mianWindowProgressBar.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-            this.mianWindowProgressBar.Edit = this.repositoryItemMarqueeProgressBar1;
-            this.mianWindowProgressBar.Id = 9;
-            this.mianWindowProgressBar.Name = "mianWindowProgressBar";
-            this.mianWindowProgressBar.Visibility = DevExpress.XtraBars.BarItemVisibility.OnlyInCustomizing;
-            this.mianWindowProgressBar.Width = 100;
-            // 
-            // repositoryItemMarqueeProgressBar1
-            // 
-            this.repositoryItemMarqueeProgressBar1.Name = "repositoryItemMarqueeProgressBar1";
-            // 
             // coordinate_textEdit
             // 
             this.coordinate_textEdit.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
@@ -574,6 +558,95 @@
             // 
             this.repositoryItemTextEdit1.AutoHeight = false;
             this.repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
+            // 
+            // barButtonItem2
+            // 
+            this.barButtonItem2.Caption = "barButtonItem2";
+            this.barButtonItem2.Id = 18;
+            this.barButtonItem2.Name = "barButtonItem2";
+            // 
+            // barButtonItem3
+            // 
+            this.barButtonItem3.Caption = "barButtonItem3";
+            this.barButtonItem3.Id = 19;
+            this.barButtonItem3.Name = "barButtonItem3";
+            // 
+            // barButtonItem4
+            // 
+            this.barButtonItem4.Caption = "barButtonItem4";
+            this.barButtonItem4.Id = 20;
+            this.barButtonItem4.Name = "barButtonItem4";
+            // 
+            // barButtonItem5
+            // 
+            this.barButtonItem5.Caption = "barButtonItem5";
+            this.barButtonItem5.Id = 21;
+            this.barButtonItem5.Name = "barButtonItem5";
+            // 
+            // iNewFeature
+            // 
+            this.iNewFeature.Caption = "New Feature";
+            this.iNewFeature.Glyph = ((System.Drawing.Image)(resources.GetObject("iNewFeature.Glyph")));
+            this.iNewFeature.Id = 24;
+            this.iNewFeature.Name = "iNewFeature";
+            this.iNewFeature.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
+            // 
+            // barButtonItem6
+            // 
+            this.barButtonItem6.Caption = "Vector To Raster";
+            this.barButtonItem6.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem6.Glyph")));
+            this.barButtonItem6.Id = 25;
+            this.barButtonItem6.Name = "barButtonItem6";
+            // 
+            // barButtonItem7
+            // 
+            this.barButtonItem7.Caption = "barButtonItem7";
+            this.barButtonItem7.Id = 27;
+            this.barButtonItem7.Name = "barButtonItem7";
+            // 
+            // barButtonItem8
+            // 
+            this.barButtonItem8.Caption = "barButtonItem8";
+            this.barButtonItem8.Id = 28;
+            this.barButtonItem8.Name = "barButtonItem8";
+            // 
+            // barButtonItem9
+            // 
+            this.barButtonItem9.Caption = "barButtonItem9";
+            this.barButtonItem9.Id = 29;
+            this.barButtonItem9.Name = "barButtonItem9";
+            // 
+            // barButtonItem10
+            // 
+            this.barButtonItem10.Caption = "Clip Raster";
+            this.barButtonItem10.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem10.Glyph")));
+            this.barButtonItem10.Id = 30;
+            this.barButtonItem10.Name = "barButtonItem10";
+            // 
+            // barButtonItem11
+            // 
+            this.barButtonItem11.Caption = "Raster To Vector";
+            this.barButtonItem11.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem11.Glyph")));
+            this.barButtonItem11.Id = 31;
+            this.barButtonItem11.Name = "barButtonItem11";
+            // 
+            // barButtonItem12
+            // 
+            this.barButtonItem12.Caption = "Model Builder";
+            this.barButtonItem12.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem12.Glyph")));
+            this.barButtonItem12.Id = 32;
+            this.barButtonItem12.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem12.LargeGlyph")));
+            this.barButtonItem12.Name = "barButtonItem12";
+            toolTipTitleItem1.Text = "图形化建模工具";
+            toolTipItem1.LeftIndent = 6;
+            toolTipItem1.Text = "类似创建流程图的方式来定义数据的处理步骤，并提供批处理模式，可处理输入文件夹下所有满足要求的数据。";
+            toolTipTitleItem2.LeftIndent = 6;
+            toolTipTitleItem2.Text = "该功能尚未完善";
+            superToolTip1.Items.Add(toolTipTitleItem1);
+            superToolTip1.Items.Add(toolTipItem1);
+            superToolTip1.Items.Add(toolTipSeparatorItem1);
+            superToolTip1.Items.Add(toolTipTitleItem2);
+            this.barButtonItem12.SuperTip = superToolTip1;
             // 
             // ribbonImageCollectionLarge
             // 
@@ -630,6 +703,34 @@
             this.imgProcess_ribbonPageGroup.Name = "imgProcess_ribbonPageGroup";
             this.imgProcess_ribbonPageGroup.Text = "Image Process";
             // 
+            // ribbonPageGroup3
+            // 
+            this.ribbonPageGroup3.ItemLinks.Add(this.barButtonItem12);
+            this.ribbonPageGroup3.Name = "ribbonPageGroup3";
+            this.ribbonPageGroup3.Text = "Model Builder";
+            // 
+            // ribbonPage2
+            // 
+            this.ribbonPage2.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup1,
+            this.ribbonPageGroup2});
+            this.ribbonPage2.Name = "ribbonPage2";
+            this.ribbonPage2.Text = "Data Management";
+            // 
+            // ribbonPageGroup1
+            // 
+            this.ribbonPageGroup1.ItemLinks.Add(this.iNewFeature);
+            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem6);
+            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
+            this.ribbonPageGroup1.Text = "Vector Data";
+            // 
+            // ribbonPageGroup2
+            // 
+            this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem10);
+            this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem11);
+            this.ribbonPageGroup2.Name = "ribbonPageGroup2";
+            this.ribbonPageGroup2.Text = "Raster Data";
+            // 
             // helpRibbonPage
             // 
             this.helpRibbonPage.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -656,11 +757,14 @@
             // 
             this.repositoryItemProgressBar1.Name = "repositoryItemProgressBar1";
             // 
+            // repositoryItemMarqueeProgressBar1
+            // 
+            this.repositoryItemMarqueeProgressBar1.Name = "repositoryItemMarqueeProgressBar1";
+            // 
             // ribbonStatusBar
             // 
             this.ribbonStatusBar.ItemLinks.Add(this.siStatus);
             this.ribbonStatusBar.ItemLinks.Add(this.siInfo);
-            this.ribbonStatusBar.ItemLinks.Add(this.mianWindowProgressBar);
             this.ribbonStatusBar.ItemLinks.Add(this.coordinate_textEdit);
             this.ribbonStatusBar.Location = new System.Drawing.Point(0, 606);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
@@ -751,6 +855,7 @@
             // 
             // openAttTable_ToolStripMenuItem
             // 
+            this.openAttTable_ToolStripMenuItem.Image = global::AE_Dev_J.Properties.Resources.attributeTable;
             this.openAttTable_ToolStripMenuItem.Name = "openAttTable_ToolStripMenuItem";
             this.openAttTable_ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.openAttTable_ToolStripMenuItem.Text = "打开属性表";
@@ -758,6 +863,7 @@
             // 
             // removeLayer_ToolStripMenuItem
             // 
+            this.removeLayer_ToolStripMenuItem.Image = global::AE_Dev_J.Properties.Resources.removeLayer;
             this.removeLayer_ToolStripMenuItem.Name = "removeLayer_ToolStripMenuItem";
             this.removeLayer_ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.removeLayer_ToolStripMenuItem.Text = "移除图层";
@@ -765,6 +871,7 @@
             // 
             // zoomToLayer_ToolStripMenuItem
             // 
+            this.zoomToLayer_ToolStripMenuItem.Image = global::AE_Dev_J.Properties.Resources.zoomToLayer;
             this.zoomToLayer_ToolStripMenuItem.Name = "zoomToLayer_ToolStripMenuItem";
             this.zoomToLayer_ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.zoomToLayer_ToolStripMenuItem.Text = "缩放至到图层";
@@ -817,126 +924,10 @@
             // 
             // addData_toolStripMenuItem
             // 
+            this.addData_toolStripMenuItem.Image = global::AE_Dev_J.Properties.Resources.addLayer;
             this.addData_toolStripMenuItem.Name = "addData_toolStripMenuItem";
             this.addData_toolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.addData_toolStripMenuItem.Text = "添加图层";
-            // 
-            // ribbonPage2
-            // 
-            this.ribbonPage2.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup1,
-            this.ribbonPageGroup2});
-            this.ribbonPage2.Name = "ribbonPage2";
-            this.ribbonPage2.Text = "Data Management";
-            // 
-            // ribbonPageGroup1
-            // 
-            this.ribbonPageGroup1.ItemLinks.Add(this.iNewFeature);
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem6);
-            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.Text = "Vector Data";
-            // 
-            // ribbonPageGroup2
-            // 
-            this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem10);
-            this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem11);
-            this.ribbonPageGroup2.Name = "ribbonPageGroup2";
-            this.ribbonPageGroup2.Text = "Raster Data";
-            // 
-            // barButtonItem2
-            // 
-            this.barButtonItem2.Caption = "barButtonItem2";
-            this.barButtonItem2.Id = 18;
-            this.barButtonItem2.Name = "barButtonItem2";
-            // 
-            // barButtonItem3
-            // 
-            this.barButtonItem3.Caption = "barButtonItem3";
-            this.barButtonItem3.Id = 19;
-            this.barButtonItem3.Name = "barButtonItem3";
-            // 
-            // barButtonItem4
-            // 
-            this.barButtonItem4.Caption = "barButtonItem4";
-            this.barButtonItem4.Id = 20;
-            this.barButtonItem4.Name = "barButtonItem4";
-            // 
-            // barButtonItem5
-            // 
-            this.barButtonItem5.Caption = "barButtonItem5";
-            this.barButtonItem5.Id = 21;
-            this.barButtonItem5.Name = "barButtonItem5";
-            // 
-            // iNewFeature
-            // 
-            this.iNewFeature.Caption = "New Feature";
-            this.iNewFeature.Glyph = ((System.Drawing.Image)(resources.GetObject("iNewFeature.Glyph")));
-            this.iNewFeature.Id = 24;
-            this.iNewFeature.Name = "iNewFeature";
-            this.iNewFeature.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
-            // 
-            // barButtonItem6
-            // 
-            this.barButtonItem6.Caption = "Vector To Raster";
-            this.barButtonItem6.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem6.Glyph")));
-            this.barButtonItem6.Id = 25;
-            this.barButtonItem6.Name = "barButtonItem6";
-            // 
-            // barButtonItem7
-            // 
-            this.barButtonItem7.Caption = "barButtonItem7";
-            this.barButtonItem7.Id = 27;
-            this.barButtonItem7.Name = "barButtonItem7";
-            // 
-            // barButtonItem8
-            // 
-            this.barButtonItem8.Caption = "barButtonItem8";
-            this.barButtonItem8.Id = 28;
-            this.barButtonItem8.Name = "barButtonItem8";
-            // 
-            // barButtonItem9
-            // 
-            this.barButtonItem9.Caption = "barButtonItem9";
-            this.barButtonItem9.Id = 29;
-            this.barButtonItem9.Name = "barButtonItem9";
-            // 
-            // barButtonItem10
-            // 
-            this.barButtonItem10.Caption = "Clip Raster";
-            this.barButtonItem10.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem10.Glyph")));
-            this.barButtonItem10.Id = 30;
-            this.barButtonItem10.Name = "barButtonItem10";
-            // 
-            // barButtonItem11
-            // 
-            this.barButtonItem11.Caption = "Raster To Vector";
-            this.barButtonItem11.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem11.Glyph")));
-            this.barButtonItem11.Id = 31;
-            this.barButtonItem11.Name = "barButtonItem11";
-            // 
-            // ribbonPageGroup3
-            // 
-            this.ribbonPageGroup3.ItemLinks.Add(this.barButtonItem12);
-            this.ribbonPageGroup3.Name = "ribbonPageGroup3";
-            this.ribbonPageGroup3.Text = "Model Builder";
-            // 
-            // barButtonItem12
-            // 
-            this.barButtonItem12.Caption = "Model Builder";
-            this.barButtonItem12.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem12.Glyph")));
-            this.barButtonItem12.Id = 32;
-            this.barButtonItem12.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem12.LargeGlyph")));
-            this.barButtonItem12.Name = "barButtonItem12";
-            toolTipTitleItem1.Text = "图形化建模工具";
-            toolTipItem1.LeftIndent = 6;
-            toolTipItem1.Text = "类似创建流程图的方式来定义数据的处理步骤，并提供批处理模式，可处理输入文件夹下所有满足要求的数据。";
-            toolTipTitleItem2.LeftIndent = 6;
-            toolTipTitleItem2.Text = "该功能尚未完善";
-            superToolTip1.Items.Add(toolTipTitleItem1);
-            superToolTip1.Items.Add(toolTipItem1);
-            superToolTip1.Items.Add(toolTipSeparatorItem1);
-            superToolTip1.Items.Add(toolTipTitleItem2);
-            this.barButtonItem12.SuperTip = superToolTip1;
             // 
             // MainForm
             // 
@@ -952,20 +943,20 @@
             this.Text = "arcgis develop demo";
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl)).EndInit();
             this.splitContainerControl.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.axLicenseControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_tocControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.navbarImageCollectionLarge)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.navbarImageCollection)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axLicenseControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_mapControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_esritoolbarControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.appMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonImageCollection)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMarqueeProgressBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonImageCollectionLarge)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMarqueeProgressBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.galleryImageCollection)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupControlContainer2)).EndInit();
             this.popupControlContainer2.ResumeLayout(false);
@@ -1020,7 +1011,6 @@
         private DevExpress.Utils.ImageCollection navbarImageCollection;
         private DevExpress.Utils.ImageCollection navbarImageCollectionLarge;
         private DevExpress.Utils.ImageCollection galleryImageCollection;
-        private ESRI.ArcGIS.Controls.AxLicenseControl axLicenseControl1;
         private ESRI.ArcGIS.Controls.AxTOCControl m_tocControl;
         private ESRI.ArcGIS.Controls.AxMapControl m_mapControl;
         private ESRI.ArcGIS.Controls.AxToolbarControl m_esritoolbarControl;
@@ -1045,7 +1035,6 @@
         private DevExpress.XtraBars.BarButtonItem iClassification;
         private DevExpress.XtraBars.BarButtonItem iTargetDetection;
         private DevExpress.XtraEditors.Repository.RepositoryItemProgressBar repositoryItemProgressBar1;
-        private DevExpress.XtraBars.BarEditItem mianWindowProgressBar;
         private DevExpress.XtraEditors.Repository.RepositoryItemMarqueeProgressBar repositoryItemMarqueeProgressBar1;
         private DevExpress.XtraBars.BarEditItem coordinate_textEdit;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit1;
@@ -1065,6 +1054,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage2;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
+        private ESRI.ArcGIS.Controls.AxLicenseControl axLicenseControl1;
 
     }
 }
