@@ -54,24 +54,36 @@ namespace AE_Dev_J
                 idlCon.ExecuteString(@".compile '" + m_profilename + "'");
             }
             catch (Exception ex) { throw ex; }
+
+            m_runStr = m_functionName + ", ";
         }
 
         /// <summary>
-        /// 传入调用IDL命令的参数
+        /// 传入调用IDL命令的参数,只适用于string类型的参数
         /// 参数顺序必须正确
         /// </summary>
         /// <param name="param"></param>
-        public void setParameters(string[] param)
+        public void setStrParameters(string[] param)
         {
             if (param.Length == 0) return;
-
-            m_runStr = m_functionName + ", ";
             for (int i = 0; i < param.Length - 1; i++)
             {
                 string s = param[i];
                 m_runStr += "'" + s + "',";
             }
             m_runStr += "'" + param[param.Length - 1] + "'";
+        }
+
+        /// <summary>
+        /// 逐个添加参数
+        /// </summary>
+        /// <typeparam name="T">参数类型</typeparam>
+        /// <param name="numParam">参数</param>
+        /// <param name="isLast">是否是最后一个参数</param>
+        public void setNumParam<T>(T numParam, bool isLast)
+        {
+            if (isLast){m_runStr += numParam.ToString();}
+            else{ m_runStr += numParam.ToString() + ",";}
         }
 
         /// <summary>
