@@ -6,7 +6,6 @@ using System.Drawing;
 using System.Text;
 using System.Linq;
 using System.Windows.Forms;
-using DevExpress.XtraEditors;
 using ESRI.ArcGIS.Carto;
 using ESRI.ArcGIS.Controls;
 using ESRI.ArcGIS.Geodatabase;
@@ -15,6 +14,12 @@ using DevExpress.XtraTab;
 using DevExpress.XtraTab.ViewInfo;
 using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
+using DevExpress.XtraEditors;
+using DevExpress.Utils;
+using DevExpress.Utils.Menu;
+using DevExpress.XtraGrid.Menu;
+using DevExpress.XtraGrid.Columns;
+using DevExpress.XtraGrid.Views.Grid;
 namespace AE_Dev_J.Form
 {
     /// <summary>
@@ -24,6 +29,7 @@ namespace AE_Dev_J.Form
     {
         private IFeatureLayer m_layer = null;
         private AxMapControl m_mapControl = null; // 属性表需要与mapControl做交互
+        private List<GridView> list=new List<GridView>() ;
 
         public AttributeTableForm(IFeatureLayer layer, AxMapControl mapControl)
         {
@@ -91,7 +97,6 @@ namespace AE_Dev_J.Form
             att_gridcontrol.Dock = System.Windows.Forms.DockStyle.Fill;
 
             DevExpress.XtraGrid.Views.Grid.GridView att_gridview = new DevExpress.XtraGrid.Views.Grid.GridView();
-            att_gridview.Name = "att_gridview";
             att_gridview.GridControl = att_gridcontrol;
             att_gridcontrol.MainView = att_gridview;
             att_gridcontrol.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -100,13 +105,13 @@ namespace AE_Dev_J.Form
             att_gridview.OptionsView.ShowAutoFilterRow = true;
             att_gridview.OptionsFind.AlwaysVisible = true;
             att_gridview.OptionsView.ShowFooter = true;
-            att_gridview.OptionsCustomization.AllowSort = false;
             att_gridview.OptionsSelection.MultiSelect = true;
             att_gridview.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CellSelect;
-            att_gridview.MouseDown += new MouseEventHandler(att_gridview_MouseDown);
-
+            att_gridview.PopupMenuShowing+=new DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventHandler(att_gridview_PopupMenuShowing);
+            att_gridview.GridMenuItemClick+=new GridMenuItemClickEventHandler(att_gridview_GridMenuItemClick);
+            list.Add(att_gridview);
+            att_gridview.Name = (list.Count).ToString();
             att_gridcontrol.DataSource = dt;
-            gridControl2.DataSource = dt;
         }
 
         /// <summary>
@@ -117,6 +122,7 @@ namespace AE_Dev_J.Form
         {
             importAttribute(vecLayer);
         }
+       
         /// <summary>
         /// 属性表页面关闭
         /// </summary>
@@ -126,53 +132,50 @@ namespace AE_Dev_J.Form
             ClosePageButtonEventArgs arg = e as ClosePageButtonEventArgs;
             tabControl.TabPages.Remove(arg.Page as XtraTabPage);
         }
+
         /// <summary>
-        /// 鼠标左键单击表头选择整列
+        /// 显示表头右键菜单
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void att_gridview_MouseDown(object sender, MouseEventArgs e)
+        private void att_gridview_PopupMenuShowing(object sender, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
+
+            if (e.MenuType == GridMenuType.Column)
             {
-                ColumnViewOptionsSelection att_seleoption = new ColumnViewOptionsSelection();
-                att_seleoption.MultiSelect=true;
-                DevExpress.XtraGrid.Views.Grid.GridView gv = (DevExpress.XtraGrid.Views.Grid.GridView)(sender);
-                BaseView att_baseview = gv;
-                GridHitInfo info = gv.CalcHitInfo(e.X, e.Y);
+                DXMenuItem m_item = new DXMenuItem("选择当前列", att_gridview_GridMenuItemClick);
+                m_item.Tag = "selectall/" + e.HitInfo.Column.Name + "/" + ((GridView)sender).Name;
 
-                
-
-                if (info.InColumnPanel)
-                {
-                    gv.ClearSelection();
-                    GridCell start = new GridCell(0, info.Column);
-                    GridCell end = new GridCell(gv.RowCount-1, info.Column);
- 
-                    gv.SelectCells(start, end);
-                }
-
+                GridViewColumnMenu menu = e.Menu as GridViewColumnMenu;
+                //menu.Items.Add(CreateMenuItem("全选", GridMenuImages.Column.Images[2], "selectall", true));
+                menu.Items.Add(m_item);
             }
+
         }
 
-        private void gridView2_MouseDown(object sender, MouseEventArgs e)
+        /// <summary>
+        /// 点击表头右键菜单项“选择当前列”
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void att_gridview_GridMenuItemClick(object sender, EventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
+            DXMenuItem item = sender as DXMenuItem;
+            GridView currentview = new GridView();
+            if (item != null && item.Tag.ToString().IndexOf("selectall")!=-1)
             {
-                DevExpress.XtraGrid.Views.Grid.GridView gv = (DevExpress.XtraGrid.Views.Grid.GridView)(sender);
-                GridHitInfo info = gv.CalcHitInfo(e.X, e.Y);
-                if (info.InColumnPanel)
+                string[] itemstring=item.Tag.ToString().Split('/');
+                foreach (GridView l_gridview in list)
                 {
-                    gv.ClearSelection();
-                    GridCell start = new GridCell(0, info.Column);
-                    GridCell end = new GridCell(gv.RowCount-1, info.Column);
-                    gv.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CellSelect;
-                    gv.SelectCellAnchorRange(start, end);
-                    
+                    if (l_gridview.Name==itemstring[2])
+                    {
+                        currentview = l_gridview;
+                    }
                 }
-
+                GridCell start = new GridCell(0, currentview.Columns[itemstring[1].Substring(3)]);
+                GridCell end = new GridCell(currentview.RowCount - 1, currentview.Columns[itemstring[1].Substring(3)]);
+                currentview.SelectCells(start, end);
             }
         }
-
     }
 }
