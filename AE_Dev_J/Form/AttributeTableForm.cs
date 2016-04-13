@@ -51,7 +51,7 @@ namespace AE_Dev_J.Form
 
         /// <summary>
         /// 导入vector layer的属性到grid view中
-        /// **每一个有意义的方法都要具有方法注释**
+        /// 创建tabpage、gridcontrol、gridview
         /// </summary>
         /// <param name="featurelayer">矢量数据</param>
         private void importAttribute(IFeatureLayer featurelayer)
@@ -116,6 +116,7 @@ namespace AE_Dev_J.Form
             att_gridview.PopupMenuShowing+=new DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventHandler(att_gridview_PopupMenuShowing);
             att_gridview.GridMenuItemClick+=new GridMenuItemClickEventHandler(att_gridview_GridMenuItemClick);
             att_gridview.RowClick+=new RowClickEventHandler(att_gridview_RowClick);
+            att_gridview.RowCellClick+=new RowCellClickEventHandler(att_gridview_RowCellClick);
 
             gridview_list.Add(att_gridview);
             att_gridview.Name = (gridview_list.Count).ToString();
@@ -139,20 +140,21 @@ namespace AE_Dev_J.Form
         {
             XtraTabControl tabControl = sender as XtraTabControl;
             ClosePageButtonEventArgs arg = e as ClosePageButtonEventArgs;
-            string gridview_tag = "";
+            string indexstring = arg.Page.Tooltip;
+            //删除flayer_list中的图层
             for (int i = 0; i < flayer_list.Count; i++)
             {
                 IDataLayer datalayer = flayer_list[i] as IDataLayer;
                 IWorkspaceName w_name = ((IDatasetName)(datalayer.DataSourceName)).WorkspaceName;
-                gridview_tag = w_name.PathName + "\\" + flayer_list[i].Name + "_" + flayer_list[i].DataSourceType;
-                if (arg.Page.Tooltip == w_name.PathName + "\\" + flayer_list[i].Name + "_" + flayer_list[i].DataSourceType)
+                if (indexstring == w_name.PathName + "\\" + flayer_list[i].Name + "_" + flayer_list[i].DataSourceType)
                 {
                     flayer_list.RemoveAt(i);
                 }
             }
+            //删除gridview_list中的表格
             for (int i = 0; i < gridview_list.Count; i++)
             {
-                if (gridview_tag==gridview_list[i].Tag.ToString())
+                if (indexstring==gridview_list[i].Tag.ToString())
                 {
                     gridview_list.RemoveAt(i);
                 }
@@ -167,14 +169,12 @@ namespace AE_Dev_J.Form
         /// <param name="e"></param>
         private void att_gridview_PopupMenuShowing(object sender, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs e)
         {
-
+            //添加“选择当前列”
             if (e.MenuType == GridMenuType.Column)
             {
                 DXMenuItem m_item = new DXMenuItem("选择当前列", att_gridview_GridMenuItemClick);
                 m_item.Tag = "selectall/" + e.HitInfo.Column.Name + "/" + ((GridView)sender).Name;
-
                 GridViewColumnMenu menu = e.Menu as GridViewColumnMenu;
-                //menu.Items.Add(CreateMenuItem("全选", GridMenuImages.Column.Images[2], "selectall", true));
                 menu.Items.Add(m_item);
             }
         }
@@ -205,7 +205,7 @@ namespace AE_Dev_J.Form
         }
 
         /// <summary>
-        /// 选择一行
+        /// 选择一行，并在地图中显示
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -213,18 +213,19 @@ namespace AE_Dev_J.Form
         {
             GridView att_gridview = (GridView)sender;
             GridHitInfo info = att_gridview.CalcHitInfo(e.X, e.Y);
+            //只有单击rowinditor时才执行选择行
             if (!info.InRowCell)
             {
                 if (info.InRow)
                 {
-                    // Create an empty list.
+                    //存放selectedrow
                     ArrayList rows = new ArrayList();
-                    // Add the selected rows to the list.
                     for (int i = 0; i < att_gridview.SelectedRowsCount; i++)
                     {
                         if (att_gridview.GetSelectedRows()[i] >= 0)
                             rows.Add(att_gridview.GetDataRow(att_gridview.GetSelectedRows()[i]));
                     }
+                    //遍历flayer_list寻找当前属性表对应的图层
                     for (int i = 0; i < flayer_list.Count; i++)
                     {
                         IDataLayer datalayer = flayer_list[i] as IDataLayer;
@@ -233,6 +234,7 @@ namespace AE_Dev_J.Form
                         {
                             IFeatureClass m_featureclass = flayer_list[i].FeatureClass;
                             IFeatureSelection m_fselection = flayer_list[i] as IFeatureSelection;
+                            //构造查询条件
                             IQueryFilter m_queryfilter = new QueryFilterClass();
                             string m_whereclause = "FID=";
                             for (int j = 0; j < rows.Count; j++)
@@ -248,10 +250,67 @@ namespace AE_Dev_J.Form
                                 }
                             }
                             m_queryfilter.WhereClause = m_whereclause;
+                            //显示查询的要素
                             m_fselection.SelectFeatures(m_queryfilter, esriSelectionResultEnum.esriSelectionResultNew, false);
                             m_mapControl.ActiveView.Refresh();
                         }
                     }
+                }
+            }
+        }
+
+        /// <summary>
+        /// 单击单元格清空选择集
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void att_gridview_RowCellClick(object sender, RowCellClickEventArgs e)
+        {
+            GridView att_gridview = (GridView)sender;
+            //遍历flayer_list寻找当前属性表对应的图层
+            for (int i = 0; i < flayer_list.Count; i++)
+            {
+                IDataLayer datalayer = flayer_list[i] as IDataLayer;
+                IWorkspaceName w_name = ((IDatasetName)(datalayer.DataSourceName)).WorkspaceName;
+                if (att_gridview.Tag.ToString() == w_name.PathName + "\\" + flayer_list[i].Name + "_" + flayer_list[i].DataSourceType)
+                {
+                    IFeatureClass m_featureclass = flayer_list[i].FeatureClass;
+                    IFeatureSelection m_fselection = flayer_list[i] as IFeatureSelection;
+                    m_fselection.Clear();
+                    m_mapControl.ActiveView.Refresh();
+                }
+            }
+
+            att_gridview.ClearSelection();
+        }
+
+        /// <summary>
+        /// 根据传入的要素图层删除其对应的属性表
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="att_flayer">矢量图层</param>
+        public void att_removetable(IFeatureLayer att_flayer)
+        {
+            //获取传入图层的路径
+            IDataLayer datalayer = att_flayer as IDataLayer;
+            IWorkspaceName w_name = ((IDatasetName)(datalayer.DataSourceName)).WorkspaceName;
+            string indexstring = w_name.PathName + "\\" + att_flayer.Name + "_" + att_flayer.DataSourceType;
+            //根据indexstring删除flayer_list中的图层
+            for (int i = 0; i < flayer_list.Count; i++)
+            {
+                IDataLayer listdatalayer = flayer_list[i] as IDataLayer;
+                IWorkspaceName listw_name = ((IDatasetName)(datalayer.DataSourceName)).WorkspaceName;
+                if (indexstring == w_name.PathName + "\\" + flayer_list[i].Name + "_" + flayer_list[i].DataSourceType)
+                {
+                    flayer_list.RemoveAt(i);
+                }
+            }
+            //删除gridview_list中的表格
+            for (int i = 0; i < gridview_list.Count; i++)
+            {
+                if (indexstring == gridview_list[i].Tag.ToString())
+                {
+                    gridview_list.RemoveAt(i);
                 }
             }
         }
