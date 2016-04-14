@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using ESRI.ArcGIS.Carto;
 using ESRI.ArcGIS.Controls;
 using ESRI.ArcGIS.Geodatabase;
+using ESRI.ArcGIS.Geometry;
 using DevExpress.XtraGrid;
 using DevExpress.XtraTab;
 using DevExpress.XtraTab.ViewInfo;
@@ -47,6 +48,8 @@ namespace AE_Dev_J.Form
             
             //开始导入属性数据
             importAttribute(flayer_list[0]);
+            tool_dockPanel.Visibility = DevExpress.XtraBars.Docking.DockVisibility.AutoHide;
+            filter_dockPanel.Visibility = DevExpress.XtraBars.Docking.DockVisibility.AutoHide;
         }
 
         /// <summary>
@@ -105,7 +108,7 @@ namespace AE_Dev_J.Form
             att_gridcontrol.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             att_gridview});
             att_gridview.OptionsBehavior.Editable = false;
-            att_gridview.OptionsBehavior.EditorShowMode = EditorShowMode.MouseDown;
+            //att_gridview.OptionsBehavior.EditorShowMode = EditorShowMode.MouseDown;
             att_gridview.OptionsView.ShowAutoFilterRow = true;
             att_gridview.OptionsFind.AlwaysVisible = true;
             att_gridview.OptionsView.ShowFooter = true;
@@ -196,6 +199,7 @@ namespace AE_Dev_J.Form
                     if (gridview_list[i].Name == itemstring[2])
                     {
                         currentview = gridview_list[i];
+                        currentview.ClearSelection();
                     }
                 }
                 GridCell start = new GridCell(0, currentview.Columns[itemstring[1].Substring(3)]);
@@ -225,34 +229,46 @@ namespace AE_Dev_J.Form
                         if (att_gridview.GetSelectedRows()[i] >= 0)
                             rows.Add(att_gridview.GetDataRow(att_gridview.GetSelectedRows()[i]));
                     }
-                    //遍历flayer_list寻找当前属性表对应的图层
-                    for (int i = 0; i < flayer_list.Count; i++)
+                    if (rows.Count>0)
                     {
-                        IDataLayer datalayer = flayer_list[i] as IDataLayer;
-                        IWorkspaceName w_name = ((IDatasetName)(datalayer.DataSourceName)).WorkspaceName;
-                        if (att_gridview.Tag.ToString()== w_name.PathName + "\\" + flayer_list[i].Name + "_" + flayer_list[i].DataSourceType)
+                        //遍历flayer_list寻找当前属性表对应的图层
+                        for (int i = 0; i < flayer_list.Count; i++)
                         {
-                            IFeatureClass m_featureclass = flayer_list[i].FeatureClass;
-                            IFeatureSelection m_fselection = flayer_list[i] as IFeatureSelection;
-                            //构造查询条件
-                            IQueryFilter m_queryfilter = new QueryFilterClass();
-                            string m_whereclause = "FID=";
-                            for (int j = 0; j < rows.Count; j++)
+                            IDataLayer datalayer = flayer_list[i] as IDataLayer;
+                            IWorkspaceName w_name = ((IDatasetName)(datalayer.DataSourceName)).WorkspaceName;
+                            if (att_gridview.Tag.ToString() == w_name.PathName + "\\" + flayer_list[i].Name + "_" + flayer_list[i].DataSourceType)
                             {
-                                DataRow m_dr = rows[j] as DataRow;
-                                if (j < 1)
+                                IFeatureClass m_featureclass = flayer_list[i].FeatureClass;
+                                IFeatureSelection m_fselection = flayer_list[i] as IFeatureSelection;
+                                //构造查询条件
+                                IQueryFilter m_queryfilter = new QueryFilterClass();
+
+                                string m_whereclause = "FID=";
+                                for (int j = 0; j < rows.Count; j++)
                                 {
-                                    m_whereclause += m_dr["FID"].ToString();
+                                    DataRow m_dr = rows[j] as DataRow;
+                                    if (j < 1)
+                                    {
+                                        m_whereclause += m_dr["FID"].ToString();
+                                    }
+                                    else
+                                    {
+                                        m_whereclause = m_whereclause + " or FID=" + m_dr["FID"].ToString();
+                                    }
                                 }
-                                else
-                                {
-                                    m_whereclause = m_whereclause + " or FID=" + m_dr["FID"].ToString();
-                                }
+                                m_queryfilter.WhereClause = m_whereclause;
+                                //显示查询的要素
+                                m_fselection.SelectFeatures(m_queryfilter, esriSelectionResultEnum.esriSelectionResultNew, false);
+                                ISelectionSet m_selectionset = m_fselection.SelectionSet;
+                                IEnumGeometry m_enumgeometry = new EnumFeatureGeometry();
+                                IEnumGeometryBind m_enumgeobine = m_enumgeometry as IEnumGeometryBind;
+                                m_enumgeobine.BindGeometrySource(null, m_selectionset);
+                                IGeometryFactory m_geofactory = new GeometryEnvironmentClass();
+                                IGeometry m_geometry = m_geofactory.CreateGeometryFromEnumerator(m_enumgeometry);
+                                m_mapControl.ActiveView.Extent = m_geometry.Envelope;
+                                m_mapControl.Refresh();
+
                             }
-                            m_queryfilter.WhereClause = m_whereclause;
-                            //显示查询的要素
-                            m_fselection.SelectFeatures(m_queryfilter, esriSelectionResultEnum.esriSelectionResultNew, false);
-                            m_mapControl.ActiveView.Refresh();
                         }
                     }
                 }
@@ -280,8 +296,7 @@ namespace AE_Dev_J.Form
                     m_mapControl.ActiveView.Refresh();
                 }
             }
-
-            att_gridview.ClearSelection();
+            //att_gridview.ClearSelection();
         }
 
         /// <summary>
