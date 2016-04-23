@@ -62,9 +62,9 @@ namespace AE_Dev_J.Form
             //检查文件路径是否存在于当前所有标签页的tag中，避免重复创建表格
             IDataLayer datalayer = featurelayer as IDataLayer;
             IWorkspaceName w_name = ((IDatasetName)(datalayer.DataSourceName)).WorkspaceName;
-            for (int i = 0; i < xtraTabControl1.TabPages.Count; i++)
+            for (int i = 0; i < att_xtraTabControl1.TabPages.Count; i++)
             {
-                if (w_name.PathName + "\\" + featurelayer.Name + "_" + featurelayer.DataSourceType == xtraTabControl1.TabPages[i].Tooltip)
+                if (w_name.PathName + "\\" + featurelayer.Name + "_" + featurelayer.DataSourceType == att_xtraTabControl1.TabPages[i].Tooltip)
                 {
                     return;
                 }
@@ -94,11 +94,11 @@ namespace AE_Dev_J.Form
                 pFeature = pFeatureCuror.NextFeature();
             }
             //创建标签页tabpage
-            xtraTabControl1.TabPages.Add(featurelayer.Name);
-            xtraTabControl1.TabPages[xtraTabControl1.TabPages.Count - 1].Tooltip = w_name.PathName + "\\" + featurelayer.Name + "_" + featurelayer.DataSourceType;
+            att_xtraTabControl1.TabPages.Add(featurelayer.Name);
+            att_xtraTabControl1.TabPages[att_xtraTabControl1.TabPages.Count - 1].Tooltip = w_name.PathName + "\\" + featurelayer.Name + "_" + featurelayer.DataSourceType;
             //创建gridcontrol、gridview
             GridControl att_gridcontrol = new GridControl();
-            this.xtraTabControl1.TabPages[xtraTabControl1.TabPages.Count - 1].Controls.Add(att_gridcontrol);
+            this.att_xtraTabControl1.TabPages[att_xtraTabControl1.TabPages.Count - 1].Controls.Add(att_gridcontrol);
             att_gridcontrol.Name = "att_gridcontrol";
             att_gridcontrol.Dock = System.Windows.Forms.DockStyle.Fill;
 
@@ -328,6 +328,16 @@ namespace AE_Dev_J.Form
                     gridview_list.RemoveAt(i);
                 }
             }
+            //关闭标签页
+            for (int i = 0; i < att_xtraTabControl1.TabPages.Count; i++)
+            {
+                if (att_xtraTabControl1.TabPages[i].Text==att_flayer.Name)
+                {
+                    att_xtraTabControl1.TabPages.RemoveAt(i);
+                }
+            }
+            this.Show();
+            m_mapControl.Focus();
         }
     }
 }

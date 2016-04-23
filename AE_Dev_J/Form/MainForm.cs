@@ -6,20 +6,22 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.IO;
 using DevExpress.Skins;
 using DevExpress.LookAndFeel;
 using DevExpress.UserSkins;
 using DevExpress.XtraEditors;
 using DevExpress.XtraBars.Helpers;
-using System.IO;
+using AE_Dev_J.Form;
 using ESRI.ArcGIS.Controls;
 using ESRI.ArcGIS.Geodatabase;
 using ESRI.ArcGIS.DataSourcesRaster;
 using ESRI.ArcGIS.Carto;
 using ESRI.ArcGIS.CartoUI;
-using AE_Dev_J.Form;
 using ESRI.ArcGIS.Display;
 using ESRI.ArcGIS.SystemUI;
+using ESRI.ArcGIS.DataSourcesFile;
+
 
 
 namespace AE_Dev_J
@@ -37,6 +39,7 @@ namespace AE_Dev_J
         private TargetDetectionForm m_tdForm = null;
         private RgbSegForm m_rgbSegForm = null;
         private AttributeTableForm m_attForm = null;
+        IEngineEditor pEngineEditor =null;
 
         #endregion 私有成员变量
 
@@ -205,7 +208,20 @@ namespace AE_Dev_J
 
         #endregion
 
-        #region Home and Skin
+        #region Data Managment 菜单事件
+
+        /// <summary>
+        ///New Feature
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void iNewFeature_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+        }
+        #endregion Data Managment 菜单事件
+
+        #region Home and Skin 菜单事件
 
         /// <summary>
         /// “关于”对话框
@@ -220,7 +236,115 @@ namespace AE_Dev_J
             m_abForm.Focus();
         }
 
-        #endregion Home and Skin
+        #endregion Home and Skin 菜单事件
+
+        #region ToolBar 工具条事件
+
+        /// <summary>
+        /// 矢量“编辑”工具
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void m_edittool_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (pEngineEditor.EditState==esriEngineEditState.esriEngineStateEditing)
+            {
+                ICommand t_editcommand = new ESRI.ArcGIS.Controls.ControlsEditingEditToolClass();
+                t_editcommand.OnCreate(m_mapControl.Object);
+                m_mapControl.CurrentTool = t_editcommand as ITool;
+                t_editcommand.OnClick();
+            }
+        }
+
+        /// <summary>
+        /// 矢量“草图”工具
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void m_sketchtool_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (pEngineEditor.EditState == esriEngineEditState.esriEngineStateEditing)
+            {
+                ICommand t_sketchcommand = new ControlsEditingSketchToolClass();
+                t_sketchcommand.OnCreate(m_mapControl.Object);
+                m_mapControl.CurrentTool = t_sketchcommand as ITool;
+                t_sketchcommand.OnClick();
+            }
+        }
+
+        /// <summary>
+        /// 停止编辑所选图层
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void m_stoptool_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (pEngineEditor != null && pEngineEditor.HasEdits() == false)
+            {
+                pEngineEditor.StopEditing(false);
+            }
+            else
+            {
+                if (MessageBox.Show("Save Edits?", "Save Prompt", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    pEngineEditor.StopEditing(true);
+                }
+                else
+                {
+                    pEngineEditor.StopEditing(false);
+                }
+            }
+            map_edittools.Visible = false;
+            
+        }
+
+        /// <summary>
+        /// 保存编辑内容
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void m_savetool_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (pEngineEditor.EditState == esriEngineEditState.esriEngineStateEditing)
+            {
+                ICommand savecommand = new ControlsEditingSaveCommandClass();
+                savecommand.OnCreate(m_mapControl.Object);
+                m_mapControl.CurrentTool = savecommand as ITool;
+                savecommand.OnClick();
+            }
+        }
+
+        /// <summary>
+        /// 撤销操作
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void m_undotool_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (pEngineEditor.EditState == esriEngineEditState.esriEngineStateEditing)
+            {
+                IWorkspaceEdit workspaceedit = (IWorkspaceEdit)pEngineEditor.EditWorkspace;
+                workspaceedit.UndoEditOperation();
+                ((IActiveView)m_mapControl.Map).Refresh();
+            }
+        }
+
+        /// <summary>
+        /// 恢复操作
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void m_redotool_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (pEngineEditor.EditState == esriEngineEditState.esriEngineStateEditing)
+            {
+                IWorkspaceEdit workspaceedit = (IWorkspaceEdit)pEngineEditor.EditWorkspace;
+                workspaceedit.RedoEditOperation();
+                ((IActiveView)m_mapControl.Map).Refresh();
+            }
+        }
+
+        #endregion ToolBar 工具条事件
 
         #region m_tocControl右键菜单项
         /// <summary>
@@ -240,7 +364,8 @@ namespace AE_Dev_J
             IFeatureLayer selectedLayer = layer as IFeatureLayer;
             if (item == esriTOCControlItem.esriTOCControlItemLayer && selectedLayer != null)
             {
-                if (selectedLayer.DataSourceType == "Shapefile Feature Class")
+
+                if (selectedLayer is IFeatureLayer)
                 {   // 打开属性表窗口，如果当前没有属性表，就创建一个，如果当前有，就在原有窗口中添加一张表格
                     if (m_attForm == null || m_attForm.IsDisposed == true)
                         m_attForm = new AttributeTableForm(selectedLayer, this.getMapControl());
@@ -269,7 +394,10 @@ namespace AE_Dev_J
             if (item == esriTOCControlItem.esriTOCControlItemLayer)
             {
                 m_mapControl.Map.DeleteLayer(selectedLayer);
+                if (m_attForm != null && selectedLayer is IFeatureLayer)
+                    m_attForm.att_removetable(selectedLayer as IFeatureLayer);
             }
+            m_mapControl.Focus();
         }
 
         /// <summary>
@@ -290,6 +418,97 @@ namespace AE_Dev_J
             {
                 m_mapControl.ActiveView.Extent = selectedLayer.AreaOfInterest;
                 m_mapControl.ActiveView.Refresh();
+            }
+        }
+
+        /// <summary>
+        /// 编辑所选图层
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void editLayer_ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pEngineEditor = new EngineEditorClass();
+            IBasicMap map = null;
+            ILayer selectedLayer = null;
+            object unk = null;
+            object data = null;
+            esriTOCControlItem item = esriTOCControlItem.esriTOCControlItemNone;
+            m_tocControl.GetSelectedItem(ref item, ref map, ref selectedLayer, ref unk, ref data);
+
+            if (item == esriTOCControlItem.esriTOCControlItemLayer)
+            {
+                //启动编辑
+                if (pEngineEditor.EditState!=esriEngineEditState.esriEngineStateNotEditing)
+                {
+                    return;
+                }
+                IFeatureLayer featurelayer = selectedLayer as IFeatureLayer;
+                IDataset dataset = featurelayer.FeatureClass as IDataset;
+                IWorkspace workspace = dataset.Workspace;
+
+                pEngineEditor.StartEditing(workspace,m_mapControl.Map);
+                ((IEngineEditLayers)pEngineEditor).SetTargetLayer(featurelayer,-1);
+
+                pEngineEditor.StartOperation();
+
+                //设置目标图层
+
+                IEngineEditLayers pEditLayer = pEngineEditor as IEngineEditLayers;
+
+                pEditLayer.SetTargetLayer(featurelayer,0);
+
+                ICommand t_editcommand = new ESRI.ArcGIS.Controls.ControlsEditingEditToolClass();
+                t_editcommand.OnCreate(m_mapControl.Object);
+                m_mapControl.CurrentTool = t_editcommand as ITool;
+                t_editcommand.OnClick();
+
+                map_edittools.Visible = true;
+            }
+        }
+        /// <summary>
+        /// 当右键菜单弹出时
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tocControlLayer_ContextMenu_Opened(object sender, EventArgs e)
+        {
+            //判断所选图层类型 
+            IBasicMap map = null;
+            ILayer selectedLayer = null;
+            object unk = null;
+            object data = null;
+            esriTOCControlItem item = esriTOCControlItem.esriTOCControlItemNone;
+            m_tocControl.GetSelectedItem(ref item, ref map, ref selectedLayer, ref unk, ref data);
+
+            if (item == esriTOCControlItem.esriTOCControlItemLayer)
+            {
+                //只有矢量图层“打开属性表”“编辑图层”才可用
+                if (selectedLayer is IFeatureLayer )
+                {
+                    tocControlLayer_ContextMenu.Items["openAttTable_ToolStripMenuItem"].Enabled = true;
+                    //只有处于非编辑状态时“编辑图层”才可用
+                    if (pEngineEditor == null)
+                    {
+                        tocControlLayer_ContextMenu.Items["editLayer_ToolStripMenuItem"].Enabled = true;
+                    }
+                    else
+                    {
+                        if (pEngineEditor.EditState == esriEngineEditState.esriEngineStateEditing)
+                        {
+                            tocControlLayer_ContextMenu.Items["editLayer_ToolStripMenuItem"].Enabled = false;
+                        }
+                        else
+                        {
+                            tocControlLayer_ContextMenu.Items["editLayer_ToolStripMenuItem"].Enabled = true;
+                        }
+                    }
+                }
+                else
+                {
+                    tocControlLayer_ContextMenu.Items["editLayer_ToolStripMenuItem"].Enabled= false;
+                    tocControlLayer_ContextMenu.Items["openAttTable_ToolStripMenuItem"].Enabled = false;
+                }
             }
         }
         #endregion
@@ -369,6 +588,17 @@ namespace AE_Dev_J
         {
 
         }
+
+        /// <summary>
+        /// 全局显示
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void fullExtent_ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            m_mapControl.Extent = m_mapControl.FullExtent;
+        }
+
         #endregion
 
         #region m_mapControl鼠标事件
@@ -405,12 +635,24 @@ namespace AE_Dev_J
                 case 3:
                     break;
                 case 4:     // 鼠标中键
+                    m_mapControl.MousePointer = esriControlsMousePointer.esriPointerPan;
+                    m_mapControl.Pan();
                     break;
             }
         }
 
-        #endregion m_mapControl鼠标事件
+        /// <summary>
+        /// mapControl鼠标放开事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void m_mapControl_OnMouseUp(object sender, IMapControlEvents2_OnMouseUpEvent e)
+        {
+            m_mapControl.Focus();
+        }
 
+
+        #endregion m_mapControl鼠标事件
 
         /// <summary>
         /// 要素识别
@@ -465,7 +707,6 @@ namespace AE_Dev_J
                     pRasterPyamid.Create();
                 }
             }
-
             // 多波段图像
             IRasterBandCollection pRasterBands = (IRasterBandCollection)pRasterDataset;
             int pBandCount = pRasterBands.Count;
@@ -489,6 +730,5 @@ namespace AE_Dev_J
             m_mapControl.AddLayer(pLayer);
             m_mapControl.Refresh();
         }
-
     }
 }

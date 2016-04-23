@@ -37,12 +37,12 @@
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.tool_dockPanel = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
-            this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
+            this.att_xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.chartControl1 = new DevExpress.XtraCharts.ChartControl();
             ((System.ComponentModel.ISupportInitialize)(this.attForm_dockManager)).BeginInit();
             this.filter_dockPanel.SuspendLayout();
             this.tool_dockPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.att_xtraTabControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,7 +51,7 @@
             this.splitterControl1.Appearance.BackColor = System.Drawing.Color.White;
             this.splitterControl1.Appearance.Options.UseBackColor = true;
             this.splitterControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.splitterControl1.Location = new System.Drawing.Point(97, 207);
+            this.splitterControl1.Location = new System.Drawing.Point(97, 75);
             this.splitterControl1.MinSize = 20;
             this.splitterControl1.Name = "splitterControl1";
             this.splitterControl1.Size = new System.Drawing.Size(680, 5);
@@ -110,27 +110,27 @@
             this.tool_dockPanel.ID = new System.Guid("d57e8816-6859-4077-be05-c7787179e0ac");
             this.tool_dockPanel.Location = new System.Drawing.Point(97, 0);
             this.tool_dockPanel.Name = "tool_dockPanel";
-            this.tool_dockPanel.OriginalSize = new System.Drawing.Size(200, 207);
-            this.tool_dockPanel.Size = new System.Drawing.Size(680, 207);
+            this.tool_dockPanel.OriginalSize = new System.Drawing.Size(200, 75);
+            this.tool_dockPanel.Size = new System.Drawing.Size(680, 75);
             this.tool_dockPanel.Text = "Tool";
             // 
             // dockPanel2_Container
             // 
             this.dockPanel2_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel2_Container.Name = "dockPanel2_Container";
-            this.dockPanel2_Container.Size = new System.Drawing.Size(672, 180);
+            this.dockPanel2_Container.Size = new System.Drawing.Size(672, 48);
             this.dockPanel2_Container.TabIndex = 0;
             // 
-            // xtraTabControl1
+            // att_xtraTabControl1
             // 
-            this.xtraTabControl1.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InAllTabPageHeaders;
-            this.xtraTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.xtraTabControl1.HeaderLocation = DevExpress.XtraTab.TabHeaderLocation.Bottom;
-            this.xtraTabControl1.Location = new System.Drawing.Point(97, 212);
-            this.xtraTabControl1.Name = "xtraTabControl1";
-            this.xtraTabControl1.Size = new System.Drawing.Size(680, 311);
-            this.xtraTabControl1.TabIndex = 0;
-            this.xtraTabControl1.CloseButtonClick += new System.EventHandler(this.xtraTabControl1_CloseButtonClick);
+            this.att_xtraTabControl1.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InAllTabPageHeaders;
+            this.att_xtraTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.att_xtraTabControl1.HeaderLocation = DevExpress.XtraTab.TabHeaderLocation.Bottom;
+            this.att_xtraTabControl1.Location = new System.Drawing.Point(97, 80);
+            this.att_xtraTabControl1.Name = "att_xtraTabControl1";
+            this.att_xtraTabControl1.Size = new System.Drawing.Size(680, 443);
+            this.att_xtraTabControl1.TabIndex = 0;
+            this.att_xtraTabControl1.CloseButtonClick += new System.EventHandler(this.xtraTabControl1_CloseButtonClick);
             // 
             // chartControl1
             // 
@@ -150,7 +150,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(777, 523);
-            this.Controls.Add(this.xtraTabControl1);
+            this.Controls.Add(this.att_xtraTabControl1);
             this.Controls.Add(this.splitterControl1);
             this.Controls.Add(this.tool_dockPanel);
             this.Controls.Add(this.filter_dockPanel);
@@ -161,7 +161,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.attForm_dockManager)).EndInit();
             this.filter_dockPanel.ResumeLayout(false);
             this.tool_dockPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.att_xtraTabControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).EndInit();
             this.ResumeLayout(false);
 
@@ -177,7 +177,7 @@
         private DevExpress.XtraBars.Docking.ControlContainer dockPanel2_Container;
         private DevExpress.XtraBars.Docking.DockPanel filter_dockPanel;
         private DevExpress.XtraBars.Docking.ControlContainer dockPanel1_Container;
-        private DevExpress.XtraTab.XtraTabControl xtraTabControl1;
+        private DevExpress.XtraTab.XtraTabControl att_xtraTabControl1;
         private DevExpress.XtraCharts.ChartControl chartControl1;
 
     }
