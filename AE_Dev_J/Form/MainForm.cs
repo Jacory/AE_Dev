@@ -294,6 +294,13 @@ namespace AE_Dev_J
                     pEngineEditor.StopEditing(false);
                 }
             }
+            //恢复光标
+            ICommand t_editcommand = new ESRI.ArcGIS.Controls.ControlsEditingEditToolClass();
+            t_editcommand.OnCreate(m_mapControl.Object);
+            m_mapControl.CurrentTool = t_editcommand as ITool;
+            t_editcommand.OnClick();
+
+            m_editinglayer.Caption = "当前图层：";
             map_edittools.Visible = false;
             
         }
@@ -453,10 +460,9 @@ namespace AE_Dev_J
                 pEngineEditor.StartOperation();
 
                 //设置目标图层
-
                 IEngineEditLayers pEditLayer = pEngineEditor as IEngineEditLayers;
-
                 pEditLayer.SetTargetLayer(featurelayer,0);
+                m_editinglayer.Caption += " "+featurelayer.Name;
 
                 ICommand t_editcommand = new ESRI.ArcGIS.Controls.ControlsEditingEditToolClass();
                 t_editcommand.OnCreate(m_mapControl.Object);
@@ -466,6 +472,7 @@ namespace AE_Dev_J
                 map_edittools.Visible = true;
             }
         }
+
         /// <summary>
         /// 当右键菜单弹出时
         /// </summary>
@@ -514,6 +521,7 @@ namespace AE_Dev_J
         #endregion
 
         #region m_tocControl鼠标事件
+
         /// <summary>
         /// tocControl鼠标按下事件
         /// </summary>
@@ -546,6 +554,7 @@ namespace AE_Dev_J
                 }
             }
         }
+
         #endregion m_tocControl鼠标事件
 
         #region m_mapControl右键菜单项
@@ -730,5 +739,7 @@ namespace AE_Dev_J
             m_mapControl.AddLayer(pLayer);
             m_mapControl.Refresh();
         }
+
+
     }
 }

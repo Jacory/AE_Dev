@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraCharts.XYDiagram xyDiagram1 = new DevExpress.XtraCharts.XYDiagram();
+            DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.Series series2 = new DevExpress.XtraCharts.Series();
             this.splitterControl1 = new DevExpress.XtraEditors.SplitterControl();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -39,11 +42,17 @@
             this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.att_xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.chartControl1 = new DevExpress.XtraCharts.ChartControl();
+            this.chartControl2 = new DevExpress.XtraCharts.ChartControl();
             ((System.ComponentModel.ISupportInitialize)(this.attForm_dockManager)).BeginInit();
             this.filter_dockPanel.SuspendLayout();
             this.tool_dockPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.att_xtraTabControl1)).BeginInit();
+            this.att_xtraTabControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartControl2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series2)).BeginInit();
             this.SuspendLayout();
             // 
             // splitterControl1
@@ -140,6 +149,21 @@
             this.chartControl1.Size = new System.Drawing.Size(300, 200);
             this.chartControl1.TabIndex = 0;
             // 
+            // chartControl2
+            // 
+            xyDiagram1.AxisX.VisibleInPanesSerializable = "-1";
+            xyDiagram1.AxisY.VisibleInPanesSerializable = "-1";
+            this.chartControl2.Diagram = xyDiagram1;
+            this.chartControl2.Location = new System.Drawing.Point(0, 0);
+            this.chartControl2.Name = "chartControl2";
+            series1.Name = "Series 1";
+            series2.Name = "Series 2";
+            this.chartControl2.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
+        series1,
+        series2};
+            this.chartControl2.Size = new System.Drawing.Size(300, 200);
+            this.chartControl2.TabIndex = 0;
+            // 
             // AttributeTableForm
             // 
             this.ActiveGlowColor = System.Drawing.Color.White;
@@ -162,7 +186,12 @@
             this.filter_dockPanel.ResumeLayout(false);
             this.tool_dockPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.att_xtraTabControl1)).EndInit();
+            this.att_xtraTabControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartControl2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -179,6 +208,7 @@
         private DevExpress.XtraBars.Docking.ControlContainer dockPanel1_Container;
         private DevExpress.XtraTab.XtraTabControl att_xtraTabControl1;
         private DevExpress.XtraCharts.ChartControl chartControl1;
+        private DevExpress.XtraCharts.ChartControl chartControl2;
 
     }
 }

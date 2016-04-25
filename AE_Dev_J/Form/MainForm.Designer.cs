@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem5 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem3 = new DevExpress.Utils.ToolTipSeparatorItem();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem6 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem1 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
             this.splitContainerControl = new DevExpress.XtraEditors.SplitContainerControl();
             this.m_tocControl = new ESRI.ArcGIS.Controls.AxTOCControl();
             this.navBarControl = new DevExpress.XtraNavBar.NavBarControl();
@@ -131,6 +131,7 @@
             this.m_stoptool = new DevExpress.XtraBars.BarButtonItem();
             this.m_undotool = new DevExpress.XtraBars.BarButtonItem();
             this.m_redotool = new DevExpress.XtraBars.BarButtonItem();
+            this.m_editinglayer = new DevExpress.XtraBars.BarStaticItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -309,7 +310,7 @@
             this.EditToolsBarDockControl.Dock = System.Windows.Forms.DockStyle.Top;
             this.EditToolsBarDockControl.Location = new System.Drawing.Point(0, 0);
             this.EditToolsBarDockControl.Name = "EditToolsBarDockControl";
-            this.EditToolsBarDockControl.Size = new System.Drawing.Size(224, 31);
+            this.EditToolsBarDockControl.Size = new System.Drawing.Size(761, 31);
             this.EditToolsBarDockControl.Text = "standaloneBarDockControl1";
             // 
             // ribbonMenu
@@ -679,16 +680,16 @@
             this.barButtonItem12.Id = 32;
             this.barButtonItem12.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem12.LargeGlyph")));
             this.barButtonItem12.Name = "barButtonItem12";
-            toolTipTitleItem5.Text = "图形化建模工具";
-            toolTipItem3.LeftIndent = 6;
-            toolTipItem3.Text = "类似创建流程图的方式来定义数据的处理步骤，并提供批处理模式，可处理输入文件夹下所有满足要求的数据。";
-            toolTipTitleItem6.LeftIndent = 6;
-            toolTipTitleItem6.Text = "该功能尚未完善";
-            superToolTip3.Items.Add(toolTipTitleItem5);
-            superToolTip3.Items.Add(toolTipItem3);
-            superToolTip3.Items.Add(toolTipSeparatorItem3);
-            superToolTip3.Items.Add(toolTipTitleItem6);
-            this.barButtonItem12.SuperTip = superToolTip3;
+            toolTipTitleItem1.Text = "图形化建模工具";
+            toolTipItem1.LeftIndent = 6;
+            toolTipItem1.Text = "类似创建流程图的方式来定义数据的处理步骤，并提供批处理模式，可处理输入文件夹下所有满足要求的数据。";
+            toolTipTitleItem2.LeftIndent = 6;
+            toolTipTitleItem2.Text = "该功能尚未完善";
+            superToolTip1.Items.Add(toolTipTitleItem1);
+            superToolTip1.Items.Add(toolTipItem1);
+            superToolTip1.Items.Add(toolTipSeparatorItem1);
+            superToolTip1.Items.Add(toolTipTitleItem2);
+            this.barButtonItem12.SuperTip = superToolTip1;
             // 
             // ribbonImageCollectionLarge
             // 
@@ -1032,8 +1033,9 @@
             this.m_savetool,
             this.m_stoptool,
             this.m_undotool,
-            this.m_redotool});
-            this.map_toolbarManager.MaxItemId = 6;
+            this.m_redotool,
+            this.m_editinglayer});
+            this.map_toolbarManager.MaxItemId = 7;
             // 
             // map_edittools
             // 
@@ -1049,7 +1051,8 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.m_savetool),
             new DevExpress.XtraBars.LinkPersistInfo(this.m_stoptool),
             new DevExpress.XtraBars.LinkPersistInfo(this.m_undotool),
-            new DevExpress.XtraBars.LinkPersistInfo(this.m_redotool)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.m_redotool),
+            new DevExpress.XtraBars.LinkPersistInfo(this.m_editinglayer)});
             this.map_edittools.StandaloneBarDockControl = this.EditToolsBarDockControl;
             this.map_edittools.Text = "EditTools";
             this.map_edittools.Visible = false;
@@ -1107,6 +1110,13 @@
             this.m_redotool.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("m_redotool.LargeGlyph")));
             this.m_redotool.Name = "m_redotool";
             this.m_redotool.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.m_redotool_ItemClick);
+            // 
+            // m_editinglayer
+            // 
+            this.m_editinglayer.Caption = "当前图层:";
+            this.m_editinglayer.Id = 6;
+            this.m_editinglayer.Name = "m_editinglayer";
+            this.m_editinglayer.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
             // barDockControlTop
             // 
@@ -1291,6 +1301,7 @@
         private DevExpress.XtraBars.BarButtonItem m_undotool;
         private DevExpress.XtraBars.BarButtonItem m_redotool;
         private System.Windows.Forms.ToolStripMenuItem fullExtent_ToolStripMenuItem;
+        private DevExpress.XtraBars.BarStaticItem m_editinglayer;
         //private DevExpress.XtraBars.Bar bar2;
         //private DevExpress.XtraBars.Bar bar3;
 
