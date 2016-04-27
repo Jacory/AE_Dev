@@ -28,14 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             DevExpress.XtraCharts.XYDiagram xyDiagram1 = new DevExpress.XtraCharts.XYDiagram();
             DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series();
             DevExpress.XtraCharts.Series series2 = new DevExpress.XtraCharts.Series();
             this.splitterControl1 = new DevExpress.XtraEditors.SplitterControl();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.attForm_dockManager = new DevExpress.XtraBars.Docking.DockManager(this.components);
+            this.attForm_dockManager = new DevExpress.XtraBars.Docking.DockManager();
             this.filter_dockPanel = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.tool_dockPanel = new DevExpress.XtraBars.Docking.DockPanel();
@@ -47,7 +46,6 @@
             this.filter_dockPanel.SuspendLayout();
             this.tool_dockPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.att_xtraTabControl1)).BeginInit();
-            this.att_xtraTabControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).BeginInit();
@@ -186,7 +184,6 @@
             this.filter_dockPanel.ResumeLayout(false);
             this.tool_dockPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.att_xtraTabControl1)).EndInit();
-            this.att_xtraTabControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(series1)).EndInit();
