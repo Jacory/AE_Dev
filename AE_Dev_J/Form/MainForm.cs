@@ -56,7 +56,15 @@ namespace AE_Dev_J
             {
                 System.IO.Directory.CreateDirectory(Application.StartupPath + "\\temp");
             }
-
+            IWorkspaceFactory pWorkspaceFactory = new ShapefileWorkspaceFactory();
+            IFeatureWorkspace pFeatureWorkspace = pWorkspaceFactory.OpenFromFile(@"D:\2014-2017\GitHub\AE_Dev\qgis_sample_data\shapefiles", 0) as IFeatureWorkspace;
+            IFeatureClass featureclass = pFeatureWorkspace.OpenFeatureClass("airports");
+            IFeatureLayer featurelayer = new FeatureLayerClass();
+            featurelayer.FeatureClass = featureclass;
+            AttributeTableForm att = new AttributeTableForm(featurelayer, m_mapControl);
+            att.Show();
+            //StatisticsAndChartForm statis = new StatisticsAndChartForm();
+            //statis.Show();
         }
 
         void InitSkinGallery()

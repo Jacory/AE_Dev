@@ -22,6 +22,7 @@ using DevExpress.Utils.Menu;
 using DevExpress.XtraGrid.Menu;
 using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraCharts;
 namespace AE_Dev_J.Form
 {
     /// <summary>
@@ -36,7 +37,6 @@ namespace AE_Dev_J.Form
         public AttributeTableForm(IFeatureLayer layer, AxMapControl mapControl)
         {
             InitializeComponent();
-
             flayer_list.Add(layer);
             m_mapControl = mapControl;
         }
@@ -48,7 +48,7 @@ namespace AE_Dev_J.Form
             
             //开始导入属性数据
             importAttribute(flayer_list[0]);
-            tool_dockPanel.Visibility = DevExpress.XtraBars.Docking.DockVisibility.AutoHide;
+            //tool_dockPanel.Visibility = DevExpress.XtraBars.Docking.DockVisibility.AutoHide;
             filter_dockPanel.Visibility = DevExpress.XtraBars.Docking.DockVisibility.AutoHide;
         }
 
@@ -79,6 +79,10 @@ namespace AE_Dev_J.Form
             for (int i = 0; i < m_featureclass.Fields.FieldCount; i++)
             {
                 DataColumn dc = new DataColumn(m_featureclass.Fields.get_Field(i).Name);
+                if (m_featureclass.Fields.get_Field(i).Type.ToString()=="esriFieldTypeDouble")
+                {
+                    dc.DataType=typeof(double);
+                }
                 dt.Columns.Add(dc);
             }
             IFeatureCursor pFeatureCuror = m_featureclass.Search(null, false);
@@ -88,13 +92,14 @@ namespace AE_Dev_J.Form
                 DataRow dr = dt.NewRow();
                 for (int j = 0; j < m_featureclass.Fields.FieldCount; j++)
                 {
+                    
                     dr[j] = pFeature.get_Value(j).ToString();
                 }
                 dt.Rows.Add(dr);
                 pFeature = pFeatureCuror.NextFeature();
             }
             //创建标签页tabpage
-            att_xtraTabControl1.TabPages.Add(featurelayer.Name);
+            att_xtraTabControl1.TabPages.Add(featurelayer.FeatureClass.AliasName);
             att_xtraTabControl1.TabPages[att_xtraTabControl1.TabPages.Count - 1].Tooltip = w_name.PathName + "\\" + featurelayer.Name + "_" + featurelayer.DataSourceType;
             //创建gridcontrol、gridview
             GridControl att_gridcontrol = new GridControl();
@@ -108,7 +113,6 @@ namespace AE_Dev_J.Form
             att_gridcontrol.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             att_gridview});
             att_gridview.OptionsBehavior.Editable = false;
-            //att_gridview.OptionsBehavior.EditorShowMode = EditorShowMode.MouseDown;
             att_gridview.OptionsView.ShowAutoFilterRow = true;
             att_gridview.OptionsFind.AlwaysVisible = true;
             att_gridview.OptionsView.ShowFooter = true;
@@ -175,10 +179,15 @@ namespace AE_Dev_J.Form
             //添加“选择当前列”
             if (e.MenuType == GridMenuType.Column)
             {
-                DXMenuItem m_item = new DXMenuItem("选择当前列", att_gridview_GridMenuItemClick);
-                m_item.Tag = "selectall/" + e.HitInfo.Column.Name + "/" + ((GridView)sender).Name;
+                DXMenuItem m_selecolumn = new DXMenuItem("选择当前列", att_gridview_GridMenuItemClick);
+                m_selecolumn.Tag = "selectall/" + e.HitInfo.Column.Name + "/" + ((GridView)sender).Name;
+
+                DXMenuItem m_chart = new DXMenuItem("Statistics And Chart", att_gridview_GridMenuItemClick);
+                m_chart.Tag ="statisticsandchart/"+ e.HitInfo.Column.Name + "/" + ((GridView)sender).Name;
+
                 GridViewColumnMenu menu = e.Menu as GridViewColumnMenu;
-                menu.Items.Add(m_item);
+                menu.Items.Add(m_selecolumn);
+                menu.Items.Add(m_chart);
             }
         }
         
@@ -191,20 +200,25 @@ namespace AE_Dev_J.Form
         {
             DXMenuItem item = sender as DXMenuItem;
             GridView currentview = new GridView();
-            if (item != null && item.Tag.ToString().IndexOf("selectall")!=-1)
+            string[] itemstring = item.Tag.ToString().Split('/');
+            for (int i = 0; i < gridview_list.Count; i++)
             {
-                string[] itemstring=item.Tag.ToString().Split('/');
-                for (int i = 0; i < gridview_list.Count; i++)
+                if (gridview_list[i].Name == itemstring[2])
                 {
-                    if (gridview_list[i].Name == itemstring[2])
-                    {
-                        currentview = gridview_list[i];
-                        currentview.ClearSelection();
-                    }
+                    currentview = gridview_list[i];
+                    currentview.ClearSelection();
                 }
+            }
+            if (item != null && item.Caption == "选择当前列")
+            {
                 GridCell start = new GridCell(0, currentview.Columns[itemstring[1].Substring(3)]);
                 GridCell end = new GridCell(currentview.RowCount - 1, currentview.Columns[itemstring[1].Substring(3)]);
                 currentview.SelectCells(start, end);
+            }
+            if (item!=null && item.Caption=="Statistics And Chart")
+            {
+                StatisticsAndChartForm statichart = new StatisticsAndChartForm(currentview, currentview.Columns[itemstring[1].Substring(3)].FieldName);
+                statichart.Show();
             }
         }
 
@@ -339,5 +353,40 @@ namespace AE_Dev_J.Form
             this.Show();
             m_mapControl.Focus();
         }
+
+        //private void simpleButton1_Click(object sender, EventArgs e)
+        //{
+        //    // Create the first side-by-side bar series and add points to it.
+        //    Series series1 = new Series("name", ViewType.Bar);
+        //    series1.Points.Add(new SeriesPoint("A",new  double[] {10}));
+        //    series1.Points.Add(new SeriesPoint("B", new double[] { 12 }));
+        //    series1.Points.Add(new SeriesPoint("C", new double[] { 14 }));
+        //    series1.Points.Add(new SeriesPoint("D", new double[] { 17 }));
+
+        //    // Create the second side-by-side bar series and add points to it.
+        //    Series series2 = new Series("number", ViewType.Bar);
+        //    series2.Points.Add(new SeriesPoint("A", new double[] { 15 }));
+        //    series2.Points.Add(new SeriesPoint("B", new double[] { 18 }));
+        //    series2.Points.Add(new SeriesPoint("C", new double[] { 25 }));
+        //    series2.Points.Add(new SeriesPoint("D", new double[] { 33 }));
+
+        //    // Add the series to the chart.
+        //    att_chartcontrol.Series.Add(series1);
+        //    att_chartcontrol.Series.Add(series2);
+
+        //    //// Rotate the diagram (if necessary).
+        //    //((XYDiagram)att_chartcontrol.Diagram).Rotated = true;
+
+        //    // Add a title to the chart (if necessary).
+
+        //    ChartTitle chartTitle1 = new ChartTitle();
+        //    chartTitle1.Text = "Bar Chart";
+        //    att_chartcontrol.Titles.Add(chartTitle1);
+
+        //    // Add the chart to the form.
+        //    att_chartcontrol.Dock = DockStyle.Fill;
+        //    tool_dockPanel.Controls.Add(att_chartcontrol);
+        //}
+
     }
 }
