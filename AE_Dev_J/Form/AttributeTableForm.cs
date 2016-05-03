@@ -139,10 +139,12 @@ namespace AE_Dev_J.Form
             importAttribute(vecLayer);
             flayer_list.Add(vecLayer);
         }
-       
+
         /// <summary>
-        /// 属性表页面关闭
+        /// 关闭属性表标签页
         /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void xtraTabControl1_CloseButtonClick(object sender, EventArgs e)
         {
             XtraTabControl tabControl = sender as XtraTabControl;
