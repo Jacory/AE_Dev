@@ -14,10 +14,17 @@ using ESRI.ArcGIS.DataSourcesFile;
 
 namespace AE_Dev_J.Form
 {
+<<<<<<< HEAD
     public partial class AddFeatureClass : DevExpress.XtraEditors.XtraForm
     {
         private AxMapControl m_mapControl = null;
         public AddFeatureClass(AxMapControl mapControl)
+=======
+    public partial class AddFeatureClassForm : DevExpress.XtraEditors.XtraForm
+    {
+        private AxMapControl m_mapControl = null;
+        public AddFeatureClassForm(AxMapControl mapControl)
+>>>>>>> refs/remotes/origin/temp
         {
             InitializeComponent();
             AddFeatureClass_groupControl.Enabled = false;
