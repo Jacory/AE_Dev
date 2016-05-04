@@ -1,6 +1,6 @@
 ﻿namespace AE_Dev_J.Form
 {
-    partial class AddFeatureClass
+    partial class AddFeatureClassForm
     {
         /// <summary>
         /// Required designer variable.
@@ -150,7 +150,7 @@
             this.AddFeatrueClass_Cancelbutton.Text = "Cancel";
             this.AddFeatrueClass_Cancelbutton.Click += new System.EventHandler(this.AddFeatrueClass_Cancelbutton_Click);
             // 
-            // AddFeatureClass
+            // AddFeatureClassForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -161,7 +161,7 @@
             this.Controls.Add(this.AddFeatrueClass_radioGroup);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-            this.Name = "AddFeatureClass";
+            this.Name = "AddFeatureClassForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddFeatureClass";
             ((System.ComponentModel.ISupportInitialize)(this.AddFeatrueClass_radioGroup.Properties)).EndInit();

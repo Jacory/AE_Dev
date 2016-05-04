@@ -50,7 +50,6 @@ namespace AE_Dev_J.Form
                     //将该列的数据存储进数组
                     for (int j = 0; j < gridview.RowCount; j++)
                     {
-                        //MessageBox.Show("'"+gridview.GetRowCellValue(j, field.Properties.Caption).ToString()+"'");
                         if (gridview.GetRowCellValue(j, field.Properties.Caption).ToString() == "" 
                             || gridview.GetRowCellValue(j, field.Properties.Caption) == null
                             || gridview.GetRowCellValue(j, field.Properties.Caption).ToString() == " ")
@@ -160,7 +159,7 @@ namespace AE_Dev_J.Form
             gridcontrol = sender as DevExpress.XtraVerticalGrid.VGridControl;
             VGridHitInfo info = gridcontrol.CalcHitInfo(new Point(e.X,e.Y));
             //当左键单击HeaderCell时
-            if (info.HitInfoType==HitInfoTypeEnum.HeaderCell&&e.Clicks==1&&e.Button==MouseButtons.Left)
+            if (info.Row.HasChildren && e.Clicks == 1 && e.Button == MouseButtons.Left)
             {
                 BaseRow baserow = gridcontrol.FocusedRow;
                 CategoryRow gr = baserow as CategoryRow;
