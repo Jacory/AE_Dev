@@ -22,6 +22,8 @@ using DevExpress.Utils.Menu;
 using DevExpress.XtraGrid.Menu;
 using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraCharts;
+
 namespace AE_Dev_J.Form
 {
     /// <summary>
@@ -48,7 +50,8 @@ namespace AE_Dev_J.Form
             
             //开始导入属性数据
             importAttribute(flayer_list[0]);
-            tool_dockPanel.Visibility = DevExpress.XtraBars.Docking.DockVisibility.AutoHide;
+
+            //tool_dockPanel.Visibility = DevExpress.XtraBars.Docking.DockVisibility.AutoHide;
             filter_dockPanel.Visibility = DevExpress.XtraBars.Docking.DockVisibility.AutoHide;
         }
 
@@ -62,9 +65,10 @@ namespace AE_Dev_J.Form
             //检查文件路径是否存在于当前所有标签页的tag中，避免重复创建表格
             IDataLayer datalayer = featurelayer as IDataLayer;
             IWorkspaceName w_name = ((IDatasetName)(datalayer.DataSourceName)).WorkspaceName;
-            for (int i = 0; i < xtraTabControl1.TabPages.Count; i++)
+
+            for (int i = 0; i < att_xtraTabControl1.TabPages.Count; i++)
             {
-                if (w_name.PathName + "\\" + featurelayer.Name + "_" + featurelayer.DataSourceType == xtraTabControl1.TabPages[i].Tooltip)
+                if (w_name.PathName + "\\" + featurelayer.Name + "_" + featurelayer.DataSourceType == att_xtraTabControl1.TabPages[i].Tooltip)
                 {
                     return;
                 }
@@ -79,6 +83,10 @@ namespace AE_Dev_J.Form
             for (int i = 0; i < m_featureclass.Fields.FieldCount; i++)
             {
                 DataColumn dc = new DataColumn(m_featureclass.Fields.get_Field(i).Name);
+                if (m_featureclass.Fields.get_Field(i).Type.ToString()=="esriFieldTypeDouble")
+                {
+                    dc.DataType=typeof(double);
+                }
                 dt.Columns.Add(dc);
             }
             IFeatureCursor pFeatureCuror = m_featureclass.Search(null, false);
@@ -88,17 +96,18 @@ namespace AE_Dev_J.Form
                 DataRow dr = dt.NewRow();
                 for (int j = 0; j < m_featureclass.Fields.FieldCount; j++)
                 {
+                    
                     dr[j] = pFeature.get_Value(j).ToString();
                 }
                 dt.Rows.Add(dr);
                 pFeature = pFeatureCuror.NextFeature();
             }
             //创建标签页tabpage
-            xtraTabControl1.TabPages.Add(featurelayer.Name);
-            xtraTabControl1.TabPages[xtraTabControl1.TabPages.Count - 1].Tooltip = w_name.PathName + "\\" + featurelayer.Name + "_" + featurelayer.DataSourceType;
+            att_xtraTabControl1.TabPages.Add(featurelayer.FeatureClass.AliasName);
+            att_xtraTabControl1.TabPages[att_xtraTabControl1.TabPages.Count - 1].Tooltip = w_name.PathName + "\\" + featurelayer.Name + "_" + featurelayer.DataSourceType;
             //创建gridcontrol、gridview
             GridControl att_gridcontrol = new GridControl();
-            this.xtraTabControl1.TabPages[xtraTabControl1.TabPages.Count - 1].Controls.Add(att_gridcontrol);
+            this.att_xtraTabControl1.TabPages[att_xtraTabControl1.TabPages.Count - 1].Controls.Add(att_gridcontrol);
             att_gridcontrol.Name = "att_gridcontrol";
             att_gridcontrol.Dock = System.Windows.Forms.DockStyle.Fill;
 
@@ -108,7 +117,6 @@ namespace AE_Dev_J.Form
             att_gridcontrol.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             att_gridview});
             att_gridview.OptionsBehavior.Editable = false;
-            //att_gridview.OptionsBehavior.EditorShowMode = EditorShowMode.MouseDown;
             att_gridview.OptionsView.ShowAutoFilterRow = true;
             att_gridview.OptionsFind.AlwaysVisible = true;
             att_gridview.OptionsView.ShowFooter = true;
@@ -135,10 +143,12 @@ namespace AE_Dev_J.Form
             importAttribute(vecLayer);
             flayer_list.Add(vecLayer);
         }
-       
+
         /// <summary>
-        /// 属性表页面关闭
+        /// 关闭属性表标签页
         /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void xtraTabControl1_CloseButtonClick(object sender, EventArgs e)
         {
             XtraTabControl tabControl = sender as XtraTabControl;
@@ -175,10 +185,15 @@ namespace AE_Dev_J.Form
             //添加“选择当前列”
             if (e.MenuType == GridMenuType.Column)
             {
-                DXMenuItem m_item = new DXMenuItem("选择当前列", att_gridview_GridMenuItemClick);
-                m_item.Tag = "selectall/" + e.HitInfo.Column.Name + "/" + ((GridView)sender).Name;
+                DXMenuItem m_selecolumn = new DXMenuItem("选择当前列", att_gridview_GridMenuItemClick);
+                m_selecolumn.Tag = "selectall/" + e.HitInfo.Column.Name + "/" + ((GridView)sender).Name;
+
+                DXMenuItem m_chart = new DXMenuItem("Statistics And Chart", att_gridview_GridMenuItemClick);
+                m_chart.Tag ="statisticsandchart/"+ e.HitInfo.Column.Name + "/" + ((GridView)sender).Name;
+
                 GridViewColumnMenu menu = e.Menu as GridViewColumnMenu;
-                menu.Items.Add(m_item);
+                menu.Items.Add(m_selecolumn);
+                menu.Items.Add(m_chart);
             }
         }
         
@@ -191,20 +206,25 @@ namespace AE_Dev_J.Form
         {
             DXMenuItem item = sender as DXMenuItem;
             GridView currentview = new GridView();
-            if (item != null && item.Tag.ToString().IndexOf("selectall")!=-1)
+            string[] itemstring = item.Tag.ToString().Split('/');
+            for (int i = 0; i < gridview_list.Count; i++)
             {
-                string[] itemstring=item.Tag.ToString().Split('/');
-                for (int i = 0; i < gridview_list.Count; i++)
+                if (gridview_list[i].Name == itemstring[2])
                 {
-                    if (gridview_list[i].Name == itemstring[2])
-                    {
-                        currentview = gridview_list[i];
-                        currentview.ClearSelection();
-                    }
+                    currentview = gridview_list[i];
+                    currentview.ClearSelection();
                 }
+            }
+            if (item != null && item.Caption == "选择当前列")
+            {
                 GridCell start = new GridCell(0, currentview.Columns[itemstring[1].Substring(3)]);
                 GridCell end = new GridCell(currentview.RowCount - 1, currentview.Columns[itemstring[1].Substring(3)]);
                 currentview.SelectCells(start, end);
+            }
+            if (item!=null && item.Caption=="Statistics And Chart")
+            {
+                StatisticsAndChartForm statichart = new StatisticsAndChartForm(currentview, currentview.Columns[itemstring[1].Substring(3)].FieldName);
+                statichart.Show();
             }
         }
 
@@ -267,7 +287,6 @@ namespace AE_Dev_J.Form
                                 IGeometry m_geometry = m_geofactory.CreateGeometryFromEnumerator(m_enumgeometry);
                                 m_mapControl.ActiveView.Extent = m_geometry.Envelope;
                                 m_mapControl.Refresh();
-
                             }
                         }
                     }
@@ -328,6 +347,17 @@ namespace AE_Dev_J.Form
                     gridview_list.RemoveAt(i);
                 }
             }
+            //关闭标签页
+            for (int i = 0; i < att_xtraTabControl1.TabPages.Count; i++)
+            {
+                if (att_xtraTabControl1.TabPages[i].Text==att_flayer.Name)
+                {
+                    att_xtraTabControl1.TabPages.RemoveAt(i);
+                }
+            }
+            this.Show();
+            m_mapControl.Focus();
         }
+
     }
 }
