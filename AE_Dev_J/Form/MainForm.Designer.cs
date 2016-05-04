@@ -61,7 +61,6 @@
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonImageCollection = new DevExpress.Utils.ImageCollection(this.components);
             this.iCloseProject = new DevExpress.XtraBars.BarButtonItem();
-            this.iFindProject = new DevExpress.XtraBars.BarButtonItem();
             this.siStatus = new DevExpress.XtraBars.BarStaticItem();
             this.siInfo = new DevExpress.XtraBars.BarStaticItem();
             this.alignButtonGroup = new DevExpress.XtraBars.BarButtonGroup();
@@ -72,15 +71,8 @@
             this.iTargetDetection = new DevExpress.XtraBars.BarButtonItem();
             this.coordinate_textEdit = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
             this.iNewFeature = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem8 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem9 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem10 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem11 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem12 = new DevExpress.XtraBars.BarButtonItem();
@@ -183,7 +175,7 @@
             this.splitContainerControl.Panel2.Controls.Add(this.EditToolsBarDockControl);
             this.splitContainerControl.Panel2.Text = "Panel2";
             this.splitContainerControl.Size = new System.Drawing.Size(961, 461);
-            this.splitContainerControl.SplitterPosition = 183;
+            this.splitContainerControl.SplitterPosition = 224;
             this.splitContainerControl.TabIndex = 0;
             this.splitContainerControl.Text = "splitContainerControl1";
             // 
@@ -193,7 +185,7 @@
             this.m_tocControl.Location = new System.Drawing.Point(0, 0);
             this.m_tocControl.Name = "m_tocControl";
             this.m_tocControl.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("m_tocControl.OcxState")));
-            this.m_tocControl.Size = new System.Drawing.Size(183, 449);
+            this.m_tocControl.Size = new System.Drawing.Size(224, 449);
             this.m_tocControl.TabIndex = 1;
             this.m_tocControl.OnMouseDown += new ESRI.ArcGIS.Controls.ITOCControlEvents_Ax_OnMouseDownEventHandler(this.m_tocControl_OnMouseDown);
             // 
@@ -211,9 +203,9 @@
             this.navBarControl.LargeImages = this.navbarImageCollectionLarge;
             this.navBarControl.Location = new System.Drawing.Point(0, 0);
             this.navBarControl.Name = "navBarControl";
-            this.navBarControl.OptionsNavPane.ExpandedWidth = 183;
+            this.navBarControl.OptionsNavPane.ExpandedWidth = 224;
             this.navBarControl.PaintStyleKind = DevExpress.XtraNavBar.NavBarViewKind.ExplorerBar;
-            this.navBarControl.Size = new System.Drawing.Size(183, 449);
+            this.navBarControl.Size = new System.Drawing.Size(224, 449);
             this.navBarControl.SmallImages = this.navbarImageCollection;
             this.navBarControl.StoreDefaultPaintStyleName = true;
             this.navBarControl.TabIndex = 0;
@@ -288,7 +280,7 @@
             this.m_mapControl.Location = new System.Drawing.Point(0, 59);
             this.m_mapControl.Name = "m_mapControl";
             this.m_mapControl.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("m_mapControl.OcxState")));
-            this.m_mapControl.Size = new System.Drawing.Size(761, 390);
+            this.m_mapControl.Size = new System.Drawing.Size(720, 390);
             this.m_mapControl.TabIndex = 0;
             this.m_mapControl.OnMouseDown += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMouseDownEventHandler(this.m_mapControl_OnMouseDown);
             this.m_mapControl.OnMouseUp += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMouseUpEventHandler(this.m_mapControl_OnMouseUp);
@@ -300,7 +292,7 @@
             this.m_esritoolbarControl.Location = new System.Drawing.Point(0, 31);
             this.m_esritoolbarControl.Name = "m_esritoolbarControl";
             this.m_esritoolbarControl.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("m_esritoolbarControl.OcxState")));
-            this.m_esritoolbarControl.Size = new System.Drawing.Size(761, 28);
+            this.m_esritoolbarControl.Size = new System.Drawing.Size(720, 28);
             this.m_esritoolbarControl.TabIndex = 1;
             // 
             // EditToolsBarDockControl
@@ -310,7 +302,7 @@
             this.EditToolsBarDockControl.Dock = System.Windows.Forms.DockStyle.Top;
             this.EditToolsBarDockControl.Location = new System.Drawing.Point(0, 0);
             this.EditToolsBarDockControl.Name = "EditToolsBarDockControl";
-            this.EditToolsBarDockControl.Size = new System.Drawing.Size(761, 31);
+            this.EditToolsBarDockControl.Size = new System.Drawing.Size(720, 31);
             this.EditToolsBarDockControl.Text = "standaloneBarDockControl1";
             // 
             // ribbonMenu
@@ -324,7 +316,6 @@
             this.iNewProject,
             this.iOpenProject,
             this.iCloseProject,
-            this.iFindProject,
             this.iSaveProject,
             this.iSaveProjectAs,
             this.iHelp,
@@ -339,21 +330,14 @@
             this.iClassification,
             this.iTargetDetection,
             this.coordinate_textEdit,
-            this.barButtonItem2,
-            this.barButtonItem3,
-            this.barButtonItem4,
-            this.barButtonItem5,
             this.iNewFeature,
             this.barButtonItem6,
-            this.barButtonItem7,
-            this.barButtonItem8,
-            this.barButtonItem9,
             this.barButtonItem10,
             this.barButtonItem11,
             this.barButtonItem12});
             this.ribbonMenu.LargeImages = this.ribbonImageCollectionLarge;
             this.ribbonMenu.Location = new System.Drawing.Point(0, 0);
-            this.ribbonMenu.MaxItemId = 41;
+            this.ribbonMenu.MaxItemId = 1;
             this.ribbonMenu.Name = "ribbonMenu";
             this.ribbonMenu.PageHeaderItemLinks.Add(this.iAbout);
             this.ribbonMenu.PageHeaderItemLinks.Add(this.iAbout);
@@ -399,7 +383,7 @@
             // 
             // iNewProject
             // 
-            this.iNewProject.Caption = "New";
+            this.iNewProject.Caption = "New Map";
             this.iNewProject.Description = "Creates a new, blank file.";
             this.iNewProject.Hint = "Creates a new, blank file";
             this.iNewProject.Id = 1;
@@ -502,17 +486,6 @@
             this.iCloseProject.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)((DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
             this.iCloseProject.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.iCloseProject_ItemClick);
             // 
-            // iFindProject
-            // 
-            this.iFindProject.Caption = "Find";
-            this.iFindProject.Description = "Searches for the specified info.";
-            this.iFindProject.Hint = "Searches for the specified info";
-            this.iFindProject.Id = 15;
-            this.iFindProject.ImageIndex = 3;
-            this.iFindProject.LargeImageIndex = 3;
-            this.iFindProject.Name = "iFindProject";
-            this.iFindProject.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)((DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
-            // 
             // siStatus
             // 
             this.siStatus.Caption = "Jacory Gao";
@@ -601,30 +574,6 @@
             this.repositoryItemTextEdit1.AutoHeight = false;
             this.repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
             // 
-            // barButtonItem2
-            // 
-            this.barButtonItem2.Caption = "barButtonItem2";
-            this.barButtonItem2.Id = 18;
-            this.barButtonItem2.Name = "barButtonItem2";
-            // 
-            // barButtonItem3
-            // 
-            this.barButtonItem3.Caption = "barButtonItem3";
-            this.barButtonItem3.Id = 19;
-            this.barButtonItem3.Name = "barButtonItem3";
-            // 
-            // barButtonItem4
-            // 
-            this.barButtonItem4.Caption = "barButtonItem4";
-            this.barButtonItem4.Id = 20;
-            this.barButtonItem4.Name = "barButtonItem4";
-            // 
-            // barButtonItem5
-            // 
-            this.barButtonItem5.Caption = "barButtonItem5";
-            this.barButtonItem5.Id = 21;
-            this.barButtonItem5.Name = "barButtonItem5";
-            // 
             // iNewFeature
             // 
             this.iNewFeature.Caption = "New Feature";
@@ -640,24 +589,6 @@
             this.barButtonItem6.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem6.Glyph")));
             this.barButtonItem6.Id = 25;
             this.barButtonItem6.Name = "barButtonItem6";
-            // 
-            // barButtonItem7
-            // 
-            this.barButtonItem7.Caption = "barButtonItem7";
-            this.barButtonItem7.Id = 27;
-            this.barButtonItem7.Name = "barButtonItem7";
-            // 
-            // barButtonItem8
-            // 
-            this.barButtonItem8.Caption = "barButtonItem8";
-            this.barButtonItem8.Id = 28;
-            this.barButtonItem8.Name = "barButtonItem8";
-            // 
-            // barButtonItem9
-            // 
-            this.barButtonItem9.Caption = "barButtonItem9";
-            this.barButtonItem9.Id = 29;
-            this.barButtonItem9.Name = "barButtonItem9";
             // 
             // barButtonItem10
             // 
@@ -718,7 +649,7 @@
             this.project_RibbonPageGroup.ItemLinks.Add(this.iNewProject);
             this.project_RibbonPageGroup.ItemLinks.Add(this.iOpenProject);
             this.project_RibbonPageGroup.ItemLinks.Add(this.iCloseProject);
-            this.project_RibbonPageGroup.ItemLinks.Add(this.iFindProject);
+            this.project_RibbonPageGroup.ItemLinks.Add(this.iNewFeature);
             this.project_RibbonPageGroup.ItemLinks.Add(this.iSaveProject);
             this.project_RibbonPageGroup.ItemLinks.Add(this.iSaveProjectAs);
             this.project_RibbonPageGroup.Name = "project_RibbonPageGroup";
@@ -762,7 +693,6 @@
             // 
             // ribbonPageGroup1
             // 
-            this.ribbonPageGroup1.ItemLinks.Add(this.iNewFeature);
             this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem6);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "Vector Data";
@@ -1095,7 +1025,7 @@
             // 
             // m_undotool
             // 
-            this.m_undotool.Caption = "undo";
+            this.m_undotool.Caption = "Undo";
             this.m_undotool.Glyph = ((System.Drawing.Image)(resources.GetObject("m_undotool.Glyph")));
             this.m_undotool.Id = 4;
             this.m_undotool.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("m_undotool.LargeGlyph")));
@@ -1104,7 +1034,7 @@
             // 
             // m_redotool
             // 
-            this.m_redotool.Caption = "redo";
+            this.m_redotool.Caption = "Redo";
             this.m_redotool.Glyph = ((System.Drawing.Image)(resources.GetObject("m_redotool.Glyph")));
             this.m_redotool.Id = 5;
             this.m_redotool.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("m_redotool.LargeGlyph")));
@@ -1163,6 +1093,7 @@
             this.Name = "MainForm";
             this.Text = "arcgis develop demo";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl)).EndInit();
             this.splitContainerControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.m_tocControl)).EndInit();
@@ -1206,7 +1137,6 @@
         private DevExpress.XtraBars.BarButtonItem iNewProject;
         private DevExpress.XtraBars.BarButtonItem iOpenProject;
         private DevExpress.XtraBars.BarButtonItem iCloseProject;
-        private DevExpress.XtraBars.BarButtonItem iFindProject;
         private DevExpress.XtraBars.BarButtonItem iSaveProject;
         private DevExpress.XtraBars.BarButtonItem iSaveProjectAs;
         private DevExpress.XtraBars.BarButtonItem iHelp;
@@ -1238,7 +1168,6 @@
         private DevExpress.Utils.ImageCollection navbarImageCollection;
         private DevExpress.Utils.ImageCollection navbarImageCollectionLarge;
         private DevExpress.Utils.ImageCollection galleryImageCollection;
-        private ESRI.ArcGIS.Controls.AxTOCControl m_tocControl;
         private ESRI.ArcGIS.Controls.AxMapControl m_mapControl;
         private ESRI.ArcGIS.Controls.AxToolbarControl m_esritoolbarControl;
         private DevExpress.XtraBars.BarButtonItem iAddData;
@@ -1265,15 +1194,8 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemMarqueeProgressBar repositoryItemMarqueeProgressBar1;
         private DevExpress.XtraBars.BarEditItem coordinate_textEdit;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit1;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem3;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem4;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem5;
         private DevExpress.XtraBars.BarButtonItem iNewFeature;
         private DevExpress.XtraBars.BarButtonItem barButtonItem6;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem7;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem8;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem9;
         private DevExpress.XtraBars.BarButtonItem barButtonItem10;
         private DevExpress.XtraBars.BarButtonItem barButtonItem11;
         private DevExpress.XtraBars.BarButtonItem barButtonItem12;
@@ -1302,8 +1224,7 @@
         private DevExpress.XtraBars.BarButtonItem m_redotool;
         private System.Windows.Forms.ToolStripMenuItem fullExtent_ToolStripMenuItem;
         private DevExpress.XtraBars.BarStaticItem m_editinglayer;
-        //private DevExpress.XtraBars.Bar bar2;
-        //private DevExpress.XtraBars.Bar bar3;
+        private ESRI.ArcGIS.Controls.AxTOCControl m_tocControl;
 
     }
 }

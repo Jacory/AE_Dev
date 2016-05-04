@@ -48,6 +48,23 @@ namespace AE_Dev_J
             ESRI.ArcGIS.RuntimeManager.Bind(ESRI.ArcGIS.ProductCode.EngineOrDesktop); // ESRI license
             InitializeComponent();
             InitSkinGallery();
+            //设置地图名称
+            m_mapControl.Map.Name = "Layers";
+            //创建临时文件夹temp
+            DirectoryInfo dir = new DirectoryInfo(Application.StartupPath + "\\temp");
+            if (!dir.Exists)
+            {
+                System.IO.Directory.CreateDirectory(Application.StartupPath + "\\temp");
+            }
+            IWorkspaceFactory pWorkspaceFactory = new ShapefileWorkspaceFactory();
+            IFeatureWorkspace pFeatureWorkspace = pWorkspaceFactory.OpenFromFile(@"D:\2014-2017\GitHub\AE_Dev\qgis_sample_data\shapefiles", 0) as IFeatureWorkspace;
+            IFeatureClass featureclass = pFeatureWorkspace.OpenFeatureClass("airports");
+            IFeatureLayer featurelayer = new FeatureLayerClass();
+            featurelayer.FeatureClass = featureclass;
+            AttributeTableForm att = new AttributeTableForm(featurelayer, m_mapControl);
+            att.Show();
+            //StatisticsAndChartForm statis = new StatisticsAndChartForm();
+            //statis.Show();
         }
 
         void InitSkinGallery()
@@ -130,36 +147,10 @@ namespace AE_Dev_J
         /// <param name="e"></param>
         private void iAddData_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            OpenFileDialog openDialog = new OpenFileDialog();
-
-            openDialog.Title = "打开文件";
-            openDialog.Multiselect = true;
-            openDialog.Filter = "shape files(*.shp)|*.shp|image files(*.img,*.tif,*.tiff,*.dat)|*.img;*.tif;*.tiff;*.dat";
-            if (openDialog.ShowDialog() == DialogResult.OK)
-            {
-                for (int i = 0; i < openDialog.FileNames.Count(); i++)
-                {
-                    string filename = openDialog.FileNames[i];
-                    FileInfo finfo = new FileInfo(filename);
-                    switch (finfo.Extension)
-                    {
-                        case ".shp":
-                            m_mapControl.AddShapeFile(finfo.DirectoryName, finfo.Name);
-                            break;
-
-                        case ".dat":
-                        case ".tif":
-                        case ".tiff":
-                        case ".ntf":
-                        case ".img":
-                            openRasterFile(filename);
-                            break;
-
-                        default:
-                            break;
-                    } // end switch
-                } // end for
-            } // end if
+            ICommand addData = new ControlsAddDataCommandClass();
+            addData.OnCreate(m_mapControl.Object);
+            m_mapControl.CurrentTool = addData as ITool;
+            addData.OnClick();
         }
 
         #endregion
@@ -217,7 +208,8 @@ namespace AE_Dev_J
         /// <param name="e"></param>
         private void iNewFeature_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            AddFeatureClass addafeature = new AddFeatureClass(this.getMapControl());
+            addafeature.ShowDialog();
         }
         #endregion Data Managment 菜单事件
 
@@ -328,11 +320,19 @@ namespace AE_Dev_J
         /// <param name="e"></param>
         private void m_undotool_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (pEngineEditor.EditState == esriEngineEditState.esriEngineStateEditing)
+            if (pEngineEditor != null && pEngineEditor.EditState == esriEngineEditState.esriEngineStateEditing)
             {
+                m_redotool.Enabled = true;
                 IWorkspaceEdit workspaceedit = (IWorkspaceEdit)pEngineEditor.EditWorkspace;
-                workspaceedit.UndoEditOperation();
-                ((IActiveView)m_mapControl.Map).Refresh();
+
+                bool bHasUndo = true;
+                workspaceedit.HasUndos(ref bHasUndo);
+
+                if (bHasUndo)
+                {
+                    workspaceedit.UndoEditOperation();
+                    ((IActiveView)m_mapControl.Map).Refresh();
+                }
             }
         }
 
@@ -345,15 +345,24 @@ namespace AE_Dev_J
         {
             if (pEngineEditor.EditState == esriEngineEditState.esriEngineStateEditing)
             {
+                m_redotool.Enabled = true;
                 IWorkspaceEdit workspaceedit = (IWorkspaceEdit)pEngineEditor.EditWorkspace;
-                workspaceedit.RedoEditOperation();
-                ((IActiveView)m_mapControl.Map).Refresh();
+
+                bool bHasRedo = true;
+                workspaceedit.HasRedos(ref bHasRedo);
+
+                if (bHasRedo)
+                {
+                    workspaceedit.RedoEditOperation();
+                    ((IActiveView)m_mapControl.Map).Refresh();
+                }
             }
         }
 
         #endregion ToolBar 工具条事件
 
         #region m_tocControl右键菜单项
+
         /// <summary>
         /// 打开属性表右键菜单
         /// </summary>
@@ -400,6 +409,8 @@ namespace AE_Dev_J
 
             if (item == esriTOCControlItem.esriTOCControlItemLayer)
             {
+                IDataLayer2 datalayer = selectedLayer as IDataLayer2;
+                datalayer.Disconnect();
                 m_mapControl.Map.DeleteLayer(selectedLayer);
                 if (m_attForm != null && selectedLayer is IFeatureLayer)
                     m_attForm.att_removetable(selectedLayer as IFeatureLayer);
@@ -518,6 +529,7 @@ namespace AE_Dev_J
                 }
             }
         }
+
         #endregion
 
         #region m_tocControl鼠标事件
@@ -738,6 +750,58 @@ namespace AE_Dev_J
 
             m_mapControl.AddLayer(pLayer);
             m_mapControl.Refresh();
+        }
+        /// <summary>
+        /// 关闭主窗口
+        /// </summary>
+        /// <param name="rasfilename">栅格文件名</param>
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            //检查编辑状态
+            if (pEngineEditor != null && pEngineEditor.HasEdits() == false)
+            {
+                pEngineEditor.StopEditing(false);
+            }
+            else
+            {
+                if (pEngineEditor!=null)
+                {
+                    if (MessageBox.Show("Save Edits?", "Save Prompt", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        pEngineEditor.StopEditing(true);
+                    }
+                    else
+                    {
+                        pEngineEditor.StopEditing(false);
+                    }
+                }
+            }
+            //恢复光标
+            ICommand t_editcommand = new ESRI.ArcGIS.Controls.ControlsEditingEditToolClass();
+            t_editcommand.OnCreate(m_mapControl.Object);
+            m_mapControl.CurrentTool = t_editcommand as ITool;
+            t_editcommand.OnClick();
+
+            m_editinglayer.Caption = "当前图层：";
+            map_edittools.Visible = false;
+
+            //解除图层锁
+            for (int i = 0; i < m_mapControl.LayerCount; i++)
+            {
+                IDataLayer2 datalayer = m_mapControl.get_Layer(i) as IDataLayer2;
+                datalayer.Disconnect();
+            }
+            //清空temp文件夹
+            foreach (string d in Directory.GetFileSystemEntries(Application.StartupPath+"\\temp"))
+            {
+                if (File.Exists(d))
+                {
+                    FileInfo fi = new FileInfo(d);
+                    if (fi.Attributes.ToString().IndexOf("ReadOnly") != -1)
+                        fi.Attributes = FileAttributes.Normal;
+                    File.Delete(d);//直接删除其中的文件  
+                }
+            }
         }
 
 
