@@ -23,6 +23,7 @@ using DevExpress.XtraGrid.Menu;
 using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraCharts;
+
 namespace AE_Dev_J.Form
 {
     /// <summary>
@@ -37,6 +38,7 @@ namespace AE_Dev_J.Form
         public AttributeTableForm(IFeatureLayer layer, AxMapControl mapControl)
         {
             InitializeComponent();
+
             flayer_list.Add(layer);
             m_mapControl = mapControl;
         }
@@ -48,6 +50,7 @@ namespace AE_Dev_J.Form
             
             //开始导入属性数据
             importAttribute(flayer_list[0]);
+
             //tool_dockPanel.Visibility = DevExpress.XtraBars.Docking.DockVisibility.AutoHide;
             filter_dockPanel.Visibility = DevExpress.XtraBars.Docking.DockVisibility.AutoHide;
         }
@@ -62,6 +65,7 @@ namespace AE_Dev_J.Form
             //检查文件路径是否存在于当前所有标签页的tag中，避免重复创建表格
             IDataLayer datalayer = featurelayer as IDataLayer;
             IWorkspaceName w_name = ((IDatasetName)(datalayer.DataSourceName)).WorkspaceName;
+
             for (int i = 0; i < att_xtraTabControl1.TabPages.Count; i++)
             {
                 if (w_name.PathName + "\\" + featurelayer.Name + "_" + featurelayer.DataSourceType == att_xtraTabControl1.TabPages[i].Tooltip)
