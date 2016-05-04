@@ -208,11 +208,7 @@ namespace AE_Dev_J
         /// <param name="e"></param>
         private void iNewFeature_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-<<<<<<< HEAD
-            AddFeatureClass addafeature = new AddFeatureClass(this.getMapControl());
-=======
             AddFeatureClassForm addafeature = new AddFeatureClassForm(this.getMapControl());
->>>>>>> refs/remotes/origin/temp
             addafeature.ShowDialog();
         }
         #endregion Data Managment 菜单事件
