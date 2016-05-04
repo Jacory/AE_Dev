@@ -50,7 +50,10 @@ namespace AE_Dev_J.Form
                     //将该列的数据存储进数组
                     for (int j = 0; j < gridview.RowCount; j++)
                     {
-                        if (gridview.GetRowCellValue(j, field.Properties.Caption).ToString()=="")
+                        //MessageBox.Show("'"+gridview.GetRowCellValue(j, field.Properties.Caption).ToString()+"'");
+                        if (gridview.GetRowCellValue(j, field.Properties.Caption).ToString() == "" 
+                            || gridview.GetRowCellValue(j, field.Properties.Caption) == null
+                            || gridview.GetRowCellValue(j, field.Properties.Caption).ToString() == " ")
                         {
                             count++;
                         }
@@ -114,10 +117,13 @@ namespace AE_Dev_J.Form
                     var data = new string[gridview.RowCount];
                     EditorRow row_Nulls = new EditorRow();
                     row_Nulls.Properties.Caption = "Nulls";
+                    //计算空值个数
                     int count = 0;
                     for (int n = 0; n < gridview.RowCount; n++)
                     {
-                        if ( gridview.GetRowCellValue(n, field.Properties.Caption).ToString() == "")
+                        if (gridview.GetRowCellValue(n, field.Properties.Caption).ToString() == "" 
+                            || gridview.GetRowCellValue(n, field.Properties.Caption) == null
+                            ||gridview.GetRowCellValue(n, field.Properties.Caption).ToString()==" ")
                         {
                             count++;
                         }
@@ -158,15 +164,6 @@ namespace AE_Dev_J.Form
             {
                 BaseRow baserow = gridcontrol.FocusedRow;
                 CategoryRow gr = baserow as CategoryRow;
-                //改变HeaderCell字体颜色为红色
-                for (int i = 0; i < gridcontrol.Rows.Count; i++)
-                {
-                    if (gridcontrol.Rows[i].Properties.Caption != gr.Properties.Caption)
-                    {
-                        gridcontrol.Rows[i].Appearance.ForeColor = System.Drawing.Color.Blue;
-                    }
-                }
-                gr.Appearance.ForeColor = System.Drawing.Color.Red;
                 //清除图表数据，重新载入数据
                 for (int i = 0; i < StatisticsChart_chart1.Series.Count; i++)
                 {
@@ -193,7 +190,7 @@ namespace AE_Dev_J.Form
                     List<string> UniqueValue = data.Distinct().ToList();
                     int uniquecount = UniqueValue.Count;
                     //创建图表
-                    Series series1 = new Series("", ViewType.Bar);
+                    Series series1 = new Series(gr.Properties.Caption, ViewType.Bar);
 
                     for (int i = 0; i < uniquecount; i++)
                     {
@@ -204,8 +201,6 @@ namespace AE_Dev_J.Form
                 }
             }
         }
-
-
 
     }
 }

@@ -356,39 +356,5 @@ namespace AE_Dev_J.Form
             m_mapControl.Focus();
         }
 
-        //private void simpleButton1_Click(object sender, EventArgs e)
-        //{
-        //    // Create the first side-by-side bar series and add points to it.
-        //    Series series1 = new Series("name", ViewType.Bar);
-        //    series1.Points.Add(new SeriesPoint("A",new  double[] {10}));
-        //    series1.Points.Add(new SeriesPoint("B", new double[] { 12 }));
-        //    series1.Points.Add(new SeriesPoint("C", new double[] { 14 }));
-        //    series1.Points.Add(new SeriesPoint("D", new double[] { 17 }));
-
-        //    // Create the second side-by-side bar series and add points to it.
-        //    Series series2 = new Series("number", ViewType.Bar);
-        //    series2.Points.Add(new SeriesPoint("A", new double[] { 15 }));
-        //    series2.Points.Add(new SeriesPoint("B", new double[] { 18 }));
-        //    series2.Points.Add(new SeriesPoint("C", new double[] { 25 }));
-        //    series2.Points.Add(new SeriesPoint("D", new double[] { 33 }));
-
-        //    // Add the series to the chart.
-        //    att_chartcontrol.Series.Add(series1);
-        //    att_chartcontrol.Series.Add(series2);
-
-        //    //// Rotate the diagram (if necessary).
-        //    //((XYDiagram)att_chartcontrol.Diagram).Rotated = true;
-
-        //    // Add a title to the chart (if necessary).
-
-        //    ChartTitle chartTitle1 = new ChartTitle();
-        //    chartTitle1.Text = "Bar Chart";
-        //    att_chartcontrol.Titles.Add(chartTitle1);
-
-        //    // Add the chart to the form.
-        //    att_chartcontrol.Dock = DockStyle.Fill;
-        //    tool_dockPanel.Controls.Add(att_chartcontrol);
-        //}
-
     }
 }

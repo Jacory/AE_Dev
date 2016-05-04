@@ -34,16 +34,18 @@
             this.StatisticsChart_dockManager = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
-            this.chart_split = new DevExpress.XtraEditors.SplitContainerControl();
+            this.StatisticsChart_chart2 = new DevExpress.XtraCharts.ChartControl();
             this.StatisticsChart_chart1 = new DevExpress.XtraCharts.ChartControl();
+            this.chart_split = new DevExpress.XtraEditors.SplitContainerControl();
             ((System.ComponentModel.ISupportInitialize)(this.StatisticsAndChart_vGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.StatisticsChart_dockManager)).BeginInit();
             this.dockPanel1.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.StatisticsChart_chart2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.StatisticsChart_chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_split)).BeginInit();
             this.chart_split.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.StatisticsChart_chart1)).BeginInit();
             this.SuspendLayout();
             // 
             // StatisticsAndChart_vGridControl
@@ -106,6 +108,24 @@
             this.dockPanel1_Container.Size = new System.Drawing.Size(238, 353);
             this.dockPanel1_Container.TabIndex = 0;
             // 
+            // StatisticsChart_chart2
+            // 
+            this.StatisticsChart_chart2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.StatisticsChart_chart2.Location = new System.Drawing.Point(0, 0);
+            this.StatisticsChart_chart2.Name = "StatisticsChart_chart2";
+            this.StatisticsChart_chart2.SeriesSerializable = new DevExpress.XtraCharts.Series[0];
+            this.StatisticsChart_chart2.Size = new System.Drawing.Size(412, 269);
+            this.StatisticsChart_chart2.TabIndex = 0;
+            // 
+            // StatisticsChart_chart1
+            // 
+            this.StatisticsChart_chart1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.StatisticsChart_chart1.Location = new System.Drawing.Point(0, 0);
+            this.StatisticsChart_chart1.Name = "StatisticsChart_chart1";
+            this.StatisticsChart_chart1.SeriesSerializable = new DevExpress.XtraCharts.Series[0];
+            this.StatisticsChart_chart1.Size = new System.Drawing.Size(412, 98);
+            this.StatisticsChart_chart1.TabIndex = 0;
+            // 
             // chart_split
             // 
             this.chart_split.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -116,20 +136,12 @@
             this.chart_split.Panel1.Controls.Add(this.StatisticsChart_chart1);
             this.chart_split.Panel1.Text = "Panel1";
             this.chart_split.Panel2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
+            this.chart_split.Panel2.Controls.Add(this.StatisticsChart_chart2);
             this.chart_split.Panel2.Text = "Panel2";
             this.chart_split.Size = new System.Drawing.Size(416, 380);
-            this.chart_split.SplitterPosition = 106;
+            this.chart_split.SplitterPosition = 102;
             this.chart_split.TabIndex = 3;
             this.chart_split.Text = "splitContainerControl1";
-            // 
-            // StatisticsChart_chart1
-            // 
-            this.StatisticsChart_chart1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.StatisticsChart_chart1.Location = new System.Drawing.Point(0, 0);
-            this.StatisticsChart_chart1.Name = "StatisticsChart_chart1";
-            this.StatisticsChart_chart1.SeriesSerializable = new DevExpress.XtraCharts.Series[0];
-            this.StatisticsChart_chart1.Size = new System.Drawing.Size(412, 102);
-            this.StatisticsChart_chart1.TabIndex = 0;
             // 
             // StatisticsAndChartForm
             // 
@@ -146,9 +158,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.StatisticsChart_dockManager)).EndInit();
             this.dockPanel1.ResumeLayout(false);
             this.dockPanel1_Container.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.StatisticsChart_chart2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.StatisticsChart_chart1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_split)).EndInit();
             this.chart_split.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.StatisticsChart_chart1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -159,9 +172,10 @@
         private DevExpress.XtraBars.Docking.DockManager StatisticsChart_dockManager;
         private DevExpress.XtraBars.Docking.DockPanel dockPanel1;
         private DevExpress.XtraBars.Docking.ControlContainer dockPanel1_Container;
-        private DevExpress.XtraEditors.SplitContainerControl chart_split;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit1;
+        private DevExpress.XtraEditors.SplitContainerControl chart_split;
         private DevExpress.XtraCharts.ChartControl StatisticsChart_chart1;
+        private DevExpress.XtraCharts.ChartControl StatisticsChart_chart2;
 
 
     }
