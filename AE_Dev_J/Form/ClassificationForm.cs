@@ -466,6 +466,8 @@ namespace AE_Dev_J.Form
         /// <param name="e"></param>
         private void ok_btn_Click(object sender, EventArgs e)
         {
+            this.class_marqueeProgressBarControl.Show();
+
             // 确认用户配置
             ClassfyMethod classifyMethod = ClassfyMethod.None;
 
@@ -546,6 +548,9 @@ namespace AE_Dev_J.Form
                     MessageBox.Show(exception.ToString(), "Error");
                 }
             }
+
+            // 显示执行完成界面
+            this.classfication_backstageViewControl.SelectedTabIndex = 4;
         }
 
         /// <summary>

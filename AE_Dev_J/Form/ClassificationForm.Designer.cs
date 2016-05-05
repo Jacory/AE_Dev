@@ -29,28 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClassificationForm));
-            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel56 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
-            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel57 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
-            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel58 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
-            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel59 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
-            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel60 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
-            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel61 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
-            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel62 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
-            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel63 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
-            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel64 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
-            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel65 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
-            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel66 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
-            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel67 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
-            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel68 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
-            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel69 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
-            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel70 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
-            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel71 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
-            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel72 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
-            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel73 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
-            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel74 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
-            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel75 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
-            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel76 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
-            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel77 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
             DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel78 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
             DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel79 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
             DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel80 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
@@ -106,6 +84,28 @@
             DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel42 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
             DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel43 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
             DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel44 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
+            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel45 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
+            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel46 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
+            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel47 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
+            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel48 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
+            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel49 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
+            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel50 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
+            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel51 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
+            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel52 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
+            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel53 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
+            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel54 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
+            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel55 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
+            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel56 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
+            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel57 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
+            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel58 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
+            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel59 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
+            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel60 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
+            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel61 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
+            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel62 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
+            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel63 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
+            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel64 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
+            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel65 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
+            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel66 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
             this.tabPageControl_windowsUIButtonPanel = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
             this.classfication_backstageViewControl = new DevExpress.XtraBars.Ribbon.BackstageViewControl();
             this.backstageViewClientControl1 = new DevExpress.XtraBars.Ribbon.BackstageViewClientControl();
@@ -273,6 +273,18 @@
             this.layoutControlItem14 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem17 = new DevExpress.XtraLayout.LayoutControlItem();
             this.backstageViewClientControl4 = new DevExpress.XtraBars.Ribbon.BackstageViewClientControl();
+            this.labelControl19 = new DevExpress.XtraEditors.LabelControl();
+            this.layoutControl7 = new DevExpress.XtraLayout.LayoutControl();
+            this.class_outputfile_textEdit = new DevExpress.XtraEditors.TextEdit();
+            this.class_inputfile_textEdit = new DevExpress.XtraEditors.TextEdit();
+            this.class_method_textEdit = new DevExpress.XtraEditors.TextEdit();
+            this.layoutControlGroup7 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem21 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem20 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem22 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.class_marqueeProgressBarControl = new DevExpress.XtraEditors.MarqueeProgressBarControl();
             this.confirmInfo_memoEdit = new DevExpress.XtraEditors.MemoEdit();
             this.layoutControl5 = new DevExpress.XtraLayout.LayoutControl();
             this.cancel_Btn = new DevExpress.XtraEditors.SimpleButton();
@@ -289,6 +301,8 @@
             this.run_TabItem = new DevExpress.XtraBars.Ribbon.BackstageViewTabItem();
             this.backstageViewItemSeparator1 = new DevExpress.XtraBars.Ribbon.BackstageViewItemSeparator();
             this.finish_TabItem = new DevExpress.XtraBars.Ribbon.BackstageViewTabItem();
+            this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
+            this.labelControl20 = new DevExpress.XtraEditors.LabelControl();
             this.classfication_backstageViewControl.SuspendLayout();
             this.backstageViewClientControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.supervisedMethod_groupControl)).BeginInit();
@@ -485,6 +499,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem17)).BeginInit();
             this.backstageViewClientControl4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl7)).BeginInit();
+            this.layoutControl7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.class_outputfile_textEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.class_inputfile_textEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.class_method_textEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem21)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem22)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.class_marqueeProgressBarControl.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.confirmInfo_memoEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl5)).BeginInit();
             this.layoutControl5.SuspendLayout();
@@ -493,6 +519,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
+            this.backstageViewClientControl5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPageControl_windowsUIButtonPanel
@@ -529,8 +557,8 @@
             this.classfication_backstageViewControl.Location = new System.Drawing.Point(0, 0);
             this.classfication_backstageViewControl.Margin = new System.Windows.Forms.Padding(2);
             this.classfication_backstageViewControl.Name = "classfication_backstageViewControl";
-            this.classfication_backstageViewControl.SelectedTab = this.expData_TabItem;
-            this.classfication_backstageViewControl.SelectedTabIndex = 2;
+            this.classfication_backstageViewControl.SelectedTab = this.finish_TabItem;
+            this.classfication_backstageViewControl.SelectedTabIndex = 5;
             this.classfication_backstageViewControl.Size = new System.Drawing.Size(808, 486);
             this.classfication_backstageViewControl.Style = DevExpress.XtraBars.Ribbon.BackstageViewStyle.Office2010;
             this.classfication_backstageViewControl.TabIndex = 1;
@@ -799,39 +827,39 @@
             this.paralle_thresh_trackBarControl.Name = "paralle_thresh_trackBarControl";
             this.paralle_thresh_trackBarControl.Properties.LabelAppearance.Options.UseTextOptions = true;
             this.paralle_thresh_trackBarControl.Properties.LabelAppearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            trackBarLabel56.Label = "0";
-            trackBarLabel57.Label = "1";
-            trackBarLabel57.Value = 1;
-            trackBarLabel58.Label = "2";
-            trackBarLabel58.Value = 2;
-            trackBarLabel59.Label = "3";
-            trackBarLabel59.Value = 3;
-            trackBarLabel60.Label = "4";
-            trackBarLabel60.Value = 4;
-            trackBarLabel61.Label = "5";
-            trackBarLabel61.Value = 5;
-            trackBarLabel62.Label = "6";
-            trackBarLabel62.Value = 6;
-            trackBarLabel63.Label = "7";
-            trackBarLabel63.Value = 7;
-            trackBarLabel64.Label = "8";
-            trackBarLabel64.Value = 8;
-            trackBarLabel65.Label = "9";
-            trackBarLabel65.Value = 9;
-            trackBarLabel66.Label = "10";
-            trackBarLabel66.Value = 10;
+            trackBarLabel78.Label = "0";
+            trackBarLabel79.Label = "1";
+            trackBarLabel79.Value = 1;
+            trackBarLabel80.Label = "2";
+            trackBarLabel80.Value = 2;
+            trackBarLabel81.Label = "3";
+            trackBarLabel81.Value = 3;
+            trackBarLabel82.Label = "4";
+            trackBarLabel82.Value = 4;
+            trackBarLabel83.Label = "5";
+            trackBarLabel83.Value = 5;
+            trackBarLabel84.Label = "6";
+            trackBarLabel84.Value = 6;
+            trackBarLabel85.Label = "7";
+            trackBarLabel85.Value = 7;
+            trackBarLabel86.Label = "8";
+            trackBarLabel86.Value = 8;
+            trackBarLabel87.Label = "9";
+            trackBarLabel87.Value = 9;
+            trackBarLabel88.Label = "10";
+            trackBarLabel88.Value = 10;
             this.paralle_thresh_trackBarControl.Properties.Labels.AddRange(new DevExpress.XtraEditors.Repository.TrackBarLabel[] {
-            trackBarLabel56,
-            trackBarLabel57,
-            trackBarLabel58,
-            trackBarLabel59,
-            trackBarLabel60,
-            trackBarLabel61,
-            trackBarLabel62,
-            trackBarLabel63,
-            trackBarLabel64,
-            trackBarLabel65,
-            trackBarLabel66});
+            trackBarLabel78,
+            trackBarLabel79,
+            trackBarLabel80,
+            trackBarLabel81,
+            trackBarLabel82,
+            trackBarLabel83,
+            trackBarLabel84,
+            trackBarLabel85,
+            trackBarLabel86,
+            trackBarLabel87,
+            trackBarLabel88});
             this.paralle_thresh_trackBarControl.Properties.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.paralle_thresh_trackBarControl.Properties.ShowLabels = true;
             this.paralle_thresh_trackBarControl.Properties.TickStyle = System.Windows.Forms.TickStyle.Both;
@@ -918,39 +946,39 @@
             this.minDis_error_trackBarControl.Name = "minDis_error_trackBarControl";
             this.minDis_error_trackBarControl.Properties.LabelAppearance.Options.UseTextOptions = true;
             this.minDis_error_trackBarControl.Properties.LabelAppearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            trackBarLabel67.Label = "0";
-            trackBarLabel68.Label = "1";
-            trackBarLabel68.Value = 1;
-            trackBarLabel69.Label = "2";
-            trackBarLabel69.Value = 2;
-            trackBarLabel70.Label = "3";
-            trackBarLabel70.Value = 3;
-            trackBarLabel71.Label = "4";
-            trackBarLabel71.Value = 4;
-            trackBarLabel72.Label = "5";
-            trackBarLabel72.Value = 5;
-            trackBarLabel73.Label = "6";
-            trackBarLabel73.Value = 6;
-            trackBarLabel74.Label = "7";
-            trackBarLabel74.Value = 7;
-            trackBarLabel75.Label = "8";
-            trackBarLabel75.Value = 8;
-            trackBarLabel76.Label = "9";
-            trackBarLabel76.Value = 9;
-            trackBarLabel77.Label = "10";
-            trackBarLabel77.Value = 10;
+            trackBarLabel1.Label = "0";
+            trackBarLabel2.Label = "1";
+            trackBarLabel2.Value = 1;
+            trackBarLabel3.Label = "2";
+            trackBarLabel3.Value = 2;
+            trackBarLabel4.Label = "3";
+            trackBarLabel4.Value = 3;
+            trackBarLabel5.Label = "4";
+            trackBarLabel5.Value = 4;
+            trackBarLabel6.Label = "5";
+            trackBarLabel6.Value = 5;
+            trackBarLabel7.Label = "6";
+            trackBarLabel7.Value = 6;
+            trackBarLabel8.Label = "7";
+            trackBarLabel8.Value = 7;
+            trackBarLabel9.Label = "8";
+            trackBarLabel9.Value = 8;
+            trackBarLabel10.Label = "9";
+            trackBarLabel10.Value = 9;
+            trackBarLabel11.Label = "10";
+            trackBarLabel11.Value = 10;
             this.minDis_error_trackBarControl.Properties.Labels.AddRange(new DevExpress.XtraEditors.Repository.TrackBarLabel[] {
-            trackBarLabel67,
-            trackBarLabel68,
-            trackBarLabel69,
-            trackBarLabel70,
-            trackBarLabel71,
-            trackBarLabel72,
-            trackBarLabel73,
-            trackBarLabel74,
-            trackBarLabel75,
-            trackBarLabel76,
-            trackBarLabel77});
+            trackBarLabel1,
+            trackBarLabel2,
+            trackBarLabel3,
+            trackBarLabel4,
+            trackBarLabel5,
+            trackBarLabel6,
+            trackBarLabel7,
+            trackBarLabel8,
+            trackBarLabel9,
+            trackBarLabel10,
+            trackBarLabel11});
             this.minDis_error_trackBarControl.Properties.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.minDis_error_trackBarControl.Properties.TickStyle = System.Windows.Forms.TickStyle.Both;
             this.minDis_error_trackBarControl.Size = new System.Drawing.Size(45, 135);
@@ -1005,39 +1033,39 @@
             this.minDis_std_trackBarControl.Name = "minDis_std_trackBarControl";
             this.minDis_std_trackBarControl.Properties.LabelAppearance.Options.UseTextOptions = true;
             this.minDis_std_trackBarControl.Properties.LabelAppearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            trackBarLabel78.Label = "0";
-            trackBarLabel79.Label = "1";
-            trackBarLabel79.Value = 1;
-            trackBarLabel80.Label = "2";
-            trackBarLabel80.Value = 2;
-            trackBarLabel81.Label = "3";
-            trackBarLabel81.Value = 3;
-            trackBarLabel82.Label = "4";
-            trackBarLabel82.Value = 4;
-            trackBarLabel83.Label = "5";
-            trackBarLabel83.Value = 5;
-            trackBarLabel84.Label = "6";
-            trackBarLabel84.Value = 6;
-            trackBarLabel85.Label = "7";
-            trackBarLabel85.Value = 7;
-            trackBarLabel86.Label = "8";
-            trackBarLabel86.Value = 8;
-            trackBarLabel87.Label = "9";
-            trackBarLabel87.Value = 9;
-            trackBarLabel88.Label = "10";
-            trackBarLabel88.Value = 10;
+            trackBarLabel12.Label = "0";
+            trackBarLabel13.Label = "1";
+            trackBarLabel13.Value = 1;
+            trackBarLabel14.Label = "2";
+            trackBarLabel14.Value = 2;
+            trackBarLabel15.Label = "3";
+            trackBarLabel15.Value = 3;
+            trackBarLabel16.Label = "4";
+            trackBarLabel16.Value = 4;
+            trackBarLabel17.Label = "5";
+            trackBarLabel17.Value = 5;
+            trackBarLabel18.Label = "6";
+            trackBarLabel18.Value = 6;
+            trackBarLabel19.Label = "7";
+            trackBarLabel19.Value = 7;
+            trackBarLabel20.Label = "8";
+            trackBarLabel20.Value = 8;
+            trackBarLabel21.Label = "9";
+            trackBarLabel21.Value = 9;
+            trackBarLabel22.Label = "10";
+            trackBarLabel22.Value = 10;
             this.minDis_std_trackBarControl.Properties.Labels.AddRange(new DevExpress.XtraEditors.Repository.TrackBarLabel[] {
-            trackBarLabel78,
-            trackBarLabel79,
-            trackBarLabel80,
-            trackBarLabel81,
-            trackBarLabel82,
-            trackBarLabel83,
-            trackBarLabel84,
-            trackBarLabel85,
-            trackBarLabel86,
-            trackBarLabel87,
-            trackBarLabel88});
+            trackBarLabel12,
+            trackBarLabel13,
+            trackBarLabel14,
+            trackBarLabel15,
+            trackBarLabel16,
+            trackBarLabel17,
+            trackBarLabel18,
+            trackBarLabel19,
+            trackBarLabel20,
+            trackBarLabel21,
+            trackBarLabel22});
             this.minDis_std_trackBarControl.Properties.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.minDis_std_trackBarControl.Properties.TickStyle = System.Windows.Forms.TickStyle.Both;
             this.minDis_std_trackBarControl.Size = new System.Drawing.Size(45, 135);
@@ -1200,39 +1228,39 @@
             this.mahDis_thresh_trackBarControl.Name = "mahDis_thresh_trackBarControl";
             this.mahDis_thresh_trackBarControl.Properties.LabelAppearance.Options.UseTextOptions = true;
             this.mahDis_thresh_trackBarControl.Properties.LabelAppearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            trackBarLabel1.Label = "0";
-            trackBarLabel2.Label = "1";
-            trackBarLabel2.Value = 1;
-            trackBarLabel3.Label = "2";
-            trackBarLabel3.Value = 2;
-            trackBarLabel4.Label = "3";
-            trackBarLabel4.Value = 3;
-            trackBarLabel5.Label = "4";
-            trackBarLabel5.Value = 4;
-            trackBarLabel6.Label = "5";
-            trackBarLabel6.Value = 5;
-            trackBarLabel7.Label = "6";
-            trackBarLabel7.Value = 6;
-            trackBarLabel8.Label = "7";
-            trackBarLabel8.Value = 7;
-            trackBarLabel9.Label = "8";
-            trackBarLabel9.Value = 8;
-            trackBarLabel10.Label = "9";
-            trackBarLabel10.Value = 9;
-            trackBarLabel11.Label = "10";
-            trackBarLabel11.Value = 10;
+            trackBarLabel23.Label = "0";
+            trackBarLabel24.Label = "1";
+            trackBarLabel24.Value = 1;
+            trackBarLabel25.Label = "2";
+            trackBarLabel25.Value = 2;
+            trackBarLabel26.Label = "3";
+            trackBarLabel26.Value = 3;
+            trackBarLabel27.Label = "4";
+            trackBarLabel27.Value = 4;
+            trackBarLabel28.Label = "5";
+            trackBarLabel28.Value = 5;
+            trackBarLabel29.Label = "6";
+            trackBarLabel29.Value = 6;
+            trackBarLabel30.Label = "7";
+            trackBarLabel30.Value = 7;
+            trackBarLabel31.Label = "8";
+            trackBarLabel31.Value = 8;
+            trackBarLabel32.Label = "9";
+            trackBarLabel32.Value = 9;
+            trackBarLabel33.Label = "10";
+            trackBarLabel33.Value = 10;
             this.mahDis_thresh_trackBarControl.Properties.Labels.AddRange(new DevExpress.XtraEditors.Repository.TrackBarLabel[] {
-            trackBarLabel1,
-            trackBarLabel2,
-            trackBarLabel3,
-            trackBarLabel4,
-            trackBarLabel5,
-            trackBarLabel6,
-            trackBarLabel7,
-            trackBarLabel8,
-            trackBarLabel9,
-            trackBarLabel10,
-            trackBarLabel11});
+            trackBarLabel23,
+            trackBarLabel24,
+            trackBarLabel25,
+            trackBarLabel26,
+            trackBarLabel27,
+            trackBarLabel28,
+            trackBarLabel29,
+            trackBarLabel30,
+            trackBarLabel31,
+            trackBarLabel32,
+            trackBarLabel33});
             this.mahDis_thresh_trackBarControl.Properties.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.mahDis_thresh_trackBarControl.Properties.TickStyle = System.Windows.Forms.TickStyle.Both;
             this.mahDis_thresh_trackBarControl.Size = new System.Drawing.Size(45, 160);
@@ -1360,39 +1388,39 @@
             this.maxLike_ratio_trackBarControl.Name = "maxLike_ratio_trackBarControl";
             this.maxLike_ratio_trackBarControl.Properties.LabelAppearance.Options.UseTextOptions = true;
             this.maxLike_ratio_trackBarControl.Properties.LabelAppearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            trackBarLabel12.Label = "0";
-            trackBarLabel13.Label = "1";
-            trackBarLabel13.Value = 1;
-            trackBarLabel14.Label = "2";
-            trackBarLabel14.Value = 2;
-            trackBarLabel15.Label = "3";
-            trackBarLabel15.Value = 3;
-            trackBarLabel16.Label = "4";
-            trackBarLabel16.Value = 4;
-            trackBarLabel17.Label = "5";
-            trackBarLabel17.Value = 5;
-            trackBarLabel18.Label = "6";
-            trackBarLabel18.Value = 6;
-            trackBarLabel19.Label = "7";
-            trackBarLabel19.Value = 7;
-            trackBarLabel20.Label = "8";
-            trackBarLabel20.Value = 8;
-            trackBarLabel21.Label = "9";
-            trackBarLabel21.Value = 9;
-            trackBarLabel22.Label = "10";
-            trackBarLabel22.Value = 10;
+            trackBarLabel34.Label = "0";
+            trackBarLabel35.Label = "1";
+            trackBarLabel35.Value = 1;
+            trackBarLabel36.Label = "2";
+            trackBarLabel36.Value = 2;
+            trackBarLabel37.Label = "3";
+            trackBarLabel37.Value = 3;
+            trackBarLabel38.Label = "4";
+            trackBarLabel38.Value = 4;
+            trackBarLabel39.Label = "5";
+            trackBarLabel39.Value = 5;
+            trackBarLabel40.Label = "6";
+            trackBarLabel40.Value = 6;
+            trackBarLabel41.Label = "7";
+            trackBarLabel41.Value = 7;
+            trackBarLabel42.Label = "8";
+            trackBarLabel42.Value = 8;
+            trackBarLabel43.Label = "9";
+            trackBarLabel43.Value = 9;
+            trackBarLabel44.Label = "10";
+            trackBarLabel44.Value = 10;
             this.maxLike_ratio_trackBarControl.Properties.Labels.AddRange(new DevExpress.XtraEditors.Repository.TrackBarLabel[] {
-            trackBarLabel12,
-            trackBarLabel13,
-            trackBarLabel14,
-            trackBarLabel15,
-            trackBarLabel16,
-            trackBarLabel17,
-            trackBarLabel18,
-            trackBarLabel19,
-            trackBarLabel20,
-            trackBarLabel21,
-            trackBarLabel22});
+            trackBarLabel34,
+            trackBarLabel35,
+            trackBarLabel36,
+            trackBarLabel37,
+            trackBarLabel38,
+            trackBarLabel39,
+            trackBarLabel40,
+            trackBarLabel41,
+            trackBarLabel42,
+            trackBarLabel43,
+            trackBarLabel44});
             this.maxLike_ratio_trackBarControl.Properties.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.maxLike_ratio_trackBarControl.Properties.TickStyle = System.Windows.Forms.TickStyle.Both;
             this.maxLike_ratio_trackBarControl.Size = new System.Drawing.Size(45, 113);
@@ -1447,39 +1475,39 @@
             this.maxLike_thresh_trackBarControl.Name = "maxLike_thresh_trackBarControl";
             this.maxLike_thresh_trackBarControl.Properties.LabelAppearance.Options.UseTextOptions = true;
             this.maxLike_thresh_trackBarControl.Properties.LabelAppearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            trackBarLabel23.Label = "0";
-            trackBarLabel24.Label = "1";
-            trackBarLabel24.Value = 1;
-            trackBarLabel25.Label = "2";
-            trackBarLabel25.Value = 2;
-            trackBarLabel26.Label = "3";
-            trackBarLabel26.Value = 3;
-            trackBarLabel27.Label = "4";
-            trackBarLabel27.Value = 4;
-            trackBarLabel28.Label = "5";
-            trackBarLabel28.Value = 5;
-            trackBarLabel29.Label = "6";
-            trackBarLabel29.Value = 6;
-            trackBarLabel30.Label = "7";
-            trackBarLabel30.Value = 7;
-            trackBarLabel31.Label = "8";
-            trackBarLabel31.Value = 8;
-            trackBarLabel32.Label = "9";
-            trackBarLabel32.Value = 9;
-            trackBarLabel33.Label = "10";
-            trackBarLabel33.Value = 10;
+            trackBarLabel45.Label = "0";
+            trackBarLabel46.Label = "1";
+            trackBarLabel46.Value = 1;
+            trackBarLabel47.Label = "2";
+            trackBarLabel47.Value = 2;
+            trackBarLabel48.Label = "3";
+            trackBarLabel48.Value = 3;
+            trackBarLabel49.Label = "4";
+            trackBarLabel49.Value = 4;
+            trackBarLabel50.Label = "5";
+            trackBarLabel50.Value = 5;
+            trackBarLabel51.Label = "6";
+            trackBarLabel51.Value = 6;
+            trackBarLabel52.Label = "7";
+            trackBarLabel52.Value = 7;
+            trackBarLabel53.Label = "8";
+            trackBarLabel53.Value = 8;
+            trackBarLabel54.Label = "9";
+            trackBarLabel54.Value = 9;
+            trackBarLabel55.Label = "10";
+            trackBarLabel55.Value = 10;
             this.maxLike_thresh_trackBarControl.Properties.Labels.AddRange(new DevExpress.XtraEditors.Repository.TrackBarLabel[] {
-            trackBarLabel23,
-            trackBarLabel24,
-            trackBarLabel25,
-            trackBarLabel26,
-            trackBarLabel27,
-            trackBarLabel28,
-            trackBarLabel29,
-            trackBarLabel30,
-            trackBarLabel31,
-            trackBarLabel32,
-            trackBarLabel33});
+            trackBarLabel45,
+            trackBarLabel46,
+            trackBarLabel47,
+            trackBarLabel48,
+            trackBarLabel49,
+            trackBarLabel50,
+            trackBarLabel51,
+            trackBarLabel52,
+            trackBarLabel53,
+            trackBarLabel54,
+            trackBarLabel55});
             this.maxLike_thresh_trackBarControl.Properties.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.maxLike_thresh_trackBarControl.Properties.TickStyle = System.Windows.Forms.TickStyle.Both;
             this.maxLike_thresh_trackBarControl.Size = new System.Drawing.Size(45, 113);
@@ -1599,39 +1627,39 @@
             this.trackBarControl6.Name = "trackBarControl6";
             this.trackBarControl6.Properties.LabelAppearance.Options.UseTextOptions = true;
             this.trackBarControl6.Properties.LabelAppearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            trackBarLabel34.Label = "0";
-            trackBarLabel35.Label = "1";
-            trackBarLabel35.Value = 1;
-            trackBarLabel36.Label = "2";
-            trackBarLabel36.Value = 2;
-            trackBarLabel37.Label = "3";
-            trackBarLabel37.Value = 3;
-            trackBarLabel38.Label = "4";
-            trackBarLabel38.Value = 4;
-            trackBarLabel39.Label = "5";
-            trackBarLabel39.Value = 5;
-            trackBarLabel40.Label = "6";
-            trackBarLabel40.Value = 6;
-            trackBarLabel41.Label = "7";
-            trackBarLabel41.Value = 7;
-            trackBarLabel42.Label = "8";
-            trackBarLabel42.Value = 8;
-            trackBarLabel43.Label = "9";
-            trackBarLabel43.Value = 9;
-            trackBarLabel44.Label = "10";
-            trackBarLabel44.Value = 10;
+            trackBarLabel56.Label = "0";
+            trackBarLabel57.Label = "1";
+            trackBarLabel57.Value = 1;
+            trackBarLabel58.Label = "2";
+            trackBarLabel58.Value = 2;
+            trackBarLabel59.Label = "3";
+            trackBarLabel59.Value = 3;
+            trackBarLabel60.Label = "4";
+            trackBarLabel60.Value = 4;
+            trackBarLabel61.Label = "5";
+            trackBarLabel61.Value = 5;
+            trackBarLabel62.Label = "6";
+            trackBarLabel62.Value = 6;
+            trackBarLabel63.Label = "7";
+            trackBarLabel63.Value = 7;
+            trackBarLabel64.Label = "8";
+            trackBarLabel64.Value = 8;
+            trackBarLabel65.Label = "9";
+            trackBarLabel65.Value = 9;
+            trackBarLabel66.Label = "10";
+            trackBarLabel66.Value = 10;
             this.trackBarControl6.Properties.Labels.AddRange(new DevExpress.XtraEditors.Repository.TrackBarLabel[] {
-            trackBarLabel34,
-            trackBarLabel35,
-            trackBarLabel36,
-            trackBarLabel37,
-            trackBarLabel38,
-            trackBarLabel39,
-            trackBarLabel40,
-            trackBarLabel41,
-            trackBarLabel42,
-            trackBarLabel43,
-            trackBarLabel44});
+            trackBarLabel56,
+            trackBarLabel57,
+            trackBarLabel58,
+            trackBarLabel59,
+            trackBarLabel60,
+            trackBarLabel61,
+            trackBarLabel62,
+            trackBarLabel63,
+            trackBarLabel64,
+            trackBarLabel65,
+            trackBarLabel66});
             this.trackBarControl6.Properties.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.trackBarControl6.Properties.TickStyle = System.Windows.Forms.TickStyle.Both;
             this.trackBarControl6.Size = new System.Drawing.Size(45, 189);
@@ -3011,6 +3039,9 @@
             // 
             // backstageViewClientControl4
             // 
+            this.backstageViewClientControl4.Controls.Add(this.labelControl19);
+            this.backstageViewClientControl4.Controls.Add(this.layoutControl7);
+            this.backstageViewClientControl4.Controls.Add(this.class_marqueeProgressBarControl);
             this.backstageViewClientControl4.Controls.Add(this.confirmInfo_memoEdit);
             this.backstageViewClientControl4.Controls.Add(this.layoutControl5);
             this.backstageViewClientControl4.Location = new System.Drawing.Point(141, 0);
@@ -3018,6 +3049,127 @@
             this.backstageViewClientControl4.Name = "backstageViewClientControl4";
             this.backstageViewClientControl4.Size = new System.Drawing.Size(667, 486);
             this.backstageViewClientControl4.TabIndex = 3;
+            // 
+            // labelControl19
+            // 
+            this.labelControl19.Location = new System.Drawing.Point(216, 369);
+            this.labelControl19.Name = "labelControl19";
+            this.labelControl19.Size = new System.Drawing.Size(224, 14);
+            this.labelControl19.TabIndex = 8;
+            this.labelControl19.Text = "确认设置请点击“运行”，否则请点击“取消”";
+            // 
+            // layoutControl7
+            // 
+            this.layoutControl7.Controls.Add(this.class_outputfile_textEdit);
+            this.layoutControl7.Controls.Add(this.class_inputfile_textEdit);
+            this.layoutControl7.Controls.Add(this.class_method_textEdit);
+            this.layoutControl7.Location = new System.Drawing.Point(24, 30);
+            this.layoutControl7.Name = "layoutControl7";
+            this.layoutControl7.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(608, 348, 250, 350);
+            this.layoutControl7.Root = this.layoutControlGroup7;
+            this.layoutControl7.Size = new System.Drawing.Size(517, 151);
+            this.layoutControl7.TabIndex = 3;
+            this.layoutControl7.Text = "layoutControl7";
+            // 
+            // class_outputfile_textEdit
+            // 
+            this.class_outputfile_textEdit.Location = new System.Drawing.Point(75, 119);
+            this.class_outputfile_textEdit.Name = "class_outputfile_textEdit";
+            this.class_outputfile_textEdit.Size = new System.Drawing.Size(430, 20);
+            this.class_outputfile_textEdit.StyleController = this.layoutControl7;
+            this.class_outputfile_textEdit.TabIndex = 7;
+            // 
+            // class_inputfile_textEdit
+            // 
+            this.class_inputfile_textEdit.Location = new System.Drawing.Point(75, 63);
+            this.class_inputfile_textEdit.Name = "class_inputfile_textEdit";
+            this.class_inputfile_textEdit.Size = new System.Drawing.Size(430, 20);
+            this.class_inputfile_textEdit.StyleController = this.layoutControl7;
+            this.class_inputfile_textEdit.TabIndex = 6;
+            // 
+            // class_method_textEdit
+            // 
+            this.class_method_textEdit.Location = new System.Drawing.Point(75, 12);
+            this.class_method_textEdit.Name = "class_method_textEdit";
+            this.class_method_textEdit.Size = new System.Drawing.Size(430, 20);
+            this.class_method_textEdit.StyleController = this.layoutControl7;
+            this.class_method_textEdit.TabIndex = 5;
+            // 
+            // layoutControlGroup7
+            // 
+            this.layoutControlGroup7.CustomizationFormText = "layoutControlGroup7";
+            this.layoutControlGroup7.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup7.GroupBordersVisible = false;
+            this.layoutControlGroup7.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem21,
+            this.layoutControlItem20,
+            this.layoutControlItem22,
+            this.emptySpaceItem3,
+            this.emptySpaceItem4});
+            this.layoutControlGroup7.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup7.Name = "layoutControlGroup7";
+            this.layoutControlGroup7.Size = new System.Drawing.Size(517, 151);
+            this.layoutControlGroup7.Text = "layoutControlGroup7";
+            // 
+            // layoutControlItem21
+            // 
+            this.layoutControlItem21.Control = this.class_method_textEdit;
+            this.layoutControlItem21.CustomizationFormText = "method";
+            this.layoutControlItem21.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem21.Name = "layoutControlItem21";
+            this.layoutControlItem21.Size = new System.Drawing.Size(497, 24);
+            this.layoutControlItem21.Text = "分类方法：";
+            this.layoutControlItem21.TextSize = new System.Drawing.Size(60, 14);
+            // 
+            // layoutControlItem20
+            // 
+            this.layoutControlItem20.Control = this.class_inputfile_textEdit;
+            this.layoutControlItem20.CustomizationFormText = "input file";
+            this.layoutControlItem20.Location = new System.Drawing.Point(0, 51);
+            this.layoutControlItem20.Name = "layoutControlItem20";
+            this.layoutControlItem20.Size = new System.Drawing.Size(497, 24);
+            this.layoutControlItem20.Text = "输入文件：";
+            this.layoutControlItem20.TextSize = new System.Drawing.Size(60, 14);
+            // 
+            // layoutControlItem22
+            // 
+            this.layoutControlItem22.Control = this.class_outputfile_textEdit;
+            this.layoutControlItem22.CustomizationFormText = "output file";
+            this.layoutControlItem22.Location = new System.Drawing.Point(0, 107);
+            this.layoutControlItem22.Name = "layoutControlItem22";
+            this.layoutControlItem22.Size = new System.Drawing.Size(497, 24);
+            this.layoutControlItem22.Text = "输出文件：";
+            this.layoutControlItem22.TextSize = new System.Drawing.Size(60, 14);
+            // 
+            // emptySpaceItem3
+            // 
+            this.emptySpaceItem3.AllowHotTrack = false;
+            this.emptySpaceItem3.CustomizationFormText = "emptySpaceItem3";
+            this.emptySpaceItem3.Location = new System.Drawing.Point(0, 75);
+            this.emptySpaceItem3.Name = "emptySpaceItem3";
+            this.emptySpaceItem3.Size = new System.Drawing.Size(497, 32);
+            this.emptySpaceItem3.Text = "emptySpaceItem3";
+            this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // emptySpaceItem4
+            // 
+            this.emptySpaceItem4.AllowHotTrack = false;
+            this.emptySpaceItem4.CustomizationFormText = "emptySpaceItem4";
+            this.emptySpaceItem4.Location = new System.Drawing.Point(0, 24);
+            this.emptySpaceItem4.Name = "emptySpaceItem4";
+            this.emptySpaceItem4.Size = new System.Drawing.Size(497, 27);
+            this.emptySpaceItem4.Text = "emptySpaceItem4";
+            this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // class_marqueeProgressBarControl
+            // 
+            this.class_marqueeProgressBarControl.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.class_marqueeProgressBarControl.EditValue = 0;
+            this.class_marqueeProgressBarControl.Location = new System.Drawing.Point(0, 404);
+            this.class_marqueeProgressBarControl.Name = "class_marqueeProgressBarControl";
+            this.class_marqueeProgressBarControl.Size = new System.Drawing.Size(667, 34);
+            this.class_marqueeProgressBarControl.TabIndex = 2;
+            this.class_marqueeProgressBarControl.Visible = false;
             // 
             // confirmInfo_memoEdit
             // 
@@ -3123,6 +3275,8 @@
             // 
             // backstageViewClientControl5
             // 
+            this.backstageViewClientControl5.Controls.Add(this.labelControl20);
+            this.backstageViewClientControl5.Controls.Add(this.pictureEdit1);
             this.backstageViewClientControl5.Location = new System.Drawing.Point(141, 0);
             this.backstageViewClientControl5.Margin = new System.Windows.Forms.Padding(2);
             this.backstageViewClientControl5.Name = "backstageViewClientControl5";
@@ -3148,7 +3302,7 @@
             this.expData_TabItem.Caption = "Export Data";
             this.expData_TabItem.ContentControl = this.backstageViewClientControl3;
             this.expData_TabItem.Name = "expData_TabItem";
-            this.expData_TabItem.Selected = true;
+            this.expData_TabItem.Selected = false;
             // 
             // run_TabItem
             // 
@@ -3166,7 +3320,28 @@
             this.finish_TabItem.Caption = "Finish";
             this.finish_TabItem.ContentControl = this.backstageViewClientControl5;
             this.finish_TabItem.Name = "finish_TabItem";
-            this.finish_TabItem.Selected = false;
+            this.finish_TabItem.Selected = true;
+            // 
+            // pictureEdit1
+            // 
+            this.pictureEdit1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureEdit1.EditValue = ((object)(resources.GetObject("pictureEdit1.EditValue")));
+            this.pictureEdit1.Location = new System.Drawing.Point(0, 0);
+            this.pictureEdit1.Name = "pictureEdit1";
+            this.pictureEdit1.Properties.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureEdit1.Properties.InitialImage")));
+            this.pictureEdit1.Size = new System.Drawing.Size(667, 486);
+            this.pictureEdit1.TabIndex = 0;
+            // 
+            // labelControl20
+            // 
+            this.labelControl20.Appearance.Font = new System.Drawing.Font("微软雅黑", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelControl20.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.labelControl20.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.labelControl20.Location = new System.Drawing.Point(0, 447);
+            this.labelControl20.Name = "labelControl20";
+            this.labelControl20.Size = new System.Drawing.Size(203, 39);
+            this.labelControl20.TabIndex = 1;
+            this.labelControl20.Text = "分类执行完成！";
             // 
             // ClassificationForm
             // 
@@ -3392,6 +3567,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem17)).EndInit();
             this.backstageViewClientControl4.ResumeLayout(false);
+            this.backstageViewClientControl4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl7)).EndInit();
+            this.layoutControl7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.class_outputfile_textEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.class_inputfile_textEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.class_method_textEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem21)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem22)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.class_marqueeProgressBarControl.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.confirmInfo_memoEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl5)).EndInit();
             this.layoutControl5.ResumeLayout(false);
@@ -3400,6 +3588,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
+            this.backstageViewClientControl5.ResumeLayout(false);
+            this.backstageViewClientControl5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -3589,6 +3780,20 @@
         private DevExpress.XtraEditors.GroupControl singleMode_groupControl;
         private DevExpress.XtraEditors.CheckEdit singleMode_checkEdit;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem17;
+        private DevExpress.XtraLayout.LayoutControl layoutControl7;
+        private DevExpress.XtraEditors.TextEdit class_outputfile_textEdit;
+        private DevExpress.XtraEditors.TextEdit class_inputfile_textEdit;
+        private DevExpress.XtraEditors.TextEdit class_method_textEdit;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup7;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem21;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem20;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem22;
+        private DevExpress.XtraEditors.MarqueeProgressBarControl class_marqueeProgressBarControl;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem3;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem4;
+        private DevExpress.XtraEditors.LabelControl labelControl19;
+        private DevExpress.XtraEditors.LabelControl labelControl20;
+        private DevExpress.XtraEditors.PictureEdit pictureEdit1;
 
     }
 }
