@@ -1,3 +1,6 @@
+; Author : Jacory Gao
+; Description : post classification process
+;
 pro clump_seive, input, output, methodType, kSizeX, KSizeY
   COMPILE_OPT idl2
   Envi, /RESTORE_BASE_SAVE_FILES

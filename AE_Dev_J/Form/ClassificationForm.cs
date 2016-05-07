@@ -63,6 +63,31 @@ namespace AE_Dev_J.Form
             showOnlyIndexTabPage(0, this.unsuper_param_xtraTabControl);
         }
 
+        /// <summary>
+        /// 用于控制面板的翻页
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tabPageControl_windowsUIButtonPanel_ButtonClick(object sender, DevExpress.XtraBars.Docking2010.ButtonEventArgs e)
+        {
+            DevExpress.XtraEditors.ButtonPanel.IBaseButton preBtn = this.tabPageControl_windowsUIButtonPanel.Buttons[0];
+            DevExpress.XtraEditors.ButtonPanel.IBaseButton nextBtn = this.tabPageControl_windowsUIButtonPanel.Buttons[1];
+
+            if (e.Button == preBtn &&
+                this.classfication_backstageViewControl.SelectedTabIndex != 0)
+            {
+                this.classfication_backstageViewControl.SelectedTabIndex -= 1;
+            }
+            else if (e.Button == nextBtn)
+            {
+                if (preBtn.Properties.Enabled == false)
+                    preBtn.Properties.Enabled = true;
+                this.classfication_backstageViewControl.SelectedTabIndex += 1;
+                if (this.classfication_backstageViewControl.SelectedTab != null)
+                    this.classfication_backstageViewControl.SelectedTab.Enabled = true;
+            }
+        }
+
         #region Select Method 面板界面逻辑
 
         /// <summary>
@@ -101,6 +126,45 @@ namespace AE_Dev_J.Form
                 this.paramSetting_xtraTabControl.TabPages[1].PageVisible = true;
             }
             else { this.unsuperviseMethod_radioGroup.Enabled = false; }
+        }
+
+        /// <summary>
+        /// 分类方法选择事件，控制监督分类参数配置面板显示的方法参数
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void superviseMethod_radioGroup_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = this.superviseMethod_radioGroup.SelectedIndex;
+
+            showOnlyIndexTabPage(index, this.super_param_xtraTabControl);
+        }
+
+        /// <summary>
+        /// 分类方法选择事件，控制非监督分类参数配置面板显示的方法参数
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void unsuperviseMethod_radioGroup_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = this.unsuperviseMethod_radioGroup.SelectedIndex;
+            showOnlyIndexTabPage(index, this.unsuper_param_xtraTabControl);
+        }
+
+        /// <summary>
+        /// 用于设置仅显示指定index位置的tab页面
+        /// </summary>
+        /// <param name="index">要显示页面的index</param>
+        /// <param name="tabControl">Tab Control</param>
+        private void showOnlyIndexTabPage(int index, DevExpress.XtraTab.XtraTabControl tabControl)
+        {
+            if (index < 0 || index >= tabControl.TabPages.Count) return;
+
+            for (int i = 0; i < tabControl.TabPages.Count; i++)
+            {
+                tabControl.TabPages[i].PageVisible = false;
+            }
+            tabControl.TabPages[index].PageVisible = true;
         }
 
         #endregion Select Method 面板界面逻辑
@@ -341,45 +405,7 @@ namespace AE_Dev_J.Form
         #endregion 支持向量机
 
         #region ISODATA
-        private void isodata_maxIter_spinEdit_ValueChanged(object sender, EventArgs e)
-        {
-            this.isodata_maxIter_trackBarControl.Value = (Int32)this.isodata_maxIter_spinEdit.Value;
-        }
-
-        private void isodata_maxIter_trackBarControl_ValueChanged(object sender, EventArgs e)
-        {
-            this.isodata_maxIter_spinEdit.Value = (Decimal)this.isodata_maxIter_trackBarControl.Value;
-        }
-
-        private void isodata_chgThresh_spinEdit_ValueChanged(object sender, EventArgs e)
-        {
-            this.isodata_chgThresh_trackBarControl.Value = (Int32)this.isodata_chgThresh_spinEdit.Value;
-        }
-
-        private void isodata_chgThresh_trackBarControl_ValueChanged(object sender, EventArgs e)
-        {
-            this.isodata_chgThresh_spinEdit.Value = (Decimal)this.isodata_chgThresh_trackBarControl.Value;
-        }
-
-        private void isodata_maxMergePixel_trackBarControl_ValueChanged(object sender, EventArgs e)
-        {
-            this.isodata_maxMergePixel_spinEdit.Value = (Decimal)this.isodata_maxMergePixel_trackBarControl.Value;
-        }
-
-        private void isodata_maxMergePixel_spinEdit_ValueChanged(object sender, EventArgs e)
-        {
-            this.isodata_maxMergePixel_trackBarControl.Value = (Int32)this.isodata_maxMergePixel_spinEdit.Value;
-        }
-
-        private void isodata_minClassPixels_trackBarControl_ValueChanged(object sender, EventArgs e)
-        {
-            this.isodata_minClassPixels_spinEdit.Value = (Decimal)this.isodata_minClassPixels_trackBarControl.Value;
-        }
-
-        private void isodata_minClassPixels_spinEdit_ValueChanged(object sender, EventArgs e)
-        {
-            this.isodata_minClassPixels_trackBarControl.Value = (Int32)this.isodata_minClassPixels_spinEdit.Value;
-        }
+        
         #endregion ISODATA
 
         #endregion set parameters 面板界面逻辑
@@ -480,6 +506,10 @@ namespace AE_Dev_J.Form
 
             if (classifyMethod == ClassfyMethod.None) return;
 
+            int mode = 0;
+            if (singleMode_checkEdit.Checked == true) mode = 0;
+            else if (batchMode_checkEdit.Checked == true) mode = 1;
+
             string proFilename = null;
             string runStr = null;
             switch (classifyMethod)
@@ -522,10 +552,26 @@ namespace AE_Dev_J.Form
 
                 case ClassfyMethod.IsoData:
                     proFilename = "isodata.pro";
+                    runStr = proFilename + ", '" + inDataFile_btn.Text + "','"
+                                + outDataFile_btn.Text + "',"
+                                + isodata_maxIter_spinEdit.Value + ","
+                                + isodata_chgThresh_spinEdit.Value + ","
+                                + isodata_minDis_spinEdit.Value + ","
+                                + isodata_maxMergePixel_spinEdit.Value + ","
+                                + isodata_minClassPixels_spinEdit.Value + ","
+                                + isodata_maxStd_spinEdit.Value + ","
+                                + isodata_minClasses_spinEdit.Value + ","
+                                + mode;
                     break;
 
                 case ClassfyMethod.KMeans:
                     proFilename = "k_means.pro";
+                    runStr = proFilename + ", '" + inDataFile_btn.Text + "','"
+                                + outDataFile_btn.Text + "',"
+                                + kmeans_numClasses_spinEdit.Value + ","
+                                + kmeans_maxIter_spinEdit.Value + ","
+                                + kmeans_changeThresh_spinEdit.Value
+                                + mode;
                     break;
 
                 default:
@@ -550,7 +596,8 @@ namespace AE_Dev_J.Form
             }
 
             // 显示执行完成界面
-            this.classfication_backstageViewControl.SelectedTabIndex = 4;
+            this.finish_TabItem.Enabled = true;
+            this.classfication_backstageViewControl.SelectedTab = this.finish_TabItem;
         }
 
         /// <summary>
@@ -564,73 +611,6 @@ namespace AE_Dev_J.Form
         }
 
         #endregion run 面板界面逻辑
-
-        /// <summary>
-        /// 用于控制面板的翻页
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void tabPageControl_windowsUIButtonPanel_ButtonClick(object sender, DevExpress.XtraBars.Docking2010.ButtonEventArgs e)
-        {
-            DevExpress.XtraEditors.ButtonPanel.IBaseButton preBtn = this.tabPageControl_windowsUIButtonPanel.Buttons[0];
-            DevExpress.XtraEditors.ButtonPanel.IBaseButton nextBtn = this.tabPageControl_windowsUIButtonPanel.Buttons[1];
-
-            if (e.Button == preBtn &&
-                this.classfication_backstageViewControl.SelectedTabIndex != 0)
-            {
-                this.classfication_backstageViewControl.SelectedTabIndex -= 1;
-            }
-            else if (e.Button == nextBtn)
-            {
-                if (preBtn.Properties.Enabled == false)
-                    preBtn.Properties.Enabled = true;
-                this.classfication_backstageViewControl.SelectedTabIndex += 1;
-                if (this.classfication_backstageViewControl.SelectedTab != null)
-                    this.classfication_backstageViewControl.SelectedTab.Enabled = true;
-            }
-        }
-
-        /// <summary>
-        /// 分类方法选择事件，控制监督分类参数配置面板显示的方法参数
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void superviseMethod_radioGroup_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            int index = this.superviseMethod_radioGroup.SelectedIndex;
-
-            showOnlyIndexTabPage(index, this.super_param_xtraTabControl);
-        }
-
-        /// <summary>
-        /// 分类方法选择事件，控制非监督分类参数配置面板显示的方法参数
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void unsuperviseMethod_radioGroup_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            int index = this.unsuperviseMethod_radioGroup.SelectedIndex;
-            showOnlyIndexTabPage(index, this.unsuper_param_xtraTabControl);
-        }
-
-        /// <summary>
-        /// 用于设置仅显示指定index位置的tab页面
-        /// </summary>
-        /// <param name="index">要显示页面的index</param>
-        /// <param name="tabControl">Tab Control</param>
-        private void showOnlyIndexTabPage(int index, DevExpress.XtraTab.XtraTabControl tabControl)
-        {
-            if (index < 0 || index >= tabControl.TabPages.Count) return;
-
-            for (int i = 0; i < tabControl.TabPages.Count; i++)
-            {
-                tabControl.TabPages[i].PageVisible = false;
-            }
-            tabControl.TabPages[index].PageVisible = true;
-        }
-
-       
-
         
     }
 }
