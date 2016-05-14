@@ -43,6 +43,66 @@ namespace AE_Dev_J
 
         #endregion 私有成员变量
 
+
+        /// <summary>
+        /// 打开栅格文件.
+        /// </summary>
+        /// <param name="rasfilename">栅格文件路径</param>
+        public void openRasterFile(string rasfilename)
+        {
+            FileInfo finfo = new FileInfo(rasfilename);
+
+            IWorkspaceFactory pWorkspaceFacotry = new RasterWorkspaceFactory();
+            IWorkspace pWorkspace = pWorkspaceFacotry.OpenFromFile(finfo.DirectoryName, 0);
+            IRasterWorkspace pRasterWorkspace = pWorkspace as IRasterWorkspace;
+            IRasterDataset pRasterDataset = pRasterWorkspace.OpenRasterDataset(finfo.Name);
+
+            // 影像金字塔的判断与创建
+            IRasterPyramid pRasterPyamid = pRasterDataset as IRasterPyramid;
+            if (pRasterPyamid != null)
+            {
+                if (!(pRasterPyamid.Present))
+                {
+                    pRasterPyamid.Create();
+                }
+            }
+            // 多波段图像
+            IRasterBandCollection pRasterBands = (IRasterBandCollection)pRasterDataset;
+            int pBandCount = pRasterBands.Count;
+            IRaster pRaster = null;
+            if (pBandCount > 3)
+            {
+                pRaster = (pRasterDataset as IRasterDataset2).CreateFullRaster();
+            }
+            else
+            {
+                pRaster = pRasterDataset.CreateDefaultRaster();
+            }
+
+            IRasterLayer pRasterLayer = new RasterLayer();
+            pRasterLayer.CreateFromRaster(pRaster);
+
+            pBandCount = pRasterLayer.BandCount;
+
+            ILayer pLayer = pRasterLayer as ILayer;
+
+            m_mapControl.AddLayer(pLayer);
+            m_mapControl.Refresh();
+        }
+
+        /// <summary>
+        /// 打开矢量文件
+        /// </summary>
+        /// <param name="vecFilename">矢量文件路径</param>
+        public void openVectorFile(string vecFilename)
+        {
+            FileInfo finfo = new FileInfo(vecFilename);
+
+            if (finfo.Extension == ".shp")
+                m_mapControl.AddShapeFile(finfo.DirectoryName, finfo.Name);
+        }
+
+
         public MainForm()
         {
             ESRI.ArcGIS.RuntimeManager.Bind(ESRI.ArcGIS.ProductCode.EngineOrDesktop); // ESRI license
@@ -699,51 +759,6 @@ namespace AE_Dev_J
         }
 
         /// <summary>
-        /// 打开栅格文件.
-        /// </summary>
-        /// <param name="rasfilename">栅格文件名</param>
-        private void openRasterFile(string rasfilename)
-        {
-            FileInfo finfo = new FileInfo(rasfilename);
-
-            IWorkspaceFactory pWorkspaceFacotry = new RasterWorkspaceFactory();
-            IWorkspace pWorkspace = pWorkspaceFacotry.OpenFromFile(finfo.DirectoryName, 0);
-            IRasterWorkspace pRasterWorkspace = pWorkspace as IRasterWorkspace;
-            IRasterDataset pRasterDataset = pRasterWorkspace.OpenRasterDataset(finfo.Name);
-
-            // 影像金字塔的判断与创建
-            IRasterPyramid pRasterPyamid = pRasterDataset as IRasterPyramid;
-            if (pRasterPyamid != null)
-            {
-                if (!(pRasterPyamid.Present))
-                {
-                    pRasterPyamid.Create();
-                }
-            }
-            // 多波段图像
-            IRasterBandCollection pRasterBands = (IRasterBandCollection)pRasterDataset;
-            int pBandCount = pRasterBands.Count;
-            IRaster pRaster = null;
-            if (pBandCount > 3)
-            {
-                pRaster = (pRasterDataset as IRasterDataset2).CreateFullRaster();
-            }
-            else
-            {
-                pRaster = pRasterDataset.CreateDefaultRaster();
-            }
-
-            IRasterLayer pRasterLayer = new RasterLayer();
-            pRasterLayer.CreateFromRaster(pRaster);
-
-            pBandCount = pRasterLayer.BandCount;
-
-            ILayer pLayer = pRasterLayer as ILayer;
-
-            m_mapControl.AddLayer(pLayer);
-            m_mapControl.Refresh();
-        }
-        /// <summary>
         /// 关闭主窗口
         /// </summary>
         /// <param name="rasfilename">栅格文件名</param>
@@ -795,7 +810,6 @@ namespace AE_Dev_J
                 }
             }
         }
-
 
     }
 }
