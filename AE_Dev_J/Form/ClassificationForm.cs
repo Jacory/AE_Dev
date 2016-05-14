@@ -7,6 +7,7 @@ using System.Text;
 using System.Linq;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using System.Threading;
 
 namespace AE_Dev_J.Form
 {
@@ -17,10 +18,16 @@ namespace AE_Dev_J.Form
         private string m_inDataPath = ""; // 输入文件路径，若是批处理模式，则为文件夹路径
         private string m_outDataPath = ""; // 输出文件路径，若是批处理模式，则为文件夹路径
 
+        private ClassifyMethod m_selectedMethod = ClassifyMethod.None; // 指定用户选择的算法
+        private bool m_processIsDone = false; // 指定算法的是否执行完毕
+
+        static string m_runStr = null;
+        static string m_proFileFullPath = null;
+
         /// <summary>
         /// 分类方法枚举
         /// </summary>
-        public enum ClassfyMethod
+        public enum ClassifyMethod
         {
             None,
             Parallelepiped,
@@ -80,11 +87,82 @@ namespace AE_Dev_J.Form
             }
             else if (e.Button == nextBtn)
             {
-                if (preBtn.Properties.Enabled == false)
-                    preBtn.Properties.Enabled = true;
-                this.classfication_backstageViewControl.SelectedTabIndex += 1;
-                if (this.classfication_backstageViewControl.SelectedTab != null)
-                    this.classfication_backstageViewControl.SelectedTab.Enabled = true;
+                int currentTabIndex = this.classfication_backstageViewControl.SelectedTabIndex;
+
+                switch (currentTabIndex) 
+                {
+                    case 0: // Select Method面板
+                        if (supervise_checkEdit.Checked == false && unsupervise_checkEdit.Checked == false)
+                        {
+                            MessageBox.Show("Please select a method.");
+                            return;
+                        }
+                        else
+                        {
+                            if (supervise_checkEdit.Checked == true)
+                                this.m_selectedMethod = (ClassifyMethod)(superviseMethod_radioGroup.SelectedIndex + 1);
+                            else if (unsupervise_checkEdit.Checked == true)
+                                this.m_selectedMethod = (ClassifyMethod)(unsuperviseMethod_radioGroup.SelectedIndex + 1 + 9);
+
+                            if (preBtn.Properties.Enabled == false)
+                                preBtn.Properties.Enabled = true;
+                            
+                            turnNextTabPage();
+                        }
+                        break;
+
+                    case 1: // Set Parameters面板
+                        turnNextTabPage();
+                        break;
+
+                    case 2: // Export Data面板
+                        string inputPath = "";
+                        string outputPath = "";
+                        if (singleMode_checkEdit.Checked == true)
+                        {
+                            if (inDataFile_btn.Text == "")
+                            { MessageBox.Show("Please enter the input file."); return; }
+                            if (outDataFile_btn.Text == "")
+                            { MessageBox.Show("Please enter the output file."); return; }
+
+                            inputPath = this.inDataFile_btn.Text;
+                            outputPath = this.outDataFile_btn.Text;
+                        }
+                        else if (batchMode_checkEdit.Checked == true)
+                        {
+                            if (inDataFolder_btn.Text == "")
+                            { MessageBox.Show("Please enter the input file folder."); return; }
+                            if (outDataFolder_btn.Text == "")
+                            { MessageBox.Show("Please enter the output file folder."); return; }
+
+                            inputPath = inDataFolder_btn.Text;
+                            outputPath = outDataFolder_btn.Text;
+                        }
+                            // 设置Run面板中的初始化参数
+                        this.class_method_textEdit.Text = this.getMethodString(this.m_selectedMethod);
+                        this.class_inputfile_textEdit.Text = inputPath;
+                        this.class_outputfile_textEdit.Text = outputPath;
+
+                        turnNextTabPage();
+  
+                        break;
+
+                    case 3: // Run面板
+                        if (m_processIsDone == false)
+                            return;
+
+                        turnNextTabPage();
+                        break;
+
+                    case 4: // Finish面板
+
+                        break;
+
+                    default:
+                        break;
+                }
+                
+                
             }
         }
 
@@ -404,10 +482,6 @@ namespace AE_Dev_J.Form
         }
         #endregion 支持向量机
 
-        #region ISODATA
-        
-        #endregion ISODATA
-
         #endregion set parameters 面板界面逻辑
 
         #region Export Data面板界面逻辑
@@ -434,7 +508,7 @@ namespace AE_Dev_J.Form
                 this.batchMode_groupControl.Enabled = false;
         }
 
-        private void inDataFile_btn_Click(object sender, EventArgs e)
+        private void inDataFile_btn_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             OpenFileDialog openDialog = new OpenFileDialog();
             openDialog.Filter = "image files(*.img)|*.img";
@@ -445,32 +519,12 @@ namespace AE_Dev_J.Form
             }
         }
 
-        private void inDataFolder_btn_Click(object sender, EventArgs e)
-        {
-            FolderBrowserDialog folderDialog = new FolderBrowserDialog();
-            if (folderDialog.ShowDialog() == DialogResult.OK)
-            {
-                this.inDataFolder_btn.Text = folderDialog.SelectedPath;
-                this.m_inDataPath = this.inDataFolder_btn.Text;
-            }
-        }
-
-        private void outDataFolder_btn_Click(object sender, EventArgs e)
-        {
-            FolderBrowserDialog folderDialog = new FolderBrowserDialog();
-            if (folderDialog.ShowDialog() == DialogResult.OK)
-            {
-                this.outDataFolder_btn.Text = folderDialog.SelectedPath;
-                this.m_outDataPath = this.outDataFolder_btn.Text;
-            }
-        }
-
         /// <summary>
         /// 浏览输出文件路径
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void outDataFile_btn_Click(object sender, EventArgs e)
+        private void outDataFile_btn_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             SaveFileDialog saveDialog = new SaveFileDialog();
             saveDialog.Filter = "image files(*.img)|*.img";
@@ -480,6 +534,28 @@ namespace AE_Dev_J.Form
                 this.m_inDataPath = this.outDataFile_btn.Text;
             }
         }
+
+        private void inDataFolder_btn_Properties__Click(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            FolderBrowserDialog folderDialog = new FolderBrowserDialog();
+            if (folderDialog.ShowDialog() == DialogResult.OK)
+            {
+                this.inDataFolder_btn.Text = folderDialog.SelectedPath;
+                this.m_inDataPath = this.inDataFolder_btn.Text;
+            }
+        }
+
+        private void outDataFolder_btn_Properties__Click(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            FolderBrowserDialog folderDialog = new FolderBrowserDialog();
+            if (folderDialog.ShowDialog() == DialogResult.OK)
+            {
+                this.outDataFolder_btn.Text = folderDialog.SelectedPath;
+                this.m_outDataPath = this.outDataFolder_btn.Text;
+            }
+        }
+
+        
 
         #endregion Export Data面板界面逻辑
 
@@ -492,67 +568,58 @@ namespace AE_Dev_J.Form
         /// <param name="e"></param>
         private void ok_btn_Click(object sender, EventArgs e)
         {
-            this.class_marqueeProgressBarControl.Show();
+            if (m_selectedMethod == ClassifyMethod.None) return;
 
-            // 确认用户配置
-            ClassfyMethod classifyMethod = ClassfyMethod.None;
-
-            if (this.supervise_checkEdit.Checked == true)
-                classifyMethod = (ClassfyMethod)this.superviseMethod_radioGroup.SelectedIndex;
-            else if (this.unsupervise_checkEdit.Checked == true)
-                classifyMethod = (ClassfyMethod)this.unsuperviseMethod_radioGroup.SelectedIndex + 9; // 这里加上的数应该是监督分类方法的个数
-            else
-                throw new Exception("method select error");
-
-            if (classifyMethod == ClassfyMethod.None) return;
-
+            this.class_marqueeProgressBarControl.Show(); // 显示进度条
+            
+            // 判断文件处理模式
             int mode = 0;
             if (singleMode_checkEdit.Checked == true) mode = 0;
             else if (batchMode_checkEdit.Checked == true) mode = 1;
 
+            // 设置对应的IDL命令字符串
             string proFilename = null;
-            string runStr = null;
-            switch (classifyMethod)
+            switch (m_selectedMethod)
             {
-                case ClassfyMethod.Parallelepiped:
+                case ClassifyMethod.Parallelepiped:
                     proFilename = "parallelepiped_classify.pro";
                     break;
 
-                case ClassfyMethod.MinimumDistance:
+                case ClassifyMethod.MinimumDistance:
                     proFilename = "minimumdistance_classify.pro";
                     break;
 
-                case ClassfyMethod.MahalanobisDistance:
+                case ClassifyMethod.MahalanobisDistance:
                     proFilename = "mahalanobis_classify.pro";
                     break;
 
-                case ClassfyMethod.MaximumLikelihood:
+                case ClassifyMethod.MaximumLikelihood:
                     proFilename = "maximumlikelihood_classify.pro";
                     break;
 
-                case ClassfyMethod.SpectralAngleMapper:
+                case ClassifyMethod.SpectralAngleMapper:
                     proFilename = "SAM_classify.pro";
                     break;
 
-                case ClassfyMethod.SpectralInformationDivergence:
+                case ClassifyMethod.SpectralInformationDivergence:
                     proFilename = "SIM_classify.pro";
                     break;
 
-                case ClassfyMethod.BinaryEncoding:
+                case ClassifyMethod.BinaryEncoding:
                     proFilename = "BinaryEncoding_classify.pro";
                     break;
 
-                case ClassfyMethod.NeuralNet:
+                case ClassifyMethod.NeuralNet:
                     proFilename = "ANN_classify.pro";
                     break;
 
-                case ClassfyMethod.SupportVectrorMachine:
+                case ClassifyMethod.SupportVectrorMachine:
                     proFilename = "svm_classify.pro";
                     break;
 
-                case ClassfyMethod.IsoData:
+                case ClassifyMethod.IsoData:
                     proFilename = "isodata.pro";
-                    runStr = proFilename + ", '" + inDataFile_btn.Text + "','"
+                    m_runStr = proFilename + ", '" + inDataFile_btn.Text + "','"
                                 + outDataFile_btn.Text + "',"
                                 + isodata_maxIter_spinEdit.Value + ","
                                 + isodata_chgThresh_spinEdit.Value + ","
@@ -564,9 +631,9 @@ namespace AE_Dev_J.Form
                                 + mode;
                     break;
 
-                case ClassfyMethod.KMeans:
+                case ClassifyMethod.KMeans:
                     proFilename = "k_means.pro";
-                    runStr = proFilename + ", '" + inDataFile_btn.Text + "','"
+                    m_runStr = proFilename + ", '" + inDataFile_btn.Text + "','"
                                 + outDataFile_btn.Text + "',"
                                 + kmeans_numClasses_spinEdit.Value + ","
                                 + kmeans_maxIter_spinEdit.Value + ","
@@ -578,16 +645,16 @@ namespace AE_Dev_J.Form
                     break;
             }
 
-            // 初始化 IDLConnector, 并运行分类算法
+            // 初始化 IDLConnector, 并在新线程中运行分类算法
             string proFullPath = m_idlPath + proFilename;
             System.IO.FileInfo proFileInfo = new System.IO.FileInfo(proFullPath);
-            if (proFileInfo.Exists == true && runStr != null)
+            m_proFileFullPath = proFileInfo.FullName;
+            if (proFileInfo.Exists == true && m_runStr != null)
             {
                 try
                 {
-                    IdlConnector idlCon = new IdlConnector(proFileInfo.FullName);
-                    idlCon.RunStr = runStr;
-                    idlCon.run();
+                    class_backgroundWorker.RunWorkerAsync();
+
                 }
                 catch (Exception exception)
                 {
@@ -611,6 +678,98 @@ namespace AE_Dev_J.Form
         }
 
         #endregion run 面板界面逻辑
-        
+
+        /// <summary>
+        /// 根据classifyMethod枚举，获取方法字符串
+        /// </summary>
+        /// <param name="method">classifyMethod枚举</param>
+        /// <returns></returns>
+        private string getMethodString(ClassifyMethod method)
+        {
+            switch (method)
+            {
+                case ClassifyMethod.Parallelepiped:
+                    return "Paralleleepiped";
+                   
+                case ClassifyMethod.MinimumDistance:
+                    return "Minimum Distance";
+
+                case ClassifyMethod.MahalanobisDistance:
+                        return "Mahalanobis Distance";
+
+                case ClassifyMethod.MaximumLikelihood:
+                        return "Maximum Likelihood";
+
+                case ClassifyMethod.SpectralAngleMapper:
+                        return "Spectral Angle Mapper";
+               
+                case ClassifyMethod.SpectralInformationDivergence:
+                        return "Spectral Information Divergence";
+               
+                case ClassifyMethod.BinaryEncoding:
+                        return "Binary Encoding";
+            
+                case ClassifyMethod.NeuralNet:
+                        return "Artifical Neural Net";
+         
+                case ClassifyMethod.SupportVectrorMachine:
+                        return "Support Vector Machine";
+       
+                case ClassifyMethod.IsoData:
+                        return "ISODATA";
+         
+                case ClassifyMethod.KMeans:
+                        return "K-Means";
+          
+                default:
+                        return "None";
+            }
+        }
+
+        /// <summary>
+        /// 使分类面板的tabControl向下翻页
+        /// </summary>
+        private void turnNextTabPage()
+        {
+            this.classfication_backstageViewControl.SelectedTabIndex += 1;
+            if (this.classfication_backstageViewControl.SelectedTab != null)
+                this.classfication_backstageViewControl.SelectedTab.Enabled = true;
+        }
+
+        /// <summary>
+        /// 执行分类处理，这样封装方便在多线程中进行
+        /// </summary>
+        /// <param name="idlCon"></param>
+        private static void runClassify(object sender, DoWorkEventArgs e)
+        {
+            IdlConnector idlCon = new IdlConnector(m_proFileFullPath);
+            idlCon.RunStr = m_runStr;
+            idlCon.run();
+        }
+
+        /// <summary>
+        /// 新线程处理任务
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void class_backgroundWorker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            //IdlConnector idlCon = new IdlConnector(m_proFileFullPath);
+            //idlCon.RunStr = m_runStr;
+            //idlCon.run();
+            Thread.Sleep(20000);
+        }
+
+        /// <summary>
+        /// 新线程任务完成后执行
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void class_backgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            MessageBox.Show("Done.");
+        }
+
+       
     }
 }

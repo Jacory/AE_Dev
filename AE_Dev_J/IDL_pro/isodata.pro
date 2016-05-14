@@ -8,8 +8,8 @@ PRO ISODATA, input, output,   $
   iso_merge_pairs,            $ ; 合并成对的最大数
   iso_min_pixels,             $ ; 类最少象元数
   iso_split_std,              $ ; 最大分类标准差
-  min_classes                 $ ; 最少类别数
-  mode = mode,                  ; single file process or batch process
+  min_classes,                 $ ; 最少类别数
+  mode = mode                  ; single file process or batch process
 
   COMPILE_OPT idl2
   ENVI, /restore_base_save_files

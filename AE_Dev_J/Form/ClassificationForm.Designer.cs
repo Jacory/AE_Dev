@@ -29,6 +29,17 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClassificationForm));
+            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel67 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
+            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel68 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
+            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel69 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
+            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel70 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
+            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel71 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
+            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel72 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
+            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel73 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
+            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel74 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
+            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel75 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
+            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel76 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
+            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel77 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
             DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel78 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
             DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel79 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
             DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel80 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
@@ -95,17 +106,6 @@
             DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel53 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
             DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel54 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
             DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel55 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
-            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel56 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
-            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel57 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
-            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel58 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
-            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel59 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
-            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel60 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
-            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel61 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
-            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel62 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
-            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel63 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
-            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel64 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
-            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel65 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
-            DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel66 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
             this.tabPageControl_windowsUIButtonPanel = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
             this.classfication_backstageViewControl = new DevExpress.XtraBars.Ribbon.BackstageViewControl();
             this.backstageViewClientControl1 = new DevExpress.XtraBars.Ribbon.BackstageViewClientControl();
@@ -293,6 +293,27 @@
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.memoEdit6 = new DevExpress.XtraEditors.MemoEdit();
             this.kmeans_param_xtraTabPage = new DevExpress.XtraTab.XtraTabPage();
+            this.memoEdit7 = new DevExpress.XtraEditors.MemoEdit();
+            this.layoutControl10 = new DevExpress.XtraLayout.LayoutControl();
+            this.labelControl24 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl23 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl22 = new DevExpress.XtraEditors.LabelControl();
+            this.kmeans_maxIter_spinEdit = new DevExpress.XtraEditors.SpinEdit();
+            this.kmeans_changeThresh_spinEdit = new DevExpress.XtraEditors.SpinEdit();
+            this.kmeans_numClasses_spinEdit = new DevExpress.XtraEditors.SpinEdit();
+            this.layoutControlGroup10 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem43 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem44 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem45 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem16 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.emptySpaceItem18 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem46 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem17 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem47 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem48 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem19 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.emptySpaceItem20 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.emptySpaceItem21 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.backstageViewClientControl3 = new DevExpress.XtraBars.Ribbon.BackstageViewClientControl();
             this.singleMode_checkEdit = new DevExpress.XtraEditors.CheckEdit();
             this.batchMode_checkEdit = new DevExpress.XtraEditors.CheckEdit();
@@ -341,27 +362,7 @@
             this.run_TabItem = new DevExpress.XtraBars.Ribbon.BackstageViewTabItem();
             this.backstageViewItemSeparator1 = new DevExpress.XtraBars.Ribbon.BackstageViewItemSeparator();
             this.finish_TabItem = new DevExpress.XtraBars.Ribbon.BackstageViewTabItem();
-            this.layoutControl10 = new DevExpress.XtraLayout.LayoutControl();
-            this.layoutControlGroup10 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.memoEdit7 = new DevExpress.XtraEditors.MemoEdit();
-            this.kmeans_numClasses_spinEdit = new DevExpress.XtraEditors.SpinEdit();
-            this.layoutControlItem43 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.kmeans_changeThresh_spinEdit = new DevExpress.XtraEditors.SpinEdit();
-            this.layoutControlItem44 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.kmeans_maxIter_spinEdit = new DevExpress.XtraEditors.SpinEdit();
-            this.layoutControlItem45 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem16 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.emptySpaceItem17 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.emptySpaceItem18 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.labelControl22 = new DevExpress.XtraEditors.LabelControl();
-            this.layoutControlItem46 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.labelControl23 = new DevExpress.XtraEditors.LabelControl();
-            this.layoutControlItem47 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.labelControl24 = new DevExpress.XtraEditors.LabelControl();
-            this.layoutControlItem48 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem19 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.emptySpaceItem20 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.emptySpaceItem21 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.class_backgroundWorker = new System.ComponentModel.BackgroundWorker();
             this.classfication_backstageViewControl.SuspendLayout();
             this.backstageViewClientControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.supervisedMethod_groupControl)).BeginInit();
@@ -576,6 +577,25 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit6.Properties)).BeginInit();
             this.kmeans_param_xtraTabPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.memoEdit7.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl10)).BeginInit();
+            this.layoutControl10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.kmeans_maxIter_spinEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kmeans_changeThresh_spinEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kmeans_numClasses_spinEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem43)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem44)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem45)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem16)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem18)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem46)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem17)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem47)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem48)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem19)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem20)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem21)).BeginInit();
             this.backstageViewClientControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.singleMode_checkEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.batchMode_checkEdit.Properties)).BeginInit();
@@ -620,25 +640,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             this.backstageViewClientControl5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl10)).BeginInit();
-            this.layoutControl10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.memoEdit7.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kmeans_numClasses_spinEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem43)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kmeans_changeThresh_spinEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem44)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kmeans_maxIter_spinEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem45)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem16)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem17)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem18)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem46)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem47)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem48)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem19)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem20)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem21)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPageControl_windowsUIButtonPanel
@@ -675,8 +676,8 @@
             this.classfication_backstageViewControl.Location = new System.Drawing.Point(0, 0);
             this.classfication_backstageViewControl.Margin = new System.Windows.Forms.Padding(2);
             this.classfication_backstageViewControl.Name = "classfication_backstageViewControl";
-            this.classfication_backstageViewControl.SelectedTab = this.setParam_TabItem;
-            this.classfication_backstageViewControl.SelectedTabIndex = 1;
+            this.classfication_backstageViewControl.SelectedTab = this.run_TabItem;
+            this.classfication_backstageViewControl.SelectedTabIndex = 3;
             this.classfication_backstageViewControl.Size = new System.Drawing.Size(677, 542);
             this.classfication_backstageViewControl.Style = DevExpress.XtraBars.Ribbon.BackstageViewStyle.Office2010;
             this.classfication_backstageViewControl.TabIndex = 1;
@@ -911,39 +912,39 @@
             this.paralle_thresh_trackBarControl.Properties.LabelAppearance.Options.UseFont = true;
             this.paralle_thresh_trackBarControl.Properties.LabelAppearance.Options.UseTextOptions = true;
             this.paralle_thresh_trackBarControl.Properties.LabelAppearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            trackBarLabel78.Label = "0";
-            trackBarLabel79.Label = "1";
-            trackBarLabel79.Value = 1;
-            trackBarLabel80.Label = "2";
-            trackBarLabel80.Value = 2;
-            trackBarLabel81.Label = "3";
-            trackBarLabel81.Value = 3;
-            trackBarLabel82.Label = "4";
-            trackBarLabel82.Value = 4;
-            trackBarLabel83.Label = "5";
-            trackBarLabel83.Value = 5;
-            trackBarLabel84.Label = "6";
-            trackBarLabel84.Value = 6;
-            trackBarLabel85.Label = "7";
-            trackBarLabel85.Value = 7;
-            trackBarLabel86.Label = "8";
-            trackBarLabel86.Value = 8;
-            trackBarLabel87.Label = "9";
-            trackBarLabel87.Value = 9;
-            trackBarLabel88.Label = "10";
-            trackBarLabel88.Value = 10;
+            trackBarLabel67.Label = "0";
+            trackBarLabel68.Label = "1";
+            trackBarLabel68.Value = 1;
+            trackBarLabel69.Label = "2";
+            trackBarLabel69.Value = 2;
+            trackBarLabel70.Label = "3";
+            trackBarLabel70.Value = 3;
+            trackBarLabel71.Label = "4";
+            trackBarLabel71.Value = 4;
+            trackBarLabel72.Label = "5";
+            trackBarLabel72.Value = 5;
+            trackBarLabel73.Label = "6";
+            trackBarLabel73.Value = 6;
+            trackBarLabel74.Label = "7";
+            trackBarLabel74.Value = 7;
+            trackBarLabel75.Label = "8";
+            trackBarLabel75.Value = 8;
+            trackBarLabel76.Label = "9";
+            trackBarLabel76.Value = 9;
+            trackBarLabel77.Label = "10";
+            trackBarLabel77.Value = 10;
             this.paralle_thresh_trackBarControl.Properties.Labels.AddRange(new DevExpress.XtraEditors.Repository.TrackBarLabel[] {
-            trackBarLabel78,
-            trackBarLabel79,
-            trackBarLabel80,
-            trackBarLabel81,
-            trackBarLabel82,
-            trackBarLabel83,
-            trackBarLabel84,
-            trackBarLabel85,
-            trackBarLabel86,
-            trackBarLabel87,
-            trackBarLabel88});
+            trackBarLabel67,
+            trackBarLabel68,
+            trackBarLabel69,
+            trackBarLabel70,
+            trackBarLabel71,
+            trackBarLabel72,
+            trackBarLabel73,
+            trackBarLabel74,
+            trackBarLabel75,
+            trackBarLabel76,
+            trackBarLabel77});
             this.paralle_thresh_trackBarControl.Properties.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.paralle_thresh_trackBarControl.Properties.TickStyle = System.Windows.Forms.TickStyle.Both;
             this.paralle_thresh_trackBarControl.Size = new System.Drawing.Size(45, 181);
@@ -1076,39 +1077,39 @@
             this.minDis_error_trackBarControl.Name = "minDis_error_trackBarControl";
             this.minDis_error_trackBarControl.Properties.LabelAppearance.Options.UseTextOptions = true;
             this.minDis_error_trackBarControl.Properties.LabelAppearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            trackBarLabel1.Label = "0";
-            trackBarLabel2.Label = "1";
-            trackBarLabel2.Value = 1;
-            trackBarLabel3.Label = "2";
-            trackBarLabel3.Value = 2;
-            trackBarLabel4.Label = "3";
-            trackBarLabel4.Value = 3;
-            trackBarLabel5.Label = "4";
-            trackBarLabel5.Value = 4;
-            trackBarLabel6.Label = "5";
-            trackBarLabel6.Value = 5;
-            trackBarLabel7.Label = "6";
-            trackBarLabel7.Value = 6;
-            trackBarLabel8.Label = "7";
-            trackBarLabel8.Value = 7;
-            trackBarLabel9.Label = "8";
-            trackBarLabel9.Value = 8;
-            trackBarLabel10.Label = "9";
-            trackBarLabel10.Value = 9;
-            trackBarLabel11.Label = "10";
-            trackBarLabel11.Value = 10;
+            trackBarLabel78.Label = "0";
+            trackBarLabel79.Label = "1";
+            trackBarLabel79.Value = 1;
+            trackBarLabel80.Label = "2";
+            trackBarLabel80.Value = 2;
+            trackBarLabel81.Label = "3";
+            trackBarLabel81.Value = 3;
+            trackBarLabel82.Label = "4";
+            trackBarLabel82.Value = 4;
+            trackBarLabel83.Label = "5";
+            trackBarLabel83.Value = 5;
+            trackBarLabel84.Label = "6";
+            trackBarLabel84.Value = 6;
+            trackBarLabel85.Label = "7";
+            trackBarLabel85.Value = 7;
+            trackBarLabel86.Label = "8";
+            trackBarLabel86.Value = 8;
+            trackBarLabel87.Label = "9";
+            trackBarLabel87.Value = 9;
+            trackBarLabel88.Label = "10";
+            trackBarLabel88.Value = 10;
             this.minDis_error_trackBarControl.Properties.Labels.AddRange(new DevExpress.XtraEditors.Repository.TrackBarLabel[] {
-            trackBarLabel1,
-            trackBarLabel2,
-            trackBarLabel3,
-            trackBarLabel4,
-            trackBarLabel5,
-            trackBarLabel6,
-            trackBarLabel7,
-            trackBarLabel8,
-            trackBarLabel9,
-            trackBarLabel10,
-            trackBarLabel11});
+            trackBarLabel78,
+            trackBarLabel79,
+            trackBarLabel80,
+            trackBarLabel81,
+            trackBarLabel82,
+            trackBarLabel83,
+            trackBarLabel84,
+            trackBarLabel85,
+            trackBarLabel86,
+            trackBarLabel87,
+            trackBarLabel88});
             this.minDis_error_trackBarControl.Properties.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.minDis_error_trackBarControl.Properties.TickStyle = System.Windows.Forms.TickStyle.Both;
             this.minDis_error_trackBarControl.Size = new System.Drawing.Size(45, 135);
@@ -1164,39 +1165,39 @@
             this.minDis_std_trackBarControl.Name = "minDis_std_trackBarControl";
             this.minDis_std_trackBarControl.Properties.LabelAppearance.Options.UseTextOptions = true;
             this.minDis_std_trackBarControl.Properties.LabelAppearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            trackBarLabel12.Label = "0";
-            trackBarLabel13.Label = "1";
-            trackBarLabel13.Value = 1;
-            trackBarLabel14.Label = "2";
-            trackBarLabel14.Value = 2;
-            trackBarLabel15.Label = "3";
-            trackBarLabel15.Value = 3;
-            trackBarLabel16.Label = "4";
-            trackBarLabel16.Value = 4;
-            trackBarLabel17.Label = "5";
-            trackBarLabel17.Value = 5;
-            trackBarLabel18.Label = "6";
-            trackBarLabel18.Value = 6;
-            trackBarLabel19.Label = "7";
-            trackBarLabel19.Value = 7;
-            trackBarLabel20.Label = "8";
-            trackBarLabel20.Value = 8;
-            trackBarLabel21.Label = "9";
-            trackBarLabel21.Value = 9;
-            trackBarLabel22.Label = "10";
-            trackBarLabel22.Value = 10;
+            trackBarLabel1.Label = "0";
+            trackBarLabel2.Label = "1";
+            trackBarLabel2.Value = 1;
+            trackBarLabel3.Label = "2";
+            trackBarLabel3.Value = 2;
+            trackBarLabel4.Label = "3";
+            trackBarLabel4.Value = 3;
+            trackBarLabel5.Label = "4";
+            trackBarLabel5.Value = 4;
+            trackBarLabel6.Label = "5";
+            trackBarLabel6.Value = 5;
+            trackBarLabel7.Label = "6";
+            trackBarLabel7.Value = 6;
+            trackBarLabel8.Label = "7";
+            trackBarLabel8.Value = 7;
+            trackBarLabel9.Label = "8";
+            trackBarLabel9.Value = 8;
+            trackBarLabel10.Label = "9";
+            trackBarLabel10.Value = 9;
+            trackBarLabel11.Label = "10";
+            trackBarLabel11.Value = 10;
             this.minDis_std_trackBarControl.Properties.Labels.AddRange(new DevExpress.XtraEditors.Repository.TrackBarLabel[] {
-            trackBarLabel12,
-            trackBarLabel13,
-            trackBarLabel14,
-            trackBarLabel15,
-            trackBarLabel16,
-            trackBarLabel17,
-            trackBarLabel18,
-            trackBarLabel19,
-            trackBarLabel20,
-            trackBarLabel21,
-            trackBarLabel22});
+            trackBarLabel1,
+            trackBarLabel2,
+            trackBarLabel3,
+            trackBarLabel4,
+            trackBarLabel5,
+            trackBarLabel6,
+            trackBarLabel7,
+            trackBarLabel8,
+            trackBarLabel9,
+            trackBarLabel10,
+            trackBarLabel11});
             this.minDis_std_trackBarControl.Properties.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.minDis_std_trackBarControl.Properties.TickStyle = System.Windows.Forms.TickStyle.Both;
             this.minDis_std_trackBarControl.Size = new System.Drawing.Size(45, 135);
@@ -1359,39 +1360,39 @@
             this.mahDis_thresh_trackBarControl.Name = "mahDis_thresh_trackBarControl";
             this.mahDis_thresh_trackBarControl.Properties.LabelAppearance.Options.UseTextOptions = true;
             this.mahDis_thresh_trackBarControl.Properties.LabelAppearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            trackBarLabel23.Label = "0";
-            trackBarLabel24.Label = "1";
-            trackBarLabel24.Value = 1;
-            trackBarLabel25.Label = "2";
-            trackBarLabel25.Value = 2;
-            trackBarLabel26.Label = "3";
-            trackBarLabel26.Value = 3;
-            trackBarLabel27.Label = "4";
-            trackBarLabel27.Value = 4;
-            trackBarLabel28.Label = "5";
-            trackBarLabel28.Value = 5;
-            trackBarLabel29.Label = "6";
-            trackBarLabel29.Value = 6;
-            trackBarLabel30.Label = "7";
-            trackBarLabel30.Value = 7;
-            trackBarLabel31.Label = "8";
-            trackBarLabel31.Value = 8;
-            trackBarLabel32.Label = "9";
-            trackBarLabel32.Value = 9;
-            trackBarLabel33.Label = "10";
-            trackBarLabel33.Value = 10;
+            trackBarLabel12.Label = "0";
+            trackBarLabel13.Label = "1";
+            trackBarLabel13.Value = 1;
+            trackBarLabel14.Label = "2";
+            trackBarLabel14.Value = 2;
+            trackBarLabel15.Label = "3";
+            trackBarLabel15.Value = 3;
+            trackBarLabel16.Label = "4";
+            trackBarLabel16.Value = 4;
+            trackBarLabel17.Label = "5";
+            trackBarLabel17.Value = 5;
+            trackBarLabel18.Label = "6";
+            trackBarLabel18.Value = 6;
+            trackBarLabel19.Label = "7";
+            trackBarLabel19.Value = 7;
+            trackBarLabel20.Label = "8";
+            trackBarLabel20.Value = 8;
+            trackBarLabel21.Label = "9";
+            trackBarLabel21.Value = 9;
+            trackBarLabel22.Label = "10";
+            trackBarLabel22.Value = 10;
             this.mahDis_thresh_trackBarControl.Properties.Labels.AddRange(new DevExpress.XtraEditors.Repository.TrackBarLabel[] {
-            trackBarLabel23,
-            trackBarLabel24,
-            trackBarLabel25,
-            trackBarLabel26,
-            trackBarLabel27,
-            trackBarLabel28,
-            trackBarLabel29,
-            trackBarLabel30,
-            trackBarLabel31,
-            trackBarLabel32,
-            trackBarLabel33});
+            trackBarLabel12,
+            trackBarLabel13,
+            trackBarLabel14,
+            trackBarLabel15,
+            trackBarLabel16,
+            trackBarLabel17,
+            trackBarLabel18,
+            trackBarLabel19,
+            trackBarLabel20,
+            trackBarLabel21,
+            trackBarLabel22});
             this.mahDis_thresh_trackBarControl.Properties.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.mahDis_thresh_trackBarControl.Properties.TickStyle = System.Windows.Forms.TickStyle.Both;
             this.mahDis_thresh_trackBarControl.Size = new System.Drawing.Size(45, 160);
@@ -1519,39 +1520,39 @@
             this.maxLike_ratio_trackBarControl.Name = "maxLike_ratio_trackBarControl";
             this.maxLike_ratio_trackBarControl.Properties.LabelAppearance.Options.UseTextOptions = true;
             this.maxLike_ratio_trackBarControl.Properties.LabelAppearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            trackBarLabel34.Label = "0";
-            trackBarLabel35.Label = "1";
-            trackBarLabel35.Value = 1;
-            trackBarLabel36.Label = "2";
-            trackBarLabel36.Value = 2;
-            trackBarLabel37.Label = "3";
-            trackBarLabel37.Value = 3;
-            trackBarLabel38.Label = "4";
-            trackBarLabel38.Value = 4;
-            trackBarLabel39.Label = "5";
-            trackBarLabel39.Value = 5;
-            trackBarLabel40.Label = "6";
-            trackBarLabel40.Value = 6;
-            trackBarLabel41.Label = "7";
-            trackBarLabel41.Value = 7;
-            trackBarLabel42.Label = "8";
-            trackBarLabel42.Value = 8;
-            trackBarLabel43.Label = "9";
-            trackBarLabel43.Value = 9;
-            trackBarLabel44.Label = "10";
-            trackBarLabel44.Value = 10;
+            trackBarLabel23.Label = "0";
+            trackBarLabel24.Label = "1";
+            trackBarLabel24.Value = 1;
+            trackBarLabel25.Label = "2";
+            trackBarLabel25.Value = 2;
+            trackBarLabel26.Label = "3";
+            trackBarLabel26.Value = 3;
+            trackBarLabel27.Label = "4";
+            trackBarLabel27.Value = 4;
+            trackBarLabel28.Label = "5";
+            trackBarLabel28.Value = 5;
+            trackBarLabel29.Label = "6";
+            trackBarLabel29.Value = 6;
+            trackBarLabel30.Label = "7";
+            trackBarLabel30.Value = 7;
+            trackBarLabel31.Label = "8";
+            trackBarLabel31.Value = 8;
+            trackBarLabel32.Label = "9";
+            trackBarLabel32.Value = 9;
+            trackBarLabel33.Label = "10";
+            trackBarLabel33.Value = 10;
             this.maxLike_ratio_trackBarControl.Properties.Labels.AddRange(new DevExpress.XtraEditors.Repository.TrackBarLabel[] {
-            trackBarLabel34,
-            trackBarLabel35,
-            trackBarLabel36,
-            trackBarLabel37,
-            trackBarLabel38,
-            trackBarLabel39,
-            trackBarLabel40,
-            trackBarLabel41,
-            trackBarLabel42,
-            trackBarLabel43,
-            trackBarLabel44});
+            trackBarLabel23,
+            trackBarLabel24,
+            trackBarLabel25,
+            trackBarLabel26,
+            trackBarLabel27,
+            trackBarLabel28,
+            trackBarLabel29,
+            trackBarLabel30,
+            trackBarLabel31,
+            trackBarLabel32,
+            trackBarLabel33});
             this.maxLike_ratio_trackBarControl.Properties.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.maxLike_ratio_trackBarControl.Properties.TickStyle = System.Windows.Forms.TickStyle.Both;
             this.maxLike_ratio_trackBarControl.Size = new System.Drawing.Size(45, 113);
@@ -1606,39 +1607,39 @@
             this.maxLike_thresh_trackBarControl.Name = "maxLike_thresh_trackBarControl";
             this.maxLike_thresh_trackBarControl.Properties.LabelAppearance.Options.UseTextOptions = true;
             this.maxLike_thresh_trackBarControl.Properties.LabelAppearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            trackBarLabel45.Label = "0";
-            trackBarLabel46.Label = "1";
-            trackBarLabel46.Value = 1;
-            trackBarLabel47.Label = "2";
-            trackBarLabel47.Value = 2;
-            trackBarLabel48.Label = "3";
-            trackBarLabel48.Value = 3;
-            trackBarLabel49.Label = "4";
-            trackBarLabel49.Value = 4;
-            trackBarLabel50.Label = "5";
-            trackBarLabel50.Value = 5;
-            trackBarLabel51.Label = "6";
-            trackBarLabel51.Value = 6;
-            trackBarLabel52.Label = "7";
-            trackBarLabel52.Value = 7;
-            trackBarLabel53.Label = "8";
-            trackBarLabel53.Value = 8;
-            trackBarLabel54.Label = "9";
-            trackBarLabel54.Value = 9;
-            trackBarLabel55.Label = "10";
-            trackBarLabel55.Value = 10;
+            trackBarLabel34.Label = "0";
+            trackBarLabel35.Label = "1";
+            trackBarLabel35.Value = 1;
+            trackBarLabel36.Label = "2";
+            trackBarLabel36.Value = 2;
+            trackBarLabel37.Label = "3";
+            trackBarLabel37.Value = 3;
+            trackBarLabel38.Label = "4";
+            trackBarLabel38.Value = 4;
+            trackBarLabel39.Label = "5";
+            trackBarLabel39.Value = 5;
+            trackBarLabel40.Label = "6";
+            trackBarLabel40.Value = 6;
+            trackBarLabel41.Label = "7";
+            trackBarLabel41.Value = 7;
+            trackBarLabel42.Label = "8";
+            trackBarLabel42.Value = 8;
+            trackBarLabel43.Label = "9";
+            trackBarLabel43.Value = 9;
+            trackBarLabel44.Label = "10";
+            trackBarLabel44.Value = 10;
             this.maxLike_thresh_trackBarControl.Properties.Labels.AddRange(new DevExpress.XtraEditors.Repository.TrackBarLabel[] {
-            trackBarLabel45,
-            trackBarLabel46,
-            trackBarLabel47,
-            trackBarLabel48,
-            trackBarLabel49,
-            trackBarLabel50,
-            trackBarLabel51,
-            trackBarLabel52,
-            trackBarLabel53,
-            trackBarLabel54,
-            trackBarLabel55});
+            trackBarLabel34,
+            trackBarLabel35,
+            trackBarLabel36,
+            trackBarLabel37,
+            trackBarLabel38,
+            trackBarLabel39,
+            trackBarLabel40,
+            trackBarLabel41,
+            trackBarLabel42,
+            trackBarLabel43,
+            trackBarLabel44});
             this.maxLike_thresh_trackBarControl.Properties.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.maxLike_thresh_trackBarControl.Properties.TickStyle = System.Windows.Forms.TickStyle.Both;
             this.maxLike_thresh_trackBarControl.Size = new System.Drawing.Size(45, 113);
@@ -1758,39 +1759,39 @@
             this.trackBarControl6.Name = "trackBarControl6";
             this.trackBarControl6.Properties.LabelAppearance.Options.UseTextOptions = true;
             this.trackBarControl6.Properties.LabelAppearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            trackBarLabel56.Label = "0";
-            trackBarLabel57.Label = "1";
-            trackBarLabel57.Value = 1;
-            trackBarLabel58.Label = "2";
-            trackBarLabel58.Value = 2;
-            trackBarLabel59.Label = "3";
-            trackBarLabel59.Value = 3;
-            trackBarLabel60.Label = "4";
-            trackBarLabel60.Value = 4;
-            trackBarLabel61.Label = "5";
-            trackBarLabel61.Value = 5;
-            trackBarLabel62.Label = "6";
-            trackBarLabel62.Value = 6;
-            trackBarLabel63.Label = "7";
-            trackBarLabel63.Value = 7;
-            trackBarLabel64.Label = "8";
-            trackBarLabel64.Value = 8;
-            trackBarLabel65.Label = "9";
-            trackBarLabel65.Value = 9;
-            trackBarLabel66.Label = "10";
-            trackBarLabel66.Value = 10;
+            trackBarLabel45.Label = "0";
+            trackBarLabel46.Label = "1";
+            trackBarLabel46.Value = 1;
+            trackBarLabel47.Label = "2";
+            trackBarLabel47.Value = 2;
+            trackBarLabel48.Label = "3";
+            trackBarLabel48.Value = 3;
+            trackBarLabel49.Label = "4";
+            trackBarLabel49.Value = 4;
+            trackBarLabel50.Label = "5";
+            trackBarLabel50.Value = 5;
+            trackBarLabel51.Label = "6";
+            trackBarLabel51.Value = 6;
+            trackBarLabel52.Label = "7";
+            trackBarLabel52.Value = 7;
+            trackBarLabel53.Label = "8";
+            trackBarLabel53.Value = 8;
+            trackBarLabel54.Label = "9";
+            trackBarLabel54.Value = 9;
+            trackBarLabel55.Label = "10";
+            trackBarLabel55.Value = 10;
             this.trackBarControl6.Properties.Labels.AddRange(new DevExpress.XtraEditors.Repository.TrackBarLabel[] {
-            trackBarLabel56,
-            trackBarLabel57,
-            trackBarLabel58,
-            trackBarLabel59,
-            trackBarLabel60,
-            trackBarLabel61,
-            trackBarLabel62,
-            trackBarLabel63,
-            trackBarLabel64,
-            trackBarLabel65,
-            trackBarLabel66});
+            trackBarLabel45,
+            trackBarLabel46,
+            trackBarLabel47,
+            trackBarLabel48,
+            trackBarLabel49,
+            trackBarLabel50,
+            trackBarLabel51,
+            trackBarLabel52,
+            trackBarLabel53,
+            trackBarLabel54,
+            trackBarLabel55});
             this.trackBarControl6.Properties.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.trackBarControl6.Properties.TickStyle = System.Windows.Forms.TickStyle.Both;
             this.trackBarControl6.Size = new System.Drawing.Size(45, 189);
@@ -1894,66 +1895,66 @@
             // ann_iterCount_trackBarControl
             // 
             this.ann_iterCount_trackBarControl.EditValue = null;
-            this.ann_iterCount_trackBarControl.Location = new System.Drawing.Point(132, 183);
+            this.ann_iterCount_trackBarControl.Location = new System.Drawing.Point(132, 257);
             this.ann_iterCount_trackBarControl.Name = "ann_iterCount_trackBarControl";
             this.ann_iterCount_trackBarControl.Properties.LabelAppearance.Options.UseTextOptions = true;
             this.ann_iterCount_trackBarControl.Properties.LabelAppearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.ann_iterCount_trackBarControl.Size = new System.Drawing.Size(166, 45);
+            this.ann_iterCount_trackBarControl.Size = new System.Drawing.Size(180, 45);
             this.ann_iterCount_trackBarControl.StyleController = this.layoutControl8;
             this.ann_iterCount_trackBarControl.TabIndex = 42;
             // 
             // ann_hideLayer_trackBarControl
             // 
             this.ann_hideLayer_trackBarControl.EditValue = null;
-            this.ann_hideLayer_trackBarControl.Location = new System.Drawing.Point(132, 134);
+            this.ann_hideLayer_trackBarControl.Location = new System.Drawing.Point(132, 208);
             this.ann_hideLayer_trackBarControl.Name = "ann_hideLayer_trackBarControl";
             this.ann_hideLayer_trackBarControl.Properties.LabelAppearance.Options.UseTextOptions = true;
             this.ann_hideLayer_trackBarControl.Properties.LabelAppearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.ann_hideLayer_trackBarControl.Size = new System.Drawing.Size(168, 45);
+            this.ann_hideLayer_trackBarControl.Size = new System.Drawing.Size(182, 45);
             this.ann_hideLayer_trackBarControl.StyleController = this.layoutControl8;
             this.ann_hideLayer_trackBarControl.TabIndex = 41;
             // 
             // ann_weight_trackBarControl
             // 
             this.ann_weight_trackBarControl.EditValue = null;
-            this.ann_weight_trackBarControl.Location = new System.Drawing.Point(132, 36);
+            this.ann_weight_trackBarControl.Location = new System.Drawing.Point(132, 110);
             this.ann_weight_trackBarControl.Name = "ann_weight_trackBarControl";
             this.ann_weight_trackBarControl.Properties.LabelAppearance.Options.UseTextOptions = true;
             this.ann_weight_trackBarControl.Properties.LabelAppearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.ann_weight_trackBarControl.Size = new System.Drawing.Size(168, 45);
+            this.ann_weight_trackBarControl.Size = new System.Drawing.Size(182, 45);
             this.ann_weight_trackBarControl.StyleController = this.layoutControl8;
             this.ann_weight_trackBarControl.TabIndex = 37;
             // 
             // ann_rms_trackBarControl
             // 
             this.ann_rms_trackBarControl.EditValue = null;
-            this.ann_rms_trackBarControl.Location = new System.Drawing.Point(132, 85);
+            this.ann_rms_trackBarControl.Location = new System.Drawing.Point(132, 159);
             this.ann_rms_trackBarControl.Name = "ann_rms_trackBarControl";
             this.ann_rms_trackBarControl.Properties.LabelAppearance.Options.UseTextOptions = true;
             this.ann_rms_trackBarControl.Properties.LabelAppearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.ann_rms_trackBarControl.Size = new System.Drawing.Size(168, 45);
+            this.ann_rms_trackBarControl.Size = new System.Drawing.Size(182, 45);
             this.ann_rms_trackBarControl.StyleController = this.layoutControl8;
             this.ann_rms_trackBarControl.TabIndex = 38;
             // 
             // ann_weightSpeed_trackBarControl
             // 
             this.ann_weightSpeed_trackBarControl.EditValue = null;
-            this.ann_weightSpeed_trackBarControl.Location = new System.Drawing.Point(132, -13);
+            this.ann_weightSpeed_trackBarControl.Location = new System.Drawing.Point(132, 61);
             this.ann_weightSpeed_trackBarControl.Name = "ann_weightSpeed_trackBarControl";
             this.ann_weightSpeed_trackBarControl.Properties.LabelAppearance.Options.UseTextOptions = true;
             this.ann_weightSpeed_trackBarControl.Properties.LabelAppearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.ann_weightSpeed_trackBarControl.Size = new System.Drawing.Size(168, 45);
+            this.ann_weightSpeed_trackBarControl.Size = new System.Drawing.Size(182, 45);
             this.ann_weightSpeed_trackBarControl.StyleController = this.layoutControl8;
             this.ann_weightSpeed_trackBarControl.TabIndex = 40;
             // 
             // ann_thresh_trackBarControl
             // 
             this.ann_thresh_trackBarControl.EditValue = null;
-            this.ann_thresh_trackBarControl.Location = new System.Drawing.Point(132, -62);
+            this.ann_thresh_trackBarControl.Location = new System.Drawing.Point(132, 12);
             this.ann_thresh_trackBarControl.Name = "ann_thresh_trackBarControl";
             this.ann_thresh_trackBarControl.Properties.LabelAppearance.Options.UseTextOptions = true;
             this.ann_thresh_trackBarControl.Properties.LabelAppearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.ann_thresh_trackBarControl.Size = new System.Drawing.Size(168, 45);
+            this.ann_thresh_trackBarControl.Size = new System.Drawing.Size(182, 45);
             this.ann_thresh_trackBarControl.StyleController = this.layoutControl8;
             this.ann_thresh_trackBarControl.TabIndex = 39;
             // 
@@ -1966,7 +1967,7 @@
             0,
             0,
             0});
-            this.ann_thresh_spinEdit.Location = new System.Drawing.Point(304, -62);
+            this.ann_thresh_spinEdit.Location = new System.Drawing.Point(318, 12);
             this.ann_thresh_spinEdit.Name = "ann_thresh_spinEdit";
             this.ann_thresh_spinEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -1980,7 +1981,7 @@
             0,
             0,
             0});
-            this.ann_thresh_spinEdit.Size = new System.Drawing.Size(64, 20);
+            this.ann_thresh_spinEdit.Size = new System.Drawing.Size(67, 20);
             this.ann_thresh_spinEdit.StyleController = this.layoutControl8;
             this.ann_thresh_spinEdit.TabIndex = 29;
             // 
@@ -1993,7 +1994,7 @@
             0,
             0,
             0});
-            this.ann_weightSpeed_spinEdit.Location = new System.Drawing.Point(304, -13);
+            this.ann_weightSpeed_spinEdit.Location = new System.Drawing.Point(318, 61);
             this.ann_weightSpeed_spinEdit.Name = "ann_weightSpeed_spinEdit";
             this.ann_weightSpeed_spinEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -2007,7 +2008,7 @@
             0,
             0,
             0});
-            this.ann_weightSpeed_spinEdit.Size = new System.Drawing.Size(64, 20);
+            this.ann_weightSpeed_spinEdit.Size = new System.Drawing.Size(67, 20);
             this.ann_weightSpeed_spinEdit.StyleController = this.layoutControl8;
             this.ann_weightSpeed_spinEdit.TabIndex = 30;
             // 
@@ -2020,7 +2021,7 @@
             0,
             0,
             0});
-            this.ann_weight_spinEdit.Location = new System.Drawing.Point(304, 36);
+            this.ann_weight_spinEdit.Location = new System.Drawing.Point(318, 110);
             this.ann_weight_spinEdit.Name = "ann_weight_spinEdit";
             this.ann_weight_spinEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -2034,7 +2035,7 @@
             0,
             0,
             0});
-            this.ann_weight_spinEdit.Size = new System.Drawing.Size(64, 20);
+            this.ann_weight_spinEdit.Size = new System.Drawing.Size(67, 20);
             this.ann_weight_spinEdit.StyleController = this.layoutControl8;
             this.ann_weight_spinEdit.TabIndex = 26;
             // 
@@ -2047,7 +2048,7 @@
             0,
             0,
             0});
-            this.ann_iterCount_spinEdit.Location = new System.Drawing.Point(302, 183);
+            this.ann_iterCount_spinEdit.Location = new System.Drawing.Point(316, 257);
             this.ann_iterCount_spinEdit.Name = "ann_iterCount_spinEdit";
             this.ann_iterCount_spinEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -2061,7 +2062,7 @@
             0,
             0,
             0});
-            this.ann_iterCount_spinEdit.Size = new System.Drawing.Size(66, 20);
+            this.ann_iterCount_spinEdit.Size = new System.Drawing.Size(69, 20);
             this.ann_iterCount_spinEdit.StyleController = this.layoutControl8;
             this.ann_iterCount_spinEdit.TabIndex = 27;
             // 
@@ -2074,7 +2075,7 @@
             0,
             0,
             0});
-            this.ann_hideLayer_spinEdit.Location = new System.Drawing.Point(304, 134);
+            this.ann_hideLayer_spinEdit.Location = new System.Drawing.Point(318, 208);
             this.ann_hideLayer_spinEdit.Name = "ann_hideLayer_spinEdit";
             this.ann_hideLayer_spinEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -2088,7 +2089,7 @@
             0,
             0,
             0});
-            this.ann_hideLayer_spinEdit.Size = new System.Drawing.Size(64, 20);
+            this.ann_hideLayer_spinEdit.Size = new System.Drawing.Size(67, 20);
             this.ann_hideLayer_spinEdit.StyleController = this.layoutControl8;
             this.ann_hideLayer_spinEdit.TabIndex = 28;
             // 
@@ -2101,7 +2102,7 @@
             0,
             0,
             0});
-            this.ann_rms_spinEdit.Location = new System.Drawing.Point(304, 85);
+            this.ann_rms_spinEdit.Location = new System.Drawing.Point(318, 159);
             this.ann_rms_spinEdit.Name = "ann_rms_spinEdit";
             this.ann_rms_spinEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -2115,7 +2116,7 @@
             0,
             0,
             0});
-            this.ann_rms_spinEdit.Size = new System.Drawing.Size(64, 20);
+            this.ann_rms_spinEdit.Size = new System.Drawing.Size(67, 20);
             this.ann_rms_spinEdit.StyleController = this.layoutControl8;
             this.ann_rms_spinEdit.TabIndex = 25;
             // 
@@ -2138,9 +2139,9 @@
             this.layoutControlItem33,
             this.layoutControlItem34,
             this.layoutControlItem29});
-            this.layoutControlGroup8.Location = new System.Drawing.Point(0, -74);
+            this.layoutControlGroup8.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup8.Name = "layoutControlGroup1";
-            this.layoutControlGroup8.Size = new System.Drawing.Size(380, 314);
+            this.layoutControlGroup8.Size = new System.Drawing.Size(397, 314);
             this.layoutControlGroup8.Text = "layoutControlGroup1";
             this.layoutControlGroup8.TextVisible = false;
             // 
@@ -2150,7 +2151,7 @@
             this.layoutControlItem30.CustomizationFormText = "ltControlItem14";
             this.layoutControlItem30.Location = new System.Drawing.Point(0, 49);
             this.layoutControlItem30.Name = "layoutControlItem14";
-            this.layoutControlItem30.Size = new System.Drawing.Size(292, 49);
+            this.layoutControlItem30.Size = new System.Drawing.Size(306, 49);
             this.layoutControlItem30.Text = "权重调节速度(0~1)：";
             this.layoutControlItem30.TextSize = new System.Drawing.Size(117, 14);
             // 
@@ -2158,9 +2159,9 @@
             // 
             this.layoutControlItem23.Control = this.ann_thresh_spinEdit;
             this.layoutControlItem23.CustomizationFormText = "训练贡献阀值(0~1)：";
-            this.layoutControlItem23.Location = new System.Drawing.Point(292, 0);
+            this.layoutControlItem23.Location = new System.Drawing.Point(306, 0);
             this.layoutControlItem23.Name = "layoutControlItem2";
-            this.layoutControlItem23.Size = new System.Drawing.Size(68, 49);
+            this.layoutControlItem23.Size = new System.Drawing.Size(71, 49);
             this.layoutControlItem23.Text = "layoutControlItem2";
             this.layoutControlItem23.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem23.TextToControlDistance = 0;
@@ -2170,9 +2171,9 @@
             // 
             this.layoutControlItem25.Control = this.ann_weight_spinEdit;
             this.layoutControlItem25.CustomizationFormText = "权重值(0~1)：";
-            this.layoutControlItem25.Location = new System.Drawing.Point(292, 98);
+            this.layoutControlItem25.Location = new System.Drawing.Point(306, 98);
             this.layoutControlItem25.Name = "layoutControlItem5";
-            this.layoutControlItem25.Size = new System.Drawing.Size(68, 49);
+            this.layoutControlItem25.Size = new System.Drawing.Size(71, 49);
             this.layoutControlItem25.Text = "权重值(0~1)：";
             this.layoutControlItem25.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem25.TextToControlDistance = 0;
@@ -2182,9 +2183,9 @@
             // 
             this.layoutControlItem26.Control = this.ann_rms_spinEdit;
             this.layoutControlItem26.CustomizationFormText = "RMS退出标准值：";
-            this.layoutControlItem26.Location = new System.Drawing.Point(292, 147);
+            this.layoutControlItem26.Location = new System.Drawing.Point(306, 147);
             this.layoutControlItem26.Name = "layoutControlItem7";
-            this.layoutControlItem26.Size = new System.Drawing.Size(68, 49);
+            this.layoutControlItem26.Size = new System.Drawing.Size(71, 49);
             this.layoutControlItem26.Text = "RMS退出标准值：";
             this.layoutControlItem26.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem26.TextToControlDistance = 0;
@@ -2194,9 +2195,9 @@
             // 
             this.layoutControlItem27.Control = this.ann_hideLayer_spinEdit;
             this.layoutControlItem27.CustomizationFormText = "所用隐藏图层：";
-            this.layoutControlItem27.Location = new System.Drawing.Point(292, 196);
+            this.layoutControlItem27.Location = new System.Drawing.Point(306, 196);
             this.layoutControlItem27.Name = "layoutControlItem8";
-            this.layoutControlItem27.Size = new System.Drawing.Size(68, 49);
+            this.layoutControlItem27.Size = new System.Drawing.Size(71, 49);
             this.layoutControlItem27.Text = "所用隐藏图层：";
             this.layoutControlItem27.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem27.TextToControlDistance = 0;
@@ -2206,9 +2207,9 @@
             // 
             this.layoutControlItem28.Control = this.ann_iterCount_spinEdit;
             this.layoutControlItem28.CustomizationFormText = "训练迭代次数：";
-            this.layoutControlItem28.Location = new System.Drawing.Point(290, 245);
+            this.layoutControlItem28.Location = new System.Drawing.Point(304, 245);
             this.layoutControlItem28.Name = "layoutControlItem9";
-            this.layoutControlItem28.Size = new System.Drawing.Size(70, 49);
+            this.layoutControlItem28.Size = new System.Drawing.Size(73, 49);
             this.layoutControlItem28.Text = "训练迭代次数：";
             this.layoutControlItem28.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem28.TextToControlDistance = 0;
@@ -2219,9 +2220,9 @@
             this.layoutControlItem24.Control = this.ann_weightSpeed_spinEdit;
             this.layoutControlItem24.CustomizationFormText = "权重调节速度(0~1)：";
             this.layoutControlItem24.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.layoutControlItem24.Location = new System.Drawing.Point(292, 49);
+            this.layoutControlItem24.Location = new System.Drawing.Point(306, 49);
             this.layoutControlItem24.Name = "layoutControlItem3";
-            this.layoutControlItem24.Size = new System.Drawing.Size(68, 49);
+            this.layoutControlItem24.Size = new System.Drawing.Size(71, 49);
             this.layoutControlItem24.Text = "权重调节速度(0~1)：";
             this.layoutControlItem24.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem24.TextToControlDistance = 0;
@@ -2233,7 +2234,7 @@
             this.layoutControlItem31.CustomizationFormText = "layoutControlItem15";
             this.layoutControlItem31.Location = new System.Drawing.Point(0, 98);
             this.layoutControlItem31.Name = "layoutControlItem15";
-            this.layoutControlItem31.Size = new System.Drawing.Size(292, 49);
+            this.layoutControlItem31.Size = new System.Drawing.Size(306, 49);
             this.layoutControlItem31.Text = "权重值(0~1)：";
             this.layoutControlItem31.TextSize = new System.Drawing.Size(117, 14);
             // 
@@ -2243,7 +2244,7 @@
             this.layoutControlItem32.CustomizationFormText = "layoutControlItem16";
             this.layoutControlItem32.Location = new System.Drawing.Point(0, 147);
             this.layoutControlItem32.Name = "layoutControlItem16";
-            this.layoutControlItem32.Size = new System.Drawing.Size(292, 49);
+            this.layoutControlItem32.Size = new System.Drawing.Size(306, 49);
             this.layoutControlItem32.Text = "RMS退出标准值：";
             this.layoutControlItem32.TextSize = new System.Drawing.Size(117, 14);
             // 
@@ -2253,7 +2254,7 @@
             this.layoutControlItem33.CustomizationFormText = "layoutControlItem17";
             this.layoutControlItem33.Location = new System.Drawing.Point(0, 196);
             this.layoutControlItem33.Name = "layoutControlItem17";
-            this.layoutControlItem33.Size = new System.Drawing.Size(292, 49);
+            this.layoutControlItem33.Size = new System.Drawing.Size(306, 49);
             this.layoutControlItem33.Text = "所用隐藏图层：";
             this.layoutControlItem33.TextSize = new System.Drawing.Size(117, 14);
             // 
@@ -2263,7 +2264,7 @@
             this.layoutControlItem34.CustomizationFormText = "layoutControlItem18";
             this.layoutControlItem34.Location = new System.Drawing.Point(0, 245);
             this.layoutControlItem34.Name = "layoutControlItem18";
-            this.layoutControlItem34.Size = new System.Drawing.Size(290, 49);
+            this.layoutControlItem34.Size = new System.Drawing.Size(304, 49);
             this.layoutControlItem34.Text = "训练迭代次数：";
             this.layoutControlItem34.TextSize = new System.Drawing.Size(117, 14);
             // 
@@ -2273,7 +2274,7 @@
             this.layoutControlItem29.CustomizationFormText = "layoutControlItem13";
             this.layoutControlItem29.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem29.Name = "layoutControlItem29";
-            this.layoutControlItem29.Size = new System.Drawing.Size(292, 49);
+            this.layoutControlItem29.Size = new System.Drawing.Size(306, 49);
             this.layoutControlItem29.Text = "训练贡献阀值(0~1)：";
             this.layoutControlItem29.TextSize = new System.Drawing.Size(117, 14);
             // 
@@ -3459,6 +3460,275 @@
             this.kmeans_param_xtraTabPage.Size = new System.Drawing.Size(524, 466);
             this.kmeans_param_xtraTabPage.Text = "K-means";
             // 
+            // memoEdit7
+            // 
+            this.memoEdit7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.memoEdit7.EditValue = resources.GetString("memoEdit7.EditValue");
+            this.memoEdit7.Location = new System.Drawing.Point(0, 204);
+            this.memoEdit7.Name = "memoEdit7";
+            this.memoEdit7.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.memoEdit7.Properties.Appearance.Options.UseFont = true;
+            this.memoEdit7.Properties.ReadOnly = true;
+            this.memoEdit7.Size = new System.Drawing.Size(524, 262);
+            this.memoEdit7.TabIndex = 9;
+            this.memoEdit7.UseOptimizedRendering = true;
+            // 
+            // layoutControl10
+            // 
+            this.layoutControl10.Controls.Add(this.labelControl24);
+            this.layoutControl10.Controls.Add(this.labelControl23);
+            this.layoutControl10.Controls.Add(this.labelControl22);
+            this.layoutControl10.Controls.Add(this.kmeans_maxIter_spinEdit);
+            this.layoutControl10.Controls.Add(this.kmeans_changeThresh_spinEdit);
+            this.layoutControl10.Controls.Add(this.kmeans_numClasses_spinEdit);
+            this.layoutControl10.Dock = System.Windows.Forms.DockStyle.Top;
+            this.layoutControl10.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl10.Name = "layoutControl10";
+            this.layoutControl10.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(925, 206, 250, 350);
+            this.layoutControl10.Root = this.layoutControlGroup10;
+            this.layoutControl10.Size = new System.Drawing.Size(524, 204);
+            this.layoutControl10.TabIndex = 0;
+            this.layoutControl10.Text = "layoutControl10";
+            // 
+            // labelControl24
+            // 
+            this.labelControl24.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl24.Location = new System.Drawing.Point(12, 140);
+            this.labelControl24.Name = "labelControl24";
+            this.labelControl24.Size = new System.Drawing.Size(122, 14);
+            this.labelControl24.StyleController = this.layoutControl10;
+            this.labelControl24.TabIndex = 9;
+            this.labelControl24.Text = "控制算法最大迭代次数";
+            // 
+            // labelControl23
+            // 
+            this.labelControl23.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl23.Location = new System.Drawing.Point(12, 88);
+            this.labelControl23.Name = "labelControl23";
+            this.labelControl23.Size = new System.Drawing.Size(134, 14);
+            this.labelControl23.StyleController = this.layoutControl10;
+            this.labelControl23.TabIndex = 8;
+            this.labelControl23.Text = "算法阈值，控制算法精度";
+            // 
+            // labelControl22
+            // 
+            this.labelControl22.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl22.Location = new System.Drawing.Point(12, 36);
+            this.labelControl22.Name = "labelControl22";
+            this.labelControl22.Size = new System.Drawing.Size(110, 14);
+            this.labelControl22.StyleController = this.layoutControl10;
+            this.labelControl22.TabIndex = 7;
+            this.labelControl22.Text = "决定聚类后的类别数";
+            // 
+            // kmeans_maxIter_spinEdit
+            // 
+            this.kmeans_maxIter_spinEdit.EditValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.kmeans_maxIter_spinEdit.Location = new System.Drawing.Point(87, 116);
+            this.kmeans_maxIter_spinEdit.Name = "kmeans_maxIter_spinEdit";
+            this.kmeans_maxIter_spinEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.kmeans_maxIter_spinEdit.Properties.IsFloatValue = false;
+            this.kmeans_maxIter_spinEdit.Properties.Mask.EditMask = "N00";
+            this.kmeans_maxIter_spinEdit.Size = new System.Drawing.Size(74, 20);
+            this.kmeans_maxIter_spinEdit.StyleController = this.layoutControl10;
+            this.kmeans_maxIter_spinEdit.TabIndex = 6;
+            // 
+            // kmeans_changeThresh_spinEdit
+            // 
+            this.kmeans_changeThresh_spinEdit.EditValue = new decimal(new int[] {
+            5,
+            0,
+            0,
+            131072});
+            this.kmeans_changeThresh_spinEdit.Location = new System.Drawing.Point(87, 64);
+            this.kmeans_changeThresh_spinEdit.Name = "kmeans_changeThresh_spinEdit";
+            this.kmeans_changeThresh_spinEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.kmeans_changeThresh_spinEdit.Properties.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.kmeans_changeThresh_spinEdit.Properties.MaxValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.kmeans_changeThresh_spinEdit.Size = new System.Drawing.Size(73, 20);
+            this.kmeans_changeThresh_spinEdit.StyleController = this.layoutControl10;
+            this.kmeans_changeThresh_spinEdit.TabIndex = 5;
+            // 
+            // kmeans_numClasses_spinEdit
+            // 
+            this.kmeans_numClasses_spinEdit.EditValue = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.kmeans_numClasses_spinEdit.Location = new System.Drawing.Point(87, 12);
+            this.kmeans_numClasses_spinEdit.Name = "kmeans_numClasses_spinEdit";
+            this.kmeans_numClasses_spinEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.kmeans_numClasses_spinEdit.Properties.IsFloatValue = false;
+            this.kmeans_numClasses_spinEdit.Properties.Mask.EditMask = "N00";
+            this.kmeans_numClasses_spinEdit.Size = new System.Drawing.Size(74, 20);
+            this.kmeans_numClasses_spinEdit.StyleController = this.layoutControl10;
+            this.kmeans_numClasses_spinEdit.TabIndex = 4;
+            // 
+            // layoutControlGroup10
+            // 
+            this.layoutControlGroup10.CustomizationFormText = "Root";
+            this.layoutControlGroup10.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup10.GroupBordersVisible = false;
+            this.layoutControlGroup10.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem43,
+            this.layoutControlItem44,
+            this.layoutControlItem45,
+            this.emptySpaceItem16,
+            this.emptySpaceItem18,
+            this.layoutControlItem46,
+            this.emptySpaceItem17,
+            this.layoutControlItem47,
+            this.layoutControlItem48,
+            this.emptySpaceItem19,
+            this.emptySpaceItem20,
+            this.emptySpaceItem21});
+            this.layoutControlGroup10.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup10.Name = "Root";
+            this.layoutControlGroup10.Size = new System.Drawing.Size(524, 204);
+            this.layoutControlGroup10.Text = "Root";
+            this.layoutControlGroup10.TextVisible = false;
+            // 
+            // layoutControlItem43
+            // 
+            this.layoutControlItem43.Control = this.kmeans_numClasses_spinEdit;
+            this.layoutControlItem43.CustomizationFormText = "聚类数目";
+            this.layoutControlItem43.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem43.Name = "layoutControlItem43";
+            this.layoutControlItem43.Size = new System.Drawing.Size(153, 24);
+            this.layoutControlItem43.Text = "聚类数目";
+            this.layoutControlItem43.TextSize = new System.Drawing.Size(72, 14);
+            // 
+            // layoutControlItem44
+            // 
+            this.layoutControlItem44.Control = this.kmeans_changeThresh_spinEdit;
+            this.layoutControlItem44.CustomizationFormText = "变化阈值";
+            this.layoutControlItem44.Location = new System.Drawing.Point(0, 52);
+            this.layoutControlItem44.Name = "layoutControlItem44";
+            this.layoutControlItem44.Size = new System.Drawing.Size(152, 24);
+            this.layoutControlItem44.Text = "变化阈值";
+            this.layoutControlItem44.TextSize = new System.Drawing.Size(72, 14);
+            // 
+            // layoutControlItem45
+            // 
+            this.layoutControlItem45.Control = this.kmeans_maxIter_spinEdit;
+            this.layoutControlItem45.CustomizationFormText = "最大迭代次数";
+            this.layoutControlItem45.Location = new System.Drawing.Point(0, 104);
+            this.layoutControlItem45.Name = "layoutControlItem45";
+            this.layoutControlItem45.Size = new System.Drawing.Size(153, 24);
+            this.layoutControlItem45.Text = "最大迭代次数";
+            this.layoutControlItem45.TextSize = new System.Drawing.Size(72, 14);
+            // 
+            // emptySpaceItem16
+            // 
+            this.emptySpaceItem16.AllowHotTrack = false;
+            this.emptySpaceItem16.CustomizationFormText = "emptySpaceItem16";
+            this.emptySpaceItem16.Location = new System.Drawing.Point(0, 94);
+            this.emptySpaceItem16.Name = "emptySpaceItem16";
+            this.emptySpaceItem16.Size = new System.Drawing.Size(504, 10);
+            this.emptySpaceItem16.Text = "emptySpaceItem16";
+            this.emptySpaceItem16.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // emptySpaceItem18
+            // 
+            this.emptySpaceItem18.AllowHotTrack = false;
+            this.emptySpaceItem18.CustomizationFormText = "emptySpaceItem18";
+            this.emptySpaceItem18.Location = new System.Drawing.Point(0, 146);
+            this.emptySpaceItem18.Name = "emptySpaceItem18";
+            this.emptySpaceItem18.Size = new System.Drawing.Size(504, 38);
+            this.emptySpaceItem18.Text = "emptySpaceItem18";
+            this.emptySpaceItem18.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // layoutControlItem46
+            // 
+            this.layoutControlItem46.Control = this.labelControl22;
+            this.layoutControlItem46.CustomizationFormText = "layoutControlItem46";
+            this.layoutControlItem46.Location = new System.Drawing.Point(0, 24);
+            this.layoutControlItem46.Name = "layoutControlItem46";
+            this.layoutControlItem46.Size = new System.Drawing.Size(504, 18);
+            this.layoutControlItem46.Text = "layoutControlItem46";
+            this.layoutControlItem46.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem46.TextToControlDistance = 0;
+            this.layoutControlItem46.TextVisible = false;
+            // 
+            // emptySpaceItem17
+            // 
+            this.emptySpaceItem17.AllowHotTrack = false;
+            this.emptySpaceItem17.CustomizationFormText = "emptySpaceItem17";
+            this.emptySpaceItem17.Location = new System.Drawing.Point(0, 42);
+            this.emptySpaceItem17.Name = "emptySpaceItem17";
+            this.emptySpaceItem17.Size = new System.Drawing.Size(504, 10);
+            this.emptySpaceItem17.Text = "emptySpaceItem17";
+            this.emptySpaceItem17.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // layoutControlItem47
+            // 
+            this.layoutControlItem47.Control = this.labelControl23;
+            this.layoutControlItem47.CustomizationFormText = "layoutControlItem47";
+            this.layoutControlItem47.Location = new System.Drawing.Point(0, 76);
+            this.layoutControlItem47.Name = "layoutControlItem47";
+            this.layoutControlItem47.Size = new System.Drawing.Size(504, 18);
+            this.layoutControlItem47.Text = "layoutControlItem47";
+            this.layoutControlItem47.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem47.TextToControlDistance = 0;
+            this.layoutControlItem47.TextVisible = false;
+            // 
+            // layoutControlItem48
+            // 
+            this.layoutControlItem48.Control = this.labelControl24;
+            this.layoutControlItem48.CustomizationFormText = "layoutControlItem48";
+            this.layoutControlItem48.Location = new System.Drawing.Point(0, 128);
+            this.layoutControlItem48.Name = "layoutControlItem48";
+            this.layoutControlItem48.Size = new System.Drawing.Size(504, 18);
+            this.layoutControlItem48.Text = "layoutControlItem48";
+            this.layoutControlItem48.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem48.TextToControlDistance = 0;
+            this.layoutControlItem48.TextVisible = false;
+            // 
+            // emptySpaceItem19
+            // 
+            this.emptySpaceItem19.AllowHotTrack = false;
+            this.emptySpaceItem19.CustomizationFormText = "emptySpaceItem19";
+            this.emptySpaceItem19.Location = new System.Drawing.Point(153, 0);
+            this.emptySpaceItem19.Name = "emptySpaceItem19";
+            this.emptySpaceItem19.Size = new System.Drawing.Size(351, 24);
+            this.emptySpaceItem19.Text = "emptySpaceItem19";
+            this.emptySpaceItem19.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // emptySpaceItem20
+            // 
+            this.emptySpaceItem20.AllowHotTrack = false;
+            this.emptySpaceItem20.CustomizationFormText = "emptySpaceItem20";
+            this.emptySpaceItem20.Location = new System.Drawing.Point(152, 52);
+            this.emptySpaceItem20.Name = "emptySpaceItem20";
+            this.emptySpaceItem20.Size = new System.Drawing.Size(352, 24);
+            this.emptySpaceItem20.Text = "emptySpaceItem20";
+            this.emptySpaceItem20.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // emptySpaceItem21
+            // 
+            this.emptySpaceItem21.AllowHotTrack = false;
+            this.emptySpaceItem21.CustomizationFormText = "emptySpaceItem21";
+            this.emptySpaceItem21.Location = new System.Drawing.Point(153, 104);
+            this.emptySpaceItem21.Name = "emptySpaceItem21";
+            this.emptySpaceItem21.Size = new System.Drawing.Size(351, 24);
+            this.emptySpaceItem21.Text = "emptySpaceItem21";
+            this.emptySpaceItem21.TextSize = new System.Drawing.Size(0, 0);
+            // 
             // backstageViewClientControl3
             // 
             this.backstageViewClientControl3.Controls.Add(this.singleMode_checkEdit);
@@ -3474,7 +3744,7 @@
             // singleMode_checkEdit
             // 
             this.singleMode_checkEdit.EditValue = true;
-            this.singleMode_checkEdit.Location = new System.Drawing.Point(7, 47);
+            this.singleMode_checkEdit.Location = new System.Drawing.Point(7, 33);
             this.singleMode_checkEdit.Name = "singleMode_checkEdit";
             this.singleMode_checkEdit.Properties.Caption = "单文档模式";
             this.singleMode_checkEdit.Size = new System.Drawing.Size(90, 19);
@@ -3483,7 +3753,7 @@
             // 
             // batchMode_checkEdit
             // 
-            this.batchMode_checkEdit.Location = new System.Drawing.Point(7, 196);
+            this.batchMode_checkEdit.Location = new System.Drawing.Point(7, 182);
             this.batchMode_checkEdit.Name = "batchMode_checkEdit";
             this.batchMode_checkEdit.Properties.Caption = "批处理模式";
             this.batchMode_checkEdit.Size = new System.Drawing.Size(90, 19);
@@ -3492,22 +3762,25 @@
             // 
             // batchMode_groupControl
             // 
+            this.batchMode_groupControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.batchMode_groupControl.Controls.Add(this.layoutControl6);
             this.batchMode_groupControl.Enabled = false;
-            this.batchMode_groupControl.Location = new System.Drawing.Point(4, 221);
+            this.batchMode_groupControl.Location = new System.Drawing.Point(9, 220);
             this.batchMode_groupControl.Name = "batchMode_groupControl";
-            this.batchMode_groupControl.Size = new System.Drawing.Size(656, 109);
+            this.batchMode_groupControl.Size = new System.Drawing.Size(512, 93);
             this.batchMode_groupControl.TabIndex = 1;
             // 
             // layoutControl6
             // 
             this.layoutControl6.Controls.Add(this.inDataFolder_btn);
             this.layoutControl6.Controls.Add(this.outDataFolder_btn);
-            this.layoutControl6.Location = new System.Drawing.Point(5, 26);
+            this.layoutControl6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layoutControl6.Location = new System.Drawing.Point(2, 22);
             this.layoutControl6.Name = "layoutControl6";
             this.layoutControl6.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(532, 410, 250, 350);
             this.layoutControl6.Root = this.layoutControlGroup6;
-            this.layoutControl6.Size = new System.Drawing.Size(635, 74);
+            this.layoutControl6.Size = new System.Drawing.Size(508, 69);
             this.layoutControl6.TabIndex = 0;
             this.layoutControl6.Text = "layoutControl4";
             // 
@@ -3517,10 +3790,10 @@
             this.inDataFolder_btn.Name = "inDataFolder_btn";
             this.inDataFolder_btn.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.inDataFolder_btn.Size = new System.Drawing.Size(548, 20);
+            this.inDataFolder_btn.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.inDataFolder_btn_Properties__Click);
+            this.inDataFolder_btn.Size = new System.Drawing.Size(421, 20);
             this.inDataFolder_btn.StyleController = this.layoutControl6;
             this.inDataFolder_btn.TabIndex = 5;
-            this.inDataFolder_btn.Click += new System.EventHandler(this.inDataFolder_btn_Click);
             // 
             // outDataFolder_btn
             // 
@@ -3528,10 +3801,10 @@
             this.outDataFolder_btn.Name = "outDataFolder_btn";
             this.outDataFolder_btn.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.outDataFolder_btn.Size = new System.Drawing.Size(548, 20);
+            this.outDataFolder_btn.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.outDataFolder_btn_Properties__Click);
+            this.outDataFolder_btn.Size = new System.Drawing.Size(421, 20);
             this.outDataFolder_btn.StyleController = this.layoutControl6;
             this.outDataFolder_btn.TabIndex = 4;
-            this.outDataFolder_btn.Click += new System.EventHandler(this.outDataFolder_btn_Click);
             // 
             // layoutControlGroup6
             // 
@@ -3543,7 +3816,7 @@
             this.layoutControlItem19});
             this.layoutControlGroup6.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup6.Name = "layoutControlGroup4";
-            this.layoutControlGroup6.Size = new System.Drawing.Size(635, 74);
+            this.layoutControlGroup6.Size = new System.Drawing.Size(508, 69);
             this.layoutControlGroup6.Text = "layoutControlGroup4";
             this.layoutControlGroup6.TextVisible = false;
             // 
@@ -3553,7 +3826,7 @@
             this.layoutControlItem18.CustomizationFormText = "输出文件路径";
             this.layoutControlItem18.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem18.Name = "layoutControlItem14";
-            this.layoutControlItem18.Size = new System.Drawing.Size(615, 30);
+            this.layoutControlItem18.Size = new System.Drawing.Size(488, 25);
             this.layoutControlItem18.Text = "输出文件夹";
             this.layoutControlItem18.TextSize = new System.Drawing.Size(60, 14);
             // 
@@ -3563,27 +3836,30 @@
             this.layoutControlItem19.CustomizationFormText = "输入文件夹";
             this.layoutControlItem19.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem19.Name = "layoutControlItem17";
-            this.layoutControlItem19.Size = new System.Drawing.Size(615, 24);
+            this.layoutControlItem19.Size = new System.Drawing.Size(488, 24);
             this.layoutControlItem19.Text = "输入文件夹";
             this.layoutControlItem19.TextSize = new System.Drawing.Size(60, 14);
             // 
             // singleMode_groupControl
             // 
+            this.singleMode_groupControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.singleMode_groupControl.Controls.Add(this.layoutControl4);
-            this.singleMode_groupControl.Location = new System.Drawing.Point(4, 72);
+            this.singleMode_groupControl.Location = new System.Drawing.Point(9, 69);
             this.singleMode_groupControl.Name = "singleMode_groupControl";
-            this.singleMode_groupControl.Size = new System.Drawing.Size(656, 107);
+            this.singleMode_groupControl.Size = new System.Drawing.Size(512, 92);
             this.singleMode_groupControl.TabIndex = 1;
             // 
             // layoutControl4
             // 
             this.layoutControl4.Controls.Add(this.inDataFile_btn);
             this.layoutControl4.Controls.Add(this.outDataFile_btn);
-            this.layoutControl4.Location = new System.Drawing.Point(5, 26);
+            this.layoutControl4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layoutControl4.Location = new System.Drawing.Point(2, 22);
             this.layoutControl4.Name = "layoutControl4";
             this.layoutControl4.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(532, 410, 250, 350);
             this.layoutControl4.Root = this.layoutControlGroup4;
-            this.layoutControl4.Size = new System.Drawing.Size(639, 74);
+            this.layoutControl4.Size = new System.Drawing.Size(508, 68);
             this.layoutControl4.TabIndex = 0;
             this.layoutControl4.Text = "layoutControl4";
             // 
@@ -3593,10 +3869,10 @@
             this.inDataFile_btn.Name = "inDataFile_btn";
             this.inDataFile_btn.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.inDataFile_btn.Size = new System.Drawing.Size(540, 20);
+            this.inDataFile_btn.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.inDataFile_btn_Properties_ButtonClick);
+            this.inDataFile_btn.Size = new System.Drawing.Size(409, 20);
             this.inDataFile_btn.StyleController = this.layoutControl4;
             this.inDataFile_btn.TabIndex = 5;
-            this.inDataFile_btn.Click += new System.EventHandler(this.inDataFile_btn_Click);
             // 
             // outDataFile_btn
             // 
@@ -3604,10 +3880,10 @@
             this.outDataFile_btn.Name = "outDataFile_btn";
             this.outDataFile_btn.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.outDataFile_btn.Size = new System.Drawing.Size(540, 20);
+            this.outDataFile_btn.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.outDataFile_btn_Properties_ButtonClick);
+            this.outDataFile_btn.Size = new System.Drawing.Size(409, 20);
             this.outDataFile_btn.StyleController = this.layoutControl4;
             this.outDataFile_btn.TabIndex = 4;
-            this.outDataFile_btn.Click += new System.EventHandler(this.outDataFile_btn_Click);
             // 
             // layoutControlGroup4
             // 
@@ -3619,7 +3895,7 @@
             this.layoutControlItem17});
             this.layoutControlGroup4.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup4.Name = "layoutControlGroup4";
-            this.layoutControlGroup4.Size = new System.Drawing.Size(639, 74);
+            this.layoutControlGroup4.Size = new System.Drawing.Size(508, 68);
             this.layoutControlGroup4.Text = "layoutControlGroup4";
             this.layoutControlGroup4.TextVisible = false;
             // 
@@ -3629,17 +3905,18 @@
             this.layoutControlItem14.CustomizationFormText = "输出文件路径";
             this.layoutControlItem14.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem14.Name = "layoutControlItem14";
-            this.layoutControlItem14.Size = new System.Drawing.Size(619, 30);
+            this.layoutControlItem14.Size = new System.Drawing.Size(488, 24);
             this.layoutControlItem14.Text = "输出文件路径";
             this.layoutControlItem14.TextSize = new System.Drawing.Size(72, 14);
             // 
             // layoutControlItem17
             // 
+            this.layoutControlItem17.BestFitWeight = 10;
             this.layoutControlItem17.Control = this.inDataFile_btn;
             this.layoutControlItem17.CustomizationFormText = "输入文件路径";
             this.layoutControlItem17.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem17.Name = "layoutControlItem17";
-            this.layoutControlItem17.Size = new System.Drawing.Size(619, 24);
+            this.layoutControlItem17.Size = new System.Drawing.Size(488, 24);
             this.layoutControlItem17.Text = "输入文件路径";
             this.layoutControlItem17.TextSize = new System.Drawing.Size(72, 14);
             // 
@@ -3658,7 +3935,9 @@
             // 
             // labelControl19
             // 
-            this.labelControl19.Location = new System.Drawing.Point(216, 369);
+            this.labelControl19.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelControl19.Location = new System.Drawing.Point(162, 440);
             this.labelControl19.Name = "labelControl19";
             this.labelControl19.Size = new System.Drawing.Size(224, 14);
             this.labelControl19.TabIndex = 8;
@@ -3666,10 +3945,12 @@
             // 
             // layoutControl7
             // 
+            this.layoutControl7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.layoutControl7.Controls.Add(this.class_outputfile_textEdit);
             this.layoutControl7.Controls.Add(this.class_inputfile_textEdit);
             this.layoutControl7.Controls.Add(this.class_method_textEdit);
-            this.layoutControl7.Location = new System.Drawing.Point(24, 30);
+            this.layoutControl7.Location = new System.Drawing.Point(7, 63);
             this.layoutControl7.Name = "layoutControl7";
             this.layoutControl7.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(608, 348, 250, 350);
             this.layoutControl7.Root = this.layoutControlGroup7;
@@ -3679,25 +3960,26 @@
             // 
             // class_outputfile_textEdit
             // 
-            this.class_outputfile_textEdit.Location = new System.Drawing.Point(75, 119);
+            this.class_outputfile_textEdit.Location = new System.Drawing.Point(111, 119);
             this.class_outputfile_textEdit.Name = "class_outputfile_textEdit";
-            this.class_outputfile_textEdit.Size = new System.Drawing.Size(430, 20);
+            this.class_outputfile_textEdit.Size = new System.Drawing.Size(394, 20);
             this.class_outputfile_textEdit.StyleController = this.layoutControl7;
             this.class_outputfile_textEdit.TabIndex = 7;
             // 
             // class_inputfile_textEdit
             // 
-            this.class_inputfile_textEdit.Location = new System.Drawing.Point(75, 63);
+            this.class_inputfile_textEdit.Location = new System.Drawing.Point(111, 63);
             this.class_inputfile_textEdit.Name = "class_inputfile_textEdit";
-            this.class_inputfile_textEdit.Size = new System.Drawing.Size(430, 20);
+            this.class_inputfile_textEdit.Size = new System.Drawing.Size(394, 20);
             this.class_inputfile_textEdit.StyleController = this.layoutControl7;
             this.class_inputfile_textEdit.TabIndex = 6;
             // 
             // class_method_textEdit
             // 
-            this.class_method_textEdit.Location = new System.Drawing.Point(75, 12);
+            this.class_method_textEdit.Location = new System.Drawing.Point(111, 12);
             this.class_method_textEdit.Name = "class_method_textEdit";
-            this.class_method_textEdit.Size = new System.Drawing.Size(430, 20);
+            this.class_method_textEdit.Properties.ReadOnly = true;
+            this.class_method_textEdit.Size = new System.Drawing.Size(394, 20);
             this.class_method_textEdit.StyleController = this.layoutControl7;
             this.class_method_textEdit.TabIndex = 5;
             // 
@@ -3725,7 +4007,7 @@
             this.layoutControlItem21.Name = "layoutControlItem21";
             this.layoutControlItem21.Size = new System.Drawing.Size(497, 24);
             this.layoutControlItem21.Text = "分类方法：";
-            this.layoutControlItem21.TextSize = new System.Drawing.Size(60, 14);
+            this.layoutControlItem21.TextSize = new System.Drawing.Size(96, 14);
             // 
             // layoutControlItem20
             // 
@@ -3734,8 +4016,8 @@
             this.layoutControlItem20.Location = new System.Drawing.Point(0, 51);
             this.layoutControlItem20.Name = "layoutControlItem20";
             this.layoutControlItem20.Size = new System.Drawing.Size(497, 24);
-            this.layoutControlItem20.Text = "输入文件：";
-            this.layoutControlItem20.TextSize = new System.Drawing.Size(60, 14);
+            this.layoutControlItem20.Text = "输入文件或目录：";
+            this.layoutControlItem20.TextSize = new System.Drawing.Size(96, 14);
             // 
             // layoutControlItem22
             // 
@@ -3744,8 +4026,8 @@
             this.layoutControlItem22.Location = new System.Drawing.Point(0, 107);
             this.layoutControlItem22.Name = "layoutControlItem22";
             this.layoutControlItem22.Size = new System.Drawing.Size(497, 24);
-            this.layoutControlItem22.Text = "输出文件：";
-            this.layoutControlItem22.TextSize = new System.Drawing.Size(60, 14);
+            this.layoutControlItem22.Text = "输出文件或目录：";
+            this.layoutControlItem22.TextSize = new System.Drawing.Size(96, 14);
             // 
             // emptySpaceItem3
             // 
@@ -3769,7 +4051,8 @@
             // 
             // class_marqueeProgressBarControl
             // 
-            this.class_marqueeProgressBarControl.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.class_marqueeProgressBarControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.class_marqueeProgressBarControl.EditValue = 0;
             this.class_marqueeProgressBarControl.Location = new System.Drawing.Point(0, 460);
             this.class_marqueeProgressBarControl.Name = "class_marqueeProgressBarControl";
@@ -3921,7 +4204,7 @@
             this.setParam_TabItem.Caption = "Set Parameters";
             this.setParam_TabItem.ContentControl = this.backstageViewClientControl2;
             this.setParam_TabItem.Name = "setParam_TabItem";
-            this.setParam_TabItem.Selected = true;
+            this.setParam_TabItem.Selected = false;
             // 
             // expData_TabItem
             // 
@@ -3935,7 +4218,7 @@
             this.run_TabItem.Caption = "Run";
             this.run_TabItem.ContentControl = this.backstageViewClientControl4;
             this.run_TabItem.Name = "run_TabItem";
-            this.run_TabItem.Selected = false;
+            this.run_TabItem.Selected = true;
             // 
             // backstageViewItemSeparator1
             // 
@@ -3948,274 +4231,10 @@
             this.finish_TabItem.Name = "finish_TabItem";
             this.finish_TabItem.Selected = false;
             // 
-            // layoutControl10
+            // class_backgroundWorker
             // 
-            this.layoutControl10.Controls.Add(this.labelControl24);
-            this.layoutControl10.Controls.Add(this.labelControl23);
-            this.layoutControl10.Controls.Add(this.labelControl22);
-            this.layoutControl10.Controls.Add(this.kmeans_maxIter_spinEdit);
-            this.layoutControl10.Controls.Add(this.kmeans_changeThresh_spinEdit);
-            this.layoutControl10.Controls.Add(this.kmeans_numClasses_spinEdit);
-            this.layoutControl10.Dock = System.Windows.Forms.DockStyle.Top;
-            this.layoutControl10.Location = new System.Drawing.Point(0, 0);
-            this.layoutControl10.Name = "layoutControl10";
-            this.layoutControl10.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(925, 206, 250, 350);
-            this.layoutControl10.Root = this.layoutControlGroup10;
-            this.layoutControl10.Size = new System.Drawing.Size(524, 204);
-            this.layoutControl10.TabIndex = 0;
-            this.layoutControl10.Text = "layoutControl10";
-            // 
-            // layoutControlGroup10
-            // 
-            this.layoutControlGroup10.CustomizationFormText = "Root";
-            this.layoutControlGroup10.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.layoutControlGroup10.GroupBordersVisible = false;
-            this.layoutControlGroup10.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem43,
-            this.layoutControlItem44,
-            this.layoutControlItem45,
-            this.emptySpaceItem16,
-            this.emptySpaceItem18,
-            this.layoutControlItem46,
-            this.emptySpaceItem17,
-            this.layoutControlItem47,
-            this.layoutControlItem48,
-            this.emptySpaceItem19,
-            this.emptySpaceItem20,
-            this.emptySpaceItem21});
-            this.layoutControlGroup10.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlGroup10.Name = "Root";
-            this.layoutControlGroup10.Size = new System.Drawing.Size(524, 204);
-            this.layoutControlGroup10.Text = "Root";
-            this.layoutControlGroup10.TextVisible = false;
-            // 
-            // memoEdit7
-            // 
-            this.memoEdit7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.memoEdit7.EditValue = resources.GetString("memoEdit7.EditValue");
-            this.memoEdit7.Location = new System.Drawing.Point(0, 204);
-            this.memoEdit7.Name = "memoEdit7";
-            this.memoEdit7.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.memoEdit7.Properties.Appearance.Options.UseFont = true;
-            this.memoEdit7.Properties.ReadOnly = true;
-            this.memoEdit7.Size = new System.Drawing.Size(524, 262);
-            this.memoEdit7.TabIndex = 9;
-            this.memoEdit7.UseOptimizedRendering = true;
-            // 
-            // kmeans_numClasses_spinEdit
-            // 
-            this.kmeans_numClasses_spinEdit.EditValue = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.kmeans_numClasses_spinEdit.Location = new System.Drawing.Point(88, 12);
-            this.kmeans_numClasses_spinEdit.Name = "kmeans_numClasses_spinEdit";
-            this.kmeans_numClasses_spinEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.kmeans_numClasses_spinEdit.Properties.IsFloatValue = false;
-            this.kmeans_numClasses_spinEdit.Properties.Mask.EditMask = "N00";
-            this.kmeans_numClasses_spinEdit.Size = new System.Drawing.Size(73, 20);
-            this.kmeans_numClasses_spinEdit.StyleController = this.layoutControl10;
-            this.kmeans_numClasses_spinEdit.TabIndex = 4;
-            // 
-            // layoutControlItem43
-            // 
-            this.layoutControlItem43.Control = this.kmeans_numClasses_spinEdit;
-            this.layoutControlItem43.CustomizationFormText = "聚类数目";
-            this.layoutControlItem43.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem43.Name = "layoutControlItem43";
-            this.layoutControlItem43.Size = new System.Drawing.Size(153, 24);
-            this.layoutControlItem43.Text = "聚类数目";
-            this.layoutControlItem43.TextSize = new System.Drawing.Size(72, 14);
-            // 
-            // kmeans_changeThresh_spinEdit
-            // 
-            this.kmeans_changeThresh_spinEdit.EditValue = new decimal(new int[] {
-            5,
-            0,
-            0,
-            131072});
-            this.kmeans_changeThresh_spinEdit.Location = new System.Drawing.Point(88, 64);
-            this.kmeans_changeThresh_spinEdit.Name = "kmeans_changeThresh_spinEdit";
-            this.kmeans_changeThresh_spinEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.kmeans_changeThresh_spinEdit.Properties.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.kmeans_changeThresh_spinEdit.Properties.MaxValue = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.kmeans_changeThresh_spinEdit.Size = new System.Drawing.Size(72, 20);
-            this.kmeans_changeThresh_spinEdit.StyleController = this.layoutControl10;
-            this.kmeans_changeThresh_spinEdit.TabIndex = 5;
-            // 
-            // layoutControlItem44
-            // 
-            this.layoutControlItem44.Control = this.kmeans_changeThresh_spinEdit;
-            this.layoutControlItem44.CustomizationFormText = "变化阈值";
-            this.layoutControlItem44.Location = new System.Drawing.Point(0, 52);
-            this.layoutControlItem44.Name = "layoutControlItem44";
-            this.layoutControlItem44.Size = new System.Drawing.Size(152, 24);
-            this.layoutControlItem44.Text = "变化阈值";
-            this.layoutControlItem44.TextSize = new System.Drawing.Size(72, 14);
-            // 
-            // kmeans_maxIter_spinEdit
-            // 
-            this.kmeans_maxIter_spinEdit.EditValue = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.kmeans_maxIter_spinEdit.Location = new System.Drawing.Point(88, 116);
-            this.kmeans_maxIter_spinEdit.Name = "kmeans_maxIter_spinEdit";
-            this.kmeans_maxIter_spinEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.kmeans_maxIter_spinEdit.Properties.IsFloatValue = false;
-            this.kmeans_maxIter_spinEdit.Properties.Mask.EditMask = "N00";
-            this.kmeans_maxIter_spinEdit.Size = new System.Drawing.Size(73, 20);
-            this.kmeans_maxIter_spinEdit.StyleController = this.layoutControl10;
-            this.kmeans_maxIter_spinEdit.TabIndex = 6;
-            // 
-            // layoutControlItem45
-            // 
-            this.layoutControlItem45.Control = this.kmeans_maxIter_spinEdit;
-            this.layoutControlItem45.CustomizationFormText = "最大迭代次数";
-            this.layoutControlItem45.Location = new System.Drawing.Point(0, 104);
-            this.layoutControlItem45.Name = "layoutControlItem45";
-            this.layoutControlItem45.Size = new System.Drawing.Size(153, 24);
-            this.layoutControlItem45.Text = "最大迭代次数";
-            this.layoutControlItem45.TextSize = new System.Drawing.Size(72, 14);
-            // 
-            // emptySpaceItem16
-            // 
-            this.emptySpaceItem16.AllowHotTrack = false;
-            this.emptySpaceItem16.CustomizationFormText = "emptySpaceItem16";
-            this.emptySpaceItem16.Location = new System.Drawing.Point(0, 94);
-            this.emptySpaceItem16.Name = "emptySpaceItem16";
-            this.emptySpaceItem16.Size = new System.Drawing.Size(504, 10);
-            this.emptySpaceItem16.Text = "emptySpaceItem16";
-            this.emptySpaceItem16.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // emptySpaceItem17
-            // 
-            this.emptySpaceItem17.AllowHotTrack = false;
-            this.emptySpaceItem17.CustomizationFormText = "emptySpaceItem17";
-            this.emptySpaceItem17.Location = new System.Drawing.Point(0, 42);
-            this.emptySpaceItem17.Name = "emptySpaceItem17";
-            this.emptySpaceItem17.Size = new System.Drawing.Size(504, 10);
-            this.emptySpaceItem17.Text = "emptySpaceItem17";
-            this.emptySpaceItem17.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // emptySpaceItem18
-            // 
-            this.emptySpaceItem18.AllowHotTrack = false;
-            this.emptySpaceItem18.CustomizationFormText = "emptySpaceItem18";
-            this.emptySpaceItem18.Location = new System.Drawing.Point(0, 146);
-            this.emptySpaceItem18.Name = "emptySpaceItem18";
-            this.emptySpaceItem18.Size = new System.Drawing.Size(504, 38);
-            this.emptySpaceItem18.Text = "emptySpaceItem18";
-            this.emptySpaceItem18.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // labelControl22
-            // 
-            this.labelControl22.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl22.Location = new System.Drawing.Point(12, 36);
-            this.labelControl22.Name = "labelControl22";
-            this.labelControl22.Size = new System.Drawing.Size(110, 14);
-            this.labelControl22.StyleController = this.layoutControl10;
-            this.labelControl22.TabIndex = 7;
-            this.labelControl22.Text = "决定聚类后的类别数";
-            // 
-            // layoutControlItem46
-            // 
-            this.layoutControlItem46.Control = this.labelControl22;
-            this.layoutControlItem46.CustomizationFormText = "layoutControlItem46";
-            this.layoutControlItem46.Location = new System.Drawing.Point(0, 24);
-            this.layoutControlItem46.Name = "layoutControlItem46";
-            this.layoutControlItem46.Size = new System.Drawing.Size(504, 18);
-            this.layoutControlItem46.Text = "layoutControlItem46";
-            this.layoutControlItem46.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem46.TextToControlDistance = 0;
-            this.layoutControlItem46.TextVisible = false;
-            // 
-            // labelControl23
-            // 
-            this.labelControl23.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl23.Location = new System.Drawing.Point(12, 88);
-            this.labelControl23.Name = "labelControl23";
-            this.labelControl23.Size = new System.Drawing.Size(134, 14);
-            this.labelControl23.StyleController = this.layoutControl10;
-            this.labelControl23.TabIndex = 8;
-            this.labelControl23.Text = "算法阈值，控制算法精度";
-            // 
-            // layoutControlItem47
-            // 
-            this.layoutControlItem47.Control = this.labelControl23;
-            this.layoutControlItem47.CustomizationFormText = "layoutControlItem47";
-            this.layoutControlItem47.Location = new System.Drawing.Point(0, 76);
-            this.layoutControlItem47.Name = "layoutControlItem47";
-            this.layoutControlItem47.Size = new System.Drawing.Size(504, 18);
-            this.layoutControlItem47.Text = "layoutControlItem47";
-            this.layoutControlItem47.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem47.TextToControlDistance = 0;
-            this.layoutControlItem47.TextVisible = false;
-            // 
-            // labelControl24
-            // 
-            this.labelControl24.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl24.Location = new System.Drawing.Point(12, 140);
-            this.labelControl24.Name = "labelControl24";
-            this.labelControl24.Size = new System.Drawing.Size(122, 14);
-            this.labelControl24.StyleController = this.layoutControl10;
-            this.labelControl24.TabIndex = 9;
-            this.labelControl24.Text = "控制算法最大迭代次数";
-            // 
-            // layoutControlItem48
-            // 
-            this.layoutControlItem48.Control = this.labelControl24;
-            this.layoutControlItem48.CustomizationFormText = "layoutControlItem48";
-            this.layoutControlItem48.Location = new System.Drawing.Point(0, 128);
-            this.layoutControlItem48.Name = "layoutControlItem48";
-            this.layoutControlItem48.Size = new System.Drawing.Size(504, 18);
-            this.layoutControlItem48.Text = "layoutControlItem48";
-            this.layoutControlItem48.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem48.TextToControlDistance = 0;
-            this.layoutControlItem48.TextVisible = false;
-            // 
-            // emptySpaceItem19
-            // 
-            this.emptySpaceItem19.AllowHotTrack = false;
-            this.emptySpaceItem19.CustomizationFormText = "emptySpaceItem19";
-            this.emptySpaceItem19.Location = new System.Drawing.Point(153, 0);
-            this.emptySpaceItem19.Name = "emptySpaceItem19";
-            this.emptySpaceItem19.Size = new System.Drawing.Size(351, 24);
-            this.emptySpaceItem19.Text = "emptySpaceItem19";
-            this.emptySpaceItem19.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // emptySpaceItem20
-            // 
-            this.emptySpaceItem20.AllowHotTrack = false;
-            this.emptySpaceItem20.CustomizationFormText = "emptySpaceItem20";
-            this.emptySpaceItem20.Location = new System.Drawing.Point(152, 52);
-            this.emptySpaceItem20.Name = "emptySpaceItem20";
-            this.emptySpaceItem20.Size = new System.Drawing.Size(352, 24);
-            this.emptySpaceItem20.Text = "emptySpaceItem20";
-            this.emptySpaceItem20.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // emptySpaceItem21
-            // 
-            this.emptySpaceItem21.AllowHotTrack = false;
-            this.emptySpaceItem21.CustomizationFormText = "emptySpaceItem21";
-            this.emptySpaceItem21.Location = new System.Drawing.Point(153, 104);
-            this.emptySpaceItem21.Name = "emptySpaceItem21";
-            this.emptySpaceItem21.Size = new System.Drawing.Size(351, 24);
-            this.emptySpaceItem21.Text = "emptySpaceItem21";
-            this.emptySpaceItem21.TextSize = new System.Drawing.Size(0, 0);
+            this.class_backgroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.class_backgroundWorker_DoWork);
+            this.class_backgroundWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.class_backgroundWorker_RunWorkerCompleted);
             // 
             // ClassificationForm
             // 
@@ -4463,6 +4482,25 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit6.Properties)).EndInit();
             this.kmeans_param_xtraTabPage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.memoEdit7.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl10)).EndInit();
+            this.layoutControl10.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.kmeans_maxIter_spinEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kmeans_changeThresh_spinEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kmeans_numClasses_spinEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem43)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem44)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem45)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem16)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem18)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem46)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem17)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem47)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem48)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem19)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem20)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem21)).EndInit();
             this.backstageViewClientControl3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.singleMode_checkEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.batchMode_checkEdit.Properties)).EndInit();
@@ -4509,25 +4547,6 @@
             this.backstageViewClientControl5.ResumeLayout(false);
             this.backstageViewClientControl5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl10)).EndInit();
-            this.layoutControl10.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.memoEdit7.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kmeans_numClasses_spinEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem43)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kmeans_changeThresh_spinEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem44)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kmeans_maxIter_spinEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem45)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem16)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem17)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem18)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem46)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem47)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem48)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem19)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem20)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem21)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -4790,6 +4809,7 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem19;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem20;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem21;
+        private System.ComponentModel.BackgroundWorker class_backgroundWorker;
 
     }
 }
