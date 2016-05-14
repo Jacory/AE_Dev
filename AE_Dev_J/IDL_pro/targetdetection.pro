@@ -21,7 +21,7 @@ Pro Targetdetection_tt, input, output, detectionMethod, mode = mode, $
 
   If ~KEYWORD_SET(kernelSize) Then kernelSize = 15
   If ~KEYWORD_SET(isLocal) Then isLocal = 0
-  if ~KEYWORD_SET(mode) Then mode = 0
+  if ~KEYWORD_SET(mode) Then mode = 0 ; default is single file mode
   
   filecount = 0
   filenames = ''
