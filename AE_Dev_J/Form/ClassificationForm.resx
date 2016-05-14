@@ -215,89 +215,116 @@
       
       这里添加对分类方法的简介，阈值的设置等等文字。这里添加对分类方法的简介，阈值的设置等等文字。这里添加对分类方法的简介，阈值的设置等等文字。这里添加对分类方法的简介，阈值的设置等等文字。这里添加对分类方法的简介，阈值的设置等等文字。这里添加对分类方法的简介，阈值的设置等等文字。这里添加对分类方法的简介，阈值的设置等等文字。这里添加对分类方法的简介，阈值的设置等等文字。这里添加对分类方法的简介，阈值的设置等等文字。这里添加对分类方法的简介，阈值的设置等等文字。</value>
   </data>
-  <data name="supervise_xtraTabPage.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-</value>
-  </data>
-  <data name="memoEdit6.EditValue" xml:space="preserve">
-    <value>平行六面体分类方法简介：
+  <data name="memoEdit7.EditValue" xml:space="preserve">
+    <value>K-means分类方法简介：
       
-      这里添加对分类方法的简介，阈值的设置等等文字。这里添加对分类方法的简介，阈值的设置等等文字。这里添加对分类方法的简介，阈值的设置等等文字。这里添加对分类方法的简介，阈值的设置等等文字。这里添加对分类方法的简介，阈值的设置等等文字。这里添加对分类方法的简介，阈值的设置等等文字。这里添加对分类方法的简介，阈值的设置等等文字。这里添加对分类方法的简介，阈值的设置等等文字。这里添加对分类方法的简介，阈值的设置等等文字。这里添加对分类方法的简介，阈值的设置等等文字。</value>
+      k-means 算法接受参数 k ；然后将事先输入的n个数据对象划分为 k个聚类以便使得所获得的聚类满足：同一聚类中的对象相似度较高；而不同聚类中的对象相似度较小。聚类相似度是利用各聚类中对象的均值所获得一个“中心对象”（引力中心）来进行计算的。
+K-means算法是最为经典的基于划分的聚类方法，是十大经典数据挖掘算法之一。K-means算法的基本思想是：以空间中k个点为中心进行聚类，对最靠近他们的对象归类。通过迭代的方法，逐次更新各聚类中心的值，直至得到最好的聚类结果。
+假设要把样本集分为c个类别，算法描述如下：
+（1）适当选择c个类的初始中心；
+（2）在第k次迭代中，对任意一个样本，求其到c个中心的距离，将该样本归到距离最短的中心所在的类；
+（3）利用均值等方法更新该类的中心值；
+（4）对于所有的c个聚类中心，如果利用（2）（3）的迭代法更新后，值保持不变，则迭代结束，否则继续迭代。
+该算法的最大优势在于简洁和快速。算法的关键在于初始中心的选择和距离公式。</value>
   </data>
-  <data name="unsupervise_xtraTabPage.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="pictureEdit1.EditValue" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        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
-        +bcWKAAAAABJRU5ErkJggg==
+        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
+        AElFTkSuQmCC
 </value>
   </data>
+  <data name="pictureEdit1.Properties.InitialImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+</value>
+  </data>
+  <metadata name="class_backgroundWorker.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
 </root>
