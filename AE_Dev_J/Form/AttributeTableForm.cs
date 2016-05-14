@@ -51,8 +51,7 @@ namespace AE_Dev_J.Form
             //开始导入属性数据
             importAttribute(flayer_list[0]);
 
-            //tool_dockPanel.Visibility = DevExpress.XtraBars.Docking.DockVisibility.AutoHide;
-            filter_dockPanel.Visibility = DevExpress.XtraBars.Docking.DockVisibility.AutoHide;
+            att_dockPaneltools.Visibility = DevExpress.XtraBars.Docking.DockVisibility.AutoHide;
         }
 
         /// <summary>
@@ -82,7 +81,16 @@ namespace AE_Dev_J.Form
             }
             for (int i = 0; i < m_featureclass.Fields.FieldCount; i++)
             {
-                DataColumn dc = new DataColumn(m_featureclass.Fields.get_Field(i).Name);
+                DataColumn dc = null;
+                if (m_featureclass.Fields.get_Field(i).Type.ToString()=="esriFieldTypeOID")
+                {
+                    //给主键做标记，生成图表时用
+                    dc = new DataColumn("*"+m_featureclass.Fields.get_Field(i).Name);
+                }
+                else
+                {
+                    dc = new DataColumn(m_featureclass.Fields.get_Field(i).Name);
+                }
                 if (m_featureclass.Fields.get_Field(i).Type.ToString()=="esriFieldTypeDouble")
                 {
                     dc.DataType=typeof(double);
@@ -182,23 +190,19 @@ namespace AE_Dev_J.Form
         /// <param name="e"></param>
         private void att_gridview_PopupMenuShowing(object sender, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs e)
         {
-            //添加“选择当前列”
+            //添加“选择当前列”及"Statistics And Chart"
             if (e.MenuType == GridMenuType.Column)
             {
                 DXMenuItem m_selecolumn = new DXMenuItem("选择当前列", att_gridview_GridMenuItemClick);
                 m_selecolumn.Tag = "selectall/" + e.HitInfo.Column.Name + "/" + ((GridView)sender).Name;
 
-                DXMenuItem m_chart = new DXMenuItem("Statistics And Chart", att_gridview_GridMenuItemClick);
-                m_chart.Tag ="statisticsandchart/"+ e.HitInfo.Column.Name + "/" + ((GridView)sender).Name;
-
                 GridViewColumnMenu menu = e.Menu as GridViewColumnMenu;
                 menu.Items.Add(m_selecolumn);
-                menu.Items.Add(m_chart);
             }
         }
         
         /// <summary>
-        /// 点击表头右键菜单项“选择当前列”
+        /// 点击表头右键菜单项
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -220,11 +224,6 @@ namespace AE_Dev_J.Form
                 GridCell start = new GridCell(0, currentview.Columns[itemstring[1].Substring(3)]);
                 GridCell end = new GridCell(currentview.RowCount - 1, currentview.Columns[itemstring[1].Substring(3)]);
                 currentview.SelectCells(start, end);
-            }
-            if (item!=null && item.Caption=="Statistics And Chart")
-            {
-                StatisticsAndChartForm statichart = new StatisticsAndChartForm(currentview, currentview.Columns[itemstring[1].Substring(3)].FieldName);
-                statichart.Show();
             }
         }
 
@@ -356,9 +355,27 @@ namespace AE_Dev_J.Form
                     att_xtraTabControl1.TabPages.RemoveAt(i);
                 }
             }
-            this.Show();
-            m_mapControl.Focus();
         }
+
+        /// <summary>
+        /// 打开图表与统计
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void att_chartbaritem_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            string indexstring = att_xtraTabControl1.SelectedTabPage.Tooltip;
+            for (int i = 0; i < gridview_list.Count; i++)
+            {
+                if (indexstring == gridview_list[i].Tag.ToString())
+                {
+                    StatisticsAndChartForm statichart = new StatisticsAndChartForm(gridview_list[i],att_xtraTabControl1.SelectedTabPage.Text);
+                    statichart.Show();
+                    break;
+                }
+            }
+        }
+
 
     }
 }

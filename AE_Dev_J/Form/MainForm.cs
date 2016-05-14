@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
+using System.Threading;
+using System.Threading.Tasks;
+
 using DevExpress.Skins;
 using DevExpress.LookAndFeel;
 using DevExpress.UserSkins;
@@ -21,6 +24,7 @@ using ESRI.ArcGIS.CartoUI;
 using ESRI.ArcGIS.Display;
 using ESRI.ArcGIS.SystemUI;
 using ESRI.ArcGIS.DataSourcesFile;
+using ESRI.ArcGIS.GeoAnalyst;
 
 
 
@@ -39,7 +43,7 @@ namespace AE_Dev_J
         private TargetDetectionForm m_tdForm = null;
         private RgbSegForm m_rgbSegForm = null;
         private AttributeTableForm m_attForm = null;
-        IEngineEditor pEngineEditor =null;
+        private IEngineEditor pEngineEditor =null;
 
         #endregion 私有成员变量
 
@@ -203,6 +207,45 @@ namespace AE_Dev_J
             AddFeatureClassForm addafeature = new AddFeatureClassForm(this.getMapControl());
             addafeature.ShowDialog();
         }
+        /// <summary>
+        ///FeatureToRaster
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void FeatureToRasterbutton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            List<IFeatureLayer> featurelist = new List<IFeatureLayer>();
+            for (int i = 0; i < m_mapControl.LayerCount; i++)
+            {
+                ILayer layer = m_mapControl.get_Layer(i);
+                if (layer is IFeatureLayer)
+                {
+                    featurelist.Add(layer as IFeatureLayer);
+                }
+            }
+            FeatureToRasterForm featuretoraster = new FeatureToRasterForm(featurelist, m_mapControl);
+            featuretoraster.Show();
+        }
+        /// <summary>
+        ///RasterToFeature
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RasterToFeaturebutton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            List<IRasterLayer> rasterlist = new List<IRasterLayer>();
+            for (int i = 0; i < m_mapControl.LayerCount; i++)
+            {
+                ILayer layer = m_mapControl.get_Layer(i);
+                if (layer is IRasterLayer)
+                {
+                    rasterlist.Add(layer as IRasterLayer);
+                }
+            }
+            RasterToFeatureForm rastertofeature = new RasterToFeatureForm(rasterlist, m_mapControl);
+            rastertofeature.ShowDialog();
+        }
+
         #endregion Data Managment 菜单事件
 
         #region Home and Skin 菜单事件
@@ -372,7 +415,6 @@ namespace AE_Dev_J
             IFeatureLayer selectedLayer = layer as IFeatureLayer;
             if (item == esriTOCControlItem.esriTOCControlItemLayer && selectedLayer != null)
             {
-
                 if (selectedLayer is IFeatureLayer)
                 {   // 打开属性表窗口，如果当前没有属性表，就创建一个，如果当前有，就在原有窗口中添加一张表格
                     if (m_attForm == null || m_attForm.IsDisposed == true)
@@ -407,6 +449,7 @@ namespace AE_Dev_J
                 if (m_attForm != null && selectedLayer is IFeatureLayer)
                     m_attForm.att_removetable(selectedLayer as IFeatureLayer);
             }
+            this.Focus();
             m_mapControl.Focus();
         }
 
@@ -743,6 +786,7 @@ namespace AE_Dev_J
             m_mapControl.AddLayer(pLayer);
             m_mapControl.Refresh();
         }
+
         /// <summary>
         /// 关闭主窗口
         /// </summary>
@@ -795,7 +839,6 @@ namespace AE_Dev_J
                 }
             }
         }
-
 
     }
 }
