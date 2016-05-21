@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
+using System.Threading;
+using System.Threading.Tasks;
+
 using DevExpress.Skins;
 using DevExpress.LookAndFeel;
 using DevExpress.UserSkins;
@@ -21,6 +24,8 @@ using ESRI.ArcGIS.CartoUI;
 using ESRI.ArcGIS.Display;
 using ESRI.ArcGIS.SystemUI;
 using ESRI.ArcGIS.DataSourcesFile;
+using ESRI.ArcGIS.GeoAnalyst;
+using ESRI.ArcGIS.esriSystem;
 
 
 
@@ -39,7 +44,7 @@ namespace AE_Dev_J
         private TargetDetectionForm m_tdForm = null;
         private RgbSegForm m_rgbSegForm = null;
         private AttributeTableForm m_attForm = null;
-        IEngineEditor pEngineEditor =null;
+        private IEngineEditor pEngineEditor =null;
 
         #endregion 私有成员变量
 
@@ -53,6 +58,7 @@ namespace AE_Dev_J
             FileInfo finfo = new FileInfo(rasfilename);
 
             IWorkspaceFactory pWorkspaceFacotry = new RasterWorkspaceFactory();
+
             IWorkspace pWorkspace = pWorkspaceFacotry.OpenFromFile(finfo.DirectoryName, 0);
             IRasterWorkspace pRasterWorkspace = pWorkspace as IRasterWorkspace;
             IRasterDataset pRasterDataset = pRasterWorkspace.OpenRasterDataset(finfo.Name);
@@ -81,7 +87,8 @@ namespace AE_Dev_J
 
             IRasterLayer pRasterLayer = new RasterLayer();
             pRasterLayer.CreateFromRaster(pRaster);
-
+            //pRasterLayer.CreateFromDataset(pRasterDataset);
+            //pRasterLayer.CreateFromFilePath(rasfilename);
             pBandCount = pRasterLayer.BandCount;
 
             ILayer pLayer = pRasterLayer as ILayer;
@@ -102,7 +109,6 @@ namespace AE_Dev_J
                 m_mapControl.AddShapeFile(finfo.DirectoryName, finfo.Name);
         }
 
-
         public MainForm()
         {
             ESRI.ArcGIS.RuntimeManager.Bind(ESRI.ArcGIS.ProductCode.EngineOrDesktop); // ESRI license
@@ -116,7 +122,6 @@ namespace AE_Dev_J
             {
                 System.IO.Directory.CreateDirectory(Application.StartupPath + "\\temp");
             }
-
         }
 
         void InitSkinGallery()
@@ -144,9 +149,9 @@ namespace AE_Dev_J
         /// <param name="e"></param>
         private void iOpenProject_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            ESRI.ArcGIS.SystemUI.ICommand openProjectCommand = new ControlsOpenDocCommand();
-            openProjectCommand.OnCreate(m_mapControl.Object);
-            openProjectCommand.OnClick();
+            ICommand openmxd = new ControlsOpenDocCommandClass();
+            openmxd.OnCreate(m_mapControl.Object);
+            openmxd.OnClick();
         }
 
         /// <summary>
@@ -158,7 +163,6 @@ namespace AE_Dev_J
         {
 
         }
-
         /// <summary>
         /// 保存工程
         /// </summary>
@@ -166,7 +170,43 @@ namespace AE_Dev_J
         /// <param name="e"></param>
         private void iSaveProject_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            //判断当前是否存在mxd文件，若存在则执行保存，否则执行另存为。
+            if (m_mapControl.DocumentFilename!=null)
+            {
+                IMxdContents pMxdC = m_mapControl.Map as IMxdContents;
+                IMapDocument pMapDocument = new MapDocumentClass();
+                pMapDocument.Open(m_mapControl.DocumentFilename, "");
+                IActiveView pActiveView = m_mapControl.Map as IActiveView;
+                pMapDocument.ReplaceContents(pMxdC);
+                IObjectCopy lip_ObjCopy = new ObjectCopyClass(); //使用Copy，避免共享引用
+                m_mapControl.Map = (IMap)lip_ObjCopy.Copy(pMapDocument.Map[0]);
+                lip_ObjCopy = null;
+                pMapDocument.Save(true,false);
+                MessageBox.Show("保存成功");
+            }
+            else
+            {
+                IMapDocument pMapDocument = new MapDocumentClass();
+                SaveFileDialog opensavemxd = new SaveFileDialog();
+                opensavemxd.Filter = "地图文档(*.mxd)|*.mxd"; //对话框的过滤器
+                if (opensavemxd.ShowDialog() == DialogResult.OK)
+                {
+                    string filePath = opensavemxd.FileName; //获取文件全路径
+                    pMapDocument.New(filePath);
+                    IMxdContents pMxdC = m_mapControl.Map as IMxdContents;
+                    pMapDocument.ReplaceContents(pMxdC);
+                    pMapDocument.Save(true, false);
 
+                    m_mapControl.LoadMxFile(filePath, 0, Type.Missing);
+                    //循环遍历所有的地图
+                    for (int i = 0; i < pMapDocument.MapCount; i++)
+                    {
+                        m_mapControl.Map = pMapDocument.get_Map(i); //绑定地图控件
+                    }
+                    m_mapControl.Map.Name = "Layers";
+                    m_tocControl.SetBuddyControl(m_mapControl.Object);
+                }
+            }
         }
 
         /// <summary>
@@ -188,7 +228,17 @@ namespace AE_Dev_J
         /// <param name="e"></param>
         private void iNewProject_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            IMapDocument pMapDocument = new MapDocumentClass();
+            SaveFileDialog newmxd = new SaveFileDialog();
+            newmxd.Filter = "地图文档(*.mxd)|*.mxd"; 
+            if (newmxd.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = newmxd.FileName; 
+                pMapDocument.New(filePath);
+                m_mapControl.LoadMxFile(filePath, 0, Type.Missing);
+                m_mapControl.Map.Name = "Layers";
+                m_tocControl.SetBuddyControl(m_mapControl.Object);
+            }
         }
 
         // ====== File ======
@@ -263,6 +313,45 @@ namespace AE_Dev_J
             AddFeatureClassForm addafeature = new AddFeatureClassForm(this.getMapControl());
             addafeature.ShowDialog();
         }
+        /// <summary>
+        ///FeatureToRaster
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void FeatureToRasterbutton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            List<IFeatureLayer> featurelist = new List<IFeatureLayer>();
+            for (int i = 0; i < m_mapControl.LayerCount; i++)
+            {
+                ILayer layer = m_mapControl.get_Layer(i);
+                if (layer is IFeatureLayer)
+                {
+                    featurelist.Add(layer as IFeatureLayer);
+                }
+            }
+            FeatureToRasterForm featuretoraster = new FeatureToRasterForm(featurelist,this);
+            featuretoraster.Show();
+        }
+        /// <summary>
+        ///RasterToFeature
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RasterToFeaturebutton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            List<IRasterLayer> rasterlist = new List<IRasterLayer>();
+            for (int i = 0; i < m_mapControl.LayerCount; i++)
+            {
+                ILayer layer = m_mapControl.get_Layer(i);
+                if (layer is IRasterLayer)
+                {
+                    rasterlist.Add(layer as IRasterLayer);
+                }
+            }
+            RasterToFeatureForm rastertofeature = new RasterToFeatureForm(rasterlist,this);
+            rastertofeature.Show();
+        }
+
         #endregion Data Managment 菜单事件
 
         #region Home and Skin 菜单事件
@@ -432,7 +521,6 @@ namespace AE_Dev_J
             IFeatureLayer selectedLayer = layer as IFeatureLayer;
             if (item == esriTOCControlItem.esriTOCControlItemLayer && selectedLayer != null)
             {
-
                 if (selectedLayer is IFeatureLayer)
                 {   // 打开属性表窗口，如果当前没有属性表，就创建一个，如果当前有，就在原有窗口中添加一张表格
                     if (m_attForm == null || m_attForm.IsDisposed == true)
@@ -467,6 +555,7 @@ namespace AE_Dev_J
                 if (m_attForm != null && selectedLayer is IFeatureLayer)
                     m_attForm.att_removetable(selectedLayer as IFeatureLayer);
             }
+            this.Focus();
             m_mapControl.Focus();
         }
 
@@ -617,6 +706,18 @@ namespace AE_Dev_J
                         break;
                 }
             }
+        }
+        /// <summary>
+        /// 添加图层
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void addData_toolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ICommand addData = new ControlsAddDataCommandClass();
+            addData.OnCreate(m_mapControl.Object);
+            m_mapControl.CurrentTool = addData as ITool;
+            addData.OnClick();
         }
 
         #endregion m_tocControl鼠标事件
@@ -810,6 +911,7 @@ namespace AE_Dev_J
                 }
             }
         }
+
 
     }
 }
