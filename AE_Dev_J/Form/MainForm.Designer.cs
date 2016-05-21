@@ -46,7 +46,6 @@
             this.tasksItem = new DevExpress.XtraNavBar.NavBarItem();
             this.navbarImageCollectionLarge = new DevExpress.Utils.ImageCollection(this.components);
             this.navbarImageCollection = new DevExpress.Utils.ImageCollection(this.components);
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.axLicenseControl1 = new ESRI.ArcGIS.Controls.AxLicenseControl();
             this.m_mapControl = new ESRI.ArcGIS.Controls.AxMapControl();
             this.m_esritoolbarControl = new ESRI.ArcGIS.Controls.AxToolbarControl();
@@ -170,7 +169,6 @@
             this.splitContainerControl.Panel1.Controls.Add(this.m_tocControl);
             this.splitContainerControl.Panel1.Controls.Add(this.navBarControl);
             this.splitContainerControl.Panel1.Text = "Panel1";
-            this.splitContainerControl.Panel2.Controls.Add(this.textBox1);
             this.splitContainerControl.Panel2.Controls.Add(this.axLicenseControl1);
             this.splitContainerControl.Panel2.Controls.Add(this.m_mapControl);
             this.splitContainerControl.Panel2.Controls.Add(this.m_esritoolbarControl);
@@ -267,13 +265,6 @@
             this.navbarImageCollection.Images.SetKeyName(4, "Calendar_16x16.png");
             this.navbarImageCollection.Images.SetKeyName(5, "Tasks_16x16.png");
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(407, 32);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 4;
-            // 
             // axLicenseControl1
             // 
             this.axLicenseControl1.Enabled = true;
@@ -311,7 +302,7 @@
             this.EditToolsBarDockControl.Dock = System.Windows.Forms.DockStyle.Top;
             this.EditToolsBarDockControl.Location = new System.Drawing.Point(0, 0);
             this.EditToolsBarDockControl.Name = "EditToolsBarDockControl";
-            this.EditToolsBarDockControl.Size = new System.Drawing.Size(720, 31);
+            this.EditToolsBarDockControl.Size = new System.Drawing.Size(296, 31);
             this.EditToolsBarDockControl.Text = "standaloneBarDockControl1";
             // 
             // ribbonMenu
@@ -958,6 +949,7 @@
             this.addData_toolStripMenuItem.Name = "addData_toolStripMenuItem";
             this.addData_toolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.addData_toolStripMenuItem.Text = "添加图层";
+            this.addData_toolStripMenuItem.Click += new System.EventHandler(this.addData_toolStripMenuItem_Click);
             // 
             // map_toolbarManager
             // 
@@ -1237,7 +1229,6 @@
         private System.Windows.Forms.ToolStripMenuItem fullExtent_ToolStripMenuItem;
         private DevExpress.XtraBars.BarStaticItem m_editinglayer;
         private ESRI.ArcGIS.Controls.AxTOCControl m_tocControl;
-        private System.Windows.Forms.TextBox textBox1;
 
     }
 }

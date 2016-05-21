@@ -188,7 +188,7 @@
             this.repositoryItemButtonEdit1});
             this.StatisticsAndChart_vGridControl.RowHeaderWidth = 85;
             this.StatisticsAndChart_vGridControl.ShowButtonMode = DevExpress.XtraVerticalGrid.ShowButtonModeEnum.ShowAlways;
-            this.StatisticsAndChart_vGridControl.Size = new System.Drawing.Size(238, 348);
+            this.StatisticsAndChart_vGridControl.Size = new System.Drawing.Size(238, 363);
             this.StatisticsAndChart_vGridControl.TabIndex = 0;
             this.StatisticsAndChart_vGridControl.TreeButtonStyle = DevExpress.XtraVerticalGrid.TreeButtonStyle.TreeView;
             this.StatisticsAndChart_vGridControl.MouseClick += new System.Windows.Forms.MouseEventHandler(this.StatisticsAndChart_vGridControl_MouseClick);
@@ -228,7 +228,7 @@
             this.StatisticsTable_DockPanel.OriginalSize = new System.Drawing.Size(246, 200);
             this.StatisticsTable_DockPanel.SavedDock = DevExpress.XtraBars.Docking.DockingStyle.Left;
             this.StatisticsTable_DockPanel.SavedIndex = 0;
-            this.StatisticsTable_DockPanel.Size = new System.Drawing.Size(246, 380);
+            this.StatisticsTable_DockPanel.Size = new System.Drawing.Size(246, 395);
             this.StatisticsTable_DockPanel.Text = "Statistics Table";
             this.StatisticsTable_DockPanel.CustomButtonClick += new DevExpress.XtraBars.Docking2010.ButtonEventHandler(this.StatisticsTable_CustomButtonClick);
             // 
@@ -237,7 +237,7 @@
             this.dockPanel1_Container.Controls.Add(this.StatisticsAndChart_vGridControl);
             this.dockPanel1_Container.Location = new System.Drawing.Point(4, 28);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(238, 348);
+            this.dockPanel1_Container.Size = new System.Drawing.Size(238, 363);
             this.dockPanel1_Container.TabIndex = 0;
             // 
             // StatisticsChart_chart2
@@ -250,7 +250,7 @@
             this.StatisticsChart_chart2.Location = new System.Drawing.Point(0, 0);
             this.StatisticsChart_chart2.Name = "StatisticsChart_chart2";
             this.StatisticsChart_chart2.SeriesSerializable = new DevExpress.XtraCharts.Series[0];
-            this.StatisticsChart_chart2.Size = new System.Drawing.Size(187, 222);
+            this.StatisticsChart_chart2.Size = new System.Drawing.Size(584, 237);
             this.StatisticsChart_chart2.TabIndex = 0;
             // 
             // StatisticsChart_chart1
@@ -263,7 +263,7 @@
             this.StatisticsChart_chart1.Location = new System.Drawing.Point(0, 0);
             this.StatisticsChart_chart1.Name = "StatisticsChart_chart1";
             this.StatisticsChart_chart1.SeriesSerializable = new DevExpress.XtraCharts.Series[0];
-            this.StatisticsChart_chart1.Size = new System.Drawing.Size(412, 145);
+            this.StatisticsChart_chart1.Size = new System.Drawing.Size(663, 145);
             this.StatisticsChart_chart1.TabIndex = 0;
             // 
             // chart_split
@@ -278,7 +278,7 @@
             this.chart_split.Panel2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
             this.chart_split.Panel2.Controls.Add(this.splitContainerControl1);
             this.chart_split.Panel2.Text = "Panel2";
-            this.chart_split.Size = new System.Drawing.Size(416, 380);
+            this.chart_split.Size = new System.Drawing.Size(667, 395);
             this.chart_split.SplitterPosition = 149;
             this.chart_split.TabIndex = 3;
             this.chart_split.Text = "splitContainerControl1";
@@ -288,12 +288,12 @@
             this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerControl1.Location = new System.Drawing.Point(0, 0);
             this.splitContainerControl1.Name = "splitContainerControl1";
-            this.splitContainerControl1.Panel1.Controls.Add(this.StatisticsChart_chart2);
+            this.splitContainerControl1.Panel1.Controls.Add(this.groupControl1);
             this.splitContainerControl1.Panel1.Text = "Panel1";
-            this.splitContainerControl1.Panel2.Controls.Add(this.groupControl1);
+            this.splitContainerControl1.Panel2.Controls.Add(this.StatisticsChart_chart2);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(412, 222);
-            this.splitContainerControl1.SplitterPosition = 187;
+            this.splitContainerControl1.Size = new System.Drawing.Size(663, 237);
+            this.splitContainerControl1.SplitterPosition = 74;
             this.splitContainerControl1.TabIndex = 1;
             this.splitContainerControl1.Text = "splitContainerControl1";
             // 
@@ -304,7 +304,7 @@
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.ShowCaption = false;
-            this.groupControl1.Size = new System.Drawing.Size(220, 222);
+            this.groupControl1.Size = new System.Drawing.Size(74, 237);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "groupControl1";
             // 
@@ -315,7 +315,7 @@
             this.comboBoxEdit1.Name = "comboBoxEdit1";
             this.comboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEdit1.Size = new System.Drawing.Size(216, 20);
+            this.comboBoxEdit1.Size = new System.Drawing.Size(70, 20);
             this.comboBoxEdit1.TabIndex = 0;
             this.comboBoxEdit1.SelectedIndexChanged += new System.EventHandler(this.comboBoxEdit1_SelectedIndexChanged);
             // 
@@ -886,7 +886,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(662, 380);
+            this.ClientSize = new System.Drawing.Size(913, 395);
             this.Controls.Add(this.chart_split);
             this.Controls.Add(this.StatisticsTable_DockPanel);
             this.Name = "StatisticsAndChartForm";

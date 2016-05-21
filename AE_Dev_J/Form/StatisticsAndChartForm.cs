@@ -293,9 +293,9 @@ namespace AE_Dev_J.Form
         private void comboBoxEdit1_SelectedIndexChanged(object sender, EventArgs e)
         {
             //清除图表数据，重新载入数据
-            for (int i = 0; i < StatisticsChart_chart1.Series.Count; i++)
+            for (int i = 0; i < StatisticsChart_chart2.Series.Count; i++)
             {
-                StatisticsChart_chart1.Series.RemoveAt(i);
+                StatisticsChart_chart2.Series.RemoveAt(i);
             }
             Series series = new Series("", ViewType.Bar);
             for (int i = 0; i < gridview.RowCount; i++)

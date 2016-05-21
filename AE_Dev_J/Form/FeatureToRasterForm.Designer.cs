@@ -30,22 +30,20 @@
         {
             this.featuretoraster_inputcombox = new DevExpress.XtraEditors.ComboBoxEdit();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.progressBarControl1 = new DevExpress.XtraEditors.ProgressBarControl();
+            this.featuretoraster_Exportbutton = new DevExpress.XtraEditors.SimpleButton();
+            this.FtoR_progressBarControl = new DevExpress.XtraEditors.ProgressBarControl();
             this.memoEdit1 = new DevExpress.XtraEditors.MemoEdit();
             this.featuretoraster_Cancelbutton = new DevExpress.XtraEditors.SimpleButton();
             this.featuretoraster_OKbutton = new DevExpress.XtraEditors.SimpleButton();
             this.featuretoraster_cellsize = new DevExpress.XtraEditors.TextEdit();
-            this.featuretoraster_Format = new DevExpress.XtraEditors.ComboBoxEdit();
             this.featuretoraster_fieldcombox = new DevExpress.XtraEditors.ComboBoxEdit();
             this.featuretoraster_output = new DevExpress.XtraEditors.ButtonEdit();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem7 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem9 = new DevExpress.XtraLayout.EmptySpaceItem();
@@ -56,23 +54,22 @@
             this.emptySpaceItem6 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem5 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.featuretoraster_inputcombox.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.progressBarControl1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FtoR_progressBarControl.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.featuretoraster_cellsize.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.featuretoraster_Format.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.featuretoraster_fieldcombox.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.featuretoraster_output.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem9)).BeginInit();
@@ -83,6 +80,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
             this.SuspendLayout();
             // 
             // featuretoraster_inputcombox
@@ -95,7 +94,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.featuretoraster_inputcombox.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.featuretoraster_inputcombox.Size = new System.Drawing.Size(384, 20);
+            this.featuretoraster_inputcombox.Size = new System.Drawing.Size(418, 20);
             this.featuretoraster_inputcombox.StyleController = this.layoutControl1;
             this.featuretoraster_inputcombox.TabIndex = 1;
             this.featuretoraster_inputcombox.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.featuretoraster_inputcombox_ButtonClick);
@@ -103,37 +102,47 @@
             // 
             // layoutControl1
             // 
-            this.layoutControl1.Controls.Add(this.progressBarControl1);
+            this.layoutControl1.Controls.Add(this.featuretoraster_Exportbutton);
+            this.layoutControl1.Controls.Add(this.FtoR_progressBarControl);
             this.layoutControl1.Controls.Add(this.memoEdit1);
             this.layoutControl1.Controls.Add(this.featuretoraster_inputcombox);
             this.layoutControl1.Controls.Add(this.featuretoraster_Cancelbutton);
             this.layoutControl1.Controls.Add(this.featuretoraster_OKbutton);
             this.layoutControl1.Controls.Add(this.featuretoraster_cellsize);
-            this.layoutControl1.Controls.Add(this.featuretoraster_Format);
             this.layoutControl1.Controls.Add(this.featuretoraster_fieldcombox);
             this.layoutControl1.Controls.Add(this.featuretoraster_output);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
-            this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(243, 383, 250, 350);
+            this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(684, 174, 250, 350);
             this.layoutControl1.Root = this.layoutControlGroup1;
             this.layoutControl1.Size = new System.Drawing.Size(691, 283);
             this.layoutControl1.TabIndex = 14;
             this.layoutControl1.Text = "layoutControl1";
             // 
-            // progressBarControl1
+            // featuretoraster_Exportbutton
             // 
-            this.progressBarControl1.Location = new System.Drawing.Point(12, 265);
-            this.progressBarControl1.Name = "progressBarControl1";
-            this.progressBarControl1.Size = new System.Drawing.Size(650, 12);
-            this.progressBarControl1.StyleController = this.layoutControl1;
-            this.progressBarControl1.TabIndex = 15;
+            this.featuretoraster_Exportbutton.Location = new System.Drawing.Point(393, 233);
+            this.featuretoraster_Exportbutton.Name = "featuretoraster_Exportbutton";
+            this.featuretoraster_Exportbutton.Size = new System.Drawing.Size(118, 22);
+            this.featuretoraster_Exportbutton.StyleController = this.layoutControl1;
+            this.featuretoraster_Exportbutton.TabIndex = 16;
+            this.featuretoraster_Exportbutton.Text = "Export To Map";
+            this.featuretoraster_Exportbutton.Click += new System.EventHandler(this.featuretoraster_Exportbutton_Click);
+            // 
+            // FtoR_progressBarControl
+            // 
+            this.FtoR_progressBarControl.Location = new System.Drawing.Point(12, 259);
+            this.FtoR_progressBarControl.Name = "FtoR_progressBarControl";
+            this.FtoR_progressBarControl.Size = new System.Drawing.Size(667, 12);
+            this.FtoR_progressBarControl.StyleController = this.layoutControl1;
+            this.FtoR_progressBarControl.TabIndex = 15;
             // 
             // memoEdit1
             // 
-            this.memoEdit1.Location = new System.Drawing.Point(486, 12);
+            this.memoEdit1.Location = new System.Drawing.Point(520, 12);
             this.memoEdit1.Name = "memoEdit1";
-            this.memoEdit1.Size = new System.Drawing.Size(176, 249);
+            this.memoEdit1.Size = new System.Drawing.Size(159, 243);
             this.memoEdit1.StyleController = this.layoutControl1;
             this.memoEdit1.TabIndex = 14;
             this.memoEdit1.UseOptimizedRendering = true;
@@ -141,7 +150,7 @@
             // featuretoraster_Cancelbutton
             // 
             this.featuretoraster_Cancelbutton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.featuretoraster_Cancelbutton.Location = new System.Drawing.Point(381, 239);
+            this.featuretoraster_Cancelbutton.Location = new System.Drawing.Point(283, 233);
             this.featuretoraster_Cancelbutton.Name = "featuretoraster_Cancelbutton";
             this.featuretoraster_Cancelbutton.Size = new System.Drawing.Size(96, 22);
             this.featuretoraster_Cancelbutton.StyleController = this.layoutControl1;
@@ -151,7 +160,7 @@
             // 
             // featuretoraster_OKbutton
             // 
-            this.featuretoraster_OKbutton.Location = new System.Drawing.Point(271, 239);
+            this.featuretoraster_OKbutton.Location = new System.Drawing.Point(173, 233);
             this.featuretoraster_OKbutton.Name = "featuretoraster_OKbutton";
             this.featuretoraster_OKbutton.Size = new System.Drawing.Size(96, 22);
             this.featuretoraster_OKbutton.StyleController = this.layoutControl1;
@@ -161,24 +170,12 @@
             // 
             // featuretoraster_cellsize
             // 
-            this.featuretoraster_cellsize.Location = new System.Drawing.Point(93, 205);
+            this.featuretoraster_cellsize.Location = new System.Drawing.Point(93, 156);
             this.featuretoraster_cellsize.Name = "featuretoraster_cellsize";
             this.featuretoraster_cellsize.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.featuretoraster_cellsize.Size = new System.Drawing.Size(384, 20);
+            this.featuretoraster_cellsize.Size = new System.Drawing.Size(418, 20);
             this.featuretoraster_cellsize.StyleController = this.layoutControl1;
             this.featuretoraster_cellsize.TabIndex = 13;
-            // 
-            // featuretoraster_Format
-            // 
-            this.featuretoraster_Format.Location = new System.Drawing.Point(93, 156);
-            this.featuretoraster_Format.Name = "featuretoraster_Format";
-            this.featuretoraster_Format.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.featuretoraster_Format.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.featuretoraster_Format.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.featuretoraster_Format.Size = new System.Drawing.Size(384, 20);
-            this.featuretoraster_Format.StyleController = this.layoutControl1;
-            this.featuretoraster_Format.TabIndex = 11;
             // 
             // featuretoraster_fieldcombox
             // 
@@ -188,7 +185,7 @@
             this.featuretoraster_fieldcombox.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.featuretoraster_fieldcombox.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.featuretoraster_fieldcombox.Size = new System.Drawing.Size(384, 20);
+            this.featuretoraster_fieldcombox.Size = new System.Drawing.Size(418, 20);
             this.featuretoraster_fieldcombox.StyleController = this.layoutControl1;
             this.featuretoraster_fieldcombox.TabIndex = 6;
             // 
@@ -200,7 +197,7 @@
             this.featuretoraster_output.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.featuretoraster_output.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.featuretoraster_output.Size = new System.Drawing.Size(384, 20);
+            this.featuretoraster_output.Size = new System.Drawing.Size(418, 20);
             this.featuretoraster_output.StyleController = this.layoutControl1;
             this.featuretoraster_output.TabIndex = 9;
             this.featuretoraster_output.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.featuretoraster_output_ButtonClick);
@@ -213,11 +210,9 @@
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem2,
             this.layoutControlItem3,
-            this.layoutControlItem4,
             this.layoutControlItem5,
             this.emptySpaceItem1,
             this.emptySpaceItem2,
-            this.emptySpaceItem3,
             this.emptySpaceItem7,
             this.layoutControlItem1,
             this.emptySpaceItem9,
@@ -227,10 +222,12 @@
             this.layoutControlItem8,
             this.emptySpaceItem6,
             this.emptySpaceItem5,
-            this.layoutControlItem9});
+            this.layoutControlItem9,
+            this.emptySpaceItem4,
+            this.layoutControlItem10});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(674, 289);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(691, 283);
             this.layoutControlGroup1.Text = "Root";
             this.layoutControlGroup1.TextVisible = false;
             // 
@@ -240,7 +237,7 @@
             this.layoutControlItem2.CustomizationFormText = "Field";
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 48);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(469, 24);
+            this.layoutControlItem2.Size = new System.Drawing.Size(503, 24);
             this.layoutControlItem2.Text = "Field";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(78, 14);
             // 
@@ -250,27 +247,17 @@
             this.layoutControlItem3.CustomizationFormText = "Output Raster";
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 96);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(469, 24);
+            this.layoutControlItem3.Size = new System.Drawing.Size(503, 24);
             this.layoutControlItem3.Text = "Output Raster";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(78, 14);
-            // 
-            // layoutControlItem4
-            // 
-            this.layoutControlItem4.Control = this.featuretoraster_Format;
-            this.layoutControlItem4.CustomizationFormText = "Type";
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 144);
-            this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(469, 24);
-            this.layoutControlItem4.Text = "Raster Format";
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(78, 14);
             // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.featuretoraster_cellsize;
             this.layoutControlItem5.CustomizationFormText = "Cellsize";
-            this.layoutControlItem5.Location = new System.Drawing.Point(0, 193);
+            this.layoutControlItem5.Location = new System.Drawing.Point(0, 144);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(469, 24);
+            this.layoutControlItem5.Size = new System.Drawing.Size(503, 24);
             this.layoutControlItem5.Text = "Cellsize";
             this.layoutControlItem5.TextSize = new System.Drawing.Size(78, 14);
             // 
@@ -282,7 +269,7 @@
             this.emptySpaceItem1.MaxSize = new System.Drawing.Size(0, 24);
             this.emptySpaceItem1.MinSize = new System.Drawing.Size(104, 24);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(469, 24);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(503, 24);
             this.emptySpaceItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem1.Text = "emptySpaceItem1";
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
@@ -295,29 +282,16 @@
             this.emptySpaceItem2.MaxSize = new System.Drawing.Size(0, 24);
             this.emptySpaceItem2.MinSize = new System.Drawing.Size(104, 24);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(469, 24);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(503, 24);
             this.emptySpaceItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem2.Text = "emptySpaceItem2";
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // emptySpaceItem3
-            // 
-            this.emptySpaceItem3.AllowHotTrack = false;
-            this.emptySpaceItem3.CustomizationFormText = "emptySpaceItem3";
-            this.emptySpaceItem3.Location = new System.Drawing.Point(0, 168);
-            this.emptySpaceItem3.MaxSize = new System.Drawing.Size(0, 25);
-            this.emptySpaceItem3.MinSize = new System.Drawing.Size(104, 25);
-            this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(469, 25);
-            this.emptySpaceItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.emptySpaceItem3.Text = "emptySpaceItem3";
-            this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem7
             // 
             this.emptySpaceItem7.AllowHotTrack = false;
             this.emptySpaceItem7.CustomizationFormText = "emptySpaceItem7";
-            this.emptySpaceItem7.Location = new System.Drawing.Point(359, 227);
+            this.emptySpaceItem7.Location = new System.Drawing.Point(261, 221);
             this.emptySpaceItem7.MaxSize = new System.Drawing.Size(10, 26);
             this.emptySpaceItem7.MinSize = new System.Drawing.Size(10, 26);
             this.emptySpaceItem7.Name = "emptySpaceItem7";
@@ -332,7 +306,7 @@
             this.layoutControlItem1.CustomizationFormText = "Input Feature";
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(469, 24);
+            this.layoutControlItem1.Size = new System.Drawing.Size(503, 24);
             this.layoutControlItem1.Text = "Input Feature";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(78, 14);
             // 
@@ -344,7 +318,7 @@
             this.emptySpaceItem9.MaxSize = new System.Drawing.Size(0, 24);
             this.emptySpaceItem9.MinSize = new System.Drawing.Size(104, 24);
             this.emptySpaceItem9.Name = "emptySpaceItem9";
-            this.emptySpaceItem9.Size = new System.Drawing.Size(469, 24);
+            this.emptySpaceItem9.Size = new System.Drawing.Size(503, 24);
             this.emptySpaceItem9.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem9.Text = "emptySpaceItem9";
             this.emptySpaceItem9.TextSize = new System.Drawing.Size(0, 0);
@@ -353,10 +327,10 @@
             // 
             this.layoutControlItem6.Control = this.memoEdit1;
             this.layoutControlItem6.CustomizationFormText = "layoutControlItem6";
-            this.layoutControlItem6.Location = new System.Drawing.Point(474, 0);
+            this.layoutControlItem6.Location = new System.Drawing.Point(508, 0);
             this.layoutControlItem6.MinSize = new System.Drawing.Size(5, 20);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(180, 253);
+            this.layoutControlItem6.Size = new System.Drawing.Size(163, 247);
             this.layoutControlItem6.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem6.Text = "layoutControlItem6";
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
@@ -367,15 +341,15 @@
             // 
             this.splitterItem1.AllowHotTrack = true;
             this.splitterItem1.CustomizationFormText = "splitterItem1";
-            this.splitterItem1.Location = new System.Drawing.Point(469, 0);
+            this.splitterItem1.Location = new System.Drawing.Point(503, 0);
             this.splitterItem1.Name = "splitterItem1";
-            this.splitterItem1.Size = new System.Drawing.Size(5, 253);
+            this.splitterItem1.Size = new System.Drawing.Size(5, 247);
             // 
             // layoutControlItem7
             // 
             this.layoutControlItem7.Control = this.featuretoraster_OKbutton;
             this.layoutControlItem7.CustomizationFormText = "layoutControlItem7";
-            this.layoutControlItem7.Location = new System.Drawing.Point(259, 227);
+            this.layoutControlItem7.Location = new System.Drawing.Point(161, 221);
             this.layoutControlItem7.MaxSize = new System.Drawing.Size(100, 26);
             this.layoutControlItem7.MinSize = new System.Drawing.Size(100, 26);
             this.layoutControlItem7.Name = "layoutControlItem7";
@@ -390,7 +364,7 @@
             // 
             this.layoutControlItem8.Control = this.featuretoraster_Cancelbutton;
             this.layoutControlItem8.CustomizationFormText = "layoutControlItem8";
-            this.layoutControlItem8.Location = new System.Drawing.Point(369, 227);
+            this.layoutControlItem8.Location = new System.Drawing.Point(271, 221);
             this.layoutControlItem8.MaxSize = new System.Drawing.Size(100, 26);
             this.layoutControlItem8.MinSize = new System.Drawing.Size(100, 26);
             this.layoutControlItem8.Name = "layoutControlItem8";
@@ -405,9 +379,9 @@
             // 
             this.emptySpaceItem6.AllowHotTrack = false;
             this.emptySpaceItem6.CustomizationFormText = "emptySpaceItem6";
-            this.emptySpaceItem6.Location = new System.Drawing.Point(0, 217);
+            this.emptySpaceItem6.Location = new System.Drawing.Point(0, 168);
             this.emptySpaceItem6.Name = "emptySpaceItem6";
-            this.emptySpaceItem6.Size = new System.Drawing.Size(469, 10);
+            this.emptySpaceItem6.Size = new System.Drawing.Size(503, 53);
             this.emptySpaceItem6.Text = "emptySpaceItem6";
             this.emptySpaceItem6.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -415,28 +389,56 @@
             // 
             this.emptySpaceItem5.AllowHotTrack = false;
             this.emptySpaceItem5.CustomizationFormText = "emptySpaceItem5";
-            this.emptySpaceItem5.Location = new System.Drawing.Point(0, 227);
+            this.emptySpaceItem5.Location = new System.Drawing.Point(0, 221);
             this.emptySpaceItem5.MinSize = new System.Drawing.Size(10, 24);
             this.emptySpaceItem5.Name = "emptySpaceItem5";
-            this.emptySpaceItem5.Size = new System.Drawing.Size(259, 26);
+            this.emptySpaceItem5.Size = new System.Drawing.Size(161, 26);
             this.emptySpaceItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem5.Text = "emptySpaceItem5";
             this.emptySpaceItem5.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem9
             // 
-            this.layoutControlItem9.Control = this.progressBarControl1;
+            this.layoutControlItem9.Control = this.FtoR_progressBarControl;
             this.layoutControlItem9.CustomizationFormText = "layoutControlItem9";
-            this.layoutControlItem9.Location = new System.Drawing.Point(0, 253);
+            this.layoutControlItem9.Location = new System.Drawing.Point(0, 247);
             this.layoutControlItem9.MaxSize = new System.Drawing.Size(0, 16);
             this.layoutControlItem9.MinSize = new System.Drawing.Size(54, 16);
             this.layoutControlItem9.Name = "layoutControlItem9";
-            this.layoutControlItem9.Size = new System.Drawing.Size(654, 16);
+            this.layoutControlItem9.Size = new System.Drawing.Size(671, 16);
             this.layoutControlItem9.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem9.Text = "layoutControlItem9";
             this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem9.TextToControlDistance = 0;
             this.layoutControlItem9.TextVisible = false;
+            // 
+            // emptySpaceItem4
+            // 
+            this.emptySpaceItem4.AllowHotTrack = false;
+            this.emptySpaceItem4.CustomizationFormText = "emptySpaceItem4";
+            this.emptySpaceItem4.Location = new System.Drawing.Point(371, 221);
+            this.emptySpaceItem4.MaxSize = new System.Drawing.Size(10, 26);
+            this.emptySpaceItem4.MinSize = new System.Drawing.Size(10, 26);
+            this.emptySpaceItem4.Name = "emptySpaceItem4";
+            this.emptySpaceItem4.Size = new System.Drawing.Size(10, 26);
+            this.emptySpaceItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.emptySpaceItem4.Text = "emptySpaceItem4";
+            this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // layoutControlItem10
+            // 
+            this.layoutControlItem10.Control = this.featuretoraster_Exportbutton;
+            this.layoutControlItem10.CustomizationFormText = "layoutControlItem10";
+            this.layoutControlItem10.Location = new System.Drawing.Point(381, 221);
+            this.layoutControlItem10.MaxSize = new System.Drawing.Size(122, 26);
+            this.layoutControlItem10.MinSize = new System.Drawing.Size(122, 26);
+            this.layoutControlItem10.Name = "layoutControlItem10";
+            this.layoutControlItem10.Size = new System.Drawing.Size(122, 26);
+            this.layoutControlItem10.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem10.Text = "layoutControlItem10";
+            this.layoutControlItem10.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem10.TextToControlDistance = 0;
+            this.layoutControlItem10.TextVisible = false;
             // 
             // FeatureToRasterForm
             // 
@@ -454,20 +456,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.featuretoraster_inputcombox.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.progressBarControl1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FtoR_progressBarControl.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.featuretoraster_cellsize.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.featuretoraster_Format.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.featuretoraster_fieldcombox.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.featuretoraster_output.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem9)).EndInit();
@@ -478,6 +477,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -489,7 +490,6 @@
         private DevExpress.XtraEditors.SimpleButton featuretoraster_OKbutton;
         private DevExpress.XtraEditors.SimpleButton featuretoraster_Cancelbutton;
         private DevExpress.XtraEditors.ButtonEdit featuretoraster_output;
-        private DevExpress.XtraEditors.ComboBoxEdit featuretoraster_Format;
         private DevExpress.XtraEditors.TextEdit featuretoraster_cellsize;
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
@@ -498,11 +498,9 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem7;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem3;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem9;
         private DevExpress.XtraEditors.MemoEdit memoEdit1;
@@ -510,7 +508,10 @@
         private DevExpress.XtraLayout.SplitterItem splitterItem1;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem6;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem5;
-        private DevExpress.XtraEditors.ProgressBarControl progressBarControl1;
+        private DevExpress.XtraEditors.ProgressBarControl FtoR_progressBarControl;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem9;
+        private DevExpress.XtraEditors.SimpleButton featuretoraster_Exportbutton;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem4;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem10;
     }
 }
