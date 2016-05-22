@@ -29,20 +29,24 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AttributeTableForm));
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.attForm_dockManager = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.tool_dockPanel = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
-            this.filter_dockPanel = new DevExpress.XtraBars.Docking.DockPanel();
+            this.att_dockPaneltools = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
-            this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
-            this.controlContainer1 = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.navBarControl1 = new DevExpress.XtraNavBar.NavBarControl();
+            this.att_navBarGroup1 = new DevExpress.XtraNavBar.NavBarGroup();
+            this.att_chartbaritem = new DevExpress.XtraNavBar.NavBarItem();
+            this.att_navBarGroup2 = new DevExpress.XtraNavBar.NavBarGroup();
             this.att_xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             ((System.ComponentModel.ISupportInitialize)(this.attForm_dockManager)).BeginInit();
             this.tool_dockPanel.SuspendLayout();
-            this.filter_dockPanel.SuspendLayout();
-            this.dockPanel1.SuspendLayout();
+            this.att_dockPaneltools.SuspendLayout();
+            this.dockPanel1_Container.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.att_xtraTabControl1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,8 +67,7 @@
             this.attForm_dockManager.HiddenPanels.AddRange(new DevExpress.XtraBars.Docking.DockPanel[] {
             this.tool_dockPanel});
             this.attForm_dockManager.RootPanels.AddRange(new DevExpress.XtraBars.Docking.DockPanel[] {
-            this.filter_dockPanel,
-            this.dockPanel1});
+            this.att_dockPaneltools});
             this.attForm_dockManager.TopZIndexControls.AddRange(new string[] {
             "DevExpress.XtraBars.BarDockControl",
             "DevExpress.XtraBars.StandaloneBarDockControl",
@@ -96,51 +99,71 @@
             this.dockPanel2_Container.Size = new System.Drawing.Size(672, 238);
             this.dockPanel2_Container.TabIndex = 0;
             // 
-            // filter_dockPanel
+            // att_dockPaneltools
             // 
-            this.filter_dockPanel.Controls.Add(this.dockPanel1_Container);
-            this.filter_dockPanel.Dock = DevExpress.XtraBars.Docking.DockingStyle.Left;
-            this.filter_dockPanel.ID = new System.Guid("172969ba-b28a-4096-8127-f70c9b6f0b96");
-            this.filter_dockPanel.Location = new System.Drawing.Point(0, 0);
-            this.filter_dockPanel.Name = "filter_dockPanel";
-            this.filter_dockPanel.OriginalSize = new System.Drawing.Size(97, 200);
-            this.filter_dockPanel.Size = new System.Drawing.Size(97, 523);
-            this.filter_dockPanel.Text = "Filter";
+            this.att_dockPaneltools.Controls.Add(this.dockPanel1_Container);
+            this.att_dockPaneltools.Dock = DevExpress.XtraBars.Docking.DockingStyle.Left;
+            this.att_dockPaneltools.ID = new System.Guid("172969ba-b28a-4096-8127-f70c9b6f0b96");
+            this.att_dockPaneltools.Location = new System.Drawing.Point(0, 0);
+            this.att_dockPaneltools.Name = "att_dockPaneltools";
+            this.att_dockPaneltools.Options.ShowCloseButton = false;
+            this.att_dockPaneltools.OriginalSize = new System.Drawing.Size(193, 200);
+            this.att_dockPaneltools.Size = new System.Drawing.Size(193, 523);
+            this.att_dockPaneltools.Text = "Tools";
             // 
             // dockPanel1_Container
             // 
+            this.dockPanel1_Container.Controls.Add(this.navBarControl1);
             this.dockPanel1_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(89, 496);
+            this.dockPanel1_Container.Size = new System.Drawing.Size(185, 496);
             this.dockPanel1_Container.TabIndex = 0;
             // 
-            // dockPanel1
+            // navBarControl1
             // 
-            this.dockPanel1.Controls.Add(this.controlContainer1);
-            this.dockPanel1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Top;
-            this.dockPanel1.FloatVertical = true;
-            this.dockPanel1.ID = new System.Guid("dc6d8157-e0df-4370-a0a1-85e115795a65");
-            this.dockPanel1.Location = new System.Drawing.Point(97, 0);
-            this.dockPanel1.Name = "dockPanel1";
-            this.dockPanel1.OriginalSize = new System.Drawing.Size(200, 108);
-            this.dockPanel1.Size = new System.Drawing.Size(680, 108);
-            this.dockPanel1.Text = "dockPanel1";
+            this.navBarControl1.ActiveGroup = this.att_navBarGroup1;
+            this.navBarControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.navBarControl1.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
+            this.att_navBarGroup1,
+            this.att_navBarGroup2});
+            this.navBarControl1.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
+            this.att_chartbaritem});
+            this.navBarControl1.Location = new System.Drawing.Point(0, 0);
+            this.navBarControl1.Name = "navBarControl1";
+            this.navBarControl1.OptionsNavPane.ExpandedWidth = 185;
+            this.navBarControl1.Size = new System.Drawing.Size(185, 496);
+            this.navBarControl1.TabIndex = 0;
+            this.navBarControl1.Text = "navBarControl1";
             // 
-            // controlContainer1
+            // att_navBarGroup1
             // 
-            this.controlContainer1.Location = new System.Drawing.Point(4, 23);
-            this.controlContainer1.Name = "controlContainer1";
-            this.controlContainer1.Size = new System.Drawing.Size(672, 81);
-            this.controlContainer1.TabIndex = 0;
+            this.att_navBarGroup1.Caption = "";
+            this.att_navBarGroup1.Expanded = true;
+            this.att_navBarGroup1.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
+            new DevExpress.XtraNavBar.NavBarItemLink(this.att_chartbaritem)});
+            this.att_navBarGroup1.Name = "att_navBarGroup1";
+            // 
+            // att_chartbaritem
+            // 
+            this.att_chartbaritem.Caption = "Statistics And Chart";
+            this.att_chartbaritem.Name = "att_chartbaritem";
+            this.att_chartbaritem.SmallImage = ((System.Drawing.Image)(resources.GetObject("att_chartbaritem.SmallImage")));
+            this.att_chartbaritem.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.att_chartbaritem_LinkClicked);
+            // 
+            // att_navBarGroup2
+            // 
+            this.att_navBarGroup2.Caption = "";
+            this.att_navBarGroup2.Expanded = true;
+            this.att_navBarGroup2.Name = "att_navBarGroup2";
             // 
             // att_xtraTabControl1
             // 
             this.att_xtraTabControl1.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InAllTabPageHeaders;
             this.att_xtraTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.att_xtraTabControl1.HeaderLocation = DevExpress.XtraTab.TabHeaderLocation.Bottom;
-            this.att_xtraTabControl1.Location = new System.Drawing.Point(97, 108);
+            this.att_xtraTabControl1.Location = new System.Drawing.Point(193, 0);
             this.att_xtraTabControl1.Name = "att_xtraTabControl1";
-            this.att_xtraTabControl1.Size = new System.Drawing.Size(680, 415);
+            this.att_xtraTabControl1.Size = new System.Drawing.Size(584, 523);
             this.att_xtraTabControl1.TabIndex = 0;
             this.att_xtraTabControl1.CloseButtonClick += new System.EventHandler(this.xtraTabControl1_CloseButtonClick);
             // 
@@ -155,16 +178,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(777, 523);
             this.Controls.Add(this.att_xtraTabControl1);
-            this.Controls.Add(this.dockPanel1);
-            this.Controls.Add(this.filter_dockPanel);
+            this.Controls.Add(this.att_dockPaneltools);
             this.Name = "AttributeTableForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AttributeTableForm";
             this.Load += new System.EventHandler(this.AttributeTableForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.attForm_dockManager)).EndInit();
             this.tool_dockPanel.ResumeLayout(false);
-            this.filter_dockPanel.ResumeLayout(false);
-            this.dockPanel1.ResumeLayout(false);
+            this.att_dockPaneltools.ResumeLayout(false);
+            this.dockPanel1_Container.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.att_xtraTabControl1)).EndInit();
             this.ResumeLayout(false);
 
@@ -177,11 +200,13 @@
         private DevExpress.XtraBars.Docking.DockManager attForm_dockManager;
         private DevExpress.XtraBars.Docking.DockPanel tool_dockPanel;
         private DevExpress.XtraBars.Docking.ControlContainer dockPanel2_Container;
-        private DevExpress.XtraBars.Docking.DockPanel filter_dockPanel;
+        private DevExpress.XtraBars.Docking.DockPanel att_dockPaneltools;
         private DevExpress.XtraBars.Docking.ControlContainer dockPanel1_Container;
         private DevExpress.XtraTab.XtraTabControl att_xtraTabControl1;
-        private DevExpress.XtraBars.Docking.DockPanel dockPanel1;
-        private DevExpress.XtraBars.Docking.ControlContainer controlContainer1;
+        private DevExpress.XtraNavBar.NavBarControl navBarControl1;
+        private DevExpress.XtraNavBar.NavBarGroup att_navBarGroup1;
+        private DevExpress.XtraNavBar.NavBarGroup att_navBarGroup2;
+        private DevExpress.XtraNavBar.NavBarItem att_chartbaritem;
 
     }
 }

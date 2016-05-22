@@ -72,9 +72,9 @@
             this.coordinate_textEdit = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.iNewFeature = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
+            this.FeatureToRasterbutton = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem10 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem11 = new DevExpress.XtraBars.BarButtonItem();
+            this.RasterToFeaturebutton = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem12 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonImageCollectionLarge = new DevExpress.Utils.ImageCollection(this.components);
             this.homeRibbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -302,7 +302,7 @@
             this.EditToolsBarDockControl.Dock = System.Windows.Forms.DockStyle.Top;
             this.EditToolsBarDockControl.Location = new System.Drawing.Point(0, 0);
             this.EditToolsBarDockControl.Name = "EditToolsBarDockControl";
-            this.EditToolsBarDockControl.Size = new System.Drawing.Size(720, 31);
+            this.EditToolsBarDockControl.Size = new System.Drawing.Size(296, 31);
             this.EditToolsBarDockControl.Text = "standaloneBarDockControl1";
             // 
             // ribbonMenu
@@ -331,13 +331,13 @@
             this.iTargetDetection,
             this.coordinate_textEdit,
             this.iNewFeature,
-            this.barButtonItem6,
+            this.FeatureToRasterbutton,
             this.barButtonItem10,
-            this.barButtonItem11,
+            this.RasterToFeaturebutton,
             this.barButtonItem12});
             this.ribbonMenu.LargeImages = this.ribbonImageCollectionLarge;
             this.ribbonMenu.Location = new System.Drawing.Point(0, 0);
-            this.ribbonMenu.MaxItemId = 1;
+            this.ribbonMenu.MaxItemId = 31;
             this.ribbonMenu.Name = "ribbonMenu";
             this.ribbonMenu.PageHeaderItemLinks.Add(this.iAbout);
             this.ribbonMenu.PageHeaderItemLinks.Add(this.iAbout);
@@ -583,12 +583,13 @@
             this.iNewFeature.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
             this.iNewFeature.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.iNewFeature_ItemClick);
             // 
-            // barButtonItem6
+            // FeatureToRasterbutton
             // 
-            this.barButtonItem6.Caption = "Vector To Raster";
-            this.barButtonItem6.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem6.Glyph")));
-            this.barButtonItem6.Id = 25;
-            this.barButtonItem6.Name = "barButtonItem6";
+            this.FeatureToRasterbutton.Caption = "Vector To Raster";
+            this.FeatureToRasterbutton.Glyph = ((System.Drawing.Image)(resources.GetObject("FeatureToRasterbutton.Glyph")));
+            this.FeatureToRasterbutton.Id = 25;
+            this.FeatureToRasterbutton.Name = "FeatureToRasterbutton";
+            this.FeatureToRasterbutton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.FeatureToRasterbutton_ItemClick);
             // 
             // barButtonItem10
             // 
@@ -597,12 +598,14 @@
             this.barButtonItem10.Id = 30;
             this.barButtonItem10.Name = "barButtonItem10";
             // 
-            // barButtonItem11
+            // RasterToFeaturebutton
             // 
-            this.barButtonItem11.Caption = "Raster To Vector";
-            this.barButtonItem11.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem11.Glyph")));
-            this.barButtonItem11.Id = 31;
-            this.barButtonItem11.Name = "barButtonItem11";
+            this.RasterToFeaturebutton.AllowDrawArrowInMenu = false;
+            this.RasterToFeaturebutton.Caption = "Raster To Vector";
+            this.RasterToFeaturebutton.Glyph = ((System.Drawing.Image)(resources.GetObject("RasterToFeaturebutton.Glyph")));
+            this.RasterToFeaturebutton.Id = 31;
+            this.RasterToFeaturebutton.Name = "RasterToFeaturebutton";
+            this.RasterToFeaturebutton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.RasterToFeaturebutton_ItemClick);
             // 
             // barButtonItem12
             // 
@@ -693,14 +696,14 @@
             // 
             // ribbonPageGroup1
             // 
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem6);
+            this.ribbonPageGroup1.ItemLinks.Add(this.FeatureToRasterbutton);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "Vector Data";
             // 
             // ribbonPageGroup2
             // 
             this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem10);
-            this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem11);
+            this.ribbonPageGroup2.ItemLinks.Add(this.RasterToFeaturebutton);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "Raster Data";
             // 
@@ -946,6 +949,7 @@
             this.addData_toolStripMenuItem.Name = "addData_toolStripMenuItem";
             this.addData_toolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.addData_toolStripMenuItem.Text = "添加图层";
+            this.addData_toolStripMenuItem.Click += new System.EventHandler(this.addData_toolStripMenuItem_Click);
             // 
             // map_toolbarManager
             // 
@@ -1195,9 +1199,9 @@
         private DevExpress.XtraBars.BarEditItem coordinate_textEdit;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit1;
         private DevExpress.XtraBars.BarButtonItem iNewFeature;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem6;
+        private DevExpress.XtraBars.BarButtonItem FeatureToRasterbutton;
         private DevExpress.XtraBars.BarButtonItem barButtonItem10;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem11;
+        private DevExpress.XtraBars.BarButtonItem RasterToFeaturebutton;
         private DevExpress.XtraBars.BarButtonItem barButtonItem12;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage2;
