@@ -117,53 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="attForm_dockManager.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
+  <metadata name="$this.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
   </metadata>
-  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>60</value>
-  </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="att_chartbaritem.SmallImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-        vrwhBAAAAABJRU5ErkJggg==
-</value>
-  </data>
 </root>
