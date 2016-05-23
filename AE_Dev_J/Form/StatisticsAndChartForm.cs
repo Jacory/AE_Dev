@@ -19,21 +19,23 @@ namespace AE_Dev_J.Form
     public partial class StatisticsAndChartForm : DevExpress.XtraEditors.XtraForm
     {
         private GridView gridview = null;//当前属性表
-        private string currentcolumn = null;//右键单击的列名
+        private string tablename = null;//当前属性表名
 
-        public StatisticsAndChartForm(GridView gv,string columnName)
+        public StatisticsAndChartForm(GridView gv,string name)
         {
             InitializeComponent();
             gridview = gv;
-            currentcolumn = columnName;
+            tablename = name;
         }
 
         private void StatisticsAndChartForm_Load(object sender, EventArgs e)
         {
+            //更改窗体名称
 
+            this.Text ="Statistics And Chart For "+tablename;
+            //生成统计表格
             for (int i = 0; i < gridview.Columns.Count; i++)
             {
-                
                 CategoryRow field = new CategoryRow(gridview.Columns[i].FieldName);
                 EditorRow row_count = new EditorRow();
                 row_count.Properties.Caption = "Count";
@@ -50,7 +52,6 @@ namespace AE_Dev_J.Form
                     //将该列的数据存储进数组
                     for (int j = 0; j < gridview.RowCount; j++)
                     {
-                        //MessageBox.Show("'"+gridview.GetRowCellValue(j, field.Properties.Caption).ToString()+"'");
                         if (gridview.GetRowCellValue(j, field.Properties.Caption).ToString() == "" 
                             || gridview.GetRowCellValue(j, field.Properties.Caption) == null
                             || gridview.GetRowCellValue(j, field.Properties.Caption).ToString() == " ")
@@ -109,6 +110,9 @@ namespace AE_Dev_J.Form
                     row_Nulls.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
                     field.ChildRows.Add(row_Nulls);
 
+                    //将数值类型字段添加到combox中
+                    comboBoxEdit1.Properties.Items.Add(gridview.Columns[i].FieldName) ;
+
                 }
                     //列类型不为数值型
                 else
@@ -139,18 +143,12 @@ namespace AE_Dev_J.Form
 
                     field.ChildRows.Add(row_Nulls);
                 }
-                //设置是否折叠字段统计内容
-                if (field.Properties.Caption!=currentcolumn)
-                {
-                    field.Expanded = false;
-                }
                 StatisticsAndChart_vGridControl.Rows.AddRange(new BaseRow[] { field });
-
             }
 
         }
         /// <summary>
-        /// 单击VGridview
+        /// 单击VGridview生成图表
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -160,46 +158,160 @@ namespace AE_Dev_J.Form
             gridcontrol = sender as DevExpress.XtraVerticalGrid.VGridControl;
             VGridHitInfo info = gridcontrol.CalcHitInfo(new Point(e.X,e.Y));
             //当左键单击HeaderCell时
-            if (info.HitInfoType==HitInfoTypeEnum.HeaderCell&&e.Clicks==1&&e.Button==MouseButtons.Left)
+            if (info.HitInfoType==HitInfoTypeEnum.HeaderCell
+                && info.Row.HasChildren 
+                && e.Button == MouseButtons.Left
+                && info.Row.Properties.Caption.IndexOf('*') != 0)
             {
                 BaseRow baserow = gridcontrol.FocusedRow;
                 CategoryRow gr = baserow as CategoryRow;
-                //清除图表数据，重新载入数据
-                for (int i = 0; i < StatisticsChart_chart1.Series.Count; i++)
-                {
-                    StatisticsChart_chart1.Series.RemoveAt(i);
-                }
                 //根据tag加载列数据
-                if (gr.Tag!=null)
+                if (gr!=null&&gr.Tag!=null)
                 {
-                    var data = new string[gridview.RowCount];
+                    string[] data =null;
+                    //判断字段类型是否为数值型
                     if (gridview.Columns[gr.Properties.Caption].ColumnType.IsValueType)
                     {
+                        //读取tag中的数据至数组
                         double[] doubledata = gr.Tag as double[];
-                        for (int i = 0; i < doubledata.Count(); i++)
+                        List<double> doublelist = doubledata.ToList();
+                        //计算唯一值及唯一值个数
+                        List<double> d_uniquevalue = doubledata.Distinct().ToList();
+                        int d_uniquecount = d_uniquevalue.Count;
+                        //当唯一值个数大于30时，执行分组处理
+                        if (d_uniquecount>30)
                         {
-                            data[i] = doubledata[i].ToString();
+                            //计算分组间距
+                            double interval = (d_uniquevalue.Max() - d_uniquevalue.Min())/25;
+                            //计算图表中加入点的值
+                            List<double> chart_uniquevalue = new List<double>();
+                            for (int n   = 1; n < 25; n++)
+                            {
+                                chart_uniquevalue.Add(interval * n);
+                            }
+                            chart_uniquevalue.Add(d_uniquevalue.Max());
+                            //声明26个list类型的数组
+                            List<double>[] findlist = new List<double>[26];
+                            for (int n = 0; n < 26; n++)
+                            {
+                                findlist[n] = new List<double>();
+                            }
+                            //根据分组间距，将所有数据存放到对应的26个list中
+                            for (int n = 0; n < doublelist.Count; n++)
+                            {
+                                findlist[(int)(doublelist[n] / interval)].Add(doublelist[n]);
+                            }
+                            //完成分组
+                            //清除图表数据，重新载入数据
+                            for (int i = 0; i < StatisticsChart_chart1.Series.Count; i++)
+                            {
+                                StatisticsChart_chart1.Series.RemoveAt(i);
+                            }
+                            //创建图表
+                            Series series = new Series(gr.Properties.Caption+"_Count", ViewType.Bar);
+                            for (int n = 0; n < 25; n++)
+                            {
+                                series.Points.Add(new SeriesPoint(chart_uniquevalue[n].ToString(), findlist[n].Count));
+                            }
+                            StatisticsChart_chart1.Series.Add(series);
+                        }
+                        else
+                        {
+                            data = new string[gridview.RowCount];
+                            for (int i = 0; i < doubledata.Count(); i++)
+                            {
+                                data[i] = doubledata[i].ToString();
+                            }
                         }
                     }
                     else
                     {
+                        data = new string[gridview.RowCount];
                         data = gr.Tag as string[];
                     }
-                    List<string> datalist = data.ToList();
-                    //获取唯一值
-                    List<string> UniqueValue = data.Distinct().ToList();
-                    int uniquecount = UniqueValue.Count;
-                    //创建图表
-                    Series series1 = new Series(gr.Properties.Caption, ViewType.Bar);
-
-                    for (int i = 0; i < uniquecount; i++)
+                    if (data!=null)
                     {
-                        series1.Points.Add(new SeriesPoint(UniqueValue[i], (datalist.FindAll(value => value.Contains(UniqueValue[i]))).Count));
+                        List<string> datalist = data.ToList();
+                        //获取唯一值
+                        List<string> UniqueValue = data.Distinct().ToList();
+                        int uniquecount = UniqueValue.Count;
+                        if ((uniquecount <= 300)||(uniquecount >300 && (MessageBox.Show("分类数较多，是否继续？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)))
+                        {
+                            //清除图表数据，重新载入数据
+                            for (int i = 0; i < StatisticsChart_chart1.Series.Count; i++)                                           
+                            {
+                                StatisticsChart_chart1.Series.RemoveAt(i);
+                            }
+                            //创建图表
+                            Series series1 = new Series("", ViewType.Bar);
+                            for (int i = 0; i < uniquecount; i++)
+                            {
+                                series1.Points.Add(new SeriesPoint(UniqueValue[i], (datalist.FindAll(value => value.Contains(UniqueValue[i]))).Count));
+                            }
+                            StatisticsChart_chart1.Series.Add(series1);
+                        }
                     }
-                    StatisticsChart_chart1.Series.Add(series1);
-
+                    //生成X坐标轴名称
+                    XYDiagram diagram = (XYDiagram)StatisticsChart_chart1.Diagram;
+                    diagram.AxisX.Title.Visible = true;
+                    diagram.AxisX.Title.Alignment = StringAlignment.Center;
+                    diagram.AxisX.Title.Text = info.Row.Properties.Caption;
+                    //生成Y坐标轴名称
+                    diagram.AxisY.Title.Visible = true;
+                    diagram.AxisY.Title.Alignment = StringAlignment.Center;
+                    diagram.AxisY.Title.Text = "Count";
                 }
             }
+        }
+        /// <summary>
+        /// 单击DockPanelHeaderButton，折叠或展开统计信息
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void StatisticsTable_CustomButtonClick(object sender, DevExpress.XtraBars.Docking2010.ButtonEventArgs e)
+        {
+            if (e.Button.Properties.Caption=="折叠")
+            {
+                for (int i = 0; i < StatisticsAndChart_vGridControl.Rows.Count; i++)
+                {
+                    StatisticsAndChart_vGridControl.Rows[i].Expanded = false;
+                }
+            }
+            if (e.Button.Properties.Caption=="展开")
+            {
+                for (int i = 0; i < StatisticsAndChart_vGridControl.Rows.Count; i++)
+                {
+                    StatisticsAndChart_vGridControl.Rows[i].Expanded = true;
+                }
+            }
+        }
+        /// <summary>
+        /// 根据combox所选字段名，重新生成图表
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void comboBoxEdit1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //清除图表数据，重新载入数据
+            for (int i = 0; i < StatisticsChart_chart2.Series.Count; i++)
+            {
+                StatisticsChart_chart2.Series.RemoveAt(i);
+            }
+            Series series = new Series("", ViewType.Bar);
+            for (int i = 0; i < gridview.RowCount; i++)
+            {
+                series.Points.Add(new SeriesPoint(gridview.GetRowCellValue(i, "*FID"), gridview.GetRowCellValue(i, comboBoxEdit1.SelectedText)));
+            }
+            StatisticsChart_chart2.Series.Add(series);
+            //生成X坐标轴名称
+            XYDiagram diagram = (XYDiagram)StatisticsChart_chart2.Diagram;
+            diagram.AxisX.Title.Visible = true;
+            diagram.AxisX.Title.Alignment = StringAlignment.Center;
+            diagram.AxisX.Title.Text = "*FID";
+            //生成Y坐标轴名称
+            diagram.AxisY.Title.Visible = true;
+            diagram.AxisY.Title.Alignment = StringAlignment.Center;
+            diagram.AxisY.Title.Text = comboBoxEdit1.SelectedText;
         }
 
     }

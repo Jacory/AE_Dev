@@ -14,10 +14,10 @@ using ESRI.ArcGIS.DataSourcesFile;
 
 namespace AE_Dev_J.Form
 {
-    public partial class AddFeatureClass : DevExpress.XtraEditors.XtraForm
+    public partial class AddFeatureClassForm : DevExpress.XtraEditors.XtraForm
     {
         private AxMapControl m_mapControl = null;
-        public AddFeatureClass(AxMapControl mapControl)
+        public AddFeatureClassForm(AxMapControl mapControl)
         {
             InitializeComponent();
             AddFeatureClass_groupControl.Enabled = false;
@@ -74,7 +74,7 @@ namespace AE_Dev_J.Form
                 //临时图层
                 //检查文件名是否已存在
                 int changefilename = 0;
-                while (System.IO.File.Exists(Application.StartupPath + "\\temp\\TempPoint" + changefilename + ".shp"))
+                while (System.IO.File.Exists(Application.StartupPath + "\\temp\\TempLayer" + changefilename + ".shp"))
                 {
                     changefilename++;
                 }
@@ -90,50 +90,30 @@ namespace AE_Dev_J.Form
                 //设置geometry definition
                 IGeometryDef pGeometryDef = new GeometryDefClass();
                 IGeometryDefEdit pGeometryDefEdit = pGeometryDef as IGeometryDefEdit;
-                pGeometryDefEdit.GeometryType_2 = ESRI.ArcGIS.Geometry.esriGeometryType.esriGeometryPoint;//点
+                if (AddFeatrueClass_geometrytype.SelectedText == "POINT")
+                {
+                    pGeometryDefEdit.GeometryType_2 = ESRI.ArcGIS.Geometry.esriGeometryType.esriGeometryPoint;//点
+                }
+                else 
+                {
+                    if (AddFeatrueClass_geometrytype.SelectedText == "POLYLINE")
+                    {
+                        pGeometryDefEdit.GeometryType_2 = ESRI.ArcGIS.Geometry.esriGeometryType.esriGeometryPolyline;//线
+                    }
+                    else
+                    {
+                        pGeometryDefEdit.GeometryType_2 = ESRI.ArcGIS.Geometry.esriGeometryType.esriGeometryPolygon;//面
+                    }
+                }
                 pGeometryDefEdit.SpatialReference_2 = null;
                 pFieldEdit.GeometryDef_2 = pGeometryDef;
                 pFieldsEdit.AddField(pField);
 
                 IWorkspaceFactory pWorkspaceFactory = new ShapefileWorkspaceFactory();
                 IFeatureWorkspace pFeatureWorkspace = pWorkspaceFactory.OpenFromFile(Application.StartupPath + "\\temp", 0) as IFeatureWorkspace;
-                pFeatureWorkspace.CreateFeatureClass("TempPoint"+changefilename+".shp", pFields, null, null, esriFeatureType.esriFTSimple, "Shape", "");
+                pFeatureWorkspace.CreateFeatureClass("TempLayer"+changefilename+".shp", pFields, null, null, esriFeatureType.esriFTSimple, "Shape", "");
 
-                //创建线
-                pFields = new FieldsClass();
-                pFieldsEdit = pFields as IFieldsEdit;
-                pField = new FieldClass();
-                pFieldEdit = pField as IFieldEdit;
-                pFieldEdit.Name_2 = "Shape";
-                pFieldEdit.Type_2 = esriFieldType.esriFieldTypeGeometry;
-
-                pGeometryDef = new GeometryDefClass();
-                pGeometryDefEdit = pGeometryDef as IGeometryDefEdit;
-                pGeometryDefEdit.GeometryType_2 = ESRI.ArcGIS.Geometry.esriGeometryType.esriGeometryPolyline;//线
-                pGeometryDefEdit.SpatialReference_2 = null;
-                pFieldEdit.GeometryDef_2 = pGeometryDef;
-                pFieldsEdit.AddField(pField);
-                pFeatureWorkspace.CreateFeatureClass("TempPolyline" + changefilename + ".shp", pFields, null, null, esriFeatureType.esriFTSimple, "Shape", "");
-
-                //创建面
-                pFields = new FieldsClass();
-                pFieldsEdit = pFields as IFieldsEdit;
-                pField = new FieldClass();
-                pFieldEdit = pField as IFieldEdit;
-                pFieldEdit.Name_2 = "Shape";
-                pFieldEdit.Type_2 = esriFieldType.esriFieldTypeGeometry;
-
-                pGeometryDef = new GeometryDefClass();
-                pGeometryDefEdit = pGeometryDef as IGeometryDefEdit;
-                pGeometryDefEdit.GeometryType_2 = ESRI.ArcGIS.Geometry.esriGeometryType.esriGeometryPolygon;//面
-                pGeometryDefEdit.SpatialReference_2 = null;
-                pFieldEdit.GeometryDef_2 = pGeometryDef;
-                pFieldsEdit.AddField(pField);
-                pFeatureWorkspace.CreateFeatureClass("TempPolygon" + changefilename + ".shp", pFields, null, null, esriFeatureType.esriFTSimple, "Shape", "");
-               
-                m_mapControl.AddShapeFile(Application.StartupPath + "\\temp", "TempPoint" + changefilename + ".shp");
-                m_mapControl.AddShapeFile(Application.StartupPath + "\\temp", "TempPolyline" + changefilename + ".shp");
-                m_mapControl.AddShapeFile(Application.StartupPath + "\\temp", "TempPolygon" + changefilename + ".shp");
+                m_mapControl.AddShapeFile(Application.StartupPath + "\\temp", "TempLayer" + changefilename + ".shp");
             }
             else
             {
@@ -198,5 +178,6 @@ namespace AE_Dev_J.Form
             this.Close();
             this.Dispose();
         }
+
     }
 }
