@@ -43,7 +43,6 @@ namespace AE_Dev_J
 
         #endregion 私有成员变量
 
-
         /// <summary>
         /// 打开栅格文件.
         /// </summary>
