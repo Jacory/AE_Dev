@@ -268,11 +268,11 @@ namespace AE_Dev_J.Form
                                     DataRow m_dr = rows[j] as DataRow;
                                     if (j < 1)
                                     {
-                                        m_whereclause += m_dr["FID"].ToString();
+                                        m_whereclause += m_dr["*FID"].ToString();
                                     }
                                     else
                                     {
-                                        m_whereclause = m_whereclause + " or FID=" + m_dr["FID"].ToString();
+                                        m_whereclause = m_whereclause + " or FID=" + m_dr["*FID"].ToString();
                                     }
                                 }
                                 m_queryfilter.WhereClause = m_whereclause;
@@ -367,10 +367,31 @@ namespace AE_Dev_J.Form
             string indexstring = att_xtraTabControl1.SelectedTabPage.Tooltip;
             for (int i = 0; i < gridview_list.Count; i++)
             {
+                //在gridviewlist中查找当前属性表数据
                 if (indexstring == gridview_list[i].Tag.ToString())
                 {
-                    StatisticsAndChartForm statichart = new StatisticsAndChartForm(gridview_list[i],att_xtraTabControl1.SelectedTabPage.Text);
-                    statichart.Show();
+                    int formflag = 0;
+                    //遍历当前所有已打开的窗口，查找StatisticsAndChartForm，根据数据源路径判断该属性表是否已经生成统计与图表
+                    foreach (XtraForm form in Application.OpenForms)
+                    {
+                        if (form is StatisticsAndChartForm)
+                        {
+                            StatisticsAndChartForm sc = form as StatisticsAndChartForm;
+                            if (sc.gridview.Tag.ToString() == indexstring)
+                            {
+                                //检测到该属性表已经生成统计与图表，退出
+                                formflag = 1;
+                                sc.Focus();
+                                break;
+                            }
+                        }
+                    }
+                    if (formflag==0)
+                    {
+                        //未检测到与该属性表对应的统计与图表窗体，生成
+                        StatisticsAndChartForm StatiAndChart = new StatisticsAndChartForm(gridview_list[i], att_xtraTabControl1.SelectedTabPage.Text);
+                        StatiAndChart.Show();
+                    }
                     break;
                 }
             }
