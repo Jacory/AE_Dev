@@ -18,8 +18,8 @@ namespace AE_Dev_J.Form
 {
     public partial class StatisticsAndChartForm : DevExpress.XtraEditors.XtraForm
     {
-        private GridView gridview = null;//当前属性表
-        private string tablename = null;//当前属性表名
+        public GridView gridview = null;//当前属性表
+        public string tablename = null;//当前属性表名
 
         public StatisticsAndChartForm(GridView gv,string name)
         {
@@ -184,12 +184,20 @@ namespace AE_Dev_J.Form
                             //计算分组间距
                             double interval = (d_uniquevalue.Max() - d_uniquevalue.Min())/25;
                             //计算图表中加入点的值
-                            List<double> chart_uniquevalue = new List<double>();
-                            for (int n   = 1; n < 25; n++)
+                            List<string> chart_uniquevalue = new List<string>();
+                            for (int n   = 0; n < 26; n++)
                             {
-                                chart_uniquevalue.Add(interval * n);
+                                if (n==25)
+                                {
+                                    chart_uniquevalue.Add((interval * n).ToString("0.0") + "-" + d_uniquevalue.Max().ToString("0.0"));
+                                }
+                                else
+                                {
+                                    chart_uniquevalue.Add((interval * n).ToString("0.0") + "-" + (interval * (n + 1)).ToString("0.0"));
+                                }
                             }
-                            chart_uniquevalue.Add(d_uniquevalue.Max());
+                            double max = d_uniquevalue.Max();
+                            //chart_uniquevalue.Add((d_uniquevalue.Max()).ToString());
                             //声明26个list类型的数组
                             List<double>[] findlist = new List<double>[26];
                             for (int n = 0; n < 26; n++)
@@ -209,7 +217,7 @@ namespace AE_Dev_J.Form
                             }
                             //创建图表
                             Series series = new Series(gr.Properties.Caption+"_Count", ViewType.Bar);
-                            for (int n = 0; n < 25; n++)
+                            for (int n = 0; n < 26; n++)
                             {
                                 series.Points.Add(new SeriesPoint(chart_uniquevalue[n].ToString(), findlist[n].Count));
                             }
@@ -300,7 +308,7 @@ namespace AE_Dev_J.Form
             Series series = new Series("", ViewType.Bar);
             for (int i = 0; i < gridview.RowCount; i++)
             {
-                series.Points.Add(new SeriesPoint(gridview.GetRowCellValue(i, "*FID"), gridview.GetRowCellValue(i, comboBoxEdit1.SelectedText)));
+                series.Points.Add(new SeriesPoint(gridview.GetRowCellValue(i, "*FID"), gridview.GetRowCellValue(i, comboBoxEdit1.Text)));
             }
             StatisticsChart_chart2.Series.Add(series);
             //生成X坐标轴名称

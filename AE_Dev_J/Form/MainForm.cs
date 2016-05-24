@@ -86,8 +86,6 @@ namespace AE_Dev_J
 
             IRasterLayer pRasterLayer = new RasterLayer();
             pRasterLayer.CreateFromRaster(pRaster);
-            //pRasterLayer.CreateFromDataset(pRasterDataset);
-            //pRasterLayer.CreateFromFilePath(rasfilename);
             pBandCount = pRasterLayer.BandCount;
 
             ILayer pLayer = pRasterLayer as ILayer;
@@ -160,7 +158,18 @@ namespace AE_Dev_J
         /// <param name="e"></param>
         private void iCloseProject_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            if (m_mapControl.DocumentFilename != null)
+            {
+                IMapDocument pMapDocument = new MapDocumentClass();
+                pMapDocument.Open(m_mapControl.DocumentFilename, "");
 
+                for (int i = m_mapControl.Map.LayerCount - 1; i >= 0; i--)
+                {
+                    m_mapControl.DeleteLayer(i);
+                }
+                m_mapControl.DocumentFilename = null;
+                pMapDocument.Close();
+            }
         }
         /// <summary>
         /// 保存工程
@@ -181,6 +190,7 @@ namespace AE_Dev_J
                 m_mapControl.Map = (IMap)lip_ObjCopy.Copy(pMapDocument.Map[0]);
                 lip_ObjCopy = null;
                 pMapDocument.Save(true,false);
+                pMapDocument.Close();
                 MessageBox.Show("保存成功");
             }
             else
@@ -195,7 +205,6 @@ namespace AE_Dev_J
                     IMxdContents pMxdC = m_mapControl.Map as IMxdContents;
                     pMapDocument.ReplaceContents(pMxdC);
                     pMapDocument.Save(true, false);
-
                     m_mapControl.LoadMxFile(filePath, 0, Type.Missing);
                     //循环遍历所有的地图
                     for (int i = 0; i < pMapDocument.MapCount; i++)
@@ -204,6 +213,8 @@ namespace AE_Dev_J
                     }
                     m_mapControl.Map.Name = "Layers";
                     m_tocControl.SetBuddyControl(m_mapControl.Object);
+                    pMapDocument.Close();
+
                 }
             }
         }
@@ -215,9 +226,29 @@ namespace AE_Dev_J
         /// <param name="e"></param>
         private void iSaveProjectAs_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            ESRI.ArcGIS.SystemUI.ICommand saveCommand = new ControlsSaveAsDocCommand();
-            saveCommand.OnCreate(m_mapControl.Object);
-            saveCommand.OnClick();
+            //ESRI.ArcGIS.SystemUI.ICommand saveCommand = new ControlsSaveAsDocCommand();
+            //saveCommand.OnCreate(m_mapControl.Object);
+            //saveCommand.OnClick();
+
+            IMapDocument pMapDocument = new MapDocumentClass();
+            SaveFileDialog opensavemxd = new SaveFileDialog();
+            opensavemxd.Filter = "地图文档(*.mxd)|*.mxd"; //对话框的过滤器
+            if (opensavemxd.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = opensavemxd.FileName; //获取文件全路径
+                pMapDocument.New(filePath);
+                IMxdContents pMxdC = m_mapControl.Map as IMxdContents;
+                pMapDocument.ReplaceContents(pMxdC);
+                pMapDocument.Save(true, false);
+                m_mapControl.LoadMxFile(filePath, 0, Type.Missing);
+                //循环遍历所有的地图
+                for (int i = 0; i < pMapDocument.MapCount; i++)
+                {
+                    m_mapControl.Map = pMapDocument.get_Map(i); //绑定地图控件
+                }
+                pMapDocument.Close();
+            }
+
         }
 
         /// <summary>
@@ -229,7 +260,8 @@ namespace AE_Dev_J
         {
             IMapDocument pMapDocument = new MapDocumentClass();
             SaveFileDialog newmxd = new SaveFileDialog();
-            newmxd.Filter = "地图文档(*.mxd)|*.mxd"; 
+            newmxd.Filter = "地图文档(*.mxd)|*.mxd";    
+            newmxd.Title = "New Map";
             if (newmxd.ShowDialog() == DialogResult.OK)
             {
                 string filePath = newmxd.FileName; 
@@ -298,7 +330,7 @@ namespace AE_Dev_J
             m_tdForm.Focus();
         }
 
-        #endregion
+        #endregion  
 
         #region Data Managment 菜单事件
 
@@ -847,7 +879,7 @@ namespace AE_Dev_J
             idenfityDialog.Display = display;
 
             IIdentifyDialogProps idenfityDialogProps = (IIdentifyDialogProps)idenfityDialog; // explicit cast
-            IEnumLayer enumLayer = map.Layers;
+            IEnumLayer enumLayer = map.Layers;          
             enumLayer.Reset();
             ILayer layer = enumLayer.Next();
             while (layer != null)
