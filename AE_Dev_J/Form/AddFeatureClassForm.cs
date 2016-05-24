@@ -90,13 +90,13 @@ namespace AE_Dev_J.Form
                 //设置geometry definition
                 IGeometryDef pGeometryDef = new GeometryDefClass();
                 IGeometryDefEdit pGeometryDefEdit = pGeometryDef as IGeometryDefEdit;
-                if (AddFeatrueClass_geometrytype.SelectedText == "POINT")
+                if (AddFeatrueClass_geometrytype.Text == "POINT")
                 {
                     pGeometryDefEdit.GeometryType_2 = ESRI.ArcGIS.Geometry.esriGeometryType.esriGeometryPoint;//点
                 }
                 else 
                 {
-                    if (AddFeatrueClass_geometrytype.SelectedText == "POLYLINE")
+                    if (AddFeatrueClass_geometrytype.Text == "POLYLINE")
                     {
                         pGeometryDefEdit.GeometryType_2 = ESRI.ArcGIS.Geometry.esriGeometryType.esriGeometryPolyline;//线
                     }
@@ -106,7 +106,7 @@ namespace AE_Dev_J.Form
                     }
                 }
                 pGeometryDefEdit.SpatialReference_2 = null;
-                pFieldEdit.GeometryDef_2 = pGeometryDef;
+                pFieldEdit.GeometryDef_2 = pGeometryDefEdit;
                 pFieldsEdit.AddField(pField);
 
                 IWorkspaceFactory pWorkspaceFactory = new ShapefileWorkspaceFactory();
@@ -144,13 +144,13 @@ namespace AE_Dev_J.Form
                 //设置geometry definition
                 IGeometryDef pGeometryDef = new GeometryDefClass();
                 IGeometryDefEdit pGeometryDefEdit = pGeometryDef as IGeometryDefEdit;
-                if (AddFeatrueClass_geometrytype.SelectedText=="POINT")
+                if (AddFeatrueClass_geometrytype.Text=="POINT")
                 {
                     pGeometryDefEdit.GeometryType_2 = ESRI.ArcGIS.Geometry.esriGeometryType.esriGeometryPoint;
                 }
                 else
                 {
-                    if (AddFeatrueClass_geometrytype.SelectedText=="POLYLINE")
+                    if (AddFeatrueClass_geometrytype.Text=="POLYLINE")
                     {
                         pGeometryDefEdit.GeometryType_2 = ESRI.ArcGIS.Geometry.esriGeometryType.esriGeometryPolyline;
                     }
