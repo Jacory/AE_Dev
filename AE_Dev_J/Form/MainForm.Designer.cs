@@ -268,11 +268,11 @@
             // axLicenseControl1
             // 
             this.axLicenseControl1.Enabled = true;
-            this.axLicenseControl1.Location = new System.Drawing.Point(723, 414);
+            this.axLicenseControl1.Location = new System.Drawing.Point(6, 414);
             this.axLicenseControl1.Name = "axLicenseControl1";
             this.axLicenseControl1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axLicenseControl1.OcxState")));
             this.axLicenseControl1.Size = new System.Drawing.Size(32, 32);
-            this.axLicenseControl1.TabIndex = 2;
+            this.axLicenseControl1.TabIndex = 4;
             // 
             // m_mapControl
             // 
@@ -302,7 +302,7 @@
             this.EditToolsBarDockControl.Dock = System.Windows.Forms.DockStyle.Top;
             this.EditToolsBarDockControl.Location = new System.Drawing.Point(0, 0);
             this.EditToolsBarDockControl.Name = "EditToolsBarDockControl";
-            this.EditToolsBarDockControl.Size = new System.Drawing.Size(296, 31);
+            this.EditToolsBarDockControl.Size = new System.Drawing.Size(720, 31);
             this.EditToolsBarDockControl.Text = "standaloneBarDockControl1";
             // 
             // ribbonMenu
@@ -1207,7 +1207,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage2;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
-        private ESRI.ArcGIS.Controls.AxLicenseControl axLicenseControl1;
         private DevExpress.XtraEditors.Repository.RepositoryItemMemoExEdit repositoryItemMemoExEdit1;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit1;
         private DevExpress.XtraEditors.Repository.RepositoryItemPopupContainerEdit repositoryItemPopupContainerEdit1;
@@ -1229,6 +1228,7 @@
         private System.Windows.Forms.ToolStripMenuItem fullExtent_ToolStripMenuItem;
         private DevExpress.XtraBars.BarStaticItem m_editinglayer;
         private ESRI.ArcGIS.Controls.AxTOCControl m_tocControl;
+        private ESRI.ArcGIS.Controls.AxLicenseControl axLicenseControl1;
 
     }
 }
