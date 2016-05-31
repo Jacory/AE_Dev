@@ -318,11 +318,11 @@ namespace AE_Dev_J.Form
             featuretoraster_Cancelbutton.Enabled = true;
             if (e.Cancelled == true)
             {
-                memoEdit1.Text += "\r\n" + "Canceled!";
+                MessageBox.Show("任务被终止！","消息");
             }
             else if (e.Error != null)
             {
-                memoEdit1.Text = "Error: " + e.Error.Message;
+                MessageBox.Show("错误："+e.Error.Message, "消息");
             }
             else
             {
@@ -463,14 +463,6 @@ namespace AE_Dev_J.Form
         private void ProgBar_backgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             BackgroundWorker worker = sender as BackgroundWorker;
-            if (e.Cancelled == true)
-            {
-                memoEdit1.Text += "\r\n" + "progressbar Canceled!";
-            }
-            else if (e.Error != null)
-            {
-                memoEdit1.Text = "\r\nError: " + e.Error.Message;
-            }
             worker.DoWork -= new DoWorkEventHandler(ProgBar_backgroundWorker_DoWork);
             worker.ProgressChanged -= new ProgressChangedEventHandler(ProgBar_backgroundWorker_ProgressChanged);
             worker.RunWorkerCompleted -= new RunWorkerCompletedEventHandler(ProgBar_backgroundWorker_RunWorkerCompleted);
@@ -483,28 +475,38 @@ namespace AE_Dev_J.Form
         /// <param name="e"></param>
         private void featuretoraster_Exportbutton_Click(object sender, EventArgs e)
         {
+            //检查文件是否存在
             FileInfo fileinfo = new FileInfo(m_resultPath);
-            Stopwatch exportwatch = new Stopwatch();
-            exportwatch.Start();
-            //等待解除文件锁并加载地图，若等待超过两秒则停止加载
-            while (true)
+            if (fileinfo.Exists || (fileinfo.Extension == "" && Directory.Exists(m_resultPath)))
             {
-                if (exportwatch.ElapsedMilliseconds>2000)
+                Stopwatch exportwatch = new Stopwatch();
+                exportwatch.Start();
+                //等待解除文件锁并加载地图，若等待超过两秒则停止加载
+                while (true)
                 {
-                    MessageBox.Show("文件正在使用","加载失败");
-                    exportwatch.Stop();
-                    break;
+                    if (exportwatch.ElapsedMilliseconds > 3000)
+                    {
+                        MessageBox.Show("文件正在使用，请稍后再试。", "加载失败");
+                        exportwatch.Stop();
+                        featuretoraster_Exportbutton.Enabled = true;
+                        break;
+                    }
+                    string[] files = System.IO.Directory.GetFiles(fileinfo.DirectoryName, fileinfo.Name + "*.sr.lock", System.IO.SearchOption.TopDirectoryOnly);
+                    if (files.Length == 0)
+                    {
+                        exportwatch.Stop();
+                        main.openRasterFile(m_resultPath);
+                        break;
+                    }
                 }
-                string[] files = System.IO.Directory.GetFiles(fileinfo.DirectoryName, fileinfo.Name + "*.sr.lock", System.IO.SearchOption.TopDirectoryOnly);
-                if (files.Length == 0)
-                {
-                    memoEdit1.Text += exportwatch.Elapsed;
-                    exportwatch.Stop();
-                    main.openRasterFile(m_resultPath);
-                    break;
-                }
+                featuretoraster_Exportbutton.Enabled = false;
             }
-            featuretoraster_Exportbutton.Enabled = false;
+            else
+            {
+                MessageBox.Show("输出文件不存在");
+                return;
+            }
+
         }
     }
 }

@@ -53,7 +53,15 @@ namespace AE_Dev_J.Form
             {
                 IDataLayer datalayer = rasterlayerlist[i] as IDataLayer;
                 IWorkspaceName w_name = ((IDatasetName)(datalayer.DataSourceName)).WorkspaceName;
-                rastertofeature_input.Properties.Items.Add(w_name.PathName + rasterlayerlist[i].Name);
+                //地图文档数据w_name.PathName没有斜杠，非地图文档数据w_name.PathName有斜杠，所以路径拼接的时候需要判断
+                if (w_name.PathName.LastIndexOf("\\")==w_name.PathName.Length-1)
+                {
+                    rastertofeature_input.Properties.Items.Add(w_name.PathName + rasterlayerlist[i].Name);
+                }
+                else
+                {
+                    rastertofeature_input.Properties.Items.Add(w_name.PathName +"\\" +rasterlayerlist[i].Name);
+                }
             }
             rastertofeature_geometry.Properties.Items.Add("POINT");
             rastertofeature_geometry.Properties.Items.Add("POLYLINE");
