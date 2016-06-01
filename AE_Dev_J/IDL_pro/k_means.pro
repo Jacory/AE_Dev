@@ -1,4 +1,8 @@
-PRO K_means, method, inputfile, outputfile, numclass, iteration, changeThresh
+PRO K_means, input, output,     $
+  num_classes,                  $ 
+  iterations,                   $
+  change_thresh,                $
+  mode
 
   COMPILE_OPT IDL2
   
@@ -12,31 +16,53 @@ PRO K_means, method, inputfile, outputfile, numclass, iteration, changeThresh
   Envi, /restore_base_save_files
   Envi_batch_init, NO_STATUS_WINDOW = 1- Keyword_set(showProcess)
 
-  ;inputfile = "D:\Trainning\001.tif"
-  ;outputfile = "D:\Trainning\005"
-  ;ITERATIONS = 5
-  ; NUM_CLASSES = 5
+  ; set default parameters
+  IF ~KEYWORD_SET(change_thresh) THEN change_thresh = .05
+  IF ~KEYWORD_SET(num_classes) THEN num_classes = 10
+  IF ~KEYWORD_SET(iterations) THEN iterations = 1
+  if ~keyword_set(mode) then mode = 0
 
-  Envi_open_file, inputfile, r_fid = fid
-  Envi_file_query, fid, dims = dims, nb = nb
+  filenames = ''
+  If mode Eq 0 Then Begin ; single file mode
+    filecount = 1
+    filenames[0] = input
+  Endif Else If mode Eq 1 Then Begin ; batch mode
+    filenames = FILE_SEARCH(input, "*")
+    filecount = N_ELEMENTS(filenames)
+  Endif
 
-  pos = Lindgen(nb)
-  out_name = outputfile + ".dat"
-  
-  IF (FID EQ -1) THEN return
+  for fileIndex = 0L, filecount - 1 Do Begin
 
-  out_bname = 'K-Means'
-  thresh = Replicate(0.05, numclass)
+    ;open process file
+    ENVI_OPEN_FILE, filenames[fileIndex], r_fid = fid
+    IF (fid EQ -1) THEN BEGIN
+      RETURN
+    ENDIF
 
-  Envi_doit, 'class_doit',          $
-    fid = fid,                      $
-    pos = pos,                      $
-    dims = dims,                    $
-    out_bname = out_bname,          $ 
-    out_name = out_name,            $
-    r_fid = r_fid,                  $
-    METHOD = method,                $
-    NUM_CLASSES = numclass,         $
-    CHANGE_THRESH = changeThresh,   $
-    ITERATIONS = iteration
+    ;get file information
+    ENVI_FILE_QUERY, fid, dims = dims,  $
+      fname = fname,                    $
+      sname = sname,                    $
+      data_type = data_type,            $
+      interleave = interleave,          $
+      nb = nb,                          $; num of bands
+      nl = nl,                          $; num of lines
+      ns = ns                            ; num of samples
+
+    if filecount ne 1 then outfilename = output + sname + '_res'
+    if filecount eq 1 then outfilename = output
+
+    ENVI_DOIT, 'class_doit',                $
+      fid = fid,                            $
+      pos = lindgen(nb),                    $
+      dims = dims,                          $
+      out_bname = 'k-means',                $
+      out_name = outfilename,               $
+      method = 7,                           $
+      r_fid = r_fid,                        $
+      num_classes = num_classes,            $
+      iterations = iterations,              $
+      change_thresh = change_thresh,        $
+      min_classes = min_classes
+  endfor
 END
