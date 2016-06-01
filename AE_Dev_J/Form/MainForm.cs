@@ -9,7 +9,6 @@ using System.Windows.Forms;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
-
 using DevExpress.Skins;
 using DevExpress.LookAndFeel;
 using DevExpress.UserSkins;
@@ -35,6 +34,7 @@ namespace AE_Dev_J
     {
         public AxTOCControl getTocControl() { return m_tocControl; }
         public AxMapControl getMapControl() { return m_mapControl; }
+        public string drawflag = "";//用于为clipform绘制矩形框,值不为空时表示mapcontrol处于包络线绘制状态
 
         #region 私有成员变量
 
@@ -46,6 +46,9 @@ namespace AE_Dev_J
         private AttributeTableForm m_attForm = null;
         private IEngineEditor pEngineEditor =null;
 
+        private bool MouseIsDown = false;//鼠标绘制矩形裁剪包络线时，监测鼠标是否按下
+        private Rectangle MouseRect = Rectangle.Empty;//初始化矩形裁剪包络线时
+        private IActiveViewEvents_Event m_MapActiveViewEvents; //监测mapcontrol加载图层事件
         #endregion 私有成员变量
 
         /// <summary>
@@ -111,6 +114,7 @@ namespace AE_Dev_J
             ESRI.ArcGIS.RuntimeManager.Bind(ESRI.ArcGIS.ProductCode.EngineOrDesktop); // ESRI license
             InitializeComponent();
             InitSkinGallery();
+            
             //设置地图名称
             m_mapControl.Map.Name = "Layers";
             //创建临时文件夹temp
@@ -119,6 +123,21 @@ namespace AE_Dev_J
             {
                 System.IO.Directory.CreateDirectory(Application.StartupPath + "\\temp");
             }
+            //清空temp文件夹
+            foreach (string d in Directory.GetFileSystemEntries(Application.StartupPath + "\\temp"))
+            {
+                if (File.Exists(d))
+                {
+                    FileInfo fi = new FileInfo(d);
+                    File.Delete(d);//直接删除其中的文件  
+                }
+            }
+            SampleManager.Hide();//隐藏监督分类样本管理面板
+            //监测mapcontrol加载图层事件 
+            m_MapActiveViewEvents =(IActiveViewEvents_Event)m_mapControl.Map;  
+  
+            //添加图层后触发
+            m_MapActiveViewEvents.ItemAdded+= new IActiveViewEvents_ItemAddedEventHandler(m_MapActiveViewEvents_ContentsChanged);
         }
 
         void InitSkinGallery()
@@ -171,6 +190,7 @@ namespace AE_Dev_J
                 pMapDocument.Close();
             }
         }
+
         /// <summary>
         /// 保存工程
         /// </summary>
@@ -382,6 +402,36 @@ namespace AE_Dev_J
             RasterToFeatureForm rastertofeature = new RasterToFeatureForm(rasterlist,this);
             rastertofeature.Show();
         }
+        /// <summary>
+        ///Clip
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Clipbutton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            //创建存储当前矢量图层的图层列表
+            List<IFeatureLayer> featurelist = new List<IFeatureLayer>();
+            for (int i = 0; i < m_mapControl.LayerCount; i++)
+            {
+                ILayer layer = m_mapControl.get_Layer(i);
+                if (layer is IFeatureLayer)
+                {
+                    featurelist.Add(layer as IFeatureLayer);
+                }
+            }
+            //创建存储当前栅格图层的图层列表
+            List<IRasterLayer> rasterlist = new List<IRasterLayer>();
+            for (int i = 0; i < m_mapControl.LayerCount; i++)
+            {
+                ILayer layer = m_mapControl.get_Layer(i);
+                if (layer is IRasterLayer)
+                {
+                    rasterlist.Add(layer as IRasterLayer);
+                }
+            }
+            ClipForm clip = new ClipForm(featurelist,rasterlist,this);
+            clip.Show();
+        }
 
         #endregion Data Managment 菜单事件
 
@@ -531,6 +581,16 @@ namespace AE_Dev_J
             }
         }
 
+        /// <summary>
+        /// 打开监督分类面板
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SampleManagerButton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            SampleManager.Show();
+        }
+
         #endregion ToolBar 工具条事件
 
         #region m_tocControl右键菜单项
@@ -581,7 +641,10 @@ namespace AE_Dev_J
             if (item == esriTOCControlItem.esriTOCControlItemLayer)
             {
                 IDataLayer2 datalayer = selectedLayer as IDataLayer2;
-                datalayer.Disconnect();
+                if (datalayer.DataSourceName.NameString!="")
+                {
+                    datalayer.Disconnect();
+                }
                 m_mapControl.Map.DeleteLayer(selectedLayer);
                 if (m_attForm != null && selectedLayer is IFeatureLayer)
                     m_attForm.att_removetable(selectedLayer as IFeatureLayer);
@@ -820,6 +883,8 @@ namespace AE_Dev_J
             double x = double.Parse(e.mapX.ToString("0.000"));
             double y = double.Parse(e.mapY.ToString("0.000"));
             this.coordinate_textEdit.EditValue = x.ToString() + ", " + y.ToString();
+            if (MouseIsDown)
+                ResizeToRectangle(e.x + m_tocControl.Size.Width + 20, e.y + ribbonMenu.Size.Height + 35); 
             
         }
 
@@ -832,7 +897,25 @@ namespace AE_Dev_J
         {
             switch (e.button)
             {
-                case 1:     // 鼠标左键
+                case 1:// 鼠标左键
+                    if (drawflag!="")
+                    {
+                        MouseIsDown = true;
+                        DrawStart(e.x + m_tocControl.Size.Width + 20, e.y + ribbonMenu.Size.Height + 35);
+                        foreach (XtraForm form in Application.OpenForms)//遍历所有窗口，查找对应的clip窗口
+                        {
+                            if (form is ClipForm)
+                            {
+                                ClipForm clipform = form as ClipForm;
+                                if (clipform.Tag.ToString() == drawflag)//根据窗口tag值，即窗口handle，将坐标传回该clip窗口
+                                {
+                                    (clipform.getlefttopX()).Text = e.mapX.ToString();
+                                    (clipform.getlefttopY()).Text = e.mapY.ToString();
+                                    break;
+                                }
+                            }
+                        }
+                    }
                     break;
                 case 2:     // 鼠标右键     
                     mapControl_contextMenuStrip.Show(m_mapControl, new Point(e.x, e.y));
@@ -854,6 +937,60 @@ namespace AE_Dev_J
         private void m_mapControl_OnMouseUp(object sender, IMapControlEvents2_OnMouseUpEvent e)
         {
             m_mapControl.Focus();
+            //执行裁剪，自定义包络线
+            this.Capture = false;
+            System.Windows.Forms.Cursor.Clip = Rectangle.Empty;
+            MouseIsDown = false;
+            DrawRectangle();
+            MouseRect = Rectangle.Empty;
+            //遍历当前所有已打开的窗口，查找clipform
+            if (drawflag!="")
+            {
+                foreach (XtraForm form in Application.OpenForms)//遍历所有窗口，查找对应的clip窗口
+                {
+                    if (form is ClipForm)
+                    {
+                        ClipForm clipform = form as ClipForm;
+                        if (clipform.Tag.ToString() == drawflag)//根据窗口tag值，即窗口handle，将坐标传回该clip窗口
+                        {
+                            (clipform.getrightbottomX()).Text = e.mapX.ToString();
+                            (clipform.getrightbottomY()).Text = e.mapY.ToString();
+                            clipform.Focus();
+                            clipform.Refresh();
+                            break;
+                        }
+                    }
+                }
+            }
+            drawflag = "";
+            this.Cursor = Cursors.Default;//按下鼠标中键时，光标为平移，松开中键恢复光标为箭头
+            m_mapControl.MousePointer = esriControlsMousePointer.esriPointerDefault;
+        }
+        /// <summary>
+        /// mapControl中绘制矩形
+        /// </summary>
+        private void DrawRectangle()
+        {
+            Rectangle rect = this.RectangleToScreen(MouseRect);
+            ControlPaint.DrawReversibleFrame(rect, this.BackColor, FrameStyle.Dashed);
+        }
+        /// <summary>
+        /// mapControl中绘制矩形
+        /// </summary>
+        private void DrawStart(int x, int y)
+        {
+            System.Windows.Forms.Cursor.Clip = this.RectangleToScreen(new Rectangle(m_tocControl.Size.Width + 19, ribbonMenu.Size.Height + 35, m_mapControl.Size.Width - 5, m_mapControl.Size.Height - 5));//指定鼠标活动区域
+            MouseRect = new Rectangle(x, y, 0, 0);
+        }
+        /// <summary>
+        /// mapControl中绘制矩形
+        /// </summary>
+        private void ResizeToRectangle(int x, int y)
+        {
+            DrawRectangle();
+            MouseRect.Width = x - MouseRect.Left;
+            MouseRect.Height = y - MouseRect.Top;
+            DrawRectangle();
         }
 
 
@@ -890,57 +1027,87 @@ namespace AE_Dev_J
             idenfityDialog.Show();
         }
 
+        private void m_MapActiveViewEvents_ContentsChanged(object item)
+        {
+            LayerNameComboBox.Items.Clear();
+            LayerNameComboBox.BeginUpdate();
+            for (int i = 0; i < m_mapControl.LayerCount; i++)
+            {
+                LayerNameComboBox.Items.Add(m_mapControl.get_Layer(i).Name);
+            }
+            LayerNameComboBox.EndUpdate();
+        }
+        private void m_mapControl_OnMapReplaced(object sender, IMapControlEvents2_OnMapReplacedEvent e)
+        {
+            LayerNameComboBox.Items.Clear();
+            LayerNameComboBox.BeginUpdate();
+            for (int i = 0; i < m_mapControl.LayerCount; i++)
+            {
+                LayerNameComboBox.Items.Add(m_mapControl.get_Layer(i).Name);
+            }
+            LayerNameComboBox.EndUpdate();
+        }
+
         /// <summary>
         /// 关闭主窗口
         /// </summary>
         /// <param name="rasfilename">栅格文件名</param>
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            //检查编辑状态
-            if (pEngineEditor != null && pEngineEditor.HasEdits() == false)
-            {
-                pEngineEditor.StopEditing(false);
-            }
-            else
-            {
-                if (pEngineEditor!=null)
+            //try
+            //{
+
+                //检查编辑状态
+                if (pEngineEditor != null && pEngineEditor.HasEdits() == false)
                 {
-                    if (MessageBox.Show("Save Edits?", "Save Prompt", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    pEngineEditor.StopEditing(false);
+                }
+                else
+                {
+                    if (pEngineEditor != null)
                     {
-                        pEngineEditor.StopEditing(true);
-                    }
-                    else
-                    {
-                        pEngineEditor.StopEditing(false);
+                        if (MessageBox.Show("Save Edits?", "Save Prompt", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        {
+                            pEngineEditor.StopEditing(true);
+                        }
+                        else
+                        {
+                            pEngineEditor.StopEditing(false);
+                        }
                     }
                 }
-            }
-            //恢复光标
-            ICommand t_editcommand = new ESRI.ArcGIS.Controls.ControlsEditingEditToolClass();
-            t_editcommand.OnCreate(m_mapControl.Object);
-            m_mapControl.CurrentTool = t_editcommand as ITool;
-            t_editcommand.OnClick();
+                //恢复光标
+                ICommand t_editcommand = new ESRI.ArcGIS.Controls.ControlsEditingEditToolClass();
+                t_editcommand.OnCreate(m_mapControl.Object);
+                m_mapControl.CurrentTool = t_editcommand as ITool;
+                t_editcommand.OnClick();
 
-            m_editinglayer.Caption = "当前图层：";
-            map_edittools.Visible = false;
+                m_editinglayer.Caption = "当前图层：";
+                map_edittools.Visible = false;
 
-            //解除图层锁
-            for (int i = 0; i < m_mapControl.LayerCount; i++)
-            {
-                IDataLayer2 datalayer = m_mapControl.get_Layer(i) as IDataLayer2;
-                datalayer.Disconnect();
-            }
-            //清空temp文件夹
-            foreach (string d in Directory.GetFileSystemEntries(Application.StartupPath+"\\temp"))
-            {
-                if (File.Exists(d))
+                //移除图层并解除图层锁
+                for (int i = m_mapControl.Map.LayerCount - 1; i >= 0; i--)
                 {
-                    FileInfo fi = new FileInfo(d);
-                    if (fi.Attributes.ToString().IndexOf("ReadOnly") != -1)
-                        fi.Attributes = FileAttributes.Normal;
-                    File.Delete(d);//直接删除其中的文件  
+                    IDataLayer2 datalayer = m_mapControl.get_Layer(i) as IDataLayer2;
+                    if (datalayer.DataSourceName.NameString != "")
+                    {
+                        datalayer.Disconnect();
+                    }
+                    m_mapControl.DeleteLayer(i);
+
                 }
-            }
+            //}
+            //catch (Exception err)
+            //{
+
+            //    MessageBox.Show(err.Message);
+            //}
+
+        }
+
+        private void Sample_LayerCombox_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            MessageBox.Show(e.Item.ToString());
         }
 
 

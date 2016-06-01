@@ -1025,7 +1025,7 @@
             this.miniDis_xtraTabPage.Controls.Add(this.splitContainerControl3);
             this.miniDis_xtraTabPage.Controls.Add(this.labelControl2);
             this.miniDis_xtraTabPage.Name = "miniDis_xtraTabPage";
-            this.miniDis_xtraTabPage.Size = new System.Drawing.Size(405, 466);
+            this.miniDis_xtraTabPage.Size = new System.Drawing.Size(405, 484);
             this.miniDis_xtraTabPage.Text = "最小距离";
             // 
             // splitContainerControl3
@@ -1037,7 +1037,7 @@
             this.splitContainerControl3.Panel1.Text = "Panel1";
             this.splitContainerControl3.Panel2.Controls.Add(this.memoEdit1);
             this.splitContainerControl3.Panel2.Text = "Panel2";
-            this.splitContainerControl3.Size = new System.Drawing.Size(405, 425);
+            this.splitContainerControl3.Size = new System.Drawing.Size(405, 443);
             this.splitContainerControl3.SplitterPosition = 207;
             this.splitContainerControl3.TabIndex = 12;
             this.splitContainerControl3.Text = "splitContainerControl3";
@@ -1051,7 +1051,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(207, 425);
+            this.panelControl1.Size = new System.Drawing.Size(207, 443);
             this.panelControl1.TabIndex = 9;
             // 
             // minDis_error_groupBox
@@ -1062,7 +1062,7 @@
             this.minDis_error_groupBox.Enabled = false;
             this.minDis_error_groupBox.Location = new System.Drawing.Point(104, 178);
             this.minDis_error_groupBox.Name = "minDis_error_groupBox";
-            this.minDis_error_groupBox.Size = new System.Drawing.Size(101, 245);
+            this.minDis_error_groupBox.Size = new System.Drawing.Size(101, 263);
             this.minDis_error_groupBox.TabIndex = 12;
             this.minDis_error_groupBox.TabStop = false;
             this.minDis_error_groupBox.Text = "误差参数";
@@ -1072,7 +1072,7 @@
             this.minDis_error_trackBarControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.minDis_error_trackBarControl.EditValue = null;
-            this.minDis_error_trackBarControl.Location = new System.Drawing.Point(29, 104);
+            this.minDis_error_trackBarControl.Location = new System.Drawing.Point(29, 122);
             this.minDis_error_trackBarControl.Name = "minDis_error_trackBarControl";
             this.minDis_error_trackBarControl.Properties.LabelAppearance.Options.UseTextOptions = true;
             this.minDis_error_trackBarControl.Properties.LabelAppearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -1124,7 +1124,7 @@
             0,
             0,
             0});
-            this.minDis_error_spinEdit.Location = new System.Drawing.Point(19, 78);
+            this.minDis_error_spinEdit.Location = new System.Drawing.Point(19, 96);
             this.minDis_error_spinEdit.Name = "minDis_error_spinEdit";
             this.minDis_error_spinEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -1150,7 +1150,7 @@
             this.minDis_std_groupBox.Enabled = false;
             this.minDis_std_groupBox.Location = new System.Drawing.Point(2, 178);
             this.minDis_std_groupBox.Name = "minDis_std_groupBox";
-            this.minDis_std_groupBox.Size = new System.Drawing.Size(101, 245);
+            this.minDis_std_groupBox.Size = new System.Drawing.Size(101, 263);
             this.minDis_std_groupBox.TabIndex = 12;
             this.minDis_std_groupBox.TabStop = false;
             this.minDis_std_groupBox.Text = "标准差";
@@ -1160,7 +1160,7 @@
             this.minDis_std_trackBarControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.minDis_std_trackBarControl.EditValue = null;
-            this.minDis_std_trackBarControl.Location = new System.Drawing.Point(29, 104);
+            this.minDis_std_trackBarControl.Location = new System.Drawing.Point(29, 122);
             this.minDis_std_trackBarControl.Name = "minDis_std_trackBarControl";
             this.minDis_std_trackBarControl.Properties.LabelAppearance.Options.UseTextOptions = true;
             this.minDis_std_trackBarControl.Properties.LabelAppearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -1212,7 +1212,7 @@
             0,
             0,
             0});
-            this.minDis_std_spinEdit.Location = new System.Drawing.Point(19, 78);
+            this.minDis_std_spinEdit.Location = new System.Drawing.Point(19, 96);
             this.minDis_std_spinEdit.Name = "minDis_std_spinEdit";
             this.minDis_std_spinEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -1291,7 +1291,7 @@
             this.memoEdit1.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.memoEdit1.Properties.Appearance.Options.UseFont = true;
             this.memoEdit1.Properties.ReadOnly = true;
-            this.memoEdit1.Size = new System.Drawing.Size(193, 425);
+            this.memoEdit1.Size = new System.Drawing.Size(193, 443);
             this.memoEdit1.TabIndex = 11;
             this.memoEdit1.UseOptimizedRendering = true;
             // 
@@ -1311,7 +1311,7 @@
             this.mahDis_xtraTabPage.Controls.Add(this.splitContainerControl4);
             this.mahDis_xtraTabPage.Controls.Add(this.labelControl3);
             this.mahDis_xtraTabPage.Name = "mahDis_xtraTabPage";
-            this.mahDis_xtraTabPage.Size = new System.Drawing.Size(405, 466);
+            this.mahDis_xtraTabPage.Size = new System.Drawing.Size(405, 484);
             this.mahDis_xtraTabPage.Text = "马氏距离";
             // 
             // splitContainerControl4
@@ -1323,7 +1323,7 @@
             this.splitContainerControl4.Panel1.Text = "Panel1";
             this.splitContainerControl4.Panel2.Controls.Add(this.memoEdit2);
             this.splitContainerControl4.Panel2.Text = "Panel2";
-            this.splitContainerControl4.Size = new System.Drawing.Size(405, 425);
+            this.splitContainerControl4.Size = new System.Drawing.Size(405, 443);
             this.splitContainerControl4.SplitterPosition = 142;
             this.splitContainerControl4.TabIndex = 15;
             this.splitContainerControl4.Text = "splitContainerControl4";
@@ -1335,7 +1335,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl2.Location = new System.Drawing.Point(0, 0);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(142, 425);
+            this.panelControl2.Size = new System.Drawing.Size(142, 443);
             this.panelControl2.TabIndex = 12;
             // 
             // mahDis_groupBox
@@ -1460,7 +1460,7 @@
             this.memoEdit2.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.memoEdit2.Properties.Appearance.Options.UseFont = true;
             this.memoEdit2.Properties.ReadOnly = true;
-            this.memoEdit2.Size = new System.Drawing.Size(258, 425);
+            this.memoEdit2.Size = new System.Drawing.Size(258, 443);
             this.memoEdit2.TabIndex = 14;
             this.memoEdit2.UseOptimizedRendering = true;
             // 
@@ -1481,7 +1481,7 @@
             this.maxLike_xtraTabPage.Controls.Add(this.memoEdit3);
             this.maxLike_xtraTabPage.Controls.Add(this.labelControl4);
             this.maxLike_xtraTabPage.Name = "maxLike_xtraTabPage";
-            this.maxLike_xtraTabPage.Size = new System.Drawing.Size(405, 466);
+            this.maxLike_xtraTabPage.Size = new System.Drawing.Size(405, 484);
             this.maxLike_xtraTabPage.Text = "最大似然法";
             // 
             // panelControl3
@@ -1495,7 +1495,7 @@
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl3.Location = new System.Drawing.Point(0, 41);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(164, 425);
+            this.panelControl3.Size = new System.Drawing.Size(164, 443);
             this.panelControl3.TabIndex = 12;
             // 
             // maxLike_ratio_groupBox
@@ -1733,7 +1733,7 @@
             0,
             0,
             0});
-            this.spinEdit5.Location = new System.Drawing.Point(21, 160);
+            this.spinEdit5.Location = new System.Drawing.Point(21, 178);
             this.spinEdit5.Name = "spinEdit5";
             this.spinEdit5.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -1754,7 +1754,7 @@
             // 
             this.trackBarControl6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.trackBarControl6.EditValue = null;
-            this.trackBarControl6.Location = new System.Drawing.Point(-29, 293);
+            this.trackBarControl6.Location = new System.Drawing.Point(-29, 302);
             this.trackBarControl6.Name = "trackBarControl6";
             this.trackBarControl6.Properties.LabelAppearance.Options.UseTextOptions = true;
             this.trackBarControl6.Properties.LabelAppearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -1805,7 +1805,7 @@
             this.memoEdit3.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.memoEdit3.Properties.Appearance.Options.UseFont = true;
             this.memoEdit3.Properties.ReadOnly = true;
-            this.memoEdit3.Size = new System.Drawing.Size(241, 425);
+            this.memoEdit3.Size = new System.Drawing.Size(241, 443);
             this.memoEdit3.TabIndex = 14;
             this.memoEdit3.UseOptimizedRendering = true;
             // 
@@ -1823,19 +1823,19 @@
             // sam_xtraTabPage
             // 
             this.sam_xtraTabPage.Name = "sam_xtraTabPage";
-            this.sam_xtraTabPage.Size = new System.Drawing.Size(405, 466);
+            this.sam_xtraTabPage.Size = new System.Drawing.Size(405, 484);
             this.sam_xtraTabPage.Text = "光谱角距离";
             // 
             // sim_xtraTabPage
             // 
             this.sim_xtraTabPage.Name = "sim_xtraTabPage";
-            this.sim_xtraTabPage.Size = new System.Drawing.Size(405, 466);
+            this.sim_xtraTabPage.Size = new System.Drawing.Size(405, 484);
             this.sim_xtraTabPage.Text = "信息量分类";
             // 
             // binary_xtraTabPage
             // 
             this.binary_xtraTabPage.Name = "binary_xtraTabPage";
-            this.binary_xtraTabPage.Size = new System.Drawing.Size(405, 466);
+            this.binary_xtraTabPage.Size = new System.Drawing.Size(405, 484);
             this.binary_xtraTabPage.Text = "二值编码分类";
             // 
             // ann_xtraTabPage
@@ -1844,7 +1844,7 @@
             this.ann_xtraTabPage.Controls.Add(this.labelControl5);
             this.ann_xtraTabPage.Controls.Add(this.memoEdit4);
             this.ann_xtraTabPage.Name = "ann_xtraTabPage";
-            this.ann_xtraTabPage.Size = new System.Drawing.Size(405, 466);
+            this.ann_xtraTabPage.Size = new System.Drawing.Size(405, 484);
             this.ann_xtraTabPage.Text = "神经网络";
             // 
             // panelControl4
@@ -1854,7 +1854,7 @@
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl4.Location = new System.Drawing.Point(0, 41);
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(405, 327);
+            this.panelControl4.Size = new System.Drawing.Size(405, 345);
             this.panelControl4.TabIndex = 12;
             // 
             // groupControl7
@@ -1863,7 +1863,7 @@
             this.groupControl7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl7.Location = new System.Drawing.Point(2, 61);
             this.groupControl7.Name = "groupControl7";
-            this.groupControl7.Size = new System.Drawing.Size(401, 264);
+            this.groupControl7.Size = new System.Drawing.Size(401, 282);
             this.groupControl7.TabIndex = 9;
             this.groupControl7.Text = "标准差参数";
             // 
@@ -1887,7 +1887,7 @@
             this.layoutControl8.Name = "layoutControl8";
             this.layoutControl8.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(295, 498, 250, 350);
             this.layoutControl8.Root = this.layoutControlGroup8;
-            this.layoutControl8.Size = new System.Drawing.Size(397, 240);
+            this.layoutControl8.Size = new System.Drawing.Size(397, 258);
             this.layoutControl8.TabIndex = 1;
             this.layoutControl8.Text = "layoutControl8";
             // 
@@ -2319,7 +2319,7 @@
             // 
             this.memoEdit4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.memoEdit4.EditValue = resources.GetString("memoEdit4.EditValue");
-            this.memoEdit4.Location = new System.Drawing.Point(0, 368);
+            this.memoEdit4.Location = new System.Drawing.Point(0, 386);
             this.memoEdit4.Name = "memoEdit4";
             this.memoEdit4.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.memoEdit4.Properties.Appearance.Options.UseFont = true;
@@ -2333,7 +2333,7 @@
             this.svm_xtraTabPage.Controls.Add(this.splitContainerControl1);
             this.svm_xtraTabPage.Controls.Add(this.labelControl6);
             this.svm_xtraTabPage.Name = "svm_xtraTabPage";
-            this.svm_xtraTabPage.Size = new System.Drawing.Size(405, 466);
+            this.svm_xtraTabPage.Size = new System.Drawing.Size(405, 484);
             this.svm_xtraTabPage.Text = "支持向量机";
             // 
             // splitContainerControl1
@@ -2346,7 +2346,7 @@
             this.splitContainerControl1.Panel1.Text = "Panel1";
             this.splitContainerControl1.Panel2.Controls.Add(this.memoEdit5);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(405, 425);
+            this.splitContainerControl1.Size = new System.Drawing.Size(405, 443);
             this.splitContainerControl1.SplitterPosition = 270;
             this.splitContainerControl1.TabIndex = 18;
             this.splitContainerControl1.Text = "splitContainerControl1";
@@ -2755,7 +2755,7 @@
             this.memoEdit5.Properties.Appearance.Options.UseFont = true;
             this.memoEdit5.Properties.ReadOnly = true;
             this.memoEdit5.Properties.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.memoEdit5.Size = new System.Drawing.Size(405, 150);
+            this.memoEdit5.Size = new System.Drawing.Size(405, 168);
             this.memoEdit5.TabIndex = 17;
             this.memoEdit5.UseOptimizedRendering = true;
             // 
