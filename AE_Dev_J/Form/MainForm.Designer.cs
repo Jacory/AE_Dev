@@ -28,14 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::AE_Dev_J.Form.SplashScreenForm), true, true);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem1 = new DevExpress.Utils.ToolTipSeparatorItem();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem3 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem2 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem4 = new DevExpress.Utils.ToolTipTitleItem();
             this.splitContainerControl = new DevExpress.XtraEditors.SplitContainerControl();
             this.m_tocControl = new ESRI.ArcGIS.Controls.AxTOCControl();
             this.navBarControl = new DevExpress.XtraNavBar.NavBarControl();
@@ -45,8 +43,8 @@
             this.trashItem = new DevExpress.XtraNavBar.NavBarItem();
             this.calendarItem = new DevExpress.XtraNavBar.NavBarItem();
             this.tasksItem = new DevExpress.XtraNavBar.NavBarItem();
-            this.navbarImageCollectionLarge = new DevExpress.Utils.ImageCollection(this.components);
-            this.navbarImageCollection = new DevExpress.Utils.ImageCollection(this.components);
+            this.navbarImageCollectionLarge = new DevExpress.Utils.ImageCollection();
+            this.navbarImageCollection = new DevExpress.Utils.ImageCollection();
             this.axLicenseControl1 = new ESRI.ArcGIS.Controls.AxLicenseControl();
             this.m_mapControl = new ESRI.ArcGIS.Controls.AxMapControl();
             this.m_esritoolbarControl = new ESRI.ArcGIS.Controls.AxToolbarControl();
@@ -60,7 +58,7 @@
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ribbonMenu = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.appMenu = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
+            this.appMenu = new DevExpress.XtraBars.Ribbon.ApplicationMenu();
             this.iNewProject = new DevExpress.XtraBars.BarButtonItem();
             this.iOpenProject = new DevExpress.XtraBars.BarButtonItem();
             this.iSaveProject = new DevExpress.XtraBars.BarButtonItem();
@@ -68,7 +66,7 @@
             this.iHelp = new DevExpress.XtraBars.BarButtonItem();
             this.iAbout = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonImageCollection = new DevExpress.Utils.ImageCollection(this.components);
+            this.ribbonImageCollection = new DevExpress.Utils.ImageCollection();
             this.iCloseProject = new DevExpress.XtraBars.BarButtonItem();
             this.siStatus = new DevExpress.XtraBars.BarStaticItem();
             this.siInfo = new DevExpress.XtraBars.BarStaticItem();
@@ -85,7 +83,7 @@
             this.Clipbutton = new DevExpress.XtraBars.BarButtonItem();
             this.RasterToFeaturebutton = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem12 = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonImageCollectionLarge = new DevExpress.Utils.ImageCollection(this.components);
+            this.ribbonImageCollectionLarge = new DevExpress.Utils.ImageCollection();
             this.homeRibbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.project_RibbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.file_ribbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -105,26 +103,26 @@
             this.repositoryItemPopupContainerEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemPopupContainerEdit();
             this.repositoryItemMemoExEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemMemoExEdit();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            this.galleryImageCollection = new DevExpress.Utils.ImageCollection(this.components);
-            this.popupControlContainer2 = new DevExpress.XtraBars.PopupControlContainer(this.components);
+            this.galleryImageCollection = new DevExpress.Utils.ImageCollection();
+            this.popupControlContainer2 = new DevExpress.XtraBars.PopupControlContainer();
             this.buttonEdit = new DevExpress.XtraEditors.ButtonEdit();
-            this.popupControlContainer1 = new DevExpress.XtraBars.PopupControlContainer(this.components);
+            this.popupControlContainer1 = new DevExpress.XtraBars.PopupControlContainer();
             this.someLabelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.someLabelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.tocControlLayer_ContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tocControlLayer_ContextMenu = new System.Windows.Forms.ContextMenuStrip();
             this.openAttTable_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeLayer_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.zoomToLayer_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editLayer_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mapControl_contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.mapControl_contextMenuStrip = new System.Windows.Forms.ContextMenuStrip();
             this.indentify_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pan_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.zoomIn_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.zoomOut_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fullExtent_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tocControl_contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tocControl_contextMenuStrip = new System.Windows.Forms.ContextMenuStrip();
             this.addData_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.map_toolbarManager = new DevExpress.XtraBars.BarManager(this.components);
+            this.map_toolbarManager = new DevExpress.XtraBars.BarManager();
             this.map_edittools = new DevExpress.XtraBars.Bar();
             this.m_edittool = new DevExpress.XtraBars.BarButtonItem();
             this.m_sketchtool = new DevExpress.XtraBars.BarButtonItem();
@@ -151,7 +149,7 @@
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
+            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager();
             this.SampleManager = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
@@ -344,7 +342,7 @@
             this.EditToolsBarDockControl.Dock = System.Windows.Forms.DockStyle.Top;
             this.EditToolsBarDockControl.Location = new System.Drawing.Point(0, 0);
             this.EditToolsBarDockControl.Name = "EditToolsBarDockControl";
-            this.EditToolsBarDockControl.Size = new System.Drawing.Size(649, 31);
+            this.EditToolsBarDockControl.Size = new System.Drawing.Size(720, 0);
             this.EditToolsBarDockControl.Text = "standaloneBarDockControl1";
             // 
             // standaloneBarDockControl1
@@ -724,16 +722,16 @@
             this.barButtonItem12.Id = 32;
             this.barButtonItem12.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem12.LargeGlyph")));
             this.barButtonItem12.Name = "barButtonItem12";
-            toolTipTitleItem1.Text = "图形化建模工具";
-            toolTipItem1.LeftIndent = 6;
-            toolTipItem1.Text = "类似创建流程图的方式来定义数据的处理步骤，并提供批处理模式，可处理输入文件夹下所有满足要求的数据。";
-            toolTipTitleItem2.LeftIndent = 6;
-            toolTipTitleItem2.Text = "该功能尚未完善";
-            superToolTip1.Items.Add(toolTipTitleItem1);
-            superToolTip1.Items.Add(toolTipItem1);
-            superToolTip1.Items.Add(toolTipSeparatorItem1);
-            superToolTip1.Items.Add(toolTipTitleItem2);
-            this.barButtonItem12.SuperTip = superToolTip1;
+            toolTipTitleItem3.Text = "图形化建模工具";
+            toolTipItem2.LeftIndent = 6;
+            toolTipItem2.Text = "类似创建流程图的方式来定义数据的处理步骤，并提供批处理模式，可处理输入文件夹下所有满足要求的数据。";
+            toolTipTitleItem4.LeftIndent = 6;
+            toolTipTitleItem4.Text = "该功能尚未完善";
+            superToolTip2.Items.Add(toolTipTitleItem3);
+            superToolTip2.Items.Add(toolTipItem2);
+            superToolTip2.Items.Add(toolTipSeparatorItem2);
+            superToolTip2.Items.Add(toolTipTitleItem4);
+            this.barButtonItem12.SuperTip = superToolTip2;
             // 
             // ribbonImageCollectionLarge
             // 
@@ -1347,7 +1345,7 @@
             // 
             this.SampleManager.Controls.Add(this.dockPanel1_Container);
             this.SampleManager.Dock = DevExpress.XtraBars.Docking.DockingStyle.Float;
-            this.SampleManager.FloatLocation = new System.Drawing.Point(174, 469);
+            this.SampleManager.FloatLocation = new System.Drawing.Point(491, 177);
             this.SampleManager.FloatSize = new System.Drawing.Size(458, 303);
             this.SampleManager.ID = new System.Guid("5e34b8a2-8792-4c26-a558-b80aae4089dd");
             this.SampleManager.Location = new System.Drawing.Point(0, 0);

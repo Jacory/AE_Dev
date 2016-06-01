@@ -331,8 +331,8 @@ namespace AE_Dev_J
         /// <param name="e"></param>
         private void iClassification_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if(m_classForm == null || m_classForm.IsDisposed==true)
-                m_classForm = new ClassificationForm();
+            if(m_classForm == null || m_classForm.IsDisposed == true)
+                m_classForm = new ClassificationForm(this);
             m_classForm.Show();
             m_classForm.Focus();
         }
