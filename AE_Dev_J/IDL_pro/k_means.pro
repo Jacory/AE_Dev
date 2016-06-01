@@ -1,3 +1,6 @@
+; Author : Jacory Gao
+; Description : k_means classification process
+;
 PRO K_means, input, output,     $
   num_classes,                  $ 
   iterations,                   $

@@ -8,6 +8,8 @@ using System.Linq;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using System.Threading;
+using ESRI.ArcGIS.Carto;
+using ESRI.ArcGIS.Geodatabase;
 
 namespace AE_Dev_J.Form
 {
@@ -82,6 +84,25 @@ namespace AE_Dev_J.Form
             showOnlyIndexTabPage(0, this.paramSetting_xtraTabControl);
             showOnlyIndexTabPage(0, this.super_param_xtraTabControl);
             showOnlyIndexTabPage(0, this.unsuper_param_xtraTabControl);
+
+            // 加载已打开栅格列表
+            for (int i = 0; i < m_mainForm.getMapControl().LayerCount; i++)
+            {
+                ILayer layer = m_mainForm.getMapControl().get_Layer(i);
+                if (layer is IRasterLayer)
+                {
+                    IDataLayer datalayer = layer as IDataLayer;
+                    IWorkspaceName w_name = ((IDatasetName)(datalayer.DataSourceName)).WorkspaceName;
+                    if (w_name.PathName.LastIndexOf("\\") == w_name.PathName.Length - 1)
+                    {
+                        inDataFile_btn.Properties.Items.Add(w_name.PathName + layer.Name);
+                    }
+                    else
+                    {
+                        inDataFile_btn.Properties.Items.Add(w_name.PathName + "\\" + layer.Name);
+                    }
+                }
+            }
         }
 
         /// <summary>
@@ -524,12 +545,15 @@ namespace AE_Dev_J.Form
 
         private void inDataFile_btn_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            OpenFileDialog openDialog = new OpenFileDialog();
-            openDialog.Filter = "image files(*.img)|*.img";
-            if (openDialog.ShowDialog() == DialogResult.OK)
+            if (e.Button.Index == 1)
             {
-                this.inDataFile_btn.Text = openDialog.FileName;
-                this.m_inDataPath = this.inDataFile_btn.Text;
+                OpenFileDialog openDialog = new OpenFileDialog();
+                openDialog.Filter = "image files(*.img)|*.img";
+                if (openDialog.ShowDialog() == DialogResult.OK)
+                {
+                    this.inDataFile_btn.Text = openDialog.FileName;
+                    this.m_inDataPath = this.inDataFile_btn.Text;
+                }
             }
         }
 
