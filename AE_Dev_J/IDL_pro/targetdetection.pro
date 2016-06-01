@@ -3,11 +3,12 @@
 ;   hyperspectral target detection methods.
 
 pro Targetdetection
-  input = 'C:\airport_cut.img'
-  output = 'C:\test.img'
-  detectionMethod = 3
+  input = 'E:\\Git\\test-data\\class-test-data\\can_tmr.img'
+  output = 'E:\Git\test-data\res\detection_can_tmr.img'
+  targetSpectral = [21.000000,28.000000,32.000000,35.000000,38.000000,30.000000]
+  detectionMethod = 0
   
-  Targetdetection_tt, input, output, detectionMethod
+  Targetdetection_tt, input, output, detectionMethod, targetSpectral = targetSpectral
 end
 
 Pro Targetdetection_tt, input, output, detectionMethod, mode = mode, $
@@ -58,14 +59,10 @@ Pro Targetdetection_tt, input, output, detectionMethod, mode = mode, $
         Break
       End
       2: Begin
-        methodString = 'ENVI_MF_DOIT'
-        Break
-      End
-      3: Begin
         methodString = 'ENVI_RXD_DOIT'
         Break
       End
-      4: Begin
+      3: Begin
         methodString = 'ENVI_OSP_DOIT'
         Break
       End
