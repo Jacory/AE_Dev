@@ -9,7 +9,7 @@ PRO ISODATA, input, output,   $
   iso_min_pixels,             $ ; 类最少象元数
   iso_split_std,              $ ; 最大分类标准差
   min_classes,                 $ ; 最少类别数
-  mode = mode                  ; single file process or batch process
+  mode                  ; single file process or batch process
 
   COMPILE_OPT idl2
   ENVI, /restore_base_save_files
@@ -26,6 +26,7 @@ PRO ISODATA, input, output,   $
   IF ~KEYWORD_SET(min_classes) THEN min_classes = 5
   if ~keyword_set(mode) then mode = 0 
 
+  filenames = ''
   If mode Eq 0 Then Begin ; single file mode
     filecount = 1
     filenames[0] = input
@@ -51,8 +52,9 @@ PRO ISODATA, input, output,   $
       nb = nb,                          $; num of bands
       nl = nl,                          $; num of lines
       ns = ns                            ; num of samples
-    
+      
     if filecount ne 1 then outfilename = output + sname + '_res'
+    if filecount eq 1 then outfilename = output
 
     ENVI_DOIT, 'class_doit',                $
       fid = fid,                            $

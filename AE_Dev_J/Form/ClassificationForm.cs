@@ -21,8 +21,13 @@ namespace AE_Dev_J.Form
         private ClassifyMethod m_selectedMethod = ClassifyMethod.None; // 指定用户选择的算法
         private bool m_processIsDone = false; // 指定算法的是否执行完毕
 
+        private MainForm m_mainForm = null;
+
+        private string m_outfilename = "";
+
         static string m_runStr = null;
         static string m_proFileFullPath = null;
+
 
         /// <summary>
         /// 分类方法枚举
@@ -48,6 +53,12 @@ namespace AE_Dev_J.Form
             InitializeComponent();
         }
 
+        public ClassificationForm(MainForm mf)
+        {
+            m_mainForm = mf;
+            InitializeComponent();
+        }
+
         /// <summary>
         /// 初始化面板中的控件
         /// </summary>
@@ -63,6 +74,9 @@ namespace AE_Dev_J.Form
             this.tabPageControl_windowsUIButtonPanel.Buttons[0].Properties.Enabled = false;
 
             this.selectMethod_TabItem.Selected = true;
+
+            this.expToMap_btn.Enabled = false;
+            this.closeWindow_btn.Enabled = false;
 
             // 参数设置面板
             showOnlyIndexTabPage(0, this.paramSetting_xtraTabControl);
@@ -619,7 +633,7 @@ namespace AE_Dev_J.Form
 
                 case ClassifyMethod.IsoData:
                     proFilename = "isodata.pro";
-                    m_runStr = proFilename + ", '" + inDataFile_btn.Text + "','"
+                    m_runStr =  "isodata, '" + inDataFile_btn.Text + "','"
                                 + outDataFile_btn.Text + "',"
                                 + isodata_maxIter_spinEdit.Value + ","
                                 + isodata_chgThresh_spinEdit.Value + ","
@@ -633,7 +647,7 @@ namespace AE_Dev_J.Form
 
                 case ClassifyMethod.KMeans:
                     proFilename = "k_means.pro";
-                    m_runStr = proFilename + ", '" + inDataFile_btn.Text + "','"
+                    m_runStr = "k_means , '" + inDataFile_btn.Text + "','"
                                 + outDataFile_btn.Text + "',"
                                 + kmeans_numClasses_spinEdit.Value + ","
                                 + kmeans_maxIter_spinEdit.Value + ","
@@ -653,6 +667,7 @@ namespace AE_Dev_J.Form
             {
                 try
                 {
+                    this.tabPageControl_windowsUIButtonPanel.Enabled = false;
                     class_backgroundWorker.RunWorkerAsync();
 
                 }
@@ -661,10 +676,6 @@ namespace AE_Dev_J.Form
                     MessageBox.Show(exception.ToString(), "Error");
                 }
             }
-
-            // 显示执行完成界面
-            this.finish_TabItem.Enabled = true;
-            this.classfication_backstageViewControl.SelectedTab = this.finish_TabItem;
         }
 
         /// <summary>
@@ -737,7 +748,7 @@ namespace AE_Dev_J.Form
         }
 
         /// <summary>
-        /// 执行分类处理，这样封装方便在多线程中进行
+        ///// 执行分类处理，这样封装方便在多线程中进行
         /// </summary>
         /// <param name="idlCon"></param>
         private static void runClassify(object sender, DoWorkEventArgs e)
@@ -754,10 +765,9 @@ namespace AE_Dev_J.Form
         /// <param name="e"></param>
         private void class_backgroundWorker_DoWork(object sender, DoWorkEventArgs e)
         {
-            //IdlConnector idlCon = new IdlConnector(m_proFileFullPath);
-            //idlCon.RunStr = m_runStr;
-            //idlCon.run();
-            Thread.Sleep(20000);
+            IdlConnector idlCon = new IdlConnector(m_proFileFullPath);
+            idlCon.RunStr = m_runStr;
+            idlCon.run();
         }
 
         /// <summary>
@@ -767,9 +777,36 @@ namespace AE_Dev_J.Form
         /// <param name="e"></param>
         private void class_backgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            MessageBox.Show("Done.");
+            this.expToMap_btn.Enabled = true;
+            this.closeWindow_btn.Enabled = true;
+
+            // 显示执行完成界面
+            this.finish_TabItem.Enabled = true;
+            this.classfication_backstageViewControl.SelectedTab = this.finish_TabItem;
+
+            if (singleMode_checkEdit.Checked == true) m_outfilename = outDataFile_btn.Text;
         }
 
-        
+        /// <summary>
+        /// 导出分类结果到主窗口地图
+        /// </summary>
+        /// <param name="sender">分类结果文件路径。如果是批处理模式，这个功能将不可用</param>
+        /// <param name="e"></param>
+        private void expToMap_btn_Click(object sender, EventArgs e)
+        {
+            if (m_outfilename == "") return;
+            m_mainForm.openRasterFile(m_outfilename);
+            this.expToMap_btn.Enabled = false;
+        }
+
+        /// <summary>
+        /// 销毁分类窗口
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void closeWindow_btn_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }
