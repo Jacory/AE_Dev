@@ -37,9 +37,10 @@ namespace AE_Dev_J
     {
         public AxTOCControl getTocControl() { return m_tocControl; }
         public AxMapControl getMapControl() { return m_mapControl; }
-        public string drawflag = "";//用于为clipform绘制矩形框,值不为空时表示mapcontrol处于包络线绘制状态
-        public int drawSampleflag = 0;//用于监督分类选取样本，值为1时表示mapcontrol处于polygon绘制状态
-        public int TrackPolyonState = 0;//指示mapcontrol是否处于trackpolygon状态，0为退出状态，1表示正在绘制，2表示完成绘制但没有退出
+
+        public string drawflag = ""; //用于为clipform绘制矩形框,值不为空时表示mapcontrol处于包络线绘制状态
+        public int drawSampleflag = 0; //用于监督分类选取样本，值为1时表示mapcontrol处于polygon绘制状态
+        public int trackPolyonState = 0; //指示mapcontrol是否处于trackpolygon状态，0为退出状态，1表示正在绘制，2表示完成绘制但没有退出
 
         public delegate void CreateSampleEventHander(IGeometry geometry); //声明创建监督分类样本的委托
         public event CreateSampleEventHander CreateSample;//创建监督分类样本事件
@@ -56,8 +57,8 @@ namespace AE_Dev_J
 
         private GlobalSettings m_globalSetting = null;
 
-        private bool MouseIsDown = false;//鼠标绘制矩形裁剪包络线时，监测鼠标是否按下
-        private Rectangle MouseRect = Rectangle.Empty;//初始化矩形裁剪包络线时
+        private bool MouseIsDown = false; //鼠标绘制矩形裁剪包络线时，监测鼠标是否按下
+        private Rectangle MouseRect = Rectangle.Empty; //初始化矩形裁剪包络线时
 
         #endregion 私有成员变量
 
@@ -144,6 +145,7 @@ namespace AE_Dev_J
             }
   
         }
+
         private void MainForm_Load(object sender, EventArgs e)
         {
             this.KeyPreview = true;
@@ -151,7 +153,9 @@ namespace AE_Dev_J
             m_globalSetting = new GlobalSettings();
         }
 
-
+        /// <summary>
+        /// 加载皮肤
+        /// </summary>
         void InitSkinGallery()
         {
             SkinHelper.InitSkinGallery(rgbiSkins, true);
@@ -347,8 +351,6 @@ namespace AE_Dev_J
                 m_classForm = new ClassificationForm(this, m_globalSetting.idlPath);
             m_classForm.Show();
             m_classForm.Focus();
-            SupervisedClassification SC = new SupervisedClassification(this);
-            SC.Show();
         }
 
         /// <summary>
@@ -369,7 +371,7 @@ namespace AE_Dev_J
         #region Data Managment 菜单事件
 
         /// <summary>
-        ///New Feature
+        /// 新建要素图层
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -378,12 +380,13 @@ namespace AE_Dev_J
             AddFeatureClassForm addafeature = new AddFeatureClassForm(this.getMapControl());
             addafeature.ShowDialog();
         }
+        
         /// <summary>
-        ///FeatureToRaster
+        /// 矢量转栅格
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void FeatureToRasterbutton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void iFeatureToRaster_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             List<IFeatureLayer> featurelist = new List<IFeatureLayer>();
             for (int i = 0; i < m_mapControl.LayerCount; i++)
@@ -394,15 +397,16 @@ namespace AE_Dev_J
                     featurelist.Add(layer as IFeatureLayer);
                 }
             }
-            FeatureToRasterForm featuretoraster = new FeatureToRasterForm(featurelist,this);
+            FeatureToRasterForm featuretoraster = new FeatureToRasterForm(featurelist, this);
             featuretoraster.Show();
         }
+        
         /// <summary>
-        ///RasterToFeature
+        /// 栅格转矢量
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void RasterToFeaturebutton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void iRasterToFeature_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             List<IRasterLayer> rasterlist = new List<IRasterLayer>();
             for (int i = 0; i < m_mapControl.LayerCount; i++)
@@ -416,12 +420,13 @@ namespace AE_Dev_J
             RasterToFeatureForm rastertofeature = new RasterToFeatureForm(rasterlist,this);
             rastertofeature.Show();
         }
+        
         /// <summary>
-        ///Clip
+        /// 裁剪图层
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Clipbutton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void iClip_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             //创建存储当前矢量图层的图层列表
             List<IFeatureLayer> featurelist = new List<IFeatureLayer>();
@@ -445,6 +450,28 @@ namespace AE_Dev_J
             }
             ClipForm clip = new ClipForm(featurelist,rasterlist,this);
             clip.Show();
+        }
+
+        /// <summary>
+        /// 调用ROI工具窗口
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void iRoiTool_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ROIToolForm roiTool = new ROIToolForm(this);
+            roiTool.Show();
+        }
+
+        /// <summary>
+        /// 打开光谱曲线查看工具
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void iViewSpectralTool_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ViewSpectralForm specViewer = new ViewSpectralForm(this);
+            specViewer.Show();
         }
 
         #endregion Data Managment 菜单事件
@@ -927,7 +954,7 @@ namespace AE_Dev_J
                     {
                         if (drawSampleflag== 1)
                         {
-                            TrackPolyonState = 1;
+                            trackPolyonState = 1;
                             //产生拖拽多边形
                             IGeometry SampleGeometry = m_mapControl.TrackPolygon();
 
@@ -1080,6 +1107,7 @@ namespace AE_Dev_J
             }
             idenfityDialog.Show();
         }
+        
         /// <summary>
         /// 关闭主窗口
         /// </summary>
@@ -1137,6 +1165,7 @@ namespace AE_Dev_J
             //}
 
         }
+        
         /// <summary>
         /// 键盘按下ESC键，用于取消绘图状态
         /// </summary>
@@ -1146,17 +1175,21 @@ namespace AE_Dev_J
         {
             if (e.keyCode == (char)Keys.Escape)
             {
-                if (TrackPolyonState==1)//如果正在绘制则将状态改为完成绘制状态
+                if (trackPolyonState==1)//如果正在绘制则将状态改为完成绘制状态
                 {
-                    TrackPolyonState = 2;
+                    trackPolyonState = 2;
                 }
-                else if (TrackPolyonState == 2)//如果为完成绘制状态则改为退出状态
+                else if (trackPolyonState == 2)//如果为完成绘制状态则改为退出状态
                 {
                     drawSampleflag = 0;//解除绘制监督分类样本区域状态
                     m_mapControl.MousePointer = esriControlsMousePointer.esriPointerArrow;//恢复光标
-                    TrackPolyonState = 0;
+                    trackPolyonState = 0;
                 }
             }
         }
+
+        
+
+        
     }
 }

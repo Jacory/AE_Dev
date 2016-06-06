@@ -10,6 +10,7 @@ using DevExpress.XtraEditors;
 using System.Threading;
 using ESRI.ArcGIS.Carto;
 using ESRI.ArcGIS.Geodatabase;
+using AE_Dev_J.Form.ClassifyAlgForm;
 
 namespace AE_Dev_J.Form
 {
@@ -105,6 +106,15 @@ namespace AE_Dev_J.Form
                     }
                 }
             }
+
+            // 动态加载ROI工具窗口
+            ROIToolForm tt = new ROIToolForm(m_mainForm);
+            tt.TopLevel = false;
+            tt.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            tt.Parent = this.roi_panelControl;
+            tt.Dock = DockStyle.Fill;
+            tt.Show();
+
         }
 
         /// <summary>
@@ -253,6 +263,13 @@ namespace AE_Dev_J.Form
             int index = this.superviseMethod_radioGroup.SelectedIndex;
 
             showOnlyIndexTabPage(index, this.super_param_xtraTabControl);
+
+            MinimumDistanceClassify mdc = new MinimumDistanceClassify();
+            mdc.TopLevel = false;
+            mdc.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            mdc.Parent = this.supervise_splitContainerControl.Panel2;
+            mdc.Dock = DockStyle.Fill;
+            mdc.Show();
         }
 
         /// <summary>

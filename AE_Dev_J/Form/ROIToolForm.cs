@@ -16,11 +16,11 @@ using ESRI.ArcGIS.Display;
 
 namespace AE_Dev_J.Form
 {
-    public partial class SupervisedClassification : DevExpress.XtraEditors.XtraForm
+    public partial class ROIToolForm : DevExpress.XtraEditors.XtraForm
     {
         private MainForm main = null;//用于调用主窗口mapcontrol控件
 
-        public SupervisedClassification(MainForm mainform)
+        public ROIToolForm(MainForm mainform)
         {
             InitializeComponent();
             main = mainform;
@@ -34,7 +34,7 @@ namespace AE_Dev_J.Form
         private void SC_SelectSampleButton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             main.drawSampleflag = 1;
-            main.TrackPolyonState = 2;
+            main.trackPolyonState = 2;
             (main.getMapControl()).MousePointer = ESRI.ArcGIS.Controls.esriControlsMousePointer.esriPointerCrosshair;
             main.Focus();
         }
@@ -141,7 +141,7 @@ namespace AE_Dev_J.Form
             main.getMapControl().ActiveView.GraphicsContainer.DeleteAllElements();
             main.getMapControl().Refresh();
             main.getMapControl().MousePointer = ESRI.ArcGIS.Controls.esriControlsMousePointer.esriPointerArrow;
-            main.TrackPolyonState = 0;
+            main.trackPolyonState = 0;
         }
 
 

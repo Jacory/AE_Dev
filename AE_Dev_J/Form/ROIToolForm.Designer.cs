@@ -1,6 +1,6 @@
 ﻿namespace AE_Dev_J.Form
 {
-    partial class SupervisedClassification
+    partial class ROIToolForm
     {
         /// <summary>
         /// Required designer variable.
@@ -47,11 +47,11 @@
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.SC_dataGridView = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.value = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.color = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.count = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.color = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.value = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.SC_barManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LayerCombox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SC_dataGridView)).BeginInit();
@@ -209,7 +209,7 @@
             this.SC_dataGridView.AllowUserToOrderColumns = true;
             this.SC_dataGridView.AllowUserToResizeRows = false;
             this.SC_dataGridView.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.SC_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.SC_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.SC_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
             this.name,
@@ -219,42 +219,45 @@
             this.SC_dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SC_dataGridView.Location = new System.Drawing.Point(0, 31);
             this.SC_dataGridView.Name = "SC_dataGridView";
-            this.SC_dataGridView.ReadOnly = true;
             this.SC_dataGridView.RowTemplate.Height = 23;
             this.SC_dataGridView.Size = new System.Drawing.Size(690, 345);
             this.SC_dataGridView.TabIndex = 9;
-            // 
-            // ID
-            // 
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            // 
-            // name
-            // 
-            this.name.HeaderText = "样本名称";
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            // 
-            // value
-            // 
-            this.value.HeaderText = "样本值";
-            this.value.Name = "value";
-            this.value.ReadOnly = true;
-            // 
-            // color
-            // 
-            this.color.HeaderText = "样本颜色";
-            this.color.Name = "color";
-            this.color.ReadOnly = true;
             // 
             // count
             // 
             this.count.HeaderText = "像元数（近似值）";
             this.count.Name = "count";
             this.count.ReadOnly = true;
+            this.count.Width = 129;
             // 
-            // SupervisedClassification
+            // color
+            // 
+            this.color.HeaderText = "样本颜色";
+            this.color.Name = "color";
+            this.color.ReadOnly = true;
+            this.color.Width = 130;
+            // 
+            // value
+            // 
+            this.value.HeaderText = "样本值";
+            this.value.Name = "value";
+            this.value.ReadOnly = true;
+            this.value.Width = 129;
+            // 
+            // name
+            // 
+            this.name.HeaderText = "样本名称";
+            this.name.Name = "name";
+            this.name.Width = 130;
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Width = 129;
+            // 
+            // ROIToolForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -264,7 +267,7 @@
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
-            this.Name = "SupervisedClassification";
+            this.Name = "ROIToolForm";
             this.Text = "SupervisedClassification";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SupervisedClassification_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.SC_barManager)).EndInit();

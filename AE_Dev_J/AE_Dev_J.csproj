@@ -188,6 +188,72 @@
     <Compile Include="Form\ClassificationForm.Designer.cs">
       <DependentUpon>ClassificationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form\ClassifyAlgForm\ANNClassify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\ClassifyAlgForm\ANNClassify.Designer.cs">
+      <DependentUpon>ANNClassify.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\ClassifyAlgForm\BinaryEncodingClassify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\ClassifyAlgForm\BinaryEncodingClassify.Designer.cs">
+      <DependentUpon>BinaryEncodingClassify.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\ClassifyAlgForm\IsoDataClassify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\ClassifyAlgForm\IsoDataClassify.Designer.cs">
+      <DependentUpon>IsoDataClassify.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\ClassifyAlgForm\KmeansClassify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\ClassifyAlgForm\KmeansClassify.Designer.cs">
+      <DependentUpon>KmeansClassify.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\ClassifyAlgForm\MahlanobisDistanceClassify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\ClassifyAlgForm\MahlanobisDistanceClassify.Designer.cs">
+      <DependentUpon>MahlanobisDistanceClassify.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\ClassifyAlgForm\MaximumLikelihoodClassify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\ClassifyAlgForm\MaximumLikelihoodClassify.Designer.cs">
+      <DependentUpon>MaximumLikelihoodClassify.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\ClassifyAlgForm\MinimumDistanceClassify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\ClassifyAlgForm\MinimumDistanceClassify.Designer.cs">
+      <DependentUpon>MinimumDistanceClassify.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\ClassifyAlgForm\ParallelepipedClassify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\ClassifyAlgForm\ParallelepipedClassify.Designer.cs">
+      <DependentUpon>ParallelepipedClassify.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\ClassifyAlgForm\SamClassify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\ClassifyAlgForm\SamClassify.Designer.cs">
+      <DependentUpon>SamClassify.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\ClassifyAlgForm\SidClassify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\ClassifyAlgForm\SidClassify.Designer.cs">
+      <DependentUpon>SidClassify.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\ClassifyAlgForm\SvmClassify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\ClassifyAlgForm\SvmClassify.Designer.cs">
+      <DependentUpon>SvmClassify.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form\ClipForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -231,17 +297,23 @@
     <Compile Include="Form\StatisticsAndChartForm.Designer.cs">
       <DependentUpon>StatisticsAndChartForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form\SupervisedClassification.cs">
+    <Compile Include="Form\ROIToolForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\SupervisedClassification.Designer.cs">
-      <DependentUpon>SupervisedClassification.cs</DependentUpon>
+    <Compile Include="Form\ROIToolForm.Designer.cs">
+      <DependentUpon>ROIToolForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Form\TargetDetectionForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form\TargetDetectionForm.Designer.cs">
       <DependentUpon>TargetDetectionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\ViewSpectralForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\ViewSpectralForm.Designer.cs">
+      <DependentUpon>ViewSpectralForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -265,6 +337,9 @@
     <EmbeddedResource Include="Form\ClassificationForm.resx">
       <DependentUpon>ClassificationForm.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\ClassifyAlgForm\MinimumDistanceClassify.resx">
+      <DependentUpon>MinimumDistanceClassify.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\ClipForm.resx">
       <DependentUpon>ClipForm.cs</DependentUpon>
@@ -291,9 +366,13 @@
     <EmbeddedResource Include="Form\StatisticsAndChartForm.resx">
       <DependentUpon>StatisticsAndChartForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form\SupervisedClassification.resx">
-      <DependentUpon>SupervisedClassification.cs</DependentUpon>
+    <EmbeddedResource Include="Form\ROIToolForm.resx">
+      <DependentUpon>ROIToolForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form\ViewSpectralForm.resx">
+      <DependentUpon>ViewSpectralForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
@@ -492,6 +571,7 @@
   <ItemGroup>
     <None Include="Resources\1173784.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
