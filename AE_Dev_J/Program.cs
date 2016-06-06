@@ -20,6 +20,9 @@ namespace AE_Dev_J
             DevExpress.UserSkins.BonusSkins.Register();
             UserLookAndFeel.Default.SetSkinStyle("Office 2013");
             Application.Run(new MainForm());
+            //AE_Dev_J.Form.ClipForm clipform = new Form.ClipForm();
+            //clipform.Show();
+            //Application.Run();
         }
     }
 }

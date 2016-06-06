@@ -9,7 +9,7 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AE_Dev_J</RootNamespace>
-    <AssemblyName>AE_DEV</AssemblyName>
+    <AssemblyName>DXApplication2</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileUpgradeFlags>
@@ -70,10 +70,7 @@
     <Reference Include="DevExpress.Utils.v13.2, Version=13.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraBars.v13.2, Version=13.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraCharts.v13.2, Version=13.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraCharts.v13.2.Extensions, Version=13.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>D:\Program Files\DevExpress 13.2\Components\Bin\Framework\DevExpress.XtraCharts.v13.2.Extensions.dll</HintPath>
-    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v13.2.Extensions, Version=13.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraCharts.v13.2.UI, Version=13.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraCharts.v13.2.Wizard, Version=13.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraEditors.v13.2, Version=13.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -91,6 +88,7 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="ESRI.ArcGIS.ADF.Local, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL" />
+    <Reference Include="ESRI.ArcGIS.AnalysisTools, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL" />
     <Reference Include="ESRI.ArcGIS.ArcMapUI, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
@@ -113,7 +111,7 @@
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="ESRI.ArcGIS.Display, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
-      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="ESRI.ArcGIS.Editor, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
       <EmbedInteropTypes>True</EmbedInteropTypes>
@@ -133,9 +131,14 @@
     <Reference Include="ESRI.ArcGIS.Geoprocessing, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
+    <Reference Include="ESRI.ArcGIS.Geoprocessor, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL" />
     <Reference Include="ESRI.ArcGIS.PublisherControls, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
+    <Reference Include="ESRI.ArcGIS.SpatialAnalyst, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.SpatialAnalystTools, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL" />
     <Reference Include="ESRI.ArcGIS.System, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
@@ -185,6 +188,12 @@
     <Compile Include="Form\ClassificationForm.Designer.cs">
       <DependentUpon>ClassificationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form\ClipForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\ClipForm.Designer.cs">
+      <DependentUpon>ClipForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form\FeatureToRasterForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,6 +231,12 @@
     <Compile Include="Form\StatisticsAndChartForm.Designer.cs">
       <DependentUpon>StatisticsAndChartForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form\SupervisedClassification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\SupervisedClassification.Designer.cs">
+      <DependentUpon>SupervisedClassification.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form\TargetDetectionForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -241,6 +256,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form\AddFeatureClassForm.resx">
       <DependentUpon>AddFeatureClassForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\AttributeTableForm.resx">
       <DependentUpon>AttributeTableForm.cs</DependentUpon>
@@ -250,14 +266,20 @@
       <DependentUpon>ClassificationForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form\ClipForm.resx">
+      <DependentUpon>ClipForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form\FeatureToRasterForm.resx">
       <DependentUpon>FeatureToRasterForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\PostClassificationForm.resx">
       <DependentUpon>PostClassificationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\RasterToFeatureForm.resx">
       <DependentUpon>RasterToFeatureForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\RgbSegForm.resx">
       <DependentUpon>RgbSegForm.cs</DependentUpon>
@@ -268,6 +290,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form\StatisticsAndChartForm.resx">
       <DependentUpon>StatisticsAndChartForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\SupervisedClassification.resx">
+      <DependentUpon>SupervisedClassification.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -26,8 +26,8 @@ namespace AE_Dev_J.Form
         private List<IFeatureLayer> featurelayerlist = null;//存放当前地图控件已加载的所有矢量图层
         private string m_resultPath = null;//存储输出文件路径
         private MainForm main = null;//用于调用主窗口的openRasterFile方法
-        private delegate void methoddelegate(object source, FileSystemEventArgs e);//负责将文件监测FilesOnChanged方法委托到主线程，用于跨线程调用控件
 
+        private delegate void methoddelegate(object source, FileSystemEventArgs e);//负责将文件监测FilesOnChanged方法委托到主线程，用于跨线程调用控件
         private Stopwatch watch = null;//用于计算ToRasterDataset方法的预处理时间，以此估算结果文件大小
         private int ProgPauseflag = 0;//用于文件监测线程与进度条线程的交互，值为1时进度条停止
         private int changelength = 0;//用于文件监测线程与进度条线程的交互，记录文件大小变化的字节数，以此更新进度条
@@ -326,6 +326,7 @@ namespace AE_Dev_J.Form
             }
             else
             {
+                MessageBox.Show("完成！","消息");
                 featuretoraster_Exportbutton.Enabled = true;
             }
         }
