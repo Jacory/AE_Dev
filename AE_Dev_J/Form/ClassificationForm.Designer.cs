@@ -365,6 +365,7 @@
             this.backstageViewItemSeparator1 = new DevExpress.XtraBars.Ribbon.BackstageViewItemSeparator();
             this.finish_TabItem = new DevExpress.XtraBars.Ribbon.BackstageViewTabItem();
             this.class_backgroundWorker = new System.ComponentModel.BackgroundWorker();
+            this.postClassification_btn = new DevExpress.XtraEditors.SimpleButton();
             this.classfication_backstageViewControl.SuspendLayout();
             this.backstageViewClientControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.supervisedMethod_groupControl)).BeginInit();
@@ -678,8 +679,8 @@
             this.classfication_backstageViewControl.Location = new System.Drawing.Point(0, 0);
             this.classfication_backstageViewControl.Margin = new System.Windows.Forms.Padding(2);
             this.classfication_backstageViewControl.Name = "classfication_backstageViewControl";
-            this.classfication_backstageViewControl.SelectedTab = this.expData_TabItem;
-            this.classfication_backstageViewControl.SelectedTabIndex = 2;
+            this.classfication_backstageViewControl.SelectedTab = this.finish_TabItem;
+            this.classfication_backstageViewControl.SelectedTabIndex = 5;
             this.classfication_backstageViewControl.Size = new System.Drawing.Size(677, 542);
             this.classfication_backstageViewControl.Style = DevExpress.XtraBars.Ribbon.BackstageViewStyle.Office2010;
             this.classfication_backstageViewControl.TabIndex = 1;
@@ -4164,6 +4165,7 @@
             // backstageViewClientControl5
             // 
             this.backstageViewClientControl5.Controls.Add(this.closeWindow_btn);
+            this.backstageViewClientControl5.Controls.Add(this.postClassification_btn);
             this.backstageViewClientControl5.Controls.Add(this.expToMap_btn);
             this.backstageViewClientControl5.Controls.Add(this.labelControl20);
             this.backstageViewClientControl5.Controls.Add(this.pictureEdit1);
@@ -4230,7 +4232,7 @@
             this.expData_TabItem.Caption = "Export Data";
             this.expData_TabItem.ContentControl = this.backstageViewClientControl3;
             this.expData_TabItem.Name = "expData_TabItem";
-            this.expData_TabItem.Selected = true;
+            this.expData_TabItem.Selected = false;
             // 
             // run_TabItem
             // 
@@ -4248,12 +4250,21 @@
             this.finish_TabItem.Caption = "Finish";
             this.finish_TabItem.ContentControl = this.backstageViewClientControl5;
             this.finish_TabItem.Name = "finish_TabItem";
-            this.finish_TabItem.Selected = false;
+            this.finish_TabItem.Selected = true;
             // 
             // class_backgroundWorker
             // 
             this.class_backgroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.class_backgroundWorker_DoWork);
             this.class_backgroundWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.class_backgroundWorker_RunWorkerCompleted);
+            // 
+            // postClassification_btn
+            // 
+            this.postClassification_btn.Location = new System.Drawing.Point(192, 118);
+            this.postClassification_btn.Name = "postClassification_btn";
+            this.postClassification_btn.Size = new System.Drawing.Size(159, 63);
+            this.postClassification_btn.TabIndex = 2;
+            this.postClassification_btn.Text = "Post classification";
+            this.postClassification_btn.Click += new System.EventHandler(this.postClassification_btn_Click);
             // 
             // ClassificationForm
             // 
@@ -4831,6 +4842,7 @@
         private DevExpress.XtraEditors.SimpleButton closeWindow_btn;
         private DevExpress.XtraEditors.SimpleButton expToMap_btn;
         private DevExpress.XtraEditors.ComboBoxEdit inDataFile_btn;
+        private DevExpress.XtraEditors.SimpleButton postClassification_btn;
 
     }
 }

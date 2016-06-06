@@ -26,6 +26,7 @@ using ESRI.ArcGIS.SystemUI;
 using ESRI.ArcGIS.DataSourcesFile;
 using ESRI.ArcGIS.GeoAnalyst;
 using ESRI.ArcGIS.esriSystem;
+using AE_Dev_J.Class;
 
 
 
@@ -44,7 +45,9 @@ namespace AE_Dev_J
         private TargetDetectionForm m_tdForm = null;
         private RgbSegForm m_rgbSegForm = null;
         private AttributeTableForm m_attForm = null;
-        private IEngineEditor pEngineEditor =null;
+        private IEngineEditor pEngineEditor = null;
+
+        private GlobalSettings m_globalSetting = null;
 
         #endregion 私有成员变量
 
@@ -119,6 +122,8 @@ namespace AE_Dev_J
             {
                 System.IO.Directory.CreateDirectory(Application.StartupPath + "\\temp");
             }
+
+            m_globalSetting = new GlobalSettings();
         }
 
         void InitSkinGallery()
@@ -312,7 +317,7 @@ namespace AE_Dev_J
         private void iClassification_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if(m_classForm == null || m_classForm.IsDisposed == true)
-                m_classForm = new ClassificationForm(this);
+                m_classForm = new ClassificationForm(this, m_globalSetting.idlPath);
             m_classForm.Show();
             m_classForm.Focus();
         }
