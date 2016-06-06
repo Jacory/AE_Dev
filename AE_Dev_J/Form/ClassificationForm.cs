@@ -842,7 +842,7 @@ namespace AE_Dev_J.Form
         /// <param name="e"></param>
         private void postClassification_btn_Click(object sender, EventArgs e)
         {
-            PostClassificationForm postClassForm = new PostClassificationForm(m_mainForm);
+            PostClassificationForm postClassForm = new PostClassificationForm(m_mainForm, m_idlPath);
             postClassForm.Show();
         }
     }

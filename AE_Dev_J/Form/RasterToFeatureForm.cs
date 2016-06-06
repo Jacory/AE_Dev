@@ -268,8 +268,8 @@ namespace AE_Dev_J.Form
 
 
                     IWorkspaceFactory workspacefactory = new RasterWorkspaceFactoryClass();
-                    IRasterWorkspace featureworkspace = workspacefactory.OpenFromFile(inputfinfo.DirectoryName, 0) as IRasterWorkspace;
-                    IRasterDataset rasterdataset = featureworkspace.OpenRasterDataset(inputfinfo.Name);
+                    IRasterWorkspace rasterworkspace = workspacefactory.OpenFromFile(inputfinfo.DirectoryName, 0) as IRasterWorkspace;
+                    IRasterDataset rasterdataset = rasterworkspace.OpenRasterDataset(inputfinfo.Name);
                     IGeoDataset geodataset = rasterdataset as IGeoDataset;
 
                     watch = new Stopwatch();
@@ -329,6 +329,7 @@ namespace AE_Dev_J.Form
             }
             else
             {
+                MessageBox.Show("完成！", "消息");
                 rastertofeature_exportbutton.Enabled = true;
             }
         }

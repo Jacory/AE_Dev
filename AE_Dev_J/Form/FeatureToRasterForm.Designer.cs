@@ -114,15 +114,15 @@
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
-            this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(684, 174, 250, 350);
+            this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(675, 174, 250, 350);
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(691, 283);
+            this.layoutControl1.Size = new System.Drawing.Size(691, 255);
             this.layoutControl1.TabIndex = 14;
             this.layoutControl1.Text = "layoutControl1";
             // 
             // featuretoraster_Exportbutton
             // 
-            this.featuretoraster_Exportbutton.Location = new System.Drawing.Point(393, 233);
+            this.featuretoraster_Exportbutton.Location = new System.Drawing.Point(393, 205);
             this.featuretoraster_Exportbutton.Name = "featuretoraster_Exportbutton";
             this.featuretoraster_Exportbutton.Size = new System.Drawing.Size(118, 22);
             this.featuretoraster_Exportbutton.StyleController = this.layoutControl1;
@@ -132,7 +132,7 @@
             // 
             // FtoR_progressBarControl
             // 
-            this.FtoR_progressBarControl.Location = new System.Drawing.Point(12, 259);
+            this.FtoR_progressBarControl.Location = new System.Drawing.Point(12, 231);
             this.FtoR_progressBarControl.Name = "FtoR_progressBarControl";
             this.FtoR_progressBarControl.Size = new System.Drawing.Size(667, 12);
             this.FtoR_progressBarControl.StyleController = this.layoutControl1;
@@ -142,7 +142,7 @@
             // 
             this.memoEdit1.Location = new System.Drawing.Point(520, 12);
             this.memoEdit1.Name = "memoEdit1";
-            this.memoEdit1.Size = new System.Drawing.Size(159, 243);
+            this.memoEdit1.Size = new System.Drawing.Size(159, 215);
             this.memoEdit1.StyleController = this.layoutControl1;
             this.memoEdit1.TabIndex = 14;
             this.memoEdit1.UseOptimizedRendering = true;
@@ -150,7 +150,7 @@
             // featuretoraster_Cancelbutton
             // 
             this.featuretoraster_Cancelbutton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.featuretoraster_Cancelbutton.Location = new System.Drawing.Point(283, 233);
+            this.featuretoraster_Cancelbutton.Location = new System.Drawing.Point(283, 205);
             this.featuretoraster_Cancelbutton.Name = "featuretoraster_Cancelbutton";
             this.featuretoraster_Cancelbutton.Size = new System.Drawing.Size(96, 22);
             this.featuretoraster_Cancelbutton.StyleController = this.layoutControl1;
@@ -160,7 +160,7 @@
             // 
             // featuretoraster_OKbutton
             // 
-            this.featuretoraster_OKbutton.Location = new System.Drawing.Point(173, 233);
+            this.featuretoraster_OKbutton.Location = new System.Drawing.Point(173, 205);
             this.featuretoraster_OKbutton.Name = "featuretoraster_OKbutton";
             this.featuretoraster_OKbutton.Size = new System.Drawing.Size(96, 22);
             this.featuretoraster_OKbutton.StyleController = this.layoutControl1;
@@ -227,7 +227,7 @@
             this.layoutControlItem10});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(691, 283);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(691, 255);
             this.layoutControlGroup1.Text = "Root";
             this.layoutControlGroup1.TextVisible = false;
             // 
@@ -291,7 +291,7 @@
             // 
             this.emptySpaceItem7.AllowHotTrack = false;
             this.emptySpaceItem7.CustomizationFormText = "emptySpaceItem7";
-            this.emptySpaceItem7.Location = new System.Drawing.Point(261, 221);
+            this.emptySpaceItem7.Location = new System.Drawing.Point(261, 193);
             this.emptySpaceItem7.MaxSize = new System.Drawing.Size(10, 26);
             this.emptySpaceItem7.MinSize = new System.Drawing.Size(10, 26);
             this.emptySpaceItem7.Name = "emptySpaceItem7";
@@ -330,7 +330,7 @@
             this.layoutControlItem6.Location = new System.Drawing.Point(508, 0);
             this.layoutControlItem6.MinSize = new System.Drawing.Size(5, 20);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(163, 247);
+            this.layoutControlItem6.Size = new System.Drawing.Size(163, 219);
             this.layoutControlItem6.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem6.Text = "layoutControlItem6";
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
@@ -343,13 +343,13 @@
             this.splitterItem1.CustomizationFormText = "splitterItem1";
             this.splitterItem1.Location = new System.Drawing.Point(503, 0);
             this.splitterItem1.Name = "splitterItem1";
-            this.splitterItem1.Size = new System.Drawing.Size(5, 247);
+            this.splitterItem1.Size = new System.Drawing.Size(5, 219);
             // 
             // layoutControlItem7
             // 
             this.layoutControlItem7.Control = this.featuretoraster_OKbutton;
             this.layoutControlItem7.CustomizationFormText = "layoutControlItem7";
-            this.layoutControlItem7.Location = new System.Drawing.Point(161, 221);
+            this.layoutControlItem7.Location = new System.Drawing.Point(161, 193);
             this.layoutControlItem7.MaxSize = new System.Drawing.Size(100, 26);
             this.layoutControlItem7.MinSize = new System.Drawing.Size(100, 26);
             this.layoutControlItem7.Name = "layoutControlItem7";
@@ -364,7 +364,7 @@
             // 
             this.layoutControlItem8.Control = this.featuretoraster_Cancelbutton;
             this.layoutControlItem8.CustomizationFormText = "layoutControlItem8";
-            this.layoutControlItem8.Location = new System.Drawing.Point(271, 221);
+            this.layoutControlItem8.Location = new System.Drawing.Point(271, 193);
             this.layoutControlItem8.MaxSize = new System.Drawing.Size(100, 26);
             this.layoutControlItem8.MinSize = new System.Drawing.Size(100, 26);
             this.layoutControlItem8.Name = "layoutControlItem8";
@@ -381,7 +381,7 @@
             this.emptySpaceItem6.CustomizationFormText = "emptySpaceItem6";
             this.emptySpaceItem6.Location = new System.Drawing.Point(0, 168);
             this.emptySpaceItem6.Name = "emptySpaceItem6";
-            this.emptySpaceItem6.Size = new System.Drawing.Size(503, 53);
+            this.emptySpaceItem6.Size = new System.Drawing.Size(503, 25);
             this.emptySpaceItem6.Text = "emptySpaceItem6";
             this.emptySpaceItem6.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -389,7 +389,7 @@
             // 
             this.emptySpaceItem5.AllowHotTrack = false;
             this.emptySpaceItem5.CustomizationFormText = "emptySpaceItem5";
-            this.emptySpaceItem5.Location = new System.Drawing.Point(0, 221);
+            this.emptySpaceItem5.Location = new System.Drawing.Point(0, 193);
             this.emptySpaceItem5.MinSize = new System.Drawing.Size(10, 24);
             this.emptySpaceItem5.Name = "emptySpaceItem5";
             this.emptySpaceItem5.Size = new System.Drawing.Size(161, 26);
@@ -401,7 +401,7 @@
             // 
             this.layoutControlItem9.Control = this.FtoR_progressBarControl;
             this.layoutControlItem9.CustomizationFormText = "layoutControlItem9";
-            this.layoutControlItem9.Location = new System.Drawing.Point(0, 247);
+            this.layoutControlItem9.Location = new System.Drawing.Point(0, 219);
             this.layoutControlItem9.MaxSize = new System.Drawing.Size(0, 16);
             this.layoutControlItem9.MinSize = new System.Drawing.Size(54, 16);
             this.layoutControlItem9.Name = "layoutControlItem9";
@@ -416,7 +416,7 @@
             // 
             this.emptySpaceItem4.AllowHotTrack = false;
             this.emptySpaceItem4.CustomizationFormText = "emptySpaceItem4";
-            this.emptySpaceItem4.Location = new System.Drawing.Point(371, 221);
+            this.emptySpaceItem4.Location = new System.Drawing.Point(371, 193);
             this.emptySpaceItem4.MaxSize = new System.Drawing.Size(10, 26);
             this.emptySpaceItem4.MinSize = new System.Drawing.Size(10, 26);
             this.emptySpaceItem4.Name = "emptySpaceItem4";
@@ -429,7 +429,7 @@
             // 
             this.layoutControlItem10.Control = this.featuretoraster_Exportbutton;
             this.layoutControlItem10.CustomizationFormText = "layoutControlItem10";
-            this.layoutControlItem10.Location = new System.Drawing.Point(381, 221);
+            this.layoutControlItem10.Location = new System.Drawing.Point(381, 193);
             this.layoutControlItem10.MaxSize = new System.Drawing.Size(122, 26);
             this.layoutControlItem10.MinSize = new System.Drawing.Size(122, 26);
             this.layoutControlItem10.Name = "layoutControlItem10";
@@ -446,7 +446,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.CancelButton = this.featuretoraster_Cancelbutton;
-            this.ClientSize = new System.Drawing.Size(691, 283);
+            this.ClientSize = new System.Drawing.Size(691, 255);
             this.Controls.Add(this.layoutControl1);
             this.Name = "FeatureToRasterForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
