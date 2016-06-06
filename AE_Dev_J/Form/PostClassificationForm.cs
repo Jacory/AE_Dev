@@ -60,6 +60,8 @@ namespace AE_Dev_J.Form
                     }
                 }
             }
+
+            this.expToMap_btn.Enabled = false;
         }
 
         #region 处理模式勾选逻辑
@@ -89,6 +91,7 @@ namespace AE_Dev_J.Form
             {
                 this.inputFile_layoutControl.Enabled = false;
             }
+        }
         #endregion 处理模式勾选逻辑
 
         /// <summary>
@@ -169,27 +172,6 @@ namespace AE_Dev_J.Form
         }
 
         /// <summary>
-        /// 执行算法
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ok_btn_Click(object sender, EventArgs e)
-        {
-            // 判断文件处理模式
-            if (this.singleMode_checkEdit.Checked == true)
-                m_processMode = processMode.single;
-            else if (this.batchMode_checkEdit.Checked == true)
-                m_processMode = processMode.batch;
-            else
-            {
-                MessageBox.Show("Something goes wrong...", "Error");
-                return;
-            }
-
-
-        }
-
-        /// <summary>
         /// 取消窗口
         /// </summary>
         /// <param name="sender"></param>
@@ -212,16 +194,65 @@ namespace AE_Dev_J.Form
             this.expToMap_btn.Enabled = false;
         }
 
+        /// <summary>
+        /// 后台执行
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void postClass_backgroundWorker_DoWork(object sender, DoWorkEventArgs e)
         {
 
         }
 
+        /// <summary>
+        /// 后台算法执行完毕后响应此事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void postClass_backgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
 
         }
 
+        /// <summary>
+        /// 执行算法
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ok_btn_Click(object sender, EventArgs e)
+        {
+            // 判断文件处理模式
+            if (this.singleMode_checkEdit.Checked == true)
+            {
+                m_processMode = processMode.single;
+                if (this.inputFile_buttonEdit.Text == "" || this.outputFile_buttonEdit.Text == "")
+                { MessageBox.Show("Please input the right file path!", "error"); return; }
+            }
+            else if (this.batchMode_checkEdit.Checked == true)
+            {
+                m_processMode = processMode.batch;
+                if (this.inputFolder_buttonEdit.Text == "" || this.outputFolder_buttonEdit.Text == "")
+                { MessageBox.Show("Please input the right folder path!", "error"); return; }
+            }
+            else
+            {
+                MessageBox.Show("Something goes wrong...", "Error");
+                return;
+            }
+
+            switch (m_processMode)
+            {
+                case processMode.single: // single file mode
+
+                    break;
+
+                case processMode.batch: // batch file mode
+
+                    break;
+
+                default:
+                    break;
+            }
         }
     }
 }

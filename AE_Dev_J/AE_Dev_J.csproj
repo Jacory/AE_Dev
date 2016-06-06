@@ -160,6 +160,7 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class\GlobalSettings.cs" />
     <Compile Include="Form\AboutForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -268,7 +269,6 @@
     <EmbeddedResource Include="Form\StatisticsAndChartForm.resx">
       <DependentUpon>StatisticsAndChartForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
