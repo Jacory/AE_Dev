@@ -163,6 +163,7 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class\GlobalSettings.cs" />
     <Compile Include="Form\AboutForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -198,6 +199,12 @@
     </Compile>
     <Compile Include="Form\FeatureToRasterForm.Designer.cs">
       <DependentUpon>FeatureToRasterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\PostClassificationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\PostClassificationForm.Designer.cs">
+      <DependentUpon>PostClassificationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Form\RasterToFeatureForm.cs">
       <SubType>Form</SubType>
@@ -244,6 +251,9 @@
     <Compile Include="testForForm.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form\AboutForm.resx">
+      <DependentUpon>AboutForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form\AddFeatureClassForm.resx">
       <DependentUpon>AddFeatureClassForm.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -263,6 +273,9 @@
     <EmbeddedResource Include="Form\FeatureToRasterForm.resx">
       <DependentUpon>FeatureToRasterForm.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\PostClassificationForm.resx">
+      <DependentUpon>PostClassificationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\RasterToFeatureForm.resx">
       <DependentUpon>RasterToFeatureForm.cs</DependentUpon>

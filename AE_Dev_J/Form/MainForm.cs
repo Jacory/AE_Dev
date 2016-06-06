@@ -27,6 +27,7 @@ using ESRI.ArcGIS.GeoAnalyst;
 using ESRI.ArcGIS.esriSystem;
 using ESRI.ArcGIS.Geometry;
 using ESRI.ArcGIS.SpatialAnalyst;
+using AE_Dev_J.Class;
 
 
 
@@ -38,6 +39,8 @@ namespace AE_Dev_J
         public AxMapControl getMapControl() { return m_mapControl; }
         public string drawflag = "";//用于为clipform绘制矩形框,值不为空时表示mapcontrol处于包络线绘制状态
         public int drawSampleflag = 0;//用于监督分类选取样本，值为1时表示mapcontrol处于polygon绘制状态
+        public int TrackPolyonState = 0;//指示mapcontrol是否处于trackpolygon状态，0为退出状态，1表示正在绘制，2表示完成绘制但没有退出
+
         public delegate void CreateSampleEventHander(IGeometry geometry); //声明创建监督分类样本的委托
         public event CreateSampleEventHander CreateSample;//创建监督分类样本事件
 
@@ -49,8 +52,9 @@ namespace AE_Dev_J
         private TargetDetectionForm m_tdForm = null;
         private RgbSegForm m_rgbSegForm = null;
         private AttributeTableForm m_attForm = null;
-        private SupervisedClassification m_supervisedForm = null;
-        private IEngineEditor pEngineEditor =null;
+        private IEngineEditor pEngineEditor = null;
+
+        private GlobalSettings m_globalSetting = null;
 
         private bool MouseIsDown = false;//鼠标绘制矩形裁剪包络线时，监测鼠标是否按下
         private Rectangle MouseRect = Rectangle.Empty;//初始化矩形裁剪包络线时
@@ -143,6 +147,8 @@ namespace AE_Dev_J
         private void MainForm_Load(object sender, EventArgs e)
         {
             this.KeyPreview = true;
+
+            m_globalSetting = new GlobalSettings();
         }
 
 
@@ -338,15 +344,11 @@ namespace AE_Dev_J
         private void iClassification_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if(m_classForm == null || m_classForm.IsDisposed == true)
-                m_classForm = new ClassificationForm(this);
+                m_classForm = new ClassificationForm(this, m_globalSetting.idlPath);
             m_classForm.Show();
             m_classForm.Focus();
-            //监督分类窗口与分类窗口一起创建
-            if (m_supervisedForm==null||m_supervisedForm.IsDisposed==true)
-            {
-                m_supervisedForm = new SupervisedClassification(this);
-                m_supervisedForm.Show();
-            }
+            SupervisedClassification SC = new SupervisedClassification(this);
+            SC.Show();
         }
 
         /// <summary>
@@ -924,9 +926,11 @@ namespace AE_Dev_J
                     else
                     {
                         if (drawSampleflag== 1)
-                        {                            
+                        {
+                            TrackPolyonState = 1;
                             //产生拖拽多边形
                             IGeometry SampleGeometry = m_mapControl.TrackPolygon();
+
                             if (SampleGeometry != null)
                             {
                                 //触发事件，激活监督分类窗口
@@ -1138,12 +1142,20 @@ namespace AE_Dev_J
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void MainForm_KeyPress(object sender, KeyPressEventArgs e)
+        private void m_mapControl_OnKeyUp(object sender, IMapControlEvents2_OnKeyUpEvent e)
         {
-            if (e.KeyChar == (char)Keys.Escape)
+            if (e.keyCode == (char)Keys.Escape)
             {
-                drawSampleflag = 0;//解除绘制监督分类样本区域状态
-                this.Cursor = Cursors.Default;//恢复鼠标光标为箭头
+                if (TrackPolyonState==1)//如果正在绘制则将状态改为完成绘制状态
+                {
+                    TrackPolyonState = 2;
+                }
+                else if (TrackPolyonState == 2)//如果为完成绘制状态则改为退出状态
+                {
+                    drawSampleflag = 0;//解除绘制监督分类样本区域状态
+                    m_mapControl.MousePointer = esriControlsMousePointer.esriPointerArrow;//恢复光标
+                    TrackPolyonState = 0;
+                }
             }
         }
     }

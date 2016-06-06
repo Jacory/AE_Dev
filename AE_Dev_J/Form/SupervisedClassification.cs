@@ -34,6 +34,7 @@ namespace AE_Dev_J.Form
         private void SC_SelectSampleButton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             main.drawSampleflag = 1;
+            main.TrackPolyonState = 2;
             (main.getMapControl()).MousePointer = ESRI.ArcGIS.Controls.esriControlsMousePointer.esriPointerCrosshair;
             main.Focus();
         }
@@ -140,6 +141,7 @@ namespace AE_Dev_J.Form
             main.getMapControl().ActiveView.GraphicsContainer.DeleteAllElements();
             main.getMapControl().Refresh();
             main.getMapControl().MousePointer = ESRI.ArcGIS.Controls.esriControlsMousePointer.esriPointerArrow;
+            main.TrackPolyonState = 0;
         }
 
 
