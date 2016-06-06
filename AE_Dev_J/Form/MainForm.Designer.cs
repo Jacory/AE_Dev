@@ -28,12 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem3 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem2 = new DevExpress.Utils.ToolTipSeparatorItem();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem4 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem1 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
             this.splitContainerControl = new DevExpress.XtraEditors.SplitContainerControl();
             this.m_tocControl = new ESRI.ArcGIS.Controls.AxTOCControl();
             this.navBarControl = new DevExpress.XtraNavBar.NavBarControl();
@@ -43,22 +44,14 @@
             this.trashItem = new DevExpress.XtraNavBar.NavBarItem();
             this.calendarItem = new DevExpress.XtraNavBar.NavBarItem();
             this.tasksItem = new DevExpress.XtraNavBar.NavBarItem();
-            this.navbarImageCollectionLarge = new DevExpress.Utils.ImageCollection();
-            this.navbarImageCollection = new DevExpress.Utils.ImageCollection();
+            this.navbarImageCollectionLarge = new DevExpress.Utils.ImageCollection(this.components);
+            this.navbarImageCollection = new DevExpress.Utils.ImageCollection(this.components);
             this.axLicenseControl1 = new ESRI.ArcGIS.Controls.AxLicenseControl();
             this.m_mapControl = new ESRI.ArcGIS.Controls.AxMapControl();
             this.m_esritoolbarControl = new ESRI.ArcGIS.Controls.AxToolbarControl();
             this.EditToolsBarDockControl = new DevExpress.XtraBars.StandaloneBarDockControl();
-            this.standaloneBarDockControl1 = new DevExpress.XtraBars.StandaloneBarDockControl();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ribbonMenu = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.appMenu = new DevExpress.XtraBars.Ribbon.ApplicationMenu();
+            this.appMenu = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
             this.iNewProject = new DevExpress.XtraBars.BarButtonItem();
             this.iOpenProject = new DevExpress.XtraBars.BarButtonItem();
             this.iSaveProject = new DevExpress.XtraBars.BarButtonItem();
@@ -66,7 +59,7 @@
             this.iHelp = new DevExpress.XtraBars.BarButtonItem();
             this.iAbout = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonImageCollection = new DevExpress.Utils.ImageCollection();
+            this.ribbonImageCollection = new DevExpress.Utils.ImageCollection(this.components);
             this.iCloseProject = new DevExpress.XtraBars.BarButtonItem();
             this.siStatus = new DevExpress.XtraBars.BarStaticItem();
             this.siInfo = new DevExpress.XtraBars.BarStaticItem();
@@ -83,7 +76,7 @@
             this.Clipbutton = new DevExpress.XtraBars.BarButtonItem();
             this.RasterToFeaturebutton = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem12 = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonImageCollectionLarge = new DevExpress.Utils.ImageCollection();
+            this.ribbonImageCollectionLarge = new DevExpress.Utils.ImageCollection(this.components);
             this.homeRibbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.project_RibbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.file_ribbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -103,26 +96,26 @@
             this.repositoryItemPopupContainerEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemPopupContainerEdit();
             this.repositoryItemMemoExEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemMemoExEdit();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            this.galleryImageCollection = new DevExpress.Utils.ImageCollection();
-            this.popupControlContainer2 = new DevExpress.XtraBars.PopupControlContainer();
+            this.galleryImageCollection = new DevExpress.Utils.ImageCollection(this.components);
+            this.popupControlContainer2 = new DevExpress.XtraBars.PopupControlContainer(this.components);
             this.buttonEdit = new DevExpress.XtraEditors.ButtonEdit();
-            this.popupControlContainer1 = new DevExpress.XtraBars.PopupControlContainer();
+            this.popupControlContainer1 = new DevExpress.XtraBars.PopupControlContainer(this.components);
             this.someLabelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.someLabelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.tocControlLayer_ContextMenu = new System.Windows.Forms.ContextMenuStrip();
+            this.tocControlLayer_ContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.openAttTable_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeLayer_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.zoomToLayer_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editLayer_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mapControl_contextMenuStrip = new System.Windows.Forms.ContextMenuStrip();
+            this.mapControl_contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.indentify_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pan_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.zoomIn_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.zoomOut_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fullExtent_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tocControl_contextMenuStrip = new System.Windows.Forms.ContextMenuStrip();
+            this.tocControl_contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.addData_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.map_toolbarManager = new DevExpress.XtraBars.BarManager();
+            this.map_toolbarManager = new DevExpress.XtraBars.BarManager(this.components);
             this.map_edittools = new DevExpress.XtraBars.Bar();
             this.m_edittool = new DevExpress.XtraBars.BarButtonItem();
             this.m_sketchtool = new DevExpress.XtraBars.BarButtonItem();
@@ -131,13 +124,20 @@
             this.m_undotool = new DevExpress.XtraBars.BarButtonItem();
             this.m_redotool = new DevExpress.XtraBars.BarButtonItem();
             this.m_editinglayer = new DevExpress.XtraBars.BarStaticItem();
-            this.map_SupervisedClassificationBar = new DevExpress.XtraBars.Bar();
-            this.Sample_EditingLayer = new DevExpress.XtraBars.BarStaticItem();
-            this.Sample_LayerCombox = new DevExpress.XtraBars.BarEditItem();
-            this.LayerNameComboBox = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
+            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
+            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
+            this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
+            this.barLinkContainerItem1 = new DevExpress.XtraBars.BarLinkContainerItem();
+            this.barDockingMenuItem2 = new DevExpress.XtraBars.BarDockingMenuItem();
+            this.barDockingMenuItem1 = new DevExpress.XtraBars.BarDockingMenuItem();
+            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             this.SelectSampleButton = new DevExpress.XtraBars.BarButtonItem();
+            this.Sample_EditingLayer = new DevExpress.XtraBars.BarStaticItem();
             this.SampleManagerButton = new DevExpress.XtraBars.BarButtonItem();
-            this.bar1 = new DevExpress.XtraBars.Bar();
             this.Sample_Open = new DevExpress.XtraBars.BarButtonItem();
             this.Sample_Save = new DevExpress.XtraBars.BarButtonItem();
             this.Sample_Merge = new DevExpress.XtraBars.BarButtonItem();
@@ -145,21 +145,14 @@
             this.Sample_Delet = new DevExpress.XtraBars.BarButtonItem();
             this.Sample_Clear = new DevExpress.XtraBars.BarButtonItem();
             this.Sample_CreateFile = new DevExpress.XtraBars.BarButtonItem();
-            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager();
-            this.SampleManager = new DevExpress.XtraBars.Docking.DockPanel();
-            this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
-            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
-            this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
-            this.barLinkContainerItem1 = new DevExpress.XtraBars.BarLinkContainerItem();
-            this.barDockingMenuItem2 = new DevExpress.XtraBars.BarDockingMenuItem();
-            this.barDockingMenuItem1 = new DevExpress.XtraBars.BarDockingMenuItem();
-            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
+            this.SampleLayerCombox = new DevExpress.XtraBars.BarEditItem();
+            this.Sample_LayerCombox = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
+            this.LayerNameComboBox = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
+            this.repositoryItemComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
+            this.repositoryItemImageComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
+            this.repositoryItemCheckedComboBoxEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckedComboBoxEdit();
             this.bar2 = new DevExpress.XtraBars.Bar();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl)).BeginInit();
             this.splitContainerControl.SuspendLayout();
@@ -170,8 +163,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.axLicenseControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_mapControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_esritoolbarControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonImageCollection)).BeginInit();
@@ -193,10 +184,12 @@
             this.mapControl_contextMenuStrip.SuspendLayout();
             this.tocControl_contextMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.map_toolbarManager)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LayerNameComboBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
-            this.SampleManager.SuspendLayout();
-            this.dockPanel1_Container.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Sample_LayerCombox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LayerNameComboBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageComboBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckedComboBoxEdit1)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainerControl
@@ -324,7 +317,7 @@
             this.m_mapControl.OnMouseDown += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMouseDownEventHandler(this.m_mapControl_OnMouseDown);
             this.m_mapControl.OnMouseUp += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMouseUpEventHandler(this.m_mapControl_OnMouseUp);
             this.m_mapControl.OnMouseMove += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMouseMoveEventHandler(this.m_mapControl_OnMouseMove);
-            this.m_mapControl.OnMapReplaced += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMapReplacedEventHandler(this.m_mapControl_OnMapReplaced);
+            this.m_mapControl.OnKeyUp += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnKeyUpEventHandler(this.m_mapControl_OnKeyUp);
             // 
             // m_esritoolbarControl
             // 
@@ -342,75 +335,8 @@
             this.EditToolsBarDockControl.Dock = System.Windows.Forms.DockStyle.Top;
             this.EditToolsBarDockControl.Location = new System.Drawing.Point(0, 0);
             this.EditToolsBarDockControl.Name = "EditToolsBarDockControl";
-            this.EditToolsBarDockControl.Size = new System.Drawing.Size(720, 0);
+            this.EditToolsBarDockControl.Size = new System.Drawing.Size(720, 31);
             this.EditToolsBarDockControl.Text = "standaloneBarDockControl1";
-            // 
-            // standaloneBarDockControl1
-            // 
-            this.standaloneBarDockControl1.CausesValidation = false;
-            this.standaloneBarDockControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.standaloneBarDockControl1.Location = new System.Drawing.Point(0, 0);
-            this.standaloneBarDockControl1.Name = "standaloneBarDockControl1";
-            this.standaloneBarDockControl1.Size = new System.Drawing.Size(452, 31);
-            this.standaloneBarDockControl1.Text = "standaloneBarDockControl1";
-            // 
-            // gridControl1
-            // 
-            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gridControl1.Location = new System.Drawing.Point(0, 73);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.MenuManager = this.ribbonMenu;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(452, 205);
-            this.gridControl1.TabIndex = 0;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
-            // 
-            // gridView1
-            // 
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn1,
-            this.gridColumn2,
-            this.gridColumn3,
-            this.gridColumn4,
-            this.gridColumn5});
-            this.gridView1.GridControl = this.gridControl1;
-            this.gridView1.Name = "gridView1";
-            // 
-            // gridColumn1
-            // 
-            this.gridColumn1.Caption = "ID";
-            this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 0;
-            // 
-            // gridColumn2
-            // 
-            this.gridColumn2.Caption = "样本名称";
-            this.gridColumn2.Name = "gridColumn2";
-            this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 1;
-            // 
-            // gridColumn3
-            // 
-            this.gridColumn3.Caption = "样本值";
-            this.gridColumn3.Name = "gridColumn3";
-            this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 2;
-            // 
-            // gridColumn4
-            // 
-            this.gridColumn4.Caption = "颜色";
-            this.gridColumn4.Name = "gridColumn4";
-            this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 3;
-            // 
-            // gridColumn5
-            // 
-            this.gridColumn5.Caption = "像元数量";
-            this.gridColumn5.Name = "gridColumn5";
-            this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 4;
             // 
             // ribbonMenu
             // 
@@ -722,16 +648,16 @@
             this.barButtonItem12.Id = 32;
             this.barButtonItem12.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem12.LargeGlyph")));
             this.barButtonItem12.Name = "barButtonItem12";
-            toolTipTitleItem3.Text = "图形化建模工具";
-            toolTipItem2.LeftIndent = 6;
-            toolTipItem2.Text = "类似创建流程图的方式来定义数据的处理步骤，并提供批处理模式，可处理输入文件夹下所有满足要求的数据。";
-            toolTipTitleItem4.LeftIndent = 6;
-            toolTipTitleItem4.Text = "该功能尚未完善";
-            superToolTip2.Items.Add(toolTipTitleItem3);
-            superToolTip2.Items.Add(toolTipItem2);
-            superToolTip2.Items.Add(toolTipSeparatorItem2);
-            superToolTip2.Items.Add(toolTipTitleItem4);
-            this.barButtonItem12.SuperTip = superToolTip2;
+            toolTipTitleItem1.Text = "图形化建模工具";
+            toolTipItem1.LeftIndent = 6;
+            toolTipItem1.Text = "类似创建流程图的方式来定义数据的处理步骤，并提供批处理模式，可处理输入文件夹下所有满足要求的数据。";
+            toolTipTitleItem2.LeftIndent = 6;
+            toolTipTitleItem2.Text = "该功能尚未完善";
+            superToolTip1.Items.Add(toolTipTitleItem1);
+            superToolTip1.Items.Add(toolTipItem1);
+            superToolTip1.Items.Add(toolTipSeparatorItem1);
+            superToolTip1.Items.Add(toolTipTitleItem2);
+            this.barButtonItem12.SuperTip = superToolTip1;
             // 
             // ribbonImageCollectionLarge
             // 
@@ -1062,15 +988,12 @@
             // map_toolbarManager
             // 
             this.map_toolbarManager.Bars.AddRange(new DevExpress.XtraBars.Bar[] {
-            this.map_edittools,
-            this.map_SupervisedClassificationBar,
-            this.bar1});
+            this.map_edittools});
             this.map_toolbarManager.DockControls.Add(this.barDockControlTop);
             this.map_toolbarManager.DockControls.Add(this.barDockControlBottom);
             this.map_toolbarManager.DockControls.Add(this.barDockControlLeft);
             this.map_toolbarManager.DockControls.Add(this.barDockControlRight);
             this.map_toolbarManager.DockControls.Add(this.EditToolsBarDockControl);
-            this.map_toolbarManager.DockControls.Add(this.standaloneBarDockControl1);
             this.map_toolbarManager.DockManager = this.dockManager1;
             this.map_toolbarManager.Form = this;
             this.map_toolbarManager.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
@@ -1099,10 +1022,14 @@
             this.Sample_CreateFile,
             this.barButtonItem5,
             this.barButtonItem6,
-            this.Sample_LayerCombox});
-            this.map_toolbarManager.MaxItemId = 37;
+            this.SampleLayerCombox});
+            this.map_toolbarManager.MaxItemId = 51;
             this.map_toolbarManager.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.LayerNameComboBox});
+            this.LayerNameComboBox,
+            this.repositoryItemComboBox1,
+            this.repositoryItemImageComboBox1,
+            this.Sample_LayerCombox,
+            this.repositoryItemCheckedComboBoxEdit1});
             // 
             // map_edittools
             // 
@@ -1185,119 +1112,6 @@
             this.m_editinglayer.Name = "m_editinglayer";
             this.m_editinglayer.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
-            // map_SupervisedClassificationBar
-            // 
-            this.map_SupervisedClassificationBar.BarName = "Custom 3";
-            this.map_SupervisedClassificationBar.DockCol = 1;
-            this.map_SupervisedClassificationBar.DockRow = 0;
-            this.map_SupervisedClassificationBar.DockStyle = DevExpress.XtraBars.BarDockStyle.Standalone;
-            this.map_SupervisedClassificationBar.FloatLocation = new System.Drawing.Point(562, 308);
-            this.map_SupervisedClassificationBar.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.Sample_EditingLayer, true),
-            new DevExpress.XtraBars.LinkPersistInfo(this.Sample_LayerCombox),
-            new DevExpress.XtraBars.LinkPersistInfo(this.SelectSampleButton, true),
-            new DevExpress.XtraBars.LinkPersistInfo(this.SampleManagerButton)});
-            this.map_SupervisedClassificationBar.Offset = 302;
-            this.map_SupervisedClassificationBar.StandaloneBarDockControl = this.EditToolsBarDockControl;
-            this.map_SupervisedClassificationBar.Text = "Custom 3";
-            // 
-            // Sample_EditingLayer
-            // 
-            this.Sample_EditingLayer.Border = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.Sample_EditingLayer.Caption = "当前图层：";
-            this.Sample_EditingLayer.Id = 14;
-            this.Sample_EditingLayer.Name = "Sample_EditingLayer";
-            this.Sample_EditingLayer.TextAlignment = System.Drawing.StringAlignment.Near;
-            // 
-            // Sample_LayerCombox
-            // 
-            this.Sample_LayerCombox.Caption = "Sample_barEditItem";
-            this.Sample_LayerCombox.Edit = this.LayerNameComboBox;
-            this.Sample_LayerCombox.Id = 36;
-            this.Sample_LayerCombox.Name = "Sample_LayerCombox";
-            this.Sample_LayerCombox.Width = 102;
-            this.Sample_LayerCombox.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.Sample_LayerCombox_ItemClick);
-            // 
-            // LayerNameComboBox
-            // 
-            this.LayerNameComboBox.AutoHeight = false;
-            this.LayerNameComboBox.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.LayerNameComboBox.Name = "LayerNameComboBox";
-            // 
-            // SelectSampleButton
-            // 
-            this.SelectSampleButton.Caption = "采集";
-            this.SelectSampleButton.Id = 13;
-            this.SelectSampleButton.Name = "SelectSampleButton";
-            // 
-            // SampleManagerButton
-            // 
-            this.SampleManagerButton.Caption = "样本管理";
-            this.SampleManagerButton.Id = 15;
-            this.SampleManagerButton.Name = "SampleManagerButton";
-            this.SampleManagerButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.SampleManagerButton_ItemClick);
-            // 
-            // bar1
-            // 
-            this.bar1.BarName = "Custom 4";
-            this.bar1.DockCol = 0;
-            this.bar1.DockRow = 0;
-            this.bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Standalone;
-            this.bar1.FloatLocation = new System.Drawing.Point(791, 434);
-            this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.Sample_Open),
-            new DevExpress.XtraBars.LinkPersistInfo(this.Sample_Save),
-            new DevExpress.XtraBars.LinkPersistInfo(this.Sample_Merge),
-            new DevExpress.XtraBars.LinkPersistInfo(this.Sample_Split),
-            new DevExpress.XtraBars.LinkPersistInfo(this.Sample_Delet),
-            new DevExpress.XtraBars.LinkPersistInfo(this.Sample_Clear),
-            new DevExpress.XtraBars.LinkPersistInfo(this.Sample_CreateFile)});
-            this.bar1.StandaloneBarDockControl = this.standaloneBarDockControl1;
-            this.bar1.Text = "Custom 4";
-            // 
-            // Sample_Open
-            // 
-            this.Sample_Open.Caption = "打开";
-            this.Sample_Open.Id = 16;
-            this.Sample_Open.Name = "Sample_Open";
-            // 
-            // Sample_Save
-            // 
-            this.Sample_Save.Caption = "保存";
-            this.Sample_Save.Id = 17;
-            this.Sample_Save.Name = "Sample_Save";
-            // 
-            // Sample_Merge
-            // 
-            this.Sample_Merge.Caption = "合并";
-            this.Sample_Merge.Id = 18;
-            this.Sample_Merge.Name = "Sample_Merge";
-            // 
-            // Sample_Split
-            // 
-            this.Sample_Split.Caption = "分离";
-            this.Sample_Split.Id = 19;
-            this.Sample_Split.Name = "Sample_Split";
-            // 
-            // Sample_Delet
-            // 
-            this.Sample_Delet.Caption = "删除";
-            this.Sample_Delet.Id = 20;
-            this.Sample_Delet.Name = "Sample_Delet";
-            // 
-            // Sample_Clear
-            // 
-            this.Sample_Clear.Caption = "清空";
-            this.Sample_Clear.Id = 21;
-            this.Sample_Clear.Name = "Sample_Clear";
-            // 
-            // Sample_CreateFile
-            // 
-            this.Sample_CreateFile.Caption = "生成文件";
-            this.Sample_CreateFile.Id = 22;
-            this.Sample_CreateFile.Name = "Sample_CreateFile";
-            // 
             // barDockControlTop
             // 
             this.barDockControlTop.CausesValidation = false;
@@ -1330,8 +1144,6 @@
             // 
             this.dockManager1.Form = this;
             this.dockManager1.MenuManager = this.map_toolbarManager;
-            this.dockManager1.RootPanels.AddRange(new DevExpress.XtraBars.Docking.DockPanel[] {
-            this.SampleManager});
             this.dockManager1.TopZIndexControls.AddRange(new string[] {
             "DevExpress.XtraBars.BarDockControl",
             "DevExpress.XtraBars.StandaloneBarDockControl",
@@ -1341,34 +1153,9 @@
             "DevExpress.XtraBars.Ribbon.RibbonStatusBar",
             "DevExpress.XtraBars.Ribbon.RibbonControl"});
             // 
-            // SampleManager
-            // 
-            this.SampleManager.Controls.Add(this.dockPanel1_Container);
-            this.SampleManager.Dock = DevExpress.XtraBars.Docking.DockingStyle.Float;
-            this.SampleManager.FloatLocation = new System.Drawing.Point(491, 177);
-            this.SampleManager.FloatSize = new System.Drawing.Size(458, 303);
-            this.SampleManager.ID = new System.Guid("5e34b8a2-8792-4c26-a558-b80aae4089dd");
-            this.SampleManager.Location = new System.Drawing.Point(0, 0);
-            this.SampleManager.Name = "SampleManager";
-            this.SampleManager.OriginalSize = new System.Drawing.Size(200, 200);
-            this.SampleManager.SavedDock = DevExpress.XtraBars.Docking.DockingStyle.Left;
-            this.SampleManager.SavedIndex = 0;
-            this.SampleManager.Size = new System.Drawing.Size(458, 303);
-            this.SampleManager.Text = "dockPanel1";
-            // 
-            // dockPanel1_Container
-            // 
-            this.dockPanel1_Container.Controls.Add(this.standaloneBarDockControl1);
-            this.dockPanel1_Container.Controls.Add(this.gridControl1);
-            this.dockPanel1_Container.Location = new System.Drawing.Point(3, 22);
-            this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(452, 278);
-            this.dockPanel1_Container.TabIndex = 0;
-            // 
             // barButtonItem2
             // 
-            this.barButtonItem2.Caption = "采集";
-            this.barButtonItem2.Id = 7;
+            this.barButtonItem2.Id = 41;
             this.barButtonItem2.Name = "barButtonItem2";
             // 
             // barSubItem1
@@ -1403,6 +1190,59 @@
             this.barButtonItem3.Id = 12;
             this.barButtonItem3.Name = "barButtonItem3";
             // 
+            // SelectSampleButton
+            // 
+            this.SelectSampleButton.Id = 42;
+            this.SelectSampleButton.Name = "SelectSampleButton";
+            // 
+            // Sample_EditingLayer
+            // 
+            this.Sample_EditingLayer.Border = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.Sample_EditingLayer.Caption = "当前图层：";
+            this.Sample_EditingLayer.Id = 14;
+            this.Sample_EditingLayer.Name = "Sample_EditingLayer";
+            this.Sample_EditingLayer.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
+            // SampleManagerButton
+            // 
+            this.SampleManagerButton.Id = 43;
+            this.SampleManagerButton.Name = "SampleManagerButton";
+            // 
+            // Sample_Open
+            // 
+            this.Sample_Open.Id = 44;
+            this.Sample_Open.Name = "Sample_Open";
+            // 
+            // Sample_Save
+            // 
+            this.Sample_Save.Id = 45;
+            this.Sample_Save.Name = "Sample_Save";
+            // 
+            // Sample_Merge
+            // 
+            this.Sample_Merge.Id = 46;
+            this.Sample_Merge.Name = "Sample_Merge";
+            // 
+            // Sample_Split
+            // 
+            this.Sample_Split.Id = 47;
+            this.Sample_Split.Name = "Sample_Split";
+            // 
+            // Sample_Delet
+            // 
+            this.Sample_Delet.Id = 48;
+            this.Sample_Delet.Name = "Sample_Delet";
+            // 
+            // Sample_Clear
+            // 
+            this.Sample_Clear.Id = 49;
+            this.Sample_Clear.Name = "Sample_Clear";
+            // 
+            // Sample_CreateFile
+            // 
+            this.Sample_CreateFile.Id = 50;
+            this.Sample_CreateFile.Name = "Sample_CreateFile";
+            // 
             // barButtonItem5
             // 
             this.barButtonItem5.Caption = "barButtonItem5";
@@ -1414,6 +1254,46 @@
             this.barButtonItem6.Caption = "barButtonItem6";
             this.barButtonItem6.Id = 33;
             this.barButtonItem6.Name = "barButtonItem6";
+            // 
+            // SampleLayerCombox
+            // 
+            this.SampleLayerCombox.Caption = "SampleLayerCombox";
+            this.SampleLayerCombox.Edit = this.Sample_LayerCombox;
+            this.SampleLayerCombox.Id = 39;
+            this.SampleLayerCombox.Name = "SampleLayerCombox";
+            this.SampleLayerCombox.Width = 131;
+            // 
+            // Sample_LayerCombox
+            // 
+            this.Sample_LayerCombox.Name = "Sample_LayerCombox";
+            // 
+            // LayerNameComboBox
+            // 
+            this.LayerNameComboBox.AutoHeight = false;
+            this.LayerNameComboBox.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.LayerNameComboBox.Name = "LayerNameComboBox";
+            // 
+            // repositoryItemComboBox1
+            // 
+            this.repositoryItemComboBox1.AutoHeight = false;
+            this.repositoryItemComboBox1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemComboBox1.Name = "repositoryItemComboBox1";
+            // 
+            // repositoryItemImageComboBox1
+            // 
+            this.repositoryItemImageComboBox1.AutoHeight = false;
+            this.repositoryItemImageComboBox1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemImageComboBox1.Name = "repositoryItemImageComboBox1";
+            // 
+            // repositoryItemCheckedComboBoxEdit1
+            // 
+            this.repositoryItemCheckedComboBoxEdit1.AutoHeight = false;
+            this.repositoryItemCheckedComboBoxEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemCheckedComboBoxEdit1.Name = "repositoryItemCheckedComboBoxEdit1";
             // 
             // bar2
             // 
@@ -1443,6 +1323,7 @@
             this.Text = "arcgis develop demo";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
+            this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl)).EndInit();
             this.splitContainerControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.m_tocControl)).EndInit();
@@ -1452,8 +1333,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.axLicenseControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_mapControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_esritoolbarControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.appMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonImageCollection)).EndInit();
@@ -1476,10 +1355,12 @@
             this.mapControl_contextMenuStrip.ResumeLayout(false);
             this.tocControl_contextMenuStrip.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.map_toolbarManager)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LayerNameComboBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).EndInit();
-            this.SampleManager.ResumeLayout(false);
-            this.dockPanel1_Container.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Sample_LayerCombox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LayerNameComboBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageComboBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckedComboBoxEdit1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1585,23 +1466,11 @@
         private DevExpress.XtraBars.BarLinkContainerItem barLinkContainerItem1;
         private DevExpress.XtraBars.BarDockingMenuItem barDockingMenuItem2;
         private DevExpress.XtraBars.BarDockingMenuItem barDockingMenuItem1;
-        private DevExpress.XtraBars.Bar map_SupervisedClassificationBar;
         private DevExpress.XtraBars.BarButtonItem SelectSampleButton;
         private DevExpress.XtraBars.BarStaticItem Sample_EditingLayer;
         private DevExpress.XtraBars.BarButtonItem SampleManagerButton;
         private DevExpress.XtraBars.BarButtonItem barButtonItem3;
-        private DevExpress.XtraBars.StandaloneBarDockControl standaloneBarDockControl1;
-        private DevExpress.XtraGrid.GridControl gridControl1;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraBars.Bar bar1;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
         private DevExpress.XtraBars.Docking.DockManager dockManager1;
-        private DevExpress.XtraBars.Docking.DockPanel SampleManager;
-        private DevExpress.XtraBars.Docking.ControlContainer dockPanel1_Container;
         private DevExpress.XtraBars.Bar bar2;
         private DevExpress.XtraBars.BarButtonItem Sample_Open;
         private DevExpress.XtraBars.BarButtonItem Sample_Save;
@@ -1612,8 +1481,12 @@
         private DevExpress.XtraBars.BarButtonItem Sample_CreateFile;
         private DevExpress.XtraBars.BarButtonItem barButtonItem5;
         private DevExpress.XtraBars.BarButtonItem barButtonItem6;
-        private DevExpress.XtraBars.BarEditItem Sample_LayerCombox;
         private DevExpress.XtraEditors.Repository.RepositoryItemComboBox LayerNameComboBox;
+        private DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox repositoryItemImageComboBox1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBox1;
+        private DevExpress.XtraBars.BarEditItem SampleLayerCombox;
+        private DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox Sample_LayerCombox;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckedComboBoxEdit repositoryItemCheckedComboBoxEdit1;
 
     }
 }

@@ -15,7 +15,7 @@ namespace AE_Dev_J.Form
 {
     public partial class ClassificationForm : DevExpress.XtraEditors.XtraForm
     {
-        private string m_idlPath = "../../IDL_pro/"; // IDL的pro文件路径
+        private string m_idlPath = ""; // IDL的pro文件路径
 
         private string m_inDataPath = ""; // 输入文件路径，若是批处理模式，则为文件夹路径
         private string m_outDataPath = ""; // 输出文件路径，若是批处理模式，则为文件夹路径
@@ -55,9 +55,11 @@ namespace AE_Dev_J.Form
             InitializeComponent();
         }
 
-        public ClassificationForm(MainForm mf)
+        public ClassificationForm(MainForm mf, string idlPath)
         {
+            m_idlPath = idlPath;
             m_mainForm = mf;
+
             InitializeComponent();
         }
 
@@ -831,6 +833,17 @@ namespace AE_Dev_J.Form
         private void closeWindow_btn_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        /// <summary>
+        /// 分类完成后执行分类后处理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void postClassification_btn_Click(object sender, EventArgs e)
+        {
+            PostClassificationForm postClassForm = new PostClassificationForm(m_mainForm, m_idlPath);
+            postClassForm.Show();
         }
     }
 }
