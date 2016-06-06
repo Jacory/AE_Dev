@@ -111,7 +111,7 @@
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="ESRI.ArcGIS.Display, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
-      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="ESRI.ArcGIS.Editor, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
       <EmbedInteropTypes>True</EmbedInteropTypes>
@@ -136,7 +136,7 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="ESRI.ArcGIS.SpatialAnalyst, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
-      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="ESRI.ArcGIS.SpatialAnalystTools, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL" />
     <Reference Include="ESRI.ArcGIS.System, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
@@ -224,6 +224,12 @@
     <Compile Include="Form\StatisticsAndChartForm.Designer.cs">
       <DependentUpon>StatisticsAndChartForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form\SupervisedClassification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\SupervisedClassification.Designer.cs">
+      <DependentUpon>SupervisedClassification.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form\TargetDetectionForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -240,6 +246,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form\AddFeatureClassForm.resx">
       <DependentUpon>AddFeatureClassForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\AttributeTableForm.resx">
       <DependentUpon>AttributeTableForm.cs</DependentUpon>
@@ -251,12 +258,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form\ClipForm.resx">
       <DependentUpon>ClipForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\FeatureToRasterForm.resx">
       <DependentUpon>FeatureToRasterForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\RasterToFeatureForm.resx">
       <DependentUpon>RasterToFeatureForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\RgbSegForm.resx">
       <DependentUpon>RgbSegForm.cs</DependentUpon>
@@ -267,6 +277,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form\StatisticsAndChartForm.resx">
       <DependentUpon>StatisticsAndChartForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\SupervisedClassification.resx">
+      <DependentUpon>SupervisedClassification.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
