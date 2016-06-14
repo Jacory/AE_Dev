@@ -1,6 +1,6 @@
 ﻿namespace AE_Dev_J.Form
 {
-    partial class SupervisedClassification
+    partial class ROIToolForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SupervisedClassification));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ROIToolForm));
             this.SC_barManager = new DevExpress.XtraBars.BarManager(this.components);
             this.SC_ToolBar = new DevExpress.XtraBars.Bar();
             this.SC_LayerName = new DevExpress.XtraBars.BarStaticItem();
@@ -46,10 +46,6 @@
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.SC_dataGridView = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.value = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.color = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.count = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SC_colorPickEdit = new DevExpress.XtraEditors.ColorEdit();
             ((System.ComponentModel.ISupportInitialize)(this.SC_barManager)).BeginInit();
@@ -228,14 +224,14 @@
             this.SC_dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SC_dataGridView_CellClick);
             this.SC_dataGridView.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.SC_dataGridView_RowHeaderMouseClick);
             // 
-            // ID
+            // count
             // 
             this.ID.HeaderText = "ID";
             this.ID.Name = "ID";
             this.ID.ReadOnly = true;
             this.ID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // name
+            // color
             // 
             this.name.HeaderText = "样本名称";
             this.name.Name = "name";
@@ -249,14 +245,14 @@
             this.value.ReadOnly = true;
             this.value.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // color
+            // name
             // 
             this.color.HeaderText = "样本颜色";
             this.color.Name = "color";
             this.color.ReadOnly = true;
             this.color.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // count
+            // ID
             // 
             this.count.HeaderText = "像元数（近似值）";
             this.count.Name = "count";
@@ -276,7 +272,7 @@
             this.SC_colorPickEdit.TabIndex = 24;
             this.SC_colorPickEdit.EditValueChanged += new System.EventHandler(this.SC_colorPickEdit_EditValueChanged);
             // 
-            // SupervisedClassification
+            // ROIToolForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -287,7 +283,7 @@
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
-            this.Name = "SupervisedClassification";
+            this.Name = "ROIToolForm";
             this.Text = "SupervisedClassification";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SupervisedClassification_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.SC_barManager)).EndInit();
