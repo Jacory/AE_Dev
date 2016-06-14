@@ -46,12 +46,14 @@
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.SC_dataGridView = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.value = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.color = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.count = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SC_colorPickEdit = new DevExpress.XtraEditors.ColorEdit();
             ((System.ComponentModel.ISupportInitialize)(this.SC_barManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LayerCombox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SC_dataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SC_colorPickEdit.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // SC_barManager
@@ -224,14 +226,14 @@
             this.SC_dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SC_dataGridView_CellClick);
             this.SC_dataGridView.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.SC_dataGridView_RowHeaderMouseClick);
             // 
-            // count
+            // ID
             // 
-            this.ID.HeaderText = "ID";
+            this.ID.HeaderText = "样本ID";
             this.ID.Name = "ID";
             this.ID.ReadOnly = true;
             this.ID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // color
+            // name
             // 
             this.name.HeaderText = "样本名称";
             this.name.Name = "name";
@@ -245,14 +247,14 @@
             this.value.ReadOnly = true;
             this.value.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // name
+            // color
             // 
-            this.color.HeaderText = "样本颜色";
+            this.color.HeaderText = "颜色";
             this.color.Name = "color";
             this.color.ReadOnly = true;
             this.color.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // ID
+            // count
             // 
             this.count.HeaderText = "像元数（近似值）";
             this.count.Name = "count";
@@ -260,24 +262,11 @@
             this.count.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.count.Width = 200;
             // 
-            // SC_colorPickEdit
-            // 
-            this.SC_colorPickEdit.EditValue = System.Drawing.Color.Empty;
-            this.SC_colorPickEdit.Location = new System.Drawing.Point(372, 166);
-            this.SC_colorPickEdit.MenuManager = this.SC_barManager;
-            this.SC_colorPickEdit.Name = "SC_colorPickEdit";
-            this.SC_colorPickEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.SC_colorPickEdit.Size = new System.Drawing.Size(100, 20);
-            this.SC_colorPickEdit.TabIndex = 24;
-            this.SC_colorPickEdit.EditValueChanged += new System.EventHandler(this.SC_colorPickEdit_EditValueChanged);
-            // 
             // ROIToolForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(690, 376);
-            this.Controls.Add(this.SC_colorPickEdit);
             this.Controls.Add(this.SC_dataGridView);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
@@ -289,7 +278,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.SC_barManager)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LayerCombox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SC_dataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SC_colorPickEdit.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -317,6 +305,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn value;
         private System.Windows.Forms.DataGridViewTextBoxColumn color;
         private System.Windows.Forms.DataGridViewTextBoxColumn count;
-        private DevExpress.XtraEditors.ColorEdit SC_colorPickEdit;
     }
 }

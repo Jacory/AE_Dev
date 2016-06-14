@@ -388,16 +388,7 @@ namespace AE_Dev_J
         /// <param name="e"></param>
         private void iFeatureToRaster_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            List<IFeatureLayer> featurelist = new List<IFeatureLayer>();
-            for (int i = 0; i < m_mapControl.LayerCount; i++)
-            {
-                ILayer layer = m_mapControl.get_Layer(i);
-                if (layer is IFeatureLayer)
-                {
-                    featurelist.Add(layer as IFeatureLayer);
-                }
-            }
-            FeatureToRasterForm featuretoraster = new FeatureToRasterForm(featurelist, this);
+            FeatureToRasterForm featuretoraster = new FeatureToRasterForm(this);
             featuretoraster.Show();
         }
         
@@ -408,16 +399,7 @@ namespace AE_Dev_J
         /// <param name="e"></param>
         private void iRasterToFeature_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            List<IRasterLayer> rasterlist = new List<IRasterLayer>();
-            for (int i = 0; i < m_mapControl.LayerCount; i++)
-            {
-                ILayer layer = m_mapControl.get_Layer(i);
-                if (layer is IRasterLayer)
-                {
-                    rasterlist.Add(layer as IRasterLayer);
-                }
-            }
-            RasterToFeatureForm rastertofeature = new RasterToFeatureForm(rasterlist,this);
+            RasterToFeatureForm rastertofeature = new RasterToFeatureForm(this);
             rastertofeature.Show();
         }
         
@@ -428,27 +410,7 @@ namespace AE_Dev_J
         /// <param name="e"></param>
         private void iClip_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            //创建存储当前矢量图层的图层列表
-            List<IFeatureLayer> featurelist = new List<IFeatureLayer>();
-            for (int i = 0; i < m_mapControl.LayerCount; i++)
-            {
-                ILayer layer = m_mapControl.get_Layer(i);
-                if (layer is IFeatureLayer)
-                {
-                    featurelist.Add(layer as IFeatureLayer);
-                }
-            }
-            //创建存储当前栅格图层的图层列表
-            List<IRasterLayer> rasterlist = new List<IRasterLayer>();
-            for (int i = 0; i < m_mapControl.LayerCount; i++)
-            {
-                ILayer layer = m_mapControl.get_Layer(i);
-                if (layer is IRasterLayer)
-                {
-                    rasterlist.Add(layer as IRasterLayer);
-                }
-            }
-            ClipForm clip = new ClipForm(featurelist,rasterlist,this);
+            ClipForm clip = new ClipForm(this);
             clip.Show();
         }
 
@@ -1187,9 +1149,5 @@ namespace AE_Dev_J
                 }
             }
         }
-
-        
-
-        
     }
 }

@@ -17,6 +17,7 @@ namespace AE_Dev_J.Form
     public partial class AddFeatureClassForm : DevExpress.XtraEditors.XtraForm
     {
         private AxMapControl m_mapControl = null;
+
         public AddFeatureClassForm(AxMapControl mapControl)
         {
             InitializeComponent();
