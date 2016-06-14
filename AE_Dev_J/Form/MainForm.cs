@@ -144,13 +144,13 @@ namespace AE_Dev_J
             }
   
         }
+
         private void MainForm_Load(object sender, EventArgs e)
         {
             this.KeyPreview = true;
 
             m_globalSetting = new GlobalSettings();
         }
-
 
         void InitSkinGallery()
         {
