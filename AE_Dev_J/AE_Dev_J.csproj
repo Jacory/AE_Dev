@@ -85,7 +85,7 @@
     <Reference Include="DevExpress.XtraVerticalGrid.v13.2, Version=13.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraWizard.v13.2, Version=13.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="ESRI.ArcGIS.3DAnalyst, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
-      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="ESRI.ArcGIS.ADF.Local, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL" />
     <Reference Include="ESRI.ArcGIS.AnalysisTools, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL" />
@@ -143,7 +143,7 @@
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="ESRI.ArcGIS.SystemUI, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
-      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="ESRI.ArcGIS.Version, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL" />
     <Reference Include="MathNet.Numerics, Version=3.11.1.0, Culture=neutral, processorArchitecture=MSIL">
@@ -163,6 +163,7 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class\ClassifyAlgBase.cs" />
     <Compile Include="Class\GlobalSettings.cs" />
     <Compile Include="Form\AboutForm.cs">
       <SubType>Form</SubType>
@@ -291,6 +292,12 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Class\IdlConnector.cs" />
+    <Compile Include="Form\SplashScreen1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\SplashScreen1.Designer.cs">
+      <DependentUpon>SplashScreen1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form\StatisticsAndChartForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -338,8 +345,26 @@
       <DependentUpon>ClassificationForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form\ClassifyAlgForm\ANNClassify.resx">
+      <DependentUpon>ANNClassify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\ClassifyAlgForm\IsoDataClassify.resx">
+      <DependentUpon>IsoDataClassify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\ClassifyAlgForm\KmeansClassify.resx">
+      <DependentUpon>KmeansClassify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\ClassifyAlgForm\MahlanobisDistanceClassify.resx">
+      <DependentUpon>MahlanobisDistanceClassify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\ClassifyAlgForm\MaximumLikelihoodClassify.resx">
+      <DependentUpon>MaximumLikelihoodClassify.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form\ClassifyAlgForm\MinimumDistanceClassify.resx">
       <DependentUpon>MinimumDistanceClassify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\ClassifyAlgForm\ParallelepipedClassify.resx">
+      <DependentUpon>ParallelepipedClassify.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\ClipForm.resx">
       <DependentUpon>ClipForm.cs</DependentUpon>
@@ -362,6 +387,9 @@
     <EmbeddedResource Include="Form\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\SplashScreen1.resx">
+      <DependentUpon>SplashScreen1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\StatisticsAndChartForm.resx">
       <DependentUpon>StatisticsAndChartForm.cs</DependentUpon>
