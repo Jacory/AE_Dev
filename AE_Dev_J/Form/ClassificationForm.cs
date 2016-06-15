@@ -12,44 +12,45 @@ using ESRI.ArcGIS.Carto;
 using ESRI.ArcGIS.Geodatabase;
 using AE_Dev_J.Form.ClassifyAlgForm;
 
+using AE_Dev_J.Class;
+
 namespace AE_Dev_J.Form
 {
     public partial class ClassificationForm : DevExpress.XtraEditors.XtraForm
     {
         private string m_idlPath = ""; // IDL的pro文件路径
+        static string m_proFileFullPath = "";
+
+        private MainForm m_mainForm = null;
 
         private string m_inDataPath = ""; // 输入文件路径，若是批处理模式，则为文件夹路径
         private string m_outDataPath = ""; // 输出文件路径，若是批处理模式，则为文件夹路径
 
-        private ClassifyMethod m_selectedMethod = ClassifyMethod.None; // 指定用户选择的算法
+        private ClassifyAlgBase.ClassifyMethod m_selectedMethod = ClassifyAlgBase.ClassifyMethod.None; // 指定用户选择的算法
         private bool m_processIsDone = false; // 指定算法的是否执行完毕
-
-        private MainForm m_mainForm = null;
 
         private string m_outfilename = "";
 
-        static string m_runStr = null;
-        static string m_proFileFullPath = null;
+        static string m_runStr = "";
+
+        #region 保留分类参数设置面板窗口引用
+        private List<DevExpress.XtraEditors.XtraForm> m_formList = null;
+
+        private ParallelepipedClassify parallepipedForm = null;
+        private MinimumDistanceClassify miniDisForm = null;
+        private MaximumLikelihoodClassify maxLikeForm = null;
+        private MahlanobisDistanceClassify mahForm = null;
+        private SamClassify samForm = null;
+        private SidClassify sidForm = null;
+        private BinaryEncodingClassify binEncodForm = null;
+        private ANNClassify annForm = null;
+        private SvmClassify svmForm = null;
+        private IsoDataClassify isodataForm = null;
+        private KmeansClassify kmeansForm = null;
+
+        #endregion 保留分类参数设置面板窗口引用
 
 
-        /// <summary>
-        /// 分类方法枚举
-        /// </summary>
-        public enum ClassifyMethod
-        {
-            None,
-            Parallelepiped,
-            MinimumDistance,
-            MahalanobisDistance,
-            MaximumLikelihood,
-            SpectralAngleMapper,
-            SpectralInformationDivergence,
-            BinaryEncoding,
-            NeuralNet,
-            SupportVectrorMachine,
-            IsoData,
-            KMeans
-        };
 
         public ClassificationForm()
         {
@@ -83,11 +84,6 @@ namespace AE_Dev_J.Form
             this.expToMap_btn.Enabled = false;
             this.closeWindow_btn.Enabled = false;
 
-            // 参数设置面板
-            showOnlyIndexTabPage(0, this.paramSetting_xtraTabControl);
-            showOnlyIndexTabPage(0, this.super_param_xtraTabControl);
-            showOnlyIndexTabPage(0, this.unsuper_param_xtraTabControl);
-
             // 加载已打开栅格列表
             for (int i = 0; i < m_mainForm.getMapControl().LayerCount; i++)
             {
@@ -115,6 +111,7 @@ namespace AE_Dev_J.Form
             tt.Dock = DockStyle.Fill;
             tt.Show();
 
+            m_formList = new List<XtraForm>();
         }
 
         /// <summary>
@@ -147,13 +144,14 @@ namespace AE_Dev_J.Form
                         else
                         {
                             if (supervise_checkEdit.Checked == true)
-                                this.m_selectedMethod = (ClassifyMethod)(superviseMethod_radioGroup.SelectedIndex + 1);
+                                this.m_selectedMethod = (ClassifyAlgBase.ClassifyMethod)(superviseMethod_radioGroup.SelectedIndex + 1);
                             else if (unsupervise_checkEdit.Checked == true)
-                                this.m_selectedMethod = (ClassifyMethod)(unsuperviseMethod_radioGroup.SelectedIndex + 1 + 9);
+                                this.m_selectedMethod = (ClassifyAlgBase.ClassifyMethod)(unsuperviseMethod_radioGroup.SelectedIndex + 1 + 9);
 
                             if (preBtn.Properties.Enabled == false)
                                 preBtn.Properties.Enabled = true;
-                            
+
+                            initClassParamSettingPage(m_selectedMethod);
                             turnNextTabPage();
                         }
                         break;
@@ -186,7 +184,7 @@ namespace AE_Dev_J.Form
                             outputPath = outDataFolder_btn.Text;
                         }
                             // 设置Run面板中的初始化参数
-                        this.class_method_textEdit.Text = this.getMethodString(this.m_selectedMethod);
+                        this.class_method_textEdit.Text = ClassifyAlgBase.getMethodString(this.m_selectedMethod);
                         this.class_inputfile_textEdit.Text = inputPath;
                         this.class_outputfile_textEdit.Text = outputPath;
 
@@ -261,15 +259,39 @@ namespace AE_Dev_J.Form
         private void superviseMethod_radioGroup_SelectedIndexChanged(object sender, EventArgs e)
         {
             int index = this.superviseMethod_radioGroup.SelectedIndex;
-
-            showOnlyIndexTabPage(index, this.super_param_xtraTabControl);
-
-            MinimumDistanceClassify mdc = new MinimumDistanceClassify();
-            mdc.TopLevel = false;
-            mdc.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            mdc.Parent = this.supervise_splitContainerControl.Panel2;
-            mdc.Dock = DockStyle.Fill;
-            mdc.Show();
+            switch(index)
+            {
+                case 0:
+                    m_selectedMethod = ClassifyAlgBase.ClassifyMethod.Parallelepiped;
+                    break;
+                case 1:
+                    m_selectedMethod = ClassifyAlgBase.ClassifyMethod.MinimumDistance;
+                    break;
+                case 2:
+                    m_selectedMethod = ClassifyAlgBase.ClassifyMethod.MahalanobisDistance;
+                    break;
+                case 3:
+                    m_selectedMethod = ClassifyAlgBase.ClassifyMethod.MaximumLikelihood;
+                    break;
+                case 4:
+                    m_selectedMethod = ClassifyAlgBase.ClassifyMethod.MaximumLikelihood;
+                    break;
+                case 5:
+                    m_selectedMethod = ClassifyAlgBase.ClassifyMethod.SpectralAngleMapper;
+                    break;
+                case 6:
+                    m_selectedMethod = ClassifyAlgBase.ClassifyMethod.SpectralInformationDivergence;
+                    break;
+                case 7:
+                    m_selectedMethod = ClassifyAlgBase.ClassifyMethod.BinaryEncoding;
+                    break;
+                case 8:
+                    m_selectedMethod = ClassifyAlgBase.ClassifyMethod.NeuralNet;
+                    break;
+                case 9:
+                    m_selectedMethod = ClassifyAlgBase.ClassifyMethod.SupportVectrorMachine;
+                    break;
+            }
         }
 
         /// <summary>
@@ -280,7 +302,15 @@ namespace AE_Dev_J.Form
         private void unsuperviseMethod_radioGroup_SelectedIndexChanged(object sender, EventArgs e)
         {
             int index = this.unsuperviseMethod_radioGroup.SelectedIndex;
-            showOnlyIndexTabPage(index, this.unsuper_param_xtraTabControl);
+            switch (index)
+            {
+                case 0:
+                    m_selectedMethod = ClassifyAlgBase.ClassifyMethod.IsoData;
+                    break;
+                case 1:
+                    m_selectedMethod = ClassifyAlgBase.ClassifyMethod.KMeans;
+                    break;
+            }
         }
 
         /// <summary>
@@ -303,238 +333,76 @@ namespace AE_Dev_J.Form
 
         #region set parameters 面板界面逻辑
 
-        #region 平行六面体
-
-        private void paralle_thresh_spinEdit_EditValueChanged(object sender, EventArgs e)
+        /// <summary>
+        /// 动态加载所选择的分类方法参数设置窗口
+        /// </summary>
+        /// <param name="classifyMethod"></param>
+        private void initClassParamSettingPage(ClassifyAlgBase.ClassifyMethod classifyMethod)
         {
-            this.paralle_thresh_trackBarControl.Value = (Int32)this.paralle_thresh_spinEdit.Value;
-        }
-
-        private void paralle_thresh_trackBarControl_EditValueChanged(object sender, EventArgs e)
-        {
-            this.paralle_thresh_spinEdit.Value = (Decimal)this.paralle_thresh_trackBarControl.Value;
-        }
-
-        private void paralle_thresh_radioGroup_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (this.paralle_thresh_radioGroup.SelectedIndex == 0)
+            disposeAllClassifyForm();
+            switch (classifyMethod)
             {
-                this.paralle_thresh_spinEdit.Enabled = false;
-                this.paralle_thresh_trackBarControl.Enabled = false;
+                case ClassifyAlgBase.ClassifyMethod.Parallelepiped:
+                    parallepipedForm = new ParallelepipedClassify();
+                    m_formList.Add(parallepipedForm);
+                    buildFormIntoParent(parallepipedForm, this.supervise_splitContainerControl.Panel2);
+                    break;
+                case ClassifyAlgBase.ClassifyMethod.MinimumDistance:
+                    miniDisForm = new MinimumDistanceClassify();
+                    m_formList.Add(miniDisForm);
+                    buildFormIntoParent(miniDisForm, this.supervise_splitContainerControl.Panel2);
+                    break;
+                case ClassifyAlgBase.ClassifyMethod.MahalanobisDistance:
+                    mahForm = new MahlanobisDistanceClassify();
+                    m_formList.Add(mahForm);
+                    buildFormIntoParent(mahForm, this.supervise_splitContainerControl.Panel2);
+                    break;
+                case ClassifyAlgBase.ClassifyMethod.MaximumLikelihood:
+                    maxLikeForm = new MaximumLikelihoodClassify();
+                    m_formList.Add(maxLikeForm);
+                    buildFormIntoParent(maxLikeForm, this.supervise_splitContainerControl.Panel2);
+                    break;
+                case ClassifyAlgBase.ClassifyMethod.SpectralAngleMapper:
+                    samForm = new SamClassify();
+                    m_formList.Add(samForm);
+                    buildFormIntoParent(samForm, this.supervise_splitContainerControl.Panel2);
+                    break;
+                case ClassifyAlgBase.ClassifyMethod.SpectralInformationDivergence:
+                    sidForm = new SidClassify();
+                    m_formList.Add(sidForm);
+                    buildFormIntoParent(sidForm, this.supervise_splitContainerControl.Panel2);
+                    break;
+                case ClassifyAlgBase.ClassifyMethod.BinaryEncoding:
+                    binEncodForm = new BinaryEncodingClassify();
+                    m_formList.Add(binEncodForm);
+                    buildFormIntoParent(binEncodForm, this.supervise_splitContainerControl.Panel2);
+                    break;
+                case ClassifyAlgBase.ClassifyMethod.NeuralNet:
+                    annForm = new ANNClassify();
+                    m_formList.Add(annForm);
+                    buildFormIntoParent(annForm, this.supervise_splitContainerControl.Panel2);
+                    break;
+                case ClassifyAlgBase.ClassifyMethod.SupportVectrorMachine:
+                    svmForm = new SvmClassify();
+                    m_formList.Add(svmForm);
+                    buildFormIntoParent(svmForm, this.supervise_splitContainerControl.Panel2);
+                    break;
+                case ClassifyAlgBase.ClassifyMethod.IsoData:
+                    isodataForm = new IsoDataClassify();
+                    m_formList.Add(isodataForm);
+                    buildFormIntoParent(isodataForm, this.unsupervise_xtraTabPage);
+                    break;
+                case ClassifyAlgBase.ClassifyMethod.KMeans:
+                    kmeansForm = new KmeansClassify();
+                    m_formList.Add(kmeansForm);
+                    buildFormIntoParent(kmeansForm, this.unsupervise_xtraTabPage);
+                    break;
+                case ClassifyAlgBase.ClassifyMethod.None:
+
+                default:
+                    break;
             }
-            else if (this.paralle_thresh_radioGroup.SelectedIndex == 1)
-            {
-                this.paralle_thresh_spinEdit.Enabled = true;
-                this.paralle_thresh_trackBarControl.Enabled = true;
-            }
         }
-
-        #endregion 平行六面体
-
-        #region 最小距离法
-
-        private void minDis_std_radioGroup_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (this.minDis_std_radioGroup.SelectedIndex == 0)
-            {
-                this.minDis_std_groupBox.Enabled = false;
-            }
-            else if (this.minDis_std_radioGroup.SelectedIndex == 1)
-            {
-                this.minDis_std_groupBox.Enabled = true;
-            }
-        }
-
-        private void minDis_error_radioGroup_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (this.minDis_error_radioGroup.SelectedIndex == 0)
-            {
-                this.minDis_error_groupBox.Enabled = false;
-            }
-            else if (this.minDis_error_radioGroup.SelectedIndex == 1)
-            {
-                this.minDis_error_groupBox.Enabled = true;
-            }
-        }
-
-        private void minDis_std_spinEdit_EditValueChanged(object sender, EventArgs e)
-        {
-            this.minDis_std_trackBarControl.Value = (Int32)this.minDis_std_spinEdit.Value;
-        }
-
-        private void minDis_std_trackBarControl_EditValueChanged(object sender, EventArgs e)
-        {
-            this.minDis_std_spinEdit.Value = (Decimal)this.minDis_std_trackBarControl.Value;
-        }
-
-        private void minDis_error_spinEdit_EditValueChanged(object sender, EventArgs e)
-        {
-            this.minDis_error_trackBarControl.Value = (Int32)this.minDis_error_spinEdit.Value;
-        }
-
-        private void minDis_error_trackBarControl_EditValueChanged(object sender, EventArgs e)
-        {
-            this.minDis_error_spinEdit.Value = (Decimal)this.minDis_error_trackBarControl.Value;
-        }
-
-        #endregion 最小距离法
-
-        #region 马氏距离
-
-        private void mahDIs_radioGroup_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (this.mahDIs_radioGroup.SelectedIndex == 0)
-                this.mahDis_groupBox.Enabled = false;
-            else if (this.mahDIs_radioGroup.SelectedIndex == 1)
-                this.mahDis_groupBox.Enabled = true;
-        }
-
-        private void mahDis_thresh_spinEdit_EditValueChanged(object sender, EventArgs e)
-        {
-            this.mahDis_thresh_trackBarControl.Value = (Int32)this.mahDis_thresh_spinEdit.Value;
-        }
-
-        private void mahDis_thresh_trackBarControl_EditValueChanged(object sender, EventArgs e)
-        {
-            this.mahDis_thresh_spinEdit.Value = (Decimal)this.mahDis_thresh_trackBarControl.Value;
-        }
-
-        #endregion 马氏距离
-
-        #region 最大似然法
-        private void maxLike_thresh_radioGroup_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (this.maxLike_thresh_radioGroup.SelectedIndex == 0)
-                this.maxLike_thresh_groupBox.Enabled = false;
-            if (this.maxLike_thresh_radioGroup.SelectedIndex == 1)
-                this.maxLike_thresh_groupBox.Enabled = true;
-        }
-
-        private void maxLike_ratio_radioGroup_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (this.maxLike_ratio_radioGroup.SelectedIndex == 0)
-                this.maxLike_ratio_groupBox.Enabled = false;
-            if (this.maxLike_ratio_radioGroup.SelectedIndex == 1)
-                this.maxLike_ratio_groupBox.Enabled = true;
-        }
-
-        private void maxLike_thresh_spinEdit_EditValueChanged(object sender, EventArgs e)
-        {
-            this.maxLike_thresh_trackBarControl.Value = (Int32)this.maxLike_thresh_spinEdit.Value;
-        }
-
-        private void maxLike_thresh_trackBarControl_EditValueChanged(object sender, EventArgs e)
-        {
-            this.maxLike_thresh_spinEdit.Value = (Decimal)this.maxLike_thresh_trackBarControl.Value;
-        }
-
-        private void maxLike_ratio_spinEdit_EditValueChanged(object sender, EventArgs e)
-        {
-            this.maxLike_ratio_trackBarControl.Value = (Int32)this.maxLike_ratio_spinEdit.Value;
-        }
-
-        private void maxLike_ratio_trackBarControl_EditValueChanged(object sender, EventArgs e)
-        {
-            this.maxLike_ratio_spinEdit.Value = (Decimal)this.maxLike_ratio_trackBarControl.Value;
-        }
-        #endregion 最大似然法
-
-        #region 神经网络
-
-        private void ann_thresh_trackBarControl_EditValueChanged(object sender, EventArgs e)
-        {
-            this.ann_thresh_spinEdit.Value = (Decimal)this.ann_thresh_trackBarControl.Value;
-        }
-
-        private void ann_thresh_spinEdit_EditValueChanged(object sender, EventArgs e)
-        {
-            this.ann_thresh_trackBarControl.Value = (Int32)this.ann_thresh_spinEdit.Value;
-        }
-
-        private void ann_weightSpeed_trackBarControl_EditValueChanged(object sender, EventArgs e)
-        {
-            this.ann_weightSpeed_spinEdit.Value = (Decimal)this.ann_weightSpeed_trackBarControl.Value;
-        }
-
-        private void ann_weightSpeed_spinEdit_EditValueChanged(object sender, EventArgs e)
-        {
-            this.ann_weightSpeed_trackBarControl.Value = (Int32)this.ann_weightSpeed_spinEdit.Value;
-        }
-
-        private void ann_weight_trackBarControl_EditValueChanged(object sender, EventArgs e)
-        {
-            this.ann_weight_spinEdit.Value = (Decimal)this.ann_weight_trackBarControl.Value;
-        }
-
-        private void ann_weight_spinEdit_EditValueChanged(object sender, EventArgs e)
-        {
-            this.ann_weight_trackBarControl.Value = (Int32)this.ann_weight_spinEdit.Value;
-        }
-
-        private void ann_rms_trackBarControl_EditValueChanged(object sender, EventArgs e)
-        {
-            this.ann_rms_spinEdit.Value = (Decimal)this.ann_rms_trackBarControl.Value;
-        }
-
-        private void ann_rms_spinEdit_EditValueChanged(object sender, EventArgs e)
-        {
-            this.ann_rms_trackBarControl.Value = (Int32)this.ann_rms_spinEdit.Value;
-        }
-
-        private void ann_hideLayer_trackBarControl_EditValueChanged(object sender, EventArgs e)
-        {
-            this.ann_hideLayer_spinEdit.Value = (Decimal)this.ann_hideLayer_trackBarControl.Value;
-        }
-
-        private void ann_hideLayer_spinEdit_EditValueChanged(object sender, EventArgs e)
-        {
-            this.ann_hideLayer_trackBarControl.Value = (Int32)this.ann_hideLayer_spinEdit.Value;
-        }
-
-        private void ann_iterCount_trackBarControl_EditValueChanged(object sender, EventArgs e)
-        {
-            this.ann_iterCount_spinEdit.Value = (Decimal)this.ann_iterCount_trackBarControl.Value;
-        }
-
-        private void ann_iterCount_spinEdit_EditValueChanged(object sender, EventArgs e)
-        {
-            this.ann_iterCount_trackBarControl.Value = (Int32)this.ann_iterCount_spinEdit.Value;
-        }
-
-        #endregion 神经网络
-
-        #region 支持向量机
-
-        private void svm_balance_trackBarControl_EditValueChanged(object sender, EventArgs e)
-        {
-            this.svm_balance_spinEdit.Value = (Decimal)this.svm_balance_trackBarControl.Value;
-        }
-
-        private void svm_balance_spinEdit_EditValueChanged(object sender, EventArgs e)
-        {
-            this.svm_balance_trackBarControl.Value = (Int32)this.svm_balance_spinEdit.Value;
-        }
-
-        private void svm_bias_trackBarControl_EditValueChanged(object sender, EventArgs e)
-        {
-            this.svm_bias_spinEdit.Value = (Decimal)this.svm_bias_trackBarControl.Value;
-        }
-
-        private void svm_bias_spinEdit_EditValueChanged(object sender, EventArgs e)
-        {
-            this.svm_bias_trackBarControl.Value = (Int32)this.svm_bias_spinEdit.Value;
-        }
-
-        private void svm_thresh_trackBarControl_EditValueChanged(object sender, EventArgs e)
-        {
-            this.svm_thresh_spinEdit.Value = (Decimal)this.svm_thresh_trackBarControl.Value;
-        }
-
-        private void svm_thresh_spinEdit_EditValueChanged(object sender, EventArgs e)
-        {
-            this.svm_thresh_trackBarControl.Value = (Int32)this.svm_thresh_spinEdit.Value;
-        }
-        #endregion 支持向量机
 
         #endregion set parameters 面板界面逻辑
 
@@ -625,7 +493,7 @@ namespace AE_Dev_J.Form
         /// <param name="e"></param>
         private void ok_btn_Click(object sender, EventArgs e)
         {
-            if (m_selectedMethod == ClassifyMethod.None) return;
+            if (m_selectedMethod == ClassifyAlgBase.ClassifyMethod.None) return;
 
             this.class_marqueeProgressBarControl.Show(); // 显示进度条
             
@@ -638,64 +506,64 @@ namespace AE_Dev_J.Form
             string proFilename = null;
             switch (m_selectedMethod)
             {
-                case ClassifyMethod.Parallelepiped:
+                case ClassifyAlgBase.ClassifyMethod.Parallelepiped:
                     proFilename = "parallelepiped_classify.pro";
                     break;
 
-                case ClassifyMethod.MinimumDistance:
+                case ClassifyAlgBase.ClassifyMethod.MinimumDistance:
                     proFilename = "minimumdistance_classify.pro";
                     break;
 
-                case ClassifyMethod.MahalanobisDistance:
+                case ClassifyAlgBase.ClassifyMethod.MahalanobisDistance:
                     proFilename = "mahalanobis_classify.pro";
                     break;
 
-                case ClassifyMethod.MaximumLikelihood:
+                case ClassifyAlgBase.ClassifyMethod.MaximumLikelihood:
                     proFilename = "maximumlikelihood_classify.pro";
                     break;
 
-                case ClassifyMethod.SpectralAngleMapper:
+                case ClassifyAlgBase.ClassifyMethod.SpectralAngleMapper:
                     proFilename = "SAM_classify.pro";
                     break;
 
-                case ClassifyMethod.SpectralInformationDivergence:
+                case ClassifyAlgBase.ClassifyMethod.SpectralInformationDivergence:
                     proFilename = "SIM_classify.pro";
                     break;
 
-                case ClassifyMethod.BinaryEncoding:
+                case ClassifyAlgBase.ClassifyMethod.BinaryEncoding:
                     proFilename = "BinaryEncoding_classify.pro";
                     break;
 
-                case ClassifyMethod.NeuralNet:
+                case ClassifyAlgBase.ClassifyMethod.NeuralNet:
                     proFilename = "ANN_classify.pro";
                     break;
 
-                case ClassifyMethod.SupportVectrorMachine:
+                case ClassifyAlgBase.ClassifyMethod.SupportVectrorMachine:
                     proFilename = "svm_classify.pro";
                     break;
 
-                case ClassifyMethod.IsoData:
+                case ClassifyAlgBase.ClassifyMethod.IsoData:
                     proFilename = "isodata.pro";
-                    m_runStr =  "isodata, '" + inDataFile_btn.Text + "','"
-                                + outDataFile_btn.Text + "',"
-                                + isodata_maxIter_spinEdit.Value + ","
-                                + isodata_chgThresh_spinEdit.Value + ","
-                                + isodata_minDis_spinEdit.Value + ","
-                                + isodata_maxMergePixel_spinEdit.Value + ","
-                                + isodata_minClassPixels_spinEdit.Value + ","
-                                + isodata_maxStd_spinEdit.Value + ","
-                                + isodata_minClasses_spinEdit.Value + ","
-                                + mode;
+                    //m_runStr =  "isodata, '" + inDataFile_btn.Text + "','"
+                    //            + outDataFile_btn.Text + "',"
+                    //            + isodata_maxIter_spinEdit.Value + ","
+                    //            + isodata_chgThresh_spinEdit.Value + ","
+                    //            + isodata_minDis_spinEdit.Value + ","
+                    //            + isodata_maxMergePixel_spinEdit.Value + ","
+                    //            + isodata_minClassPixels_spinEdit.Value + ","
+                    //            + isodata_maxStd_spinEdit.Value + ","
+                    //            + isodata_minClasses_spinEdit.Value + ","
+                    //            + mode;
                     break;
 
-                case ClassifyMethod.KMeans:
+                case ClassifyAlgBase.ClassifyMethod.KMeans:
                     proFilename = "k_means.pro";
-                    m_runStr = "k_means , '" + inDataFile_btn.Text + "','"
-                                + outDataFile_btn.Text + "',"
-                                + kmeans_numClasses_spinEdit.Value + ","
-                                + kmeans_maxIter_spinEdit.Value + ","
-                                + kmeans_changeThresh_spinEdit.Value
-                                + mode;
+                    //m_runStr = "k_means , '" + inDataFile_btn.Text + "','"
+                    //            + outDataFile_btn.Text + "',"
+                    //            + kmeans_numClasses_spinEdit.Value + ","
+                    //            + kmeans_maxIter_spinEdit.Value + ","
+                    //            + kmeans_changeThresh_spinEdit.Value
+                    //            + mode;
                     break;
 
                 default:
@@ -732,53 +600,6 @@ namespace AE_Dev_J.Form
         }
 
         #endregion run 面板界面逻辑
-
-        /// <summary>
-        /// 根据classifyMethod枚举，获取方法字符串
-        /// </summary>
-        /// <param name="method">classifyMethod枚举</param>
-        /// <returns></returns>
-        private string getMethodString(ClassifyMethod method)
-        {
-            switch (method)
-            {
-                case ClassifyMethod.Parallelepiped:
-                    return "Paralleleepiped";
-                   
-                case ClassifyMethod.MinimumDistance:
-                    return "Minimum Distance";
-
-                case ClassifyMethod.MahalanobisDistance:
-                        return "Mahalanobis Distance";
-
-                case ClassifyMethod.MaximumLikelihood:
-                        return "Maximum Likelihood";
-
-                case ClassifyMethod.SpectralAngleMapper:
-                        return "Spectral Angle Mapper";
-               
-                case ClassifyMethod.SpectralInformationDivergence:
-                        return "Spectral Information Divergence";
-               
-                case ClassifyMethod.BinaryEncoding:
-                        return "Binary Encoding";
-            
-                case ClassifyMethod.NeuralNet:
-                        return "Artifical Neural Net";
-         
-                case ClassifyMethod.SupportVectrorMachine:
-                        return "Support Vector Machine";
-       
-                case ClassifyMethod.IsoData:
-                        return "ISODATA";
-         
-                case ClassifyMethod.KMeans:
-                        return "K-Means";
-          
-                default:
-                        return "None";
-            }
-        }
 
         /// <summary>
         /// 使分类面板的tabControl向下翻页
@@ -861,6 +682,32 @@ namespace AE_Dev_J.Form
         {
             PostClassificationForm postClassForm = new PostClassificationForm(m_mainForm, m_idlPath);
             postClassForm.Show();
+        }
+
+        /// <summary>
+        /// 将窗口嵌入容器中
+        /// </summary>
+        /// <param name="form"></param>
+        /// <param name="parent"></param>
+        private void buildFormIntoParent(DevExpress.XtraEditors.XtraForm form, System.Windows.Forms.Control parent)
+        {
+            form.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            form.TopLevel = false;
+            form.Parent = parent;
+            form.Dock = DockStyle.Fill;
+            form.Show();
+        }
+
+        /// <summary>
+        /// 销毁窗口列表中的所有窗口
+        /// </summary>
+        private void disposeAllClassifyForm()
+        {
+            foreach(DevExpress.XtraEditors.XtraForm form in m_formList)
+            {
+                if(form!=null && form.IsDisposed == false)
+                    form.Dispose();
+            }
         }
     }
 }
