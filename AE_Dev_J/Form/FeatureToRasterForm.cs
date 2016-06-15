@@ -37,7 +37,8 @@ namespace AE_Dev_J.Form
         public FeatureToRasterForm( MainForm mainform)
         {
             InitializeComponent();
-
+            featurelayerlist = new List<IFeatureLayer>();
+            main = mainform;
             for (int i = 0; i < main.getMapControl().LayerCount; i++)
             {
                 ILayer layer = main.getMapControl().get_Layer(i);
@@ -46,7 +47,6 @@ namespace AE_Dev_J.Form
                     featurelayerlist.Add(layer as IFeatureLayer);
                 }
             }
-            main = mainform;
         }
         /// <summary>
         /// 初始化

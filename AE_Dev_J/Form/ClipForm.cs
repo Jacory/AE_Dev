@@ -46,10 +46,8 @@ namespace AE_Dev_J.Form
         {
             InitializeComponent();
             main = mainform;
-
             featurelayerlist = new List<IFeatureLayer>();
             rasterlayerlist = new List<IRasterLayer>();
-
             //创建存储当前矢量图层的图层列表
             for (int i = 0; i < main.getMapControl().LayerCount; i++)
             {
