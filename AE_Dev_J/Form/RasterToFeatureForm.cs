@@ -35,10 +35,17 @@ namespace AE_Dev_J.Form
         private int changestep = 0;//用于文件监测线程与进度条线程的交互，根据文件大小变化的字节数计算进度条更新步数
         private int completingflag = 0;//值为1时表示进度条执行到任务的90%，暂停进度条并等待ToRasterDataset方法执行完毕
 
-        public RasterToFeatureForm(List<IRasterLayer> rlist,MainForm mainform)
+        public RasterToFeatureForm(MainForm mainform)
         {
             InitializeComponent();
-            rasterlayerlist = rlist;
+            for (int i = 0; i < main.getMapControl().LayerCount; i++)
+            {
+                ILayer layer = main.getMapControl().get_Layer(i);
+                if (layer is IRasterLayer)
+                {
+                    rasterlayerlist.Add(layer as IRasterLayer);
+                }
+            }
             main = mainform;
         }
         /// <summary>

@@ -42,12 +42,28 @@ namespace AE_Dev_J.Form
         private int completingflag = 0;//值为1时表示进度条执行到任务的90%，暂停进度条并等待ToRasterDataset方法执行完毕
 
 
-        public ClipForm(List<IFeatureLayer> flist,List<IRasterLayer> rlist, MainForm mainform)
+        public ClipForm( MainForm mainform)
         {
             InitializeComponent();
-            featurelayerlist = flist;
-            rasterlayerlist = rlist;
             main = mainform;
+            //创建存储当前矢量图层的图层列表
+            for (int i = 0; i < main.getMapControl().LayerCount; i++)
+            {
+                ILayer layer = main.getMapControl().get_Layer(i);
+                if (layer is IFeatureLayer)
+                {
+                    featurelayerlist.Add(layer as IFeatureLayer);
+                }
+            }
+            //创建存储当前栅格图层的图层列表
+            for (int i = 0; i < main.getMapControl().LayerCount; i++)
+            {
+                ILayer layer = main.getMapControl().get_Layer(i);
+                if (layer is IRasterLayer)
+                {
+                    rasterlayerlist.Add(layer as IRasterLayer);
+                }
+            }
         }
 
         private void Clip_Load(object sender, EventArgs e)

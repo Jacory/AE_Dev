@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Linq;
 using System.Windows.Forms;
+using System.IO;
 using DevExpress.XtraEditors;
 using ESRI.ArcGIS.Carto;
 using ESRI.ArcGIS.Geometry;
@@ -13,6 +14,7 @@ using ESRI.ArcGIS.SpatialAnalyst;
 using ESRI.ArcGIS.Geodatabase;
 using ESRI.ArcGIS.DataSourcesRaster;
 using ESRI.ArcGIS.Display;
+using ESRI.ArcGIS.DataSourcesFile;
 
 namespace AE_Dev_J.Form
 {
@@ -33,6 +35,11 @@ namespace AE_Dev_J.Form
         /// <param name="e"></param>
         private void SC_SelectSampleButton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            if (SampleLayerCombox.Tag==null)
+            {
+                MessageBox.Show("请选择栅格图层！");
+                return;
+            }
             main.drawSampleflag = 1;
             main.trackPolyonState = 2;
             (main.getMapControl()).MousePointer = ESRI.ArcGIS.Controls.esriControlsMousePointer.esriPointerCrosshair;
@@ -76,6 +83,8 @@ namespace AE_Dev_J.Form
                 linecolor = Color.FromArgb(random.Next(0, 255), random.Next(0, 255), random.Next(0, 255));
                 //填充单元格颜色
                 SC_dataGridView.Rows[SC_dataGridView.Rows.Count - 1].Cells["color"].Style.BackColor = linecolor;
+                //将polygon存放到gridview表color列对应的tag中
+                SC_dataGridView.Rows[SC_dataGridView.Rows.Count - 1].Cells["color"].Tag = polygon;
 
                 //新建绘制图形的填充符号
                 IRgbColor arccolor = new RgbColorClass();
@@ -143,7 +152,302 @@ namespace AE_Dev_J.Form
             main.getMapControl().MousePointer = ESRI.ArcGIS.Controls.esriControlsMousePointer.esriPointerArrow;
             main.trackPolyonState = 0;
         }
+        /// <summary>
+        /// 生成signature文件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SC_CreateSampleFiles_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (SC_dataGridView.Rows.Count==0)
+            {
+                return;
+            }
+            SaveFileDialog SaveSignatureFile = new SaveFileDialog();
+            SaveSignatureFile.Title = "生成Signature文件";
+            SaveSignatureFile.Filter = "样本文件|*.gsg";
+            if (SaveSignatureFile.ShowDialog()==DialogResult.OK)
+            {
+                IGeoDataset inputraster = SampleLayerCombox.Tag as IGeoDataset;
 
+                //在临时文件夹生成featureclass，根据featureclass生成signature文件
+                //判断临时文件夹下是否有重名
+                int changefilename = 0;
+                while (System.IO.File.Exists(Application.StartupPath + "\\temp\\TempSample" + changefilename + ".shp"))
+                {
+                    changefilename++;
+                }
+                //新建featureclass字段
+                IFields pFields = new FieldsClass();
+                IFieldsEdit pFieldsEdit = pFields as IFieldsEdit;
+                IField pField = new FieldClass();
+                IFieldEdit pFieldEdit = pField as IFieldEdit;
+                pFieldEdit.Name_2 = "Shape";
+                pFieldEdit.Type_2 = esriFieldType.esriFieldTypeGeometry;
+
+                //设置geometry definition
+                IGeometryDef pGeometryDef = new GeometryDefClass();
+                IGeometryDefEdit pGeometryDefEdit = pGeometryDef as IGeometryDefEdit;
+                pGeometryDefEdit.GeometryType_2 = ESRI.ArcGIS.Geometry.esriGeometryType.esriGeometryPolygon;
+                pGeometryDefEdit.SpatialReference_2 = inputraster.SpatialReference;
+                pFieldEdit.GeometryDef_2 = pGeometryDef;
+                pFieldsEdit.AddField(pField);
+
+                IWorkspaceFactory pWorkspaceFactory = new ShapefileWorkspaceFactory();
+                IFeatureWorkspace pFeatureWorkspace = pWorkspaceFactory.OpenFromFile(Application.StartupPath + "\\temp", 0) as IFeatureWorkspace;
+                IFeatureClass featureclass = pFeatureWorkspace.CreateFeatureClass("TempSample" + changefilename+".shp", pFields, null, null, esriFeatureType.esriFTSimple, "Shape", "");
+                //根据单元格tag中存储的多边形生成对应要素
+                for (int i = 0; i < SC_dataGridView.Rows.Count; i++)
+                {
+                    IFeature feature = featureclass.CreateFeature();
+                    feature.Shape = SC_dataGridView.Rows[i].Cells["color"].Tag as IPolygon;
+                    feature.Store();
+                }
+                //生成signature文件
+                IGeoDataset Sampledataset = featureclass as IGeoDataset;
+                IMultivariateOp Multivariateop = new RasterMultivariateOpClass();
+                Multivariateop.CreateSignatures(inputraster, Sampledataset, SaveSignatureFile.FileName+".gsg", true);
+            }
+        }
+        /// <summary>
+        /// 打开样本shapefile文件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SC_OpenSamplefile_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            try
+            {
+                OpenFileDialog OpenSampleFile = new OpenFileDialog();
+                OpenSampleFile.Title = "打开样本文件";
+                OpenSampleFile.Filter = "样本文件|*.shp";
+                if (OpenSampleFile.ShowDialog() == DialogResult.OK)
+                {
+                    SC_dataGridView.Rows.Clear();
+                    FileInfo Samplefile = new FileInfo(OpenSampleFile.FileName);
+                    IWorkspaceFactory pWorkspaceFactory = new ShapefileWorkspaceFactory();
+                    IFeatureWorkspace pFeatureWorkspace = pWorkspaceFactory.OpenFromFile(Samplefile.DirectoryName, 0) as IFeatureWorkspace;
+                    IFeatureClass featureclass = pFeatureWorkspace.OpenFeatureClass(Samplefile.Name);
+                    IFeatureCursor pcursor = featureclass.Search(null, false);
+                    main.openVectorFile(OpenSampleFile.FileName);
+                    main.getMapControl().ActiveView.GraphicsContainer.DeleteAllElements();
+                    //根据要素类填充样本表
+                    for (int i = 0; i < featureclass.FeatureCount(null); i++)
+                    {
+                        IFeature pfeature = pcursor.NextFeature();
+
+                        SC_dataGridView.Rows.Add();
+
+                        SC_dataGridView.Rows[SC_dataGridView.Rows.Count - 1].Cells["ID"].Value = SC_dataGridView.Rows.Count;
+                        SC_dataGridView.Rows[SC_dataGridView.Rows.Count - 1].Cells["name"].Value = pfeature.get_Value(pfeature.Fields.FindField("ClassName"));
+                        SC_dataGridView.Rows[SC_dataGridView.Rows.Count - 1].Cells["value"].Value = pfeature.get_Value(pfeature.Fields.FindField("ClassValue"));
+                        SC_dataGridView.Rows[SC_dataGridView.Rows.Count - 1].Cells["count"].Value = pfeature.get_Value(pfeature.Fields.FindField("Count"));
+                        SC_dataGridView.Rows[SC_dataGridView.Rows.Count - 1].Cells["color"].Style.BackColor
+                            = Color.FromArgb((int)pfeature.get_Value(pfeature.Fields.FindField("Red")), (int)pfeature.get_Value(pfeature.Fields.FindField("Green")), (int)pfeature.get_Value(pfeature.Fields.FindField("Blue")));
+                        SC_dataGridView.Rows[SC_dataGridView.Rows.Count - 1].Cells["color"].Tag = pfeature.Shape;
+                        IGeometry SampleGeometry = pfeature.Shape;
+                        Color linecolor = new Color();
+                        linecolor = Color.FromArgb((int)pfeature.get_Value(pfeature.Fields.FindField("Red")), (int)pfeature.get_Value(pfeature.Fields.FindField("Green")), (int)pfeature.get_Value(pfeature.Fields.FindField("Blue")));
+
+                        //新建绘制图形的填充符号
+                        IRgbColor arccolor = new RgbColorClass();
+                        arccolor.RGB = linecolor.B * 65536 + linecolor.G * 256 + linecolor.R;
+                        ILineSymbol outline = new SimpleLineSymbolClass();
+                        outline.Width = 3;
+                        outline.Color = arccolor;
+                        IFillSymbol fillsymbol = new SimpleFillSymbolClass();
+                        ISimpleFillSymbol pFillsyl = fillsymbol as ISimpleFillSymbol;
+                        pFillsyl.Style = esriSimpleFillStyle.esriSFSNull;
+                        fillsymbol.Outline = outline;
+
+                        IPolygonElement PolygonElement = new PolygonElementClass();
+                        IElement pElement = PolygonElement as IElement;
+                        pElement.Geometry = SampleGeometry;
+
+                        IFillShapeElement FillShapeElement = pElement as IFillShapeElement;
+                        FillShapeElement.Symbol = fillsymbol;
+                        IGraphicsContainer pGraphicsContainer = main.getMapControl().Map as IGraphicsContainer;
+                        pGraphicsContainer.AddElement((IElement)PolygonElement, 0);
+                        main.getMapControl().ActiveView.PartialRefresh(esriViewDrawPhase.esriViewGeography, null, null);
+                    }
+
+                }
+            }
+            catch (Exception err)
+            {
+                SC_dataGridView.Rows.Clear();
+                MessageBox.Show(err.Message);
+            }
+        }
+        /// <summary>
+        /// 保存样本为shapefile文件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SC_SaveSample_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (SC_dataGridView.Rows.Count==0)
+            {
+                return;
+            }
+            SaveFileDialog SaveShapeFile = new SaveFileDialog();
+            SaveShapeFile.Title = "生成样本文件";
+            SaveShapeFile.Filter = "样本文件|*.shp";
+            if (SaveShapeFile.ShowDialog() == DialogResult.OK)
+            {
+                //创建shapefile字段
+                IFields pFields = new FieldsClass();
+                IFieldsEdit pFieldsEdit = pFields as IFieldsEdit;
+
+                IField pField = new FieldClass();
+                IFieldEdit pFieldEdit = pField as IFieldEdit;
+                pFieldEdit.Name_2 = "Shape";
+                pFieldEdit.Type_2 = esriFieldType.esriFieldTypeGeometry;
+
+                IField pField2 = new FieldClass();
+                IFieldEdit pFieldEdit2 = pField2 as IFieldEdit;
+                pFieldEdit2.Name_2 = "ClassName";
+                pFieldEdit2.Type_2 = esriFieldType.esriFieldTypeString;
+
+                IField pField3 = new FieldClass();
+                IFieldEdit pFieldEdit3 = pField3 as IFieldEdit;
+                pFieldEdit3.Name_2 = "ClassValue";
+                pFieldEdit3.Type_2 = esriFieldType.esriFieldTypeInteger;
+
+                IField pField4 = new FieldClass();
+                IFieldEdit pFieldEdit4 = pField4 as IFieldEdit;
+                pFieldEdit4.Name_2 = "Red";
+                pFieldEdit4.Type_2 = esriFieldType.esriFieldTypeInteger;
+
+                IField pField5 = new FieldClass();
+                IFieldEdit pFieldEdit5 = pField5 as IFieldEdit;
+                pFieldEdit5.Name_2 = "Green";
+                pFieldEdit5.Type_2 = esriFieldType.esriFieldTypeInteger;
+
+                IField pField6 = new FieldClass();
+                IFieldEdit pFieldEdit6 = pField6 as IFieldEdit;
+                pFieldEdit6.Name_2 = "Blue";
+                pFieldEdit6.Type_2 = esriFieldType.esriFieldTypeInteger;
+
+                IField pField7 = new FieldClass();
+                IFieldEdit pFieldEdit7 = pField7 as IFieldEdit;
+                pFieldEdit7.Name_2 = "Count";
+                pFieldEdit7.Type_2 = esriFieldType.esriFieldTypeInteger;
+
+                //设置geometry definition
+                IGeometryDef pGeometryDef = new GeometryDefClass();
+                IGeometryDefEdit pGeometryDefEdit = pGeometryDef as IGeometryDefEdit;
+                pGeometryDefEdit.GeometryType_2 = ESRI.ArcGIS.Geometry.esriGeometryType.esriGeometryPolygon;
+                pGeometryDefEdit.SpatialReference_2 = null;
+                pFieldEdit.GeometryDef_2 = pGeometryDef;
+
+                pFieldsEdit.AddField(pField);
+                pFieldsEdit.AddField(pField2);
+                pFieldsEdit.AddField(pField3);
+                pFieldsEdit.AddField(pField4);
+                pFieldsEdit.AddField(pField5);
+                pFieldsEdit.AddField(pField6);
+                pFieldsEdit.AddField(pField7);
+
+                FileInfo fileinfo = new FileInfo(SaveShapeFile.FileName);
+
+                IWorkspaceFactory pWorkspaceFactory = new ShapefileWorkspaceFactory();
+                IFeatureWorkspace pFeatureWorkspace = pWorkspaceFactory.OpenFromFile(fileinfo.DirectoryName, 0) as IFeatureWorkspace;
+                IFeatureClass featureclass = pFeatureWorkspace.CreateFeatureClass(fileinfo.Name, pFields, null, null, esriFeatureType.esriFTSimple, "Shape", "");
+                //根据表格设置要素字段值
+                for (int i = 0; i < SC_dataGridView.Rows.Count; i++)
+                {
+                    IFeature feature = featureclass.CreateFeature();
+                    feature.Shape = SC_dataGridView.Rows[i].Cells["color"].Tag as IPolygon;
+                    feature.set_Value(feature.Fields.FindField("ClassName"), SC_dataGridView.Rows[i].Cells["name"].Value);
+                    feature.set_Value(feature.Fields.FindField("ClassValue"), SC_dataGridView.Rows[i].Cells["value"].Value);
+                    feature.set_Value(feature.Fields.FindField("Red"), SC_dataGridView.Rows[i].Cells["color"].Style.BackColor.R);
+                    feature.set_Value(feature.Fields.FindField("Green"), SC_dataGridView.Rows[i].Cells["color"].Style.BackColor.G);
+                    feature.set_Value(feature.Fields.FindField("Blue"), SC_dataGridView.Rows[i].Cells["color"].Style.BackColor.B);
+                    feature.set_Value(feature.Fields.FindField("Count"), SC_dataGridView.Rows[i].Cells["count"].Value);
+                    feature.Store();
+                }
+                MessageBox.Show("完成！");
+            }
+        }
+        /// <summary>
+        /// 选中行行关联mapcontrol
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SC_dataGridView_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            for (int i = 0; i < SC_dataGridView.SelectedCells.Count; i++)
+            {
+                //去掉颜色单元格选中后的蓝色背景，改为为透明
+                if (i==3)
+                {
+                    SC_dataGridView.SelectedCells[i].Style.SelectionBackColor = Color.FromArgb(0, Color.Red);
+                }
+            }
+            main.getMapControl().ActiveView.Extent = ((IGeometry)SC_dataGridView.Rows[e.RowIndex].Cells["color"].Tag).Envelope;
+            main.getMapControl().Refresh();
+        }
+        /// <summary>
+        /// 删除一行样本
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SC_RemoveSample_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (SC_dataGridView.SelectedRows.Count>0)
+            {
+                SC_dataGridView.Rows.Remove(SC_dataGridView.SelectedRows[0]);
+            }
+        }
+        /// <summary>
+        /// 清空样本表
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SC_ClearSamples_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            SC_dataGridView.Rows.Clear();
+        }
+        /// <summary>
+        /// 单击颜色单元格选颜色
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SC_dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == SC_dataGridView.Columns["color"].Index && e.RowIndex != -1)
+            {
+                SC_dataGridView.ClearSelection();
+
+                ColorDialog cd = new ColorDialog();
+                if (cd.ShowDialog()==DialogResult.OK)
+                {
+                    SC_dataGridView.Rows[e.RowIndex].Cells["color"].Style.BackColor =cd.Color;
+
+                    //根据选中颜色新建绘制图形的填充符号
+                    IRgbColor arccolor = new RgbColorClass();
+                    arccolor.RGB = cd.Color.B * 65536 + cd.Color.G * 256 + cd.Color.R;
+                    ILineSymbol outline = new SimpleLineSymbolClass();
+                    outline.Width = 3;
+                    outline.Color = arccolor;
+                    IFillSymbol fillsymbol = new SimpleFillSymbolClass();
+                    ISimpleFillSymbol pFillsyl = fillsymbol as ISimpleFillSymbol;
+                    pFillsyl.Style = esriSimpleFillStyle.esriSFSNull;
+                    fillsymbol.Outline = outline;
+
+                    IPolygonElement PolygonElement = new PolygonElementClass();
+                    IElement pElement = PolygonElement as IElement;
+                    pElement.Geometry = SC_dataGridView.Rows[e.RowIndex].Cells["color"].Tag as IGeometry;
+
+                    IFillShapeElement FillShapeElement = pElement as IFillShapeElement;
+                    FillShapeElement.Symbol = fillsymbol;
+                    IGraphicsContainer pGraphicsContainer = main.getMapControl().Map as IGraphicsContainer;
+                    pGraphicsContainer.AddElement((IElement)PolygonElement, 0);
+                    main.getMapControl().ActiveView.PartialRefresh(esriViewDrawPhase.esriViewGeography, null, null);
+                }
+            }
+        }
 
     }
 }

@@ -30,13 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem3 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem2 = new DevExpress.Utils.ToolTipSeparatorItem();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem4 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem1 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
             this.splitContainerControl = new DevExpress.XtraEditors.SplitContainerControl();
             this.m_tocControl = new ESRI.ArcGIS.Controls.AxTOCControl();
             this.navBarControl = new DevExpress.XtraNavBar.NavBarControl();
@@ -79,6 +79,7 @@
             this.iRasterToFeature = new DevExpress.XtraBars.BarButtonItem();
             this.iModelBuilder = new DevExpress.XtraBars.BarButtonItem();
             this.iRoiTool = new DevExpress.XtraBars.BarButtonItem();
+            this.iViewSpectralTool = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonImageCollectionLarge = new DevExpress.Utils.ImageCollection(this.components);
             this.homeRibbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.project_RibbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -158,7 +159,6 @@
             this.repositoryItemImageComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
             this.repositoryItemCheckedComboBoxEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckedComboBoxEdit();
             this.bar2 = new DevExpress.XtraBars.Bar();
-            this.iViewSpectralTool = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl)).BeginInit();
             this.splitContainerControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.m_tocControl)).BeginInit();
@@ -340,7 +340,7 @@
             this.EditToolsBarDockControl.Dock = System.Windows.Forms.DockStyle.Top;
             this.EditToolsBarDockControl.Location = new System.Drawing.Point(0, 0);
             this.EditToolsBarDockControl.Name = "EditToolsBarDockControl";
-            this.EditToolsBarDockControl.Size = new System.Drawing.Size(305, 31);
+            this.EditToolsBarDockControl.Size = new System.Drawing.Size(720, 31);
             this.EditToolsBarDockControl.Text = "standaloneBarDockControl1";
             // 
             // ribbonMenu
@@ -637,10 +637,10 @@
             this.iClip.Glyph = ((System.Drawing.Image)(resources.GetObject("iClip.Glyph")));
             this.iClip.Id = 30;
             this.iClip.Name = "iClip";
-            toolTipItem3.Text = "you can use both vector file and raster file as a mask to clip a vector or raster" +
-    " file.";
-            superToolTip3.Items.Add(toolTipItem3);
-            this.iClip.SuperTip = superToolTip3;
+            toolTipItem1.Text = "you can use both vector file and raster file as a mask to clip a vector or raster" +
+                " file.";
+            superToolTip1.Items.Add(toolTipItem1);
+            this.iClip.SuperTip = superToolTip1;
             this.iClip.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.iClip_ItemClick);
             // 
             // iRasterToFeature
@@ -659,16 +659,16 @@
             this.iModelBuilder.Id = 32;
             this.iModelBuilder.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("iModelBuilder.LargeGlyph")));
             this.iModelBuilder.Name = "iModelBuilder";
-            toolTipTitleItem3.Text = "图形化建模工具";
-            toolTipItem4.LeftIndent = 6;
-            toolTipItem4.Text = "类似创建流程图的方式来定义数据的处理步骤，并提供批处理模式，可处理输入文件夹下所有满足要求的数据。";
-            toolTipTitleItem4.LeftIndent = 6;
-            toolTipTitleItem4.Text = "该功能尚未完善";
-            superToolTip4.Items.Add(toolTipTitleItem3);
-            superToolTip4.Items.Add(toolTipItem4);
-            superToolTip4.Items.Add(toolTipSeparatorItem2);
-            superToolTip4.Items.Add(toolTipTitleItem4);
-            this.iModelBuilder.SuperTip = superToolTip4;
+            toolTipTitleItem1.Text = "图形化建模工具";
+            toolTipItem2.LeftIndent = 6;
+            toolTipItem2.Text = "类似创建流程图的方式来定义数据的处理步骤，并提供批处理模式，可处理输入文件夹下所有满足要求的数据。";
+            toolTipTitleItem2.LeftIndent = 6;
+            toolTipTitleItem2.Text = "该功能尚未完善";
+            superToolTip2.Items.Add(toolTipTitleItem1);
+            superToolTip2.Items.Add(toolTipItem2);
+            superToolTip2.Items.Add(toolTipSeparatorItem1);
+            superToolTip2.Items.Add(toolTipTitleItem2);
+            this.iModelBuilder.SuperTip = superToolTip2;
             // 
             // iRoiTool
             // 
@@ -677,6 +677,14 @@
             this.iRoiTool.Id = 31;
             this.iRoiTool.Name = "iRoiTool";
             this.iRoiTool.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.iRoiTool_ItemClick);
+            // 
+            // iViewSpectralTool
+            // 
+            this.iViewSpectralTool.Caption = "View Spectral Tool";
+            this.iViewSpectralTool.Glyph = ((System.Drawing.Image)(resources.GetObject("iViewSpectralTool.Glyph")));
+            this.iViewSpectralTool.Id = 32;
+            this.iViewSpectralTool.Name = "iViewSpectralTool";
+            this.iViewSpectralTool.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.iViewSpectralTool_ItemClick);
             // 
             // ribbonImageCollectionLarge
             // 
@@ -1330,14 +1338,6 @@
             this.bar2.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar2.FloatLocation = new System.Drawing.Point(81, 150);
             this.bar2.Text = "Tools";
-            // 
-            // iViewSpectralTool
-            // 
-            this.iViewSpectralTool.Caption = "View Spectral Tool";
-            this.iViewSpectralTool.Glyph = ((System.Drawing.Image)(resources.GetObject("iViewSpectralTool.Glyph")));
-            this.iViewSpectralTool.Id = 32;
-            this.iViewSpectralTool.Name = "iViewSpectralTool";
-            this.iViewSpectralTool.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.iViewSpectralTool_ItemClick);
             // 
             // MainForm
             // 
