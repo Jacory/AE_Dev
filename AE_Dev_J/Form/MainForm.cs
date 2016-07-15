@@ -9,12 +9,13 @@ using System.Windows.Forms;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
+
 using DevExpress.Skins;
 using DevExpress.LookAndFeel;
 using DevExpress.UserSkins;
 using DevExpress.XtraEditors;
 using DevExpress.XtraBars.Helpers;
-using AE_Dev_J.Form;
+
 using ESRI.ArcGIS.Controls;
 using ESRI.ArcGIS.Geodatabase;
 using ESRI.ArcGIS.DataSourcesRaster;
@@ -27,9 +28,9 @@ using ESRI.ArcGIS.GeoAnalyst;
 using ESRI.ArcGIS.esriSystem;
 using ESRI.ArcGIS.Geometry;
 using ESRI.ArcGIS.SpatialAnalyst;
+
+using AE_Dev_J.Form;
 using AE_Dev_J.Class;
-
-
 
 namespace AE_Dev_J
 {
@@ -156,7 +157,7 @@ namespace AE_Dev_J
         /// <summary>
         /// 加载皮肤
         /// </summary>
-        void InitSkinGallery()
+        private void InitSkinGallery()
         {
             SkinHelper.InitSkinGallery(rgbiSkins, true);
         }
@@ -455,7 +456,7 @@ namespace AE_Dev_J
 
         #endregion Home and Skin 菜单事件
 
-        #region ToolBar 工具条事件
+        #region 编辑ToolBar 工具条事件
 
         /// <summary>
         /// 矢量“编辑”工具
@@ -584,10 +585,68 @@ namespace AE_Dev_J
             }
         }
 
+        #endregion 编辑ToolBar 工具条事件
 
+        #region 地图浏览ToolBar事件
 
+        private void zoomOutTool_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ICommand pCommand = new ControlsMapZoomOutTool();
+            pCommand.OnCreate(this.m_mapControl.Object);
 
-        #endregion ToolBar 工具条事件
+            this.m_mapControl.CurrentTool = pCommand as ITool;
+        }
+
+        private void pan_mapToolbarItem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ICommand panTool = new ControlsMapPanTool();
+            panTool.OnCreate(m_mapControl.Object);
+            m_mapControl.CurrentTool = panTool as ITool;
+        }
+
+        private void fixedZoomIn_mapToolbarItem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ICommand fixedZoomInTool = new ControlsMapZoomInFixedCommand();
+            fixedZoomInTool.OnCreate(m_mapControl.Object);
+            fixedZoomInTool.OnClick();
+        }
+
+        private void fixedZoomOut_mapToolbarItem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ICommand fixedZoomOutTool = new ControlsMapZoomOutFixedCommand();
+            fixedZoomOutTool.OnCreate(m_mapControl.Object);
+            fixedZoomOutTool.OnClick();
+        }
+
+        private void zoomIn_mapToolbarItem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ICommand zoomInTool = new ControlsMapZoomInTool();
+            zoomInTool.OnCreate(m_mapControl.Object);
+            m_mapControl.CurrentTool = zoomInTool as ITool;
+        }
+
+        private void fullExtent_mapToolbarItem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ICommand fullExtentTool = new ControlsMapFullExtentCommand();
+            fullExtentTool.OnCreate(m_mapControl.Object);
+            fullExtentTool.OnClick();
+        }
+
+        private void identify_mapToolbarItem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ICommand identifyTool = new ControlsMapIdentifyTool();
+            identifyTool.OnCreate(m_mapControl.Object);
+            m_mapControl.CurrentTool = identifyTool as ITool;
+        }
+
+        private void measure_mapToolbarItem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ICommand measureTool = new ControlsMapMeasureTool();
+            measureTool.OnCreate(m_mapControl.Object);
+            m_mapControl.CurrentTool = measureTool as ITool;
+        }
+
+        #endregion 地图浏览ToolBar事件
 
         #region m_tocControl右键菜单项
 
@@ -1149,5 +1208,6 @@ namespace AE_Dev_J
                 }
             }
         }
+
     }
 }

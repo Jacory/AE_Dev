@@ -129,6 +129,15 @@
             this.m_undotool = new DevExpress.XtraBars.BarButtonItem();
             this.m_redotool = new DevExpress.XtraBars.BarButtonItem();
             this.m_editinglayer = new DevExpress.XtraBars.BarStaticItem();
+            this.mapToolBar = new DevExpress.XtraBars.Bar();
+            this.fixedZoomIn_mapToolbarItem = new DevExpress.XtraBars.BarButtonItem();
+            this.fixedZoomOut_mapToolbarItem = new DevExpress.XtraBars.BarButtonItem();
+            this.zoomIn_mapToolbarItem = new DevExpress.XtraBars.BarButtonItem();
+            this.zoomOut_mapToolbarItem = new DevExpress.XtraBars.BarButtonItem();
+            this.fullExtent_mapToolbarItem = new DevExpress.XtraBars.BarButtonItem();
+            this.identify_mapToolbarItem = new DevExpress.XtraBars.BarButtonItem();
+            this.measure_mapToolbarItem = new DevExpress.XtraBars.BarButtonItem();
+            this.pan_mapToolbarItem = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -154,6 +163,9 @@
             this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
             this.SampleLayerCombox = new DevExpress.XtraBars.BarEditItem();
             this.Sample_LayerCombox = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
+            this.zoomOutTool = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.LayerNameComboBox = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.repositoryItemComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.repositoryItemImageComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
@@ -314,10 +326,10 @@
             // m_mapControl
             // 
             this.m_mapControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.m_mapControl.Location = new System.Drawing.Point(0, 59);
+            this.m_mapControl.Location = new System.Drawing.Point(0, 90);
             this.m_mapControl.Name = "m_mapControl";
             this.m_mapControl.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("m_mapControl.OcxState")));
-            this.m_mapControl.Size = new System.Drawing.Size(720, 390);
+            this.m_mapControl.Size = new System.Drawing.Size(720, 359);
             this.m_mapControl.TabIndex = 0;
             this.m_mapControl.OnMouseDown += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMouseDownEventHandler(this.m_mapControl_OnMouseDown);
             this.m_mapControl.OnMouseUp += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMouseUpEventHandler(this.m_mapControl_OnMouseUp);
@@ -327,7 +339,7 @@
             // m_esritoolbarControl
             // 
             this.m_esritoolbarControl.Dock = System.Windows.Forms.DockStyle.Top;
-            this.m_esritoolbarControl.Location = new System.Drawing.Point(0, 31);
+            this.m_esritoolbarControl.Location = new System.Drawing.Point(0, 62);
             this.m_esritoolbarControl.Name = "m_esritoolbarControl";
             this.m_esritoolbarControl.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("m_esritoolbarControl.OcxState")));
             this.m_esritoolbarControl.Size = new System.Drawing.Size(720, 28);
@@ -340,7 +352,7 @@
             this.EditToolsBarDockControl.Dock = System.Windows.Forms.DockStyle.Top;
             this.EditToolsBarDockControl.Location = new System.Drawing.Point(0, 0);
             this.EditToolsBarDockControl.Name = "EditToolsBarDockControl";
-            this.EditToolsBarDockControl.Size = new System.Drawing.Size(720, 31);
+            this.EditToolsBarDockControl.Size = new System.Drawing.Size(720, 62);
             this.EditToolsBarDockControl.Text = "standaloneBarDockControl1";
             // 
             // ribbonMenu
@@ -638,7 +650,7 @@
             this.iClip.Id = 30;
             this.iClip.Name = "iClip";
             toolTipItem1.Text = "you can use both vector file and raster file as a mask to clip a vector or raster" +
-                " file.";
+    " file.";
             superToolTip1.Items.Add(toolTipItem1);
             this.iClip.SuperTip = superToolTip1;
             this.iClip.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.iClip_ItemClick);
@@ -1023,7 +1035,8 @@
             // map_toolbarManager
             // 
             this.map_toolbarManager.Bars.AddRange(new DevExpress.XtraBars.Bar[] {
-            this.map_edittools});
+            this.map_edittools,
+            this.mapToolBar});
             this.map_toolbarManager.DockControls.Add(this.barDockControlTop);
             this.map_toolbarManager.DockControls.Add(this.barDockControlBottom);
             this.map_toolbarManager.DockControls.Add(this.barDockControlLeft);
@@ -1057,8 +1070,19 @@
             this.Sample_CreateFile,
             this.barButtonItem5,
             this.barButtonItem6,
-            this.SampleLayerCombox});
-            this.map_toolbarManager.MaxItemId = 51;
+            this.SampleLayerCombox,
+            this.zoomOutTool,
+            this.barButtonItem7,
+            this.barButtonItem4,
+            this.zoomOut_mapToolbarItem,
+            this.zoomIn_mapToolbarItem,
+            this.fullExtent_mapToolbarItem,
+            this.fixedZoomIn_mapToolbarItem,
+            this.fixedZoomOut_mapToolbarItem,
+            this.identify_mapToolbarItem,
+            this.measure_mapToolbarItem,
+            this.pan_mapToolbarItem});
+            this.map_toolbarManager.MaxItemId = 63;
             this.map_toolbarManager.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.LayerNameComboBox,
             this.repositoryItemComboBox1,
@@ -1146,6 +1170,81 @@
             this.m_editinglayer.Id = 6;
             this.m_editinglayer.Name = "m_editinglayer";
             this.m_editinglayer.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
+            // mapToolBar
+            // 
+            this.mapToolBar.BarName = "Custom 3";
+            this.mapToolBar.DockCol = 0;
+            this.mapToolBar.DockRow = 1;
+            this.mapToolBar.DockStyle = DevExpress.XtraBars.BarDockStyle.Standalone;
+            this.mapToolBar.FloatLocation = new System.Drawing.Point(272, 309);
+            this.mapToolBar.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.fixedZoomIn_mapToolbarItem),
+            new DevExpress.XtraBars.LinkPersistInfo(this.fixedZoomOut_mapToolbarItem),
+            new DevExpress.XtraBars.LinkPersistInfo(this.zoomIn_mapToolbarItem),
+            new DevExpress.XtraBars.LinkPersistInfo(this.zoomOut_mapToolbarItem),
+            new DevExpress.XtraBars.LinkPersistInfo(this.fullExtent_mapToolbarItem),
+            new DevExpress.XtraBars.LinkPersistInfo(this.identify_mapToolbarItem),
+            new DevExpress.XtraBars.LinkPersistInfo(this.measure_mapToolbarItem),
+            new DevExpress.XtraBars.LinkPersistInfo(this.pan_mapToolbarItem)});
+            this.mapToolBar.StandaloneBarDockControl = this.EditToolsBarDockControl;
+            this.mapToolBar.Text = "Custom 3";
+            // 
+            // fixedZoomIn_mapToolbarItem
+            // 
+            this.fixedZoomIn_mapToolbarItem.Caption = "fixed zoom in";
+            this.fixedZoomIn_mapToolbarItem.Id = 58;
+            this.fixedZoomIn_mapToolbarItem.Name = "fixedZoomIn_mapToolbarItem";
+            this.fixedZoomIn_mapToolbarItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.fixedZoomIn_mapToolbarItem_ItemClick);
+            // 
+            // fixedZoomOut_mapToolbarItem
+            // 
+            this.fixedZoomOut_mapToolbarItem.Caption = "fixed zoom out";
+            this.fixedZoomOut_mapToolbarItem.Id = 59;
+            this.fixedZoomOut_mapToolbarItem.Name = "fixedZoomOut_mapToolbarItem";
+            this.fixedZoomOut_mapToolbarItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.fixedZoomOut_mapToolbarItem_ItemClick);
+            // 
+            // zoomIn_mapToolbarItem
+            // 
+            this.zoomIn_mapToolbarItem.Caption = "zoom in";
+            this.zoomIn_mapToolbarItem.Id = 56;
+            this.zoomIn_mapToolbarItem.Name = "zoomIn_mapToolbarItem";
+            this.zoomIn_mapToolbarItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.zoomIn_mapToolbarItem_ItemClick);
+            // 
+            // zoomOut_mapToolbarItem
+            // 
+            this.zoomOut_mapToolbarItem.Caption = "zoom out";
+            this.zoomOut_mapToolbarItem.Id = 55;
+            this.zoomOut_mapToolbarItem.Name = "zoomOut_mapToolbarItem";
+            this.zoomOut_mapToolbarItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.zoomOutTool_ItemClick);
+            // 
+            // fullExtent_mapToolbarItem
+            // 
+            this.fullExtent_mapToolbarItem.Caption = "full extent";
+            this.fullExtent_mapToolbarItem.Id = 57;
+            this.fullExtent_mapToolbarItem.Name = "fullExtent_mapToolbarItem";
+            this.fullExtent_mapToolbarItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.fullExtent_mapToolbarItem_ItemClick);
+            // 
+            // identify_mapToolbarItem
+            // 
+            this.identify_mapToolbarItem.Caption = "identify";
+            this.identify_mapToolbarItem.Id = 60;
+            this.identify_mapToolbarItem.Name = "identify_mapToolbarItem";
+            this.identify_mapToolbarItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.identify_mapToolbarItem_ItemClick);
+            // 
+            // measure_mapToolbarItem
+            // 
+            this.measure_mapToolbarItem.Caption = "measure";
+            this.measure_mapToolbarItem.Id = 61;
+            this.measure_mapToolbarItem.Name = "measure_mapToolbarItem";
+            this.measure_mapToolbarItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.measure_mapToolbarItem_ItemClick);
+            // 
+            // pan_mapToolbarItem
+            // 
+            this.pan_mapToolbarItem.Caption = "pan";
+            this.pan_mapToolbarItem.Id = 62;
+            this.pan_mapToolbarItem.Name = "pan_mapToolbarItem";
+            this.pan_mapToolbarItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.pan_mapToolbarItem_ItemClick);
             // 
             // barDockControlTop
             // 
@@ -1301,6 +1400,26 @@
             // Sample_LayerCombox
             // 
             this.Sample_LayerCombox.Name = "Sample_LayerCombox";
+            // 
+            // zoomOutTool
+            // 
+            this.zoomOutTool.Border = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.zoomOutTool.Caption = "Zoom Out";
+            this.zoomOutTool.Id = 51;
+            this.zoomOutTool.Name = "zoomOutTool";
+            this.zoomOutTool.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.zoomOutTool_ItemClick);
+            // 
+            // barButtonItem7
+            // 
+            this.barButtonItem7.Caption = "Zoom In";
+            this.barButtonItem7.Id = 52;
+            this.barButtonItem7.Name = "barButtonItem7";
+            // 
+            // barButtonItem4
+            // 
+            this.barButtonItem4.Caption = "barButtonItem4";
+            this.barButtonItem4.Id = 53;
+            this.barButtonItem4.Name = "barButtonItem4";
             // 
             // LayerNameComboBox
             // 
@@ -1525,6 +1644,18 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
         private DevExpress.XtraBars.BarButtonItem iRoiTool;
         private DevExpress.XtraBars.BarButtonItem iViewSpectralTool;
+        private DevExpress.XtraBars.BarButtonItem zoomOutTool;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem7;
+        private DevExpress.XtraBars.Bar mapToolBar;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem4;
+        private DevExpress.XtraBars.BarButtonItem zoomOut_mapToolbarItem;
+        private DevExpress.XtraBars.BarButtonItem fixedZoomIn_mapToolbarItem;
+        private DevExpress.XtraBars.BarButtonItem fixedZoomOut_mapToolbarItem;
+        private DevExpress.XtraBars.BarButtonItem zoomIn_mapToolbarItem;
+        private DevExpress.XtraBars.BarButtonItem fullExtent_mapToolbarItem;
+        private DevExpress.XtraBars.BarButtonItem identify_mapToolbarItem;
+        private DevExpress.XtraBars.BarButtonItem measure_mapToolbarItem;
+        private DevExpress.XtraBars.BarButtonItem pan_mapToolbarItem;
 
     }
 }

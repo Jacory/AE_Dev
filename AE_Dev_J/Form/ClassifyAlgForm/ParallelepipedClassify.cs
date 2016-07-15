@@ -16,5 +16,10 @@ namespace AE_Dev_J.Form.ClassifyAlgForm
         {
             InitializeComponent();
         }
+
+        private void paralle_thresh_radioGroup_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
