@@ -95,13 +95,14 @@
             // 
             // memoEdit7
             // 
+            this.memoEdit7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.memoEdit7.EditValue = resources.GetString("memoEdit7.EditValue");
-            this.memoEdit7.Location = new System.Drawing.Point(91, 245);
+            this.memoEdit7.Location = new System.Drawing.Point(216, 0);
             this.memoEdit7.Name = "memoEdit7";
             this.memoEdit7.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.memoEdit7.Properties.Appearance.Options.UseFont = true;
             this.memoEdit7.Properties.ReadOnly = true;
-            this.memoEdit7.Size = new System.Drawing.Size(599, 368);
+            this.memoEdit7.Size = new System.Drawing.Size(401, 291);
             this.memoEdit7.TabIndex = 10;
             this.memoEdit7.UseOptimizedRendering = true;
             // 
@@ -228,12 +229,12 @@
             this.layoutControl10.Controls.Add(this.kmeans_maxIter_spinEdit);
             this.layoutControl10.Controls.Add(this.kmeans_changeThresh_spinEdit);
             this.layoutControl10.Controls.Add(this.kmeans_numClasses_spinEdit);
-            this.layoutControl10.Dock = System.Windows.Forms.DockStyle.Top;
+            this.layoutControl10.Dock = System.Windows.Forms.DockStyle.Left;
             this.layoutControl10.Location = new System.Drawing.Point(0, 0);
             this.layoutControl10.Name = "layoutControl10";
             this.layoutControl10.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(925, 206, 250, 350);
             this.layoutControl10.Root = this.layoutControlGroup2;
-            this.layoutControl10.Size = new System.Drawing.Size(686, 204);
+            this.layoutControl10.Size = new System.Drawing.Size(216, 291);
             this.layoutControl10.TabIndex = 11;
             this.layoutControl10.Text = "layoutControl10";
             // 
@@ -280,9 +281,10 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.kmeans_maxIter_spinEdit.Properties.IsFloatValue = false;
             this.kmeans_maxIter_spinEdit.Properties.Mask.EditMask = "N00";
-            this.kmeans_maxIter_spinEdit.Size = new System.Drawing.Size(123, 20);
+            this.kmeans_maxIter_spinEdit.Size = new System.Drawing.Size(50, 20);
             this.kmeans_maxIter_spinEdit.StyleController = this.layoutControl10;
             this.kmeans_maxIter_spinEdit.TabIndex = 6;
+            this.kmeans_maxIter_spinEdit.EditValueChanged += new System.EventHandler(this.kmeans_maxIter_spinEdit_EditValueChanged);
             // 
             // kmeans_changeThresh_spinEdit
             // 
@@ -305,9 +307,10 @@
             0,
             0,
             0});
-            this.kmeans_changeThresh_spinEdit.Size = new System.Drawing.Size(122, 20);
+            this.kmeans_changeThresh_spinEdit.Size = new System.Drawing.Size(50, 20);
             this.kmeans_changeThresh_spinEdit.StyleController = this.layoutControl10;
             this.kmeans_changeThresh_spinEdit.TabIndex = 5;
+            this.kmeans_changeThresh_spinEdit.EditValueChanged += new System.EventHandler(this.kmeans_changeThresh_spinEdit_EditValueChanged);
             // 
             // kmeans_numClasses_spinEdit
             // 
@@ -322,9 +325,10 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.kmeans_numClasses_spinEdit.Properties.IsFloatValue = false;
             this.kmeans_numClasses_spinEdit.Properties.Mask.EditMask = "N00";
-            this.kmeans_numClasses_spinEdit.Size = new System.Drawing.Size(123, 20);
+            this.kmeans_numClasses_spinEdit.Size = new System.Drawing.Size(50, 20);
             this.kmeans_numClasses_spinEdit.StyleController = this.layoutControl10;
             this.kmeans_numClasses_spinEdit.TabIndex = 4;
+            this.kmeans_numClasses_spinEdit.EditValueChanged += new System.EventHandler(this.kmeans_numClasses_spinEdit_EditValueChanged);
             // 
             // layoutControlGroup2
             // 
@@ -346,7 +350,7 @@
             this.emptySpaceItem3});
             this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup2.Name = "Root";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(686, 204);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(216, 291);
             this.layoutControlGroup2.Text = "Root";
             this.layoutControlGroup2.TextVisible = false;
             // 
@@ -356,7 +360,7 @@
             this.layoutControlItem1.CustomizationFormText = "聚类数目";
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem43";
-            this.layoutControlItem1.Size = new System.Drawing.Size(202, 24);
+            this.layoutControlItem1.Size = new System.Drawing.Size(129, 24);
             this.layoutControlItem1.Text = "聚类数目";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(72, 14);
             // 
@@ -366,7 +370,7 @@
             this.layoutControlItem2.CustomizationFormText = "变化阈值";
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 52);
             this.layoutControlItem2.Name = "layoutControlItem44";
-            this.layoutControlItem2.Size = new System.Drawing.Size(201, 24);
+            this.layoutControlItem2.Size = new System.Drawing.Size(129, 24);
             this.layoutControlItem2.Text = "变化阈值";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(72, 14);
             // 
@@ -376,7 +380,7 @@
             this.layoutControlItem3.CustomizationFormText = "最大迭代次数";
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 104);
             this.layoutControlItem3.Name = "layoutControlItem45";
-            this.layoutControlItem3.Size = new System.Drawing.Size(202, 24);
+            this.layoutControlItem3.Size = new System.Drawing.Size(129, 24);
             this.layoutControlItem3.Text = "最大迭代次数";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(72, 14);
             // 
@@ -385,8 +389,11 @@
             this.emptySpaceItem16.AllowHotTrack = false;
             this.emptySpaceItem16.CustomizationFormText = "emptySpaceItem16";
             this.emptySpaceItem16.Location = new System.Drawing.Point(0, 94);
+            this.emptySpaceItem16.MaxSize = new System.Drawing.Size(0, 10);
+            this.emptySpaceItem16.MinSize = new System.Drawing.Size(10, 10);
             this.emptySpaceItem16.Name = "emptySpaceItem16";
-            this.emptySpaceItem16.Size = new System.Drawing.Size(666, 10);
+            this.emptySpaceItem16.Size = new System.Drawing.Size(196, 10);
+            this.emptySpaceItem16.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem16.Text = "emptySpaceItem16";
             this.emptySpaceItem16.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -396,7 +403,7 @@
             this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem18";
             this.emptySpaceItem1.Location = new System.Drawing.Point(0, 146);
             this.emptySpaceItem1.Name = "emptySpaceItem18";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(666, 38);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(196, 125);
             this.emptySpaceItem1.Text = "emptySpaceItem18";
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -406,7 +413,7 @@
             this.layoutControlItem4.CustomizationFormText = "layoutControlItem46";
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem4.Name = "layoutControlItem46";
-            this.layoutControlItem4.Size = new System.Drawing.Size(666, 18);
+            this.layoutControlItem4.Size = new System.Drawing.Size(196, 18);
             this.layoutControlItem4.Text = "layoutControlItem46";
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextToControlDistance = 0;
@@ -417,8 +424,11 @@
             this.emptySpaceItem17.AllowHotTrack = false;
             this.emptySpaceItem17.CustomizationFormText = "emptySpaceItem17";
             this.emptySpaceItem17.Location = new System.Drawing.Point(0, 42);
+            this.emptySpaceItem17.MaxSize = new System.Drawing.Size(0, 10);
+            this.emptySpaceItem17.MinSize = new System.Drawing.Size(10, 10);
             this.emptySpaceItem17.Name = "emptySpaceItem17";
-            this.emptySpaceItem17.Size = new System.Drawing.Size(666, 10);
+            this.emptySpaceItem17.Size = new System.Drawing.Size(196, 10);
+            this.emptySpaceItem17.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem17.Text = "emptySpaceItem17";
             this.emptySpaceItem17.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -428,7 +438,7 @@
             this.layoutControlItem5.CustomizationFormText = "layoutControlItem47";
             this.layoutControlItem5.Location = new System.Drawing.Point(0, 76);
             this.layoutControlItem5.Name = "layoutControlItem47";
-            this.layoutControlItem5.Size = new System.Drawing.Size(666, 18);
+            this.layoutControlItem5.Size = new System.Drawing.Size(196, 18);
             this.layoutControlItem5.Text = "layoutControlItem47";
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextToControlDistance = 0;
@@ -440,7 +450,7 @@
             this.layoutControlItem6.CustomizationFormText = "layoutControlItem48";
             this.layoutControlItem6.Location = new System.Drawing.Point(0, 128);
             this.layoutControlItem6.Name = "layoutControlItem48";
-            this.layoutControlItem6.Size = new System.Drawing.Size(666, 18);
+            this.layoutControlItem6.Size = new System.Drawing.Size(196, 18);
             this.layoutControlItem6.Text = "layoutControlItem48";
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextToControlDistance = 0;
@@ -450,9 +460,9 @@
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
             this.emptySpaceItem2.CustomizationFormText = "emptySpaceItem19";
-            this.emptySpaceItem2.Location = new System.Drawing.Point(202, 0);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(129, 0);
             this.emptySpaceItem2.Name = "emptySpaceItem19";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(464, 24);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(67, 24);
             this.emptySpaceItem2.Text = "emptySpaceItem19";
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -460,9 +470,9 @@
             // 
             this.emptySpaceItem20.AllowHotTrack = false;
             this.emptySpaceItem20.CustomizationFormText = "emptySpaceItem20";
-            this.emptySpaceItem20.Location = new System.Drawing.Point(201, 52);
+            this.emptySpaceItem20.Location = new System.Drawing.Point(129, 52);
             this.emptySpaceItem20.Name = "emptySpaceItem20";
-            this.emptySpaceItem20.Size = new System.Drawing.Size(465, 24);
+            this.emptySpaceItem20.Size = new System.Drawing.Size(67, 24);
             this.emptySpaceItem20.Text = "emptySpaceItem20";
             this.emptySpaceItem20.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -470,9 +480,9 @@
             // 
             this.emptySpaceItem3.AllowHotTrack = false;
             this.emptySpaceItem3.CustomizationFormText = "emptySpaceItem21";
-            this.emptySpaceItem3.Location = new System.Drawing.Point(202, 104);
+            this.emptySpaceItem3.Location = new System.Drawing.Point(129, 104);
             this.emptySpaceItem3.Name = "emptySpaceItem21";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(464, 24);
+            this.emptySpaceItem3.Size = new System.Drawing.Size(67, 24);
             this.emptySpaceItem3.Text = "emptySpaceItem21";
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -480,9 +490,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(686, 550);
-            this.Controls.Add(this.layoutControl10);
+            this.ClientSize = new System.Drawing.Size(617, 291);
             this.Controls.Add(this.memoEdit7);
+            this.Controls.Add(this.layoutControl10);
+            this.MinimumSize = new System.Drawing.Size(633, 330);
             this.Name = "KmeansClassify";
             this.Text = "KmeansClassify";
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit7.Properties)).EndInit();

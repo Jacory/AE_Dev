@@ -70,7 +70,8 @@ namespace AE_Dev_J
         public void openRasterFile(string rasfilename)
         {
             FileInfo finfo = new FileInfo(rasfilename);
-
+            if (!finfo.Exists) return; // 文件不存在，返回
+        
             IWorkspaceFactory pWorkspaceFacotry = new RasterWorkspaceFactory();
 
             IWorkspace pWorkspace = pWorkspaceFacotry.OpenFromFile(finfo.DirectoryName, 0);
@@ -116,7 +117,7 @@ namespace AE_Dev_J
         public void openVectorFile(string vecFilename)
         {
             FileInfo finfo = new FileInfo(vecFilename);
-
+            if (!finfo.Exists) return;
             if (finfo.Extension == ".shp")
                 m_mapControl.AddShapeFile(finfo.DirectoryName, finfo.Name);
         }
@@ -646,6 +647,12 @@ namespace AE_Dev_J
             m_mapControl.CurrentTool = measureTool as ITool;
         }
 
+        // 地图工具置为空
+        private void null_mapToolbarItem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            m_mapControl.CurrentTool = null; 
+        }
+
         #endregion 地图浏览ToolBar事件
 
         #region m_tocControl右键菜单项
@@ -1097,37 +1104,6 @@ namespace AE_Dev_J
         /// <param name="pGeom"></param>
 
         #endregion m_mapControl鼠标事件
-
-        /// <summary>
-        /// 要素识别
-        /// </summary>
-        /// <param name="activeView"></param>
-        /// <param name="x"></param>
-        /// <param name="y"></param>
-        private void doIdentify(IActiveView activeView, Int32 x, Int32 y)
-        {
-            IMap map = activeView.FocusMap;
-            IdentifyDialog idenfityDialog = new IdentifyDialog();
-            idenfityDialog.Map = map;
-
-            // clear the dialog on each mouse click
-            idenfityDialog.ClearLayers();
-            IScreenDisplay screenDisplay = activeView.ScreenDisplay;
-
-            IDisplay display = screenDisplay; // implicit cast
-            idenfityDialog.Display = display;
-
-            IIdentifyDialogProps idenfityDialogProps = (IIdentifyDialogProps)idenfityDialog; // explicit cast
-            IEnumLayer enumLayer = map.Layers;          
-            enumLayer.Reset();
-            ILayer layer = enumLayer.Next();
-            while (layer != null)
-            {
-                idenfityDialog.AddLayerIdentifyPoint(layer, x, y);
-                layer = enumLayer.Next();
-            }
-            idenfityDialog.Show();
-        }
         
         /// <summary>
         /// 关闭主窗口
@@ -1207,6 +1183,12 @@ namespace AE_Dev_J
                     trackPolyonState = 0;
                 }
             }
+        }
+
+        private void iBufferAnalysis_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            BufferAnalysisForm buf = new BufferAnalysisForm(this.getMapControl());
+            buf.Show();
         }
 
     }

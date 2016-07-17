@@ -117,16 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="clip_envelopebutton.Buttons" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
-        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAAodEVYdFRpdGxlAFNlbGVjdDtDdXJzb3I7QXJyb3c7
-        TW91c2U7UG9pbnRlcjuXfYtVAAAA0ElEQVQ4T6XSsQpBcRTH8buQQbGbmVjcyaQMXsETsPMYRpMX8Bgy
-        KpPsBpNsSilJf9+j/6lzRF3X8Ck/93d+dSUJIfzFhTRNF6hAPn9lb1zgYcABXS1/Ym9c4KEMqCmKyD0g
-        dmgh94C4YoLcA2qJGtyNC6b8zRkDe/PrgHAjWQb2eL27sH3hQjwQa/TxwAVjZB44Qn6sMubxuw2qcH3h
-        AoUbOlKM2jhBRoYo2L5wgcIIeqxmuEP+4i3bFy6oeKia2GKF3nvXBRUPrQbqKPluSJ6vs/Q1VbTUJAAA
-        AABJRU5ErkJggg==
-</value>
-  </data>
 </root>

@@ -159,7 +159,7 @@
             this.clip_input.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.clip_input.Size = new System.Drawing.Size(701, 20);
+            this.clip_input.Size = new System.Drawing.Size(694, 20);
             this.clip_input.StyleController = this.layoutControl1;
             this.clip_input.TabIndex = 0;
             this.clip_input.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.clip_input_ButtonClick);
@@ -197,13 +197,13 @@
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(562, 37, 360, 453);
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(902, 363);
+            this.layoutControl1.Size = new System.Drawing.Size(855, 401);
             this.layoutControl1.TabIndex = 2;
             this.layoutControl1.Text = "layoutControl1";
             // 
             // labelControl8
             // 
-            this.labelControl8.Location = new System.Drawing.Point(451, 250);
+            this.labelControl8.Location = new System.Drawing.Point(449, 279);
             this.labelControl8.Name = "labelControl8";
             this.labelControl8.Size = new System.Drawing.Size(13, 20);
             this.labelControl8.StyleController = this.layoutControl1;
@@ -212,7 +212,7 @@
             // 
             // labelControl7
             // 
-            this.labelControl7.Location = new System.Drawing.Point(451, 226);
+            this.labelControl7.Location = new System.Drawing.Point(449, 255);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(13, 20);
             this.labelControl7.StyleController = this.layoutControl1;
@@ -221,7 +221,7 @@
             // 
             // labelControl6
             // 
-            this.labelControl6.Location = new System.Drawing.Point(130, 250);
+            this.labelControl6.Location = new System.Drawing.Point(128, 279);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(13, 20);
             this.labelControl6.StyleController = this.layoutControl1;
@@ -230,7 +230,7 @@
             // 
             // labelControl5
             // 
-            this.labelControl5.Location = new System.Drawing.Point(130, 226);
+            this.labelControl5.Location = new System.Drawing.Point(128, 255);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(13, 20);
             this.labelControl5.StyleController = this.layoutControl1;
@@ -239,7 +239,7 @@
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(451, 143);
+            this.labelControl4.Location = new System.Drawing.Point(449, 143);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(13, 20);
             this.labelControl4.StyleController = this.layoutControl1;
@@ -248,7 +248,7 @@
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(451, 119);
+            this.labelControl3.Location = new System.Drawing.Point(449, 119);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(13, 20);
             this.labelControl3.StyleController = this.layoutControl1;
@@ -257,7 +257,7 @@
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(130, 143);
+            this.labelControl2.Location = new System.Drawing.Point(128, 143);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(13, 20);
             this.labelControl2.StyleController = this.layoutControl1;
@@ -266,7 +266,7 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(130, 119);
+            this.labelControl1.Location = new System.Drawing.Point(128, 119);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(13, 20);
             this.labelControl1.StyleController = this.layoutControl1;
@@ -277,16 +277,16 @@
             // 
             this.clip_envelopebutton.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
             new DevExpress.XtraBars.Docking2010.WindowsUIButton("Button", ((System.Drawing.Image)(resources.GetObject("clip_envelopebutton.Buttons"))), -1, DevExpress.XtraBars.Docking2010.ImageLocation.Default, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", false, -1, true, null, true, false, true, null, null, -1, false, false)});
-            this.clip_envelopebutton.Location = new System.Drawing.Point(130, 167);
+            this.clip_envelopebutton.Location = new System.Drawing.Point(128, 167);
             this.clip_envelopebutton.Name = "clip_envelopebutton";
-            this.clip_envelopebutton.Size = new System.Drawing.Size(534, 55);
+            this.clip_envelopebutton.Size = new System.Drawing.Size(534, 84);
             this.clip_envelopebutton.TabIndex = 21;
             this.clip_envelopebutton.Text = "windowsUIButtonPanel1";
             this.clip_envelopebutton.ButtonClick += new DevExpress.XtraBars.Docking2010.ButtonEventHandler(this.clip_envelopebutton_ButtonClick);
             // 
             // clip_exporttomapbutton
             // 
-            this.clip_exporttomapbutton.Location = new System.Drawing.Point(667, 313);
+            this.clip_exporttomapbutton.Location = new System.Drawing.Point(660, 351);
             this.clip_exporttomapbutton.Name = "clip_exporttomapbutton";
             this.clip_exporttomapbutton.Size = new System.Drawing.Size(118, 22);
             this.clip_exporttomapbutton.StyleController = this.layoutControl1;
@@ -296,7 +296,7 @@
             // 
             // clip_OKbutton
             // 
-            this.clip_OKbutton.Location = new System.Drawing.Point(447, 313);
+            this.clip_OKbutton.Location = new System.Drawing.Point(440, 351);
             this.clip_OKbutton.Name = "clip_OKbutton";
             this.clip_OKbutton.Size = new System.Drawing.Size(96, 22);
             this.clip_OKbutton.StyleController = this.layoutControl1;
@@ -307,7 +307,7 @@
             // clip_cancelbutton
             // 
             this.clip_cancelbutton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.clip_cancelbutton.Location = new System.Drawing.Point(557, 313);
+            this.clip_cancelbutton.Location = new System.Drawing.Point(550, 351);
             this.clip_cancelbutton.Name = "clip_cancelbutton";
             this.clip_cancelbutton.Size = new System.Drawing.Size(96, 22);
             this.clip_cancelbutton.StyleController = this.layoutControl1;
@@ -321,7 +321,7 @@
             this.clip_output.Name = "clip_output";
             this.clip_output.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.clip_output.Size = new System.Drawing.Size(701, 20);
+            this.clip_output.Size = new System.Drawing.Size(694, 20);
             this.clip_output.StyleController = this.layoutControl1;
             this.clip_output.TabIndex = 17;
             this.clip_output.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.clip_output_ButtonClick);
@@ -331,14 +331,14 @@
             this.clip_featureboundarycheck.Location = new System.Drawing.Point(12, 84);
             this.clip_featureboundarycheck.Name = "clip_featureboundarycheck";
             this.clip_featureboundarycheck.Properties.Caption = "根据Polygon图形边界裁剪";
-            this.clip_featureboundarycheck.Size = new System.Drawing.Size(773, 19);
+            this.clip_featureboundarycheck.Size = new System.Drawing.Size(766, 19);
             this.clip_featureboundarycheck.StyleController = this.layoutControl1;
             this.clip_featureboundarycheck.TabIndex = 15;
             this.clip_featureboundarycheck.CheckedChanged += new System.EventHandler(this.clip_featureboundarycheck_CheckedChanged);
             // 
             // clip_rightbottomY
             // 
-            this.clip_rightbottomY.Location = new System.Drawing.Point(468, 250);
+            this.clip_rightbottomY.Location = new System.Drawing.Point(466, 279);
             this.clip_rightbottomY.Name = "clip_rightbottomY";
             this.clip_rightbottomY.Size = new System.Drawing.Size(196, 20);
             this.clip_rightbottomY.StyleController = this.layoutControl1;
@@ -348,7 +348,7 @@
             // 
             // clip_rightbottomX
             // 
-            this.clip_rightbottomX.Location = new System.Drawing.Point(468, 226);
+            this.clip_rightbottomX.Location = new System.Drawing.Point(466, 255);
             this.clip_rightbottomX.Name = "clip_rightbottomX";
             this.clip_rightbottomX.Size = new System.Drawing.Size(196, 20);
             this.clip_rightbottomX.StyleController = this.layoutControl1;
@@ -358,7 +358,7 @@
             // 
             // clip_leftbottomY
             // 
-            this.clip_leftbottomY.Location = new System.Drawing.Point(147, 250);
+            this.clip_leftbottomY.Location = new System.Drawing.Point(145, 279);
             this.clip_leftbottomY.Name = "clip_leftbottomY";
             this.clip_leftbottomY.Size = new System.Drawing.Size(196, 20);
             this.clip_leftbottomY.StyleController = this.layoutControl1;
@@ -368,7 +368,7 @@
             // 
             // clip_leftbottomX
             // 
-            this.clip_leftbottomX.Location = new System.Drawing.Point(147, 226);
+            this.clip_leftbottomX.Location = new System.Drawing.Point(145, 255);
             this.clip_leftbottomX.Name = "clip_leftbottomX";
             this.clip_leftbottomX.Size = new System.Drawing.Size(196, 20);
             this.clip_leftbottomX.StyleController = this.layoutControl1;
@@ -378,7 +378,7 @@
             // 
             // clip_righttopX
             // 
-            this.clip_righttopX.Location = new System.Drawing.Point(468, 119);
+            this.clip_righttopX.Location = new System.Drawing.Point(466, 119);
             this.clip_righttopX.Name = "clip_righttopX";
             this.clip_righttopX.Size = new System.Drawing.Size(196, 20);
             this.clip_righttopX.StyleController = this.layoutControl1;
@@ -388,7 +388,7 @@
             // 
             // clip_righttopY
             // 
-            this.clip_righttopY.Location = new System.Drawing.Point(468, 143);
+            this.clip_righttopY.Location = new System.Drawing.Point(466, 143);
             this.clip_righttopY.Name = "clip_righttopY";
             this.clip_righttopY.Size = new System.Drawing.Size(196, 20);
             this.clip_righttopY.StyleController = this.layoutControl1;
@@ -398,7 +398,7 @@
             // 
             // clip_lefttopY
             // 
-            this.clip_lefttopY.Location = new System.Drawing.Point(147, 143);
+            this.clip_lefttopY.Location = new System.Drawing.Point(145, 143);
             this.clip_lefttopY.Name = "clip_lefttopY";
             this.clip_lefttopY.Size = new System.Drawing.Size(196, 20);
             this.clip_lefttopY.StyleController = this.layoutControl1;
@@ -408,7 +408,7 @@
             // 
             // clip_lefttopX
             // 
-            this.clip_lefttopX.Location = new System.Drawing.Point(147, 119);
+            this.clip_lefttopX.Location = new System.Drawing.Point(145, 119);
             this.clip_lefttopX.Name = "clip_lefttopX";
             this.clip_lefttopX.Size = new System.Drawing.Size(196, 20);
             this.clip_lefttopX.StyleController = this.layoutControl1;
@@ -423,7 +423,7 @@
             this.clip_mask.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.clip_mask.Size = new System.Drawing.Size(701, 20);
+            this.clip_mask.Size = new System.Drawing.Size(694, 20);
             this.clip_mask.StyleController = this.layoutControl1;
             this.clip_mask.TabIndex = 6;
             this.clip_mask.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.clip_mask_ButtonClick);
@@ -431,17 +431,17 @@
             // 
             // Clip_progressBarControl
             // 
-            this.Clip_progressBarControl.Location = new System.Drawing.Point(12, 339);
+            this.Clip_progressBarControl.Location = new System.Drawing.Point(12, 377);
             this.Clip_progressBarControl.Name = "Clip_progressBarControl";
-            this.Clip_progressBarControl.Size = new System.Drawing.Size(878, 12);
+            this.Clip_progressBarControl.Size = new System.Drawing.Size(831, 12);
             this.Clip_progressBarControl.StyleController = this.layoutControl1;
             this.Clip_progressBarControl.TabIndex = 5;
             // 
             // memoEdit1
             // 
-            this.memoEdit1.Location = new System.Drawing.Point(794, 12);
+            this.memoEdit1.Location = new System.Drawing.Point(787, 12);
             this.memoEdit1.Name = "memoEdit1";
-            this.memoEdit1.Size = new System.Drawing.Size(96, 323);
+            this.memoEdit1.Size = new System.Drawing.Size(56, 361);
             this.memoEdit1.StyleController = this.layoutControl1;
             this.memoEdit1.TabIndex = 4;
             this.memoEdit1.UseOptimizedRendering = true;
@@ -471,7 +471,7 @@
             this.layoutControlItem18});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(902, 363);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(855, 401);
             this.layoutControlGroup1.Text = "Root";
             this.layoutControlGroup1.TextVisible = false;
             // 
@@ -483,7 +483,7 @@
             this.layoutControlItem1.MaxSize = new System.Drawing.Size(0, 24);
             this.layoutControlItem1.MinSize = new System.Drawing.Size(126, 24);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(777, 24);
+            this.layoutControlItem1.Size = new System.Drawing.Size(770, 24);
             this.layoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem1.Text = "Input Data";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(69, 14);
@@ -492,9 +492,9 @@
             // 
             this.layoutControlItem3.Control = this.memoEdit1;
             this.layoutControlItem3.CustomizationFormText = "layoutControlItem3";
-            this.layoutControlItem3.Location = new System.Drawing.Point(782, 0);
+            this.layoutControlItem3.Location = new System.Drawing.Point(775, 0);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(100, 327);
+            this.layoutControlItem3.Size = new System.Drawing.Size(60, 365);
             this.layoutControlItem3.Text = "layoutControlItem3";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextToControlDistance = 0;
@@ -504,11 +504,11 @@
             // 
             this.layoutControlItem4.Control = this.Clip_progressBarControl;
             this.layoutControlItem4.CustomizationFormText = "layoutControlItem4";
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 327);
+            this.layoutControlItem4.Location = new System.Drawing.Point(0, 365);
             this.layoutControlItem4.MaxSize = new System.Drawing.Size(0, 16);
             this.layoutControlItem4.MinSize = new System.Drawing.Size(54, 16);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(882, 16);
+            this.layoutControlItem4.Size = new System.Drawing.Size(835, 16);
             this.layoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem4.Text = "layoutControlItem4";
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
@@ -519,10 +519,10 @@
             // 
             this.emptyspace.AllowHotTrack = false;
             this.emptyspace.CustomizationFormText = "emptyspace";
-            this.emptyspace.Location = new System.Drawing.Point(0, 274);
+            this.emptyspace.Location = new System.Drawing.Point(0, 303);
             this.emptyspace.MinSize = new System.Drawing.Size(10, 24);
             this.emptyspace.Name = "emptyspace";
-            this.emptyspace.Size = new System.Drawing.Size(777, 27);
+            this.emptyspace.Size = new System.Drawing.Size(770, 36);
             this.emptyspace.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptyspace.Text = "emptyspace";
             this.emptyspace.TextSize = new System.Drawing.Size(0, 0);
@@ -531,9 +531,9 @@
             // 
             this.splitterItem1.AllowHotTrack = true;
             this.splitterItem1.CustomizationFormText = "splitterItem1";
-            this.splitterItem1.Location = new System.Drawing.Point(777, 0);
+            this.splitterItem1.Location = new System.Drawing.Point(770, 0);
             this.splitterItem1.Name = "splitterItem1";
-            this.splitterItem1.Size = new System.Drawing.Size(5, 327);
+            this.splitterItem1.Size = new System.Drawing.Size(5, 365);
             // 
             // layoutControlItem5
             // 
@@ -543,7 +543,7 @@
             this.layoutControlItem5.MaxSize = new System.Drawing.Size(0, 24);
             this.layoutControlItem5.MinSize = new System.Drawing.Size(126, 24);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(777, 24);
+            this.layoutControlItem5.Size = new System.Drawing.Size(770, 24);
             this.layoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem5.Text = "Mask Data";
             this.layoutControlItem5.TextSize = new System.Drawing.Size(69, 14);
@@ -552,10 +552,10 @@
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
-            this.emptySpaceItem1.Location = new System.Drawing.Point(668, 95);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(666, 95);
             this.emptySpaceItem1.MinSize = new System.Drawing.Size(104, 24);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(109, 179);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(104, 208);
             this.emptySpaceItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem1.Text = "emptySpaceItem1";
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
@@ -567,7 +567,7 @@
             this.emptySpaceItem4.Location = new System.Drawing.Point(0, 95);
             this.emptySpaceItem4.MinSize = new System.Drawing.Size(104, 24);
             this.emptySpaceItem4.Name = "emptySpaceItem4";
-            this.emptySpaceItem4.Size = new System.Drawing.Size(106, 179);
+            this.emptySpaceItem4.Size = new System.Drawing.Size(104, 208);
             this.emptySpaceItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem4.Text = "emptySpaceItem4";
             this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
@@ -578,7 +578,7 @@
             this.layoutControlItem14.CustomizationFormText = "layoutControlItem14";
             this.layoutControlItem14.Location = new System.Drawing.Point(0, 72);
             this.layoutControlItem14.Name = "layoutControlItem14";
-            this.layoutControlItem14.Size = new System.Drawing.Size(777, 23);
+            this.layoutControlItem14.Size = new System.Drawing.Size(770, 23);
             this.layoutControlItem14.Text = "layoutControlItem14";
             this.layoutControlItem14.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem14.TextToControlDistance = 0;
@@ -592,7 +592,7 @@
             this.layoutControlItem2.MaxSize = new System.Drawing.Size(0, 24);
             this.layoutControlItem2.MinSize = new System.Drawing.Size(162, 24);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(777, 24);
+            this.layoutControlItem2.Size = new System.Drawing.Size(770, 24);
             this.layoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem2.Text = "Output Data";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(69, 14);
@@ -622,9 +622,9 @@
             this.layoutControlItem24,
             this.layoutControlItem25,
             this.layoutControlItem26});
-            this.layoutControlGroup2.Location = new System.Drawing.Point(106, 95);
+            this.layoutControlGroup2.Location = new System.Drawing.Point(104, 95);
             this.layoutControlGroup2.Name = "layoutControlGroup2";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(562, 179);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(562, 208);
             this.layoutControlGroup2.Text = "layoutControlGroup2";
             this.layoutControlGroup2.TextVisible = false;
             // 
@@ -716,7 +716,7 @@
             // 
             this.layoutControlItem10.Control = this.clip_leftbottomX;
             this.layoutControlItem10.CustomizationFormText = "X";
-            this.layoutControlItem10.Location = new System.Drawing.Point(17, 107);
+            this.layoutControlItem10.Location = new System.Drawing.Point(17, 136);
             this.layoutControlItem10.MaxSize = new System.Drawing.Size(200, 24);
             this.layoutControlItem10.MinSize = new System.Drawing.Size(200, 24);
             this.layoutControlItem10.Name = "layoutControlItem10";
@@ -731,7 +731,7 @@
             // 
             this.emptySpaceItem10.AllowHotTrack = false;
             this.emptySpaceItem10.CustomizationFormText = "emptySpaceItem10";
-            this.emptySpaceItem10.Location = new System.Drawing.Point(217, 107);
+            this.emptySpaceItem10.Location = new System.Drawing.Point(217, 136);
             this.emptySpaceItem10.MinSize = new System.Drawing.Size(104, 24);
             this.emptySpaceItem10.Name = "emptySpaceItem10";
             this.emptySpaceItem10.Size = new System.Drawing.Size(104, 24);
@@ -743,7 +743,7 @@
             // 
             this.layoutControlItem12.Control = this.clip_rightbottomX;
             this.layoutControlItem12.CustomizationFormText = "X";
-            this.layoutControlItem12.Location = new System.Drawing.Point(338, 107);
+            this.layoutControlItem12.Location = new System.Drawing.Point(338, 136);
             this.layoutControlItem12.MaxSize = new System.Drawing.Size(200, 24);
             this.layoutControlItem12.MinSize = new System.Drawing.Size(200, 24);
             this.layoutControlItem12.Name = "layoutControlItem12";
@@ -758,7 +758,7 @@
             // 
             this.layoutControlItem11.Control = this.clip_leftbottomY;
             this.layoutControlItem11.CustomizationFormText = "Y";
-            this.layoutControlItem11.Location = new System.Drawing.Point(17, 131);
+            this.layoutControlItem11.Location = new System.Drawing.Point(17, 160);
             this.layoutControlItem11.MaxSize = new System.Drawing.Size(200, 24);
             this.layoutControlItem11.MinSize = new System.Drawing.Size(200, 24);
             this.layoutControlItem11.Name = "layoutControlItem11";
@@ -773,7 +773,7 @@
             // 
             this.emptySpaceItem11.AllowHotTrack = false;
             this.emptySpaceItem11.CustomizationFormText = "emptySpaceItem11";
-            this.emptySpaceItem11.Location = new System.Drawing.Point(217, 131);
+            this.emptySpaceItem11.Location = new System.Drawing.Point(217, 160);
             this.emptySpaceItem11.MinSize = new System.Drawing.Size(104, 24);
             this.emptySpaceItem11.Name = "emptySpaceItem11";
             this.emptySpaceItem11.Size = new System.Drawing.Size(104, 24);
@@ -785,7 +785,7 @@
             // 
             this.layoutControlItem13.Control = this.clip_rightbottomY;
             this.layoutControlItem13.CustomizationFormText = "Y";
-            this.layoutControlItem13.Location = new System.Drawing.Point(338, 131);
+            this.layoutControlItem13.Location = new System.Drawing.Point(338, 160);
             this.layoutControlItem13.MaxSize = new System.Drawing.Size(200, 24);
             this.layoutControlItem13.MinSize = new System.Drawing.Size(200, 24);
             this.layoutControlItem13.Name = "layoutControlItem13";
@@ -803,7 +803,7 @@
             this.layoutControlItem15.Location = new System.Drawing.Point(0, 48);
             this.layoutControlItem15.MinSize = new System.Drawing.Size(104, 55);
             this.layoutControlItem15.Name = "layoutControlItem15";
-            this.layoutControlItem15.Size = new System.Drawing.Size(538, 59);
+            this.layoutControlItem15.Size = new System.Drawing.Size(538, 88);
             this.layoutControlItem15.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem15.Text = "layoutControlItem15";
             this.layoutControlItem15.TextSize = new System.Drawing.Size(0, 0);
@@ -874,7 +874,7 @@
             // 
             this.layoutControlItem23.Control = this.labelControl5;
             this.layoutControlItem23.CustomizationFormText = "layoutControlItem23";
-            this.layoutControlItem23.Location = new System.Drawing.Point(0, 107);
+            this.layoutControlItem23.Location = new System.Drawing.Point(0, 136);
             this.layoutControlItem23.MaxSize = new System.Drawing.Size(17, 24);
             this.layoutControlItem23.MinSize = new System.Drawing.Size(17, 24);
             this.layoutControlItem23.Name = "layoutControlItem23";
@@ -889,7 +889,7 @@
             // 
             this.layoutControlItem24.Control = this.labelControl6;
             this.layoutControlItem24.CustomizationFormText = "layoutControlItem24";
-            this.layoutControlItem24.Location = new System.Drawing.Point(0, 131);
+            this.layoutControlItem24.Location = new System.Drawing.Point(0, 160);
             this.layoutControlItem24.MaxSize = new System.Drawing.Size(17, 24);
             this.layoutControlItem24.MinSize = new System.Drawing.Size(17, 24);
             this.layoutControlItem24.Name = "layoutControlItem24";
@@ -904,7 +904,7 @@
             // 
             this.layoutControlItem25.Control = this.labelControl7;
             this.layoutControlItem25.CustomizationFormText = "layoutControlItem25";
-            this.layoutControlItem25.Location = new System.Drawing.Point(321, 107);
+            this.layoutControlItem25.Location = new System.Drawing.Point(321, 136);
             this.layoutControlItem25.MaxSize = new System.Drawing.Size(17, 24);
             this.layoutControlItem25.MinSize = new System.Drawing.Size(17, 24);
             this.layoutControlItem25.Name = "layoutControlItem25";
@@ -919,7 +919,7 @@
             // 
             this.layoutControlItem26.Control = this.labelControl8;
             this.layoutControlItem26.CustomizationFormText = "layoutControlItem26";
-            this.layoutControlItem26.Location = new System.Drawing.Point(321, 131);
+            this.layoutControlItem26.Location = new System.Drawing.Point(321, 160);
             this.layoutControlItem26.MaxSize = new System.Drawing.Size(17, 24);
             this.layoutControlItem26.MinSize = new System.Drawing.Size(17, 24);
             this.layoutControlItem26.Name = "layoutControlItem26";
@@ -934,11 +934,11 @@
             // 
             this.emptySpaceItem7.AllowHotTrack = false;
             this.emptySpaceItem7.CustomizationFormText = "emptySpaceItem7";
-            this.emptySpaceItem7.Location = new System.Drawing.Point(0, 301);
+            this.emptySpaceItem7.Location = new System.Drawing.Point(0, 339);
             this.emptySpaceItem7.MaxSize = new System.Drawing.Size(0, 26);
             this.emptySpaceItem7.MinSize = new System.Drawing.Size(104, 26);
             this.emptySpaceItem7.Name = "emptySpaceItem7";
-            this.emptySpaceItem7.Size = new System.Drawing.Size(435, 26);
+            this.emptySpaceItem7.Size = new System.Drawing.Size(428, 26);
             this.emptySpaceItem7.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem7.Text = "emptySpaceItem7";
             this.emptySpaceItem7.TextSize = new System.Drawing.Size(0, 0);
@@ -947,7 +947,7 @@
             // 
             this.layoutControlItem16.Control = this.clip_cancelbutton;
             this.layoutControlItem16.CustomizationFormText = "layoutControlItem16";
-            this.layoutControlItem16.Location = new System.Drawing.Point(545, 301);
+            this.layoutControlItem16.Location = new System.Drawing.Point(538, 339);
             this.layoutControlItem16.MaxSize = new System.Drawing.Size(100, 26);
             this.layoutControlItem16.MinSize = new System.Drawing.Size(100, 26);
             this.layoutControlItem16.Name = "layoutControlItem16";
@@ -962,7 +962,7 @@
             // 
             this.emptySpaceItem8.AllowHotTrack = false;
             this.emptySpaceItem8.CustomizationFormText = "emptySpaceItem8";
-            this.emptySpaceItem8.Location = new System.Drawing.Point(535, 301);
+            this.emptySpaceItem8.Location = new System.Drawing.Point(528, 339);
             this.emptySpaceItem8.MaxSize = new System.Drawing.Size(10, 26);
             this.emptySpaceItem8.MinSize = new System.Drawing.Size(10, 26);
             this.emptySpaceItem8.Name = "emptySpaceItem8";
@@ -975,7 +975,7 @@
             // 
             this.layoutControlItem17.Control = this.clip_OKbutton;
             this.layoutControlItem17.CustomizationFormText = "layoutControlItem17";
-            this.layoutControlItem17.Location = new System.Drawing.Point(435, 301);
+            this.layoutControlItem17.Location = new System.Drawing.Point(428, 339);
             this.layoutControlItem17.MaxSize = new System.Drawing.Size(100, 26);
             this.layoutControlItem17.MinSize = new System.Drawing.Size(100, 26);
             this.layoutControlItem17.Name = "layoutControlItem17";
@@ -990,7 +990,7 @@
             // 
             this.emptySpaceItem9.AllowHotTrack = false;
             this.emptySpaceItem9.CustomizationFormText = "emptySpaceItem9";
-            this.emptySpaceItem9.Location = new System.Drawing.Point(645, 301);
+            this.emptySpaceItem9.Location = new System.Drawing.Point(638, 339);
             this.emptySpaceItem9.MaxSize = new System.Drawing.Size(10, 26);
             this.emptySpaceItem9.MinSize = new System.Drawing.Size(10, 26);
             this.emptySpaceItem9.Name = "emptySpaceItem9";
@@ -1003,7 +1003,7 @@
             // 
             this.layoutControlItem18.Control = this.clip_exporttomapbutton;
             this.layoutControlItem18.CustomizationFormText = "layoutControlItem18";
-            this.layoutControlItem18.Location = new System.Drawing.Point(655, 301);
+            this.layoutControlItem18.Location = new System.Drawing.Point(648, 339);
             this.layoutControlItem18.MaxSize = new System.Drawing.Size(122, 26);
             this.layoutControlItem18.MinSize = new System.Drawing.Size(122, 26);
             this.layoutControlItem18.Name = "layoutControlItem18";
@@ -1020,8 +1020,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.clip_cancelbutton;
-            this.ClientSize = new System.Drawing.Size(902, 363);
+            this.ClientSize = new System.Drawing.Size(855, 401);
             this.Controls.Add(this.layoutControl1);
+            this.MinimumSize = new System.Drawing.Size(871, 440);
             this.Name = "ClipForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Clip";

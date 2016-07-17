@@ -50,7 +50,6 @@
             this.navbarImageCollection = new DevExpress.Utils.ImageCollection(this.components);
             this.axLicenseControl1 = new ESRI.ArcGIS.Controls.AxLicenseControl();
             this.m_mapControl = new ESRI.ArcGIS.Controls.AxMapControl();
-            this.m_esritoolbarControl = new ESRI.ArcGIS.Controls.AxToolbarControl();
             this.EditToolsBarDockControl = new DevExpress.XtraBars.StandaloneBarDockControl();
             this.ribbonMenu = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.appMenu = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
@@ -80,6 +79,8 @@
             this.iModelBuilder = new DevExpress.XtraBars.BarButtonItem();
             this.iRoiTool = new DevExpress.XtraBars.BarButtonItem();
             this.iViewSpectralTool = new DevExpress.XtraBars.BarButtonItem();
+            this.iBufferAnalysis = new DevExpress.XtraBars.BarButtonItem();
+            this.iSymDiff = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonImageCollectionLarge = new DevExpress.Utils.ImageCollection(this.components);
             this.homeRibbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.project_RibbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -138,6 +139,7 @@
             this.identify_mapToolbarItem = new DevExpress.XtraBars.BarButtonItem();
             this.measure_mapToolbarItem = new DevExpress.XtraBars.BarButtonItem();
             this.pan_mapToolbarItem = new DevExpress.XtraBars.BarButtonItem();
+            this.null_mapToolbarItem = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -179,7 +181,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.navbarImageCollection)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axLicenseControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_mapControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.m_esritoolbarControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonImageCollection)).BeginInit();
@@ -220,7 +221,6 @@
             this.splitContainerControl.Panel1.Text = "Panel1";
             this.splitContainerControl.Panel2.Controls.Add(this.axLicenseControl1);
             this.splitContainerControl.Panel2.Controls.Add(this.m_mapControl);
-            this.splitContainerControl.Panel2.Controls.Add(this.m_esritoolbarControl);
             this.splitContainerControl.Panel2.Controls.Add(this.EditToolsBarDockControl);
             this.splitContainerControl.Panel2.Text = "Panel2";
             this.splitContainerControl.Size = new System.Drawing.Size(961, 461);
@@ -326,24 +326,15 @@
             // m_mapControl
             // 
             this.m_mapControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.m_mapControl.Location = new System.Drawing.Point(0, 90);
+            this.m_mapControl.Location = new System.Drawing.Point(0, 62);
             this.m_mapControl.Name = "m_mapControl";
             this.m_mapControl.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("m_mapControl.OcxState")));
-            this.m_mapControl.Size = new System.Drawing.Size(720, 359);
+            this.m_mapControl.Size = new System.Drawing.Size(720, 387);
             this.m_mapControl.TabIndex = 0;
             this.m_mapControl.OnMouseDown += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMouseDownEventHandler(this.m_mapControl_OnMouseDown);
             this.m_mapControl.OnMouseUp += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMouseUpEventHandler(this.m_mapControl_OnMouseUp);
             this.m_mapControl.OnMouseMove += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMouseMoveEventHandler(this.m_mapControl_OnMouseMove);
             this.m_mapControl.OnKeyUp += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnKeyUpEventHandler(this.m_mapControl_OnKeyUp);
-            // 
-            // m_esritoolbarControl
-            // 
-            this.m_esritoolbarControl.Dock = System.Windows.Forms.DockStyle.Top;
-            this.m_esritoolbarControl.Location = new System.Drawing.Point(0, 62);
-            this.m_esritoolbarControl.Name = "m_esritoolbarControl";
-            this.m_esritoolbarControl.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("m_esritoolbarControl.OcxState")));
-            this.m_esritoolbarControl.Size = new System.Drawing.Size(720, 28);
-            this.m_esritoolbarControl.TabIndex = 1;
             // 
             // EditToolsBarDockControl
             // 
@@ -386,10 +377,12 @@
             this.iRasterToFeature,
             this.iModelBuilder,
             this.iRoiTool,
-            this.iViewSpectralTool});
+            this.iViewSpectralTool,
+            this.iBufferAnalysis,
+            this.iSymDiff});
             this.ribbonMenu.LargeImages = this.ribbonImageCollectionLarge;
             this.ribbonMenu.Location = new System.Drawing.Point(0, 0);
-            this.ribbonMenu.MaxItemId = 33;
+            this.ribbonMenu.MaxItemId = 35;
             this.ribbonMenu.Name = "ribbonMenu";
             this.ribbonMenu.PageHeaderItemLinks.Add(this.iAbout);
             this.ribbonMenu.PageHeaderItemLinks.Add(this.iAbout);
@@ -698,6 +691,21 @@
             this.iViewSpectralTool.Name = "iViewSpectralTool";
             this.iViewSpectralTool.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.iViewSpectralTool_ItemClick);
             // 
+            // iBufferAnalysis
+            // 
+            this.iBufferAnalysis.Caption = "Buffer Analysis";
+            this.iBufferAnalysis.Glyph = ((System.Drawing.Image)(resources.GetObject("iBufferAnalysis.Glyph")));
+            this.iBufferAnalysis.Id = 33;
+            this.iBufferAnalysis.Name = "iBufferAnalysis";
+            this.iBufferAnalysis.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.iBufferAnalysis_ItemClick);
+            // 
+            // iSymDiff
+            // 
+            this.iSymDiff.Caption = "Symmetrical Difference";
+            this.iSymDiff.Glyph = ((System.Drawing.Image)(resources.GetObject("iSymDiff.Glyph")));
+            this.iSymDiff.Id = 34;
+            this.iSymDiff.Name = "iSymDiff";
+            // 
             // ribbonImageCollectionLarge
             // 
             this.ribbonImageCollectionLarge.ImageSize = new System.Drawing.Size(32, 32);
@@ -771,6 +779,8 @@
             // ribbonPageGroup1
             // 
             this.ribbonPageGroup1.ItemLinks.Add(this.iFeatureToRaster);
+            this.ribbonPageGroup1.ItemLinks.Add(this.iBufferAnalysis);
+            this.ribbonPageGroup1.ItemLinks.Add(this.iSymDiff);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "Vector Data";
             // 
@@ -1081,8 +1091,9 @@
             this.fixedZoomOut_mapToolbarItem,
             this.identify_mapToolbarItem,
             this.measure_mapToolbarItem,
-            this.pan_mapToolbarItem});
-            this.map_toolbarManager.MaxItemId = 63;
+            this.pan_mapToolbarItem,
+            this.null_mapToolbarItem});
+            this.map_toolbarManager.MaxItemId = 64;
             this.map_toolbarManager.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.LayerNameComboBox,
             this.repositoryItemComboBox1,
@@ -1186,7 +1197,8 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.fullExtent_mapToolbarItem),
             new DevExpress.XtraBars.LinkPersistInfo(this.identify_mapToolbarItem),
             new DevExpress.XtraBars.LinkPersistInfo(this.measure_mapToolbarItem),
-            new DevExpress.XtraBars.LinkPersistInfo(this.pan_mapToolbarItem)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.pan_mapToolbarItem),
+            new DevExpress.XtraBars.LinkPersistInfo(this.null_mapToolbarItem)});
             this.mapToolBar.StandaloneBarDockControl = this.EditToolsBarDockControl;
             this.mapToolBar.Text = "Custom 3";
             // 
@@ -1245,6 +1257,13 @@
             this.pan_mapToolbarItem.Id = 62;
             this.pan_mapToolbarItem.Name = "pan_mapToolbarItem";
             this.pan_mapToolbarItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.pan_mapToolbarItem_ItemClick);
+            // 
+            // null_mapToolbarItem
+            // 
+            this.null_mapToolbarItem.Caption = "null";
+            this.null_mapToolbarItem.Id = 63;
+            this.null_mapToolbarItem.Name = "null_mapToolbarItem";
+            this.null_mapToolbarItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.null_mapToolbarItem_ItemClick);
             // 
             // barDockControlTop
             // 
@@ -1486,7 +1505,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.navbarImageCollection)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.axLicenseControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_mapControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.m_esritoolbarControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.appMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonImageCollection)).EndInit();
@@ -1559,7 +1577,6 @@
         private DevExpress.Utils.ImageCollection navbarImageCollectionLarge;
         private DevExpress.Utils.ImageCollection galleryImageCollection;
         private ESRI.ArcGIS.Controls.AxMapControl m_mapControl;
-        private ESRI.ArcGIS.Controls.AxToolbarControl m_esritoolbarControl;
         private DevExpress.XtraBars.BarButtonItem iAddData;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup file_ribbonPageGroup;
         private System.Windows.Forms.ContextMenuStrip tocControlLayer_ContextMenu;
@@ -1656,6 +1673,9 @@
         private DevExpress.XtraBars.BarButtonItem identify_mapToolbarItem;
         private DevExpress.XtraBars.BarButtonItem measure_mapToolbarItem;
         private DevExpress.XtraBars.BarButtonItem pan_mapToolbarItem;
+        private DevExpress.XtraBars.BarButtonItem iBufferAnalysis;
+        private DevExpress.XtraBars.BarButtonItem iSymDiff;
+        private DevExpress.XtraBars.BarButtonItem null_mapToolbarItem;
 
     }
 }

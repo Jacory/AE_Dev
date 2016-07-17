@@ -13,9 +13,14 @@ using ESRI.ArcGIS.Geodatabase;
 using AE_Dev_J.Form.ClassifyAlgForm;
 
 using AE_Dev_J.Class;
+using System.IO;
 
 namespace AE_Dev_J.Form
 {
+    /// <summary>
+    /// 图像分类窗口。
+    /// 窗口UI应该仅仅包含与用户的交互以及调用算法的过程，而不应包含算法的具体细节。
+    /// </summary>
     public partial class ClassificationForm : DevExpress.XtraEditors.XtraForm
     {
         private string m_idlPath = ""; // IDL的pro文件路径
@@ -51,7 +56,7 @@ namespace AE_Dev_J.Form
         #endregion 保留分类参数设置面板窗口引用
 
 
-
+        #region class constructor
         public ClassificationForm()
         {
             InitializeComponent();
@@ -64,6 +69,7 @@ namespace AE_Dev_J.Form
 
             InitializeComponent();
         }
+        #endregion class constructor
 
         /// <summary>
         /// 初始化面板中的控件
@@ -499,8 +505,20 @@ namespace AE_Dev_J.Form
             
             // 判断文件处理模式
             int mode = 0;
-            if (singleMode_checkEdit.Checked == true) mode = 0;
-            else if (batchMode_checkEdit.Checked == true) mode = 1;
+            string inDataPath = "";
+            string outDataPath = "";
+            if (singleMode_checkEdit.Checked == true)
+            {
+                inDataPath = inDataFile_btn.Text;
+                outDataPath = outDataFile_btn.Text;
+                mode = 0; 
+            }
+            else if (batchMode_checkEdit.Checked == true)
+            {
+                inDataPath = inDataFolder_btn.Text;
+                outDataPath = outDataFolder_btn.Text;
+                mode = 1;
+            }
 
             // 设置对应的IDL命令字符串
             string proFilename = null;
@@ -544,26 +562,27 @@ namespace AE_Dev_J.Form
 
                 case ClassifyAlgBase.ClassifyMethod.IsoData:
                     proFilename = "isodata.pro";
-                    //m_runStr =  "isodata, '" + inDataFile_btn.Text + "','"
-                    //            + outDataFile_btn.Text + "',"
-                    //            + isodata_maxIter_spinEdit.Value + ","
-                    //            + isodata_chgThresh_spinEdit.Value + ","
-                    //            + isodata_minDis_spinEdit.Value + ","
-                    //            + isodata_maxMergePixel_spinEdit.Value + ","
-                    //            + isodata_minClassPixels_spinEdit.Value + ","
-                    //            + isodata_maxStd_spinEdit.Value + ","
-                    //            + isodata_minClasses_spinEdit.Value + ","
-                    //            + mode;
+                    m_runStr = "isodata, '" + inDataPath + "','"
+                                + outDataPath + "',"
+                                + isodataForm.MaxIter.ToString() + ","
+                                + isodataForm.ChgThresh.ToString() + ","
+                                + isodataForm.MinDis.ToString() + ","
+                                + isodataForm.MaxMergePixel.ToString() + ","
+                                + isodataForm.MinClassPixels.ToString() + ","
+                                + isodataForm.MaxStd.ToString() + ","
+                                + isodataForm.MinClassNum.ToString() + ","
+                                + mode;
                     break;
 
                 case ClassifyAlgBase.ClassifyMethod.KMeans:
                     proFilename = "k_means.pro";
-                    //m_runStr = "k_means , '" + inDataFile_btn.Text + "','"
-                    //            + outDataFile_btn.Text + "',"
-                    //            + kmeans_numClasses_spinEdit.Value + ","
-                    //            + kmeans_maxIter_spinEdit.Value + ","
-                    //            + kmeans_changeThresh_spinEdit.Value
-                    //            + mode;
+                    m_runStr = "k_means, '" + inDataPath + "','"
+                                + outDataPath + "',"
+                                + kmeansForm.NumClass.ToString() + ", "
+                                + kmeansForm.MaxIter.ToString() + ","
+                                + kmeansForm.ChgThresh.ToString() + ","
+                                + mode;
+                    
                     break;
 
                 default:
@@ -612,14 +631,71 @@ namespace AE_Dev_J.Form
         }
 
         /// <summary>
-        ///// 执行分类处理，这样封装方便在多线程中进行
+        /// 导出分类结果到主窗口地图
         /// </summary>
-        /// <param name="idlCon"></param>
-        private static void runClassify(object sender, DoWorkEventArgs e)
+        /// <param name="sender">分类结果文件路径。如果是批处理模式，这个功能将不可用</param>
+        /// <param name="e"></param>
+        private void expToMap_btn_Click(object sender, EventArgs e)
         {
-            IdlConnector idlCon = new IdlConnector(m_proFileFullPath);
-            idlCon.RunStr = m_runStr;
-            idlCon.run();
+            FileInfo finfo = new FileInfo(m_outfilename);
+            if (!finfo.Exists)
+            {
+                MessageBox.Show("export to map failed. \n you may have moved the result file.");
+                return;
+            }
+            
+            if (m_outfilename == "") return;
+            m_mainForm.openRasterFile(m_outfilename);
+            this.expToMap_btn.Enabled = false;
+        }
+
+        /// <summary>
+        /// 销毁分类窗口
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void closeWindow_btn_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        /// <summary>
+        /// 分类完成后执行分类后处理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void postClassification_btn_Click(object sender, EventArgs e)
+        {
+            PostClassificationForm postClassForm = new PostClassificationForm(m_mainForm, m_idlPath);
+            // 这里是否应该将结果文件的路径直接传入到postClassForm中去。
+            // 单文件路径比较好处理，批处理模式如何处理？
+            postClassForm.Show();
+        }
+
+        /// <summary>
+        /// 将窗口嵌入容器中
+        /// </summary>
+        /// <param name="form"></param>
+        /// <param name="parent"></param>
+        private void buildFormIntoParent(DevExpress.XtraEditors.XtraForm form, System.Windows.Forms.Control parent)
+        {
+            form.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            form.TopLevel = false;
+            form.Parent = parent;
+            form.Dock = DockStyle.Fill;
+            form.Show();
+        }
+
+        /// <summary>
+        /// 销毁窗口列表中的所有窗口
+        /// </summary>
+        private void disposeAllClassifyForm()
+        {
+            foreach(DevExpress.XtraEditors.XtraForm form in m_formList)
+            {
+                if(form!=null && form.IsDisposed == false)
+                    form.Dispose();
+            }
         }
 
         /// <summary>
@@ -649,65 +725,6 @@ namespace AE_Dev_J.Form
             this.classfication_backstageViewControl.SelectedTab = this.finish_TabItem;
 
             if (singleMode_checkEdit.Checked == true) m_outfilename = outDataFile_btn.Text;
-        }
-
-        /// <summary>
-        /// 导出分类结果到主窗口地图
-        /// </summary>
-        /// <param name="sender">分类结果文件路径。如果是批处理模式，这个功能将不可用</param>
-        /// <param name="e"></param>
-        private void expToMap_btn_Click(object sender, EventArgs e)
-        {
-            if (m_outfilename == "") return;
-            m_mainForm.openRasterFile(m_outfilename);
-            this.expToMap_btn.Enabled = false;
-        }
-
-        /// <summary>
-        /// 销毁分类窗口
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void closeWindow_btn_Click(object sender, EventArgs e)
-        {
-            this.Dispose();
-        }
-
-        /// <summary>
-        /// 分类完成后执行分类后处理
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void postClassification_btn_Click(object sender, EventArgs e)
-        {
-            PostClassificationForm postClassForm = new PostClassificationForm(m_mainForm, m_idlPath);
-            postClassForm.Show();
-        }
-
-        /// <summary>
-        /// 将窗口嵌入容器中
-        /// </summary>
-        /// <param name="form"></param>
-        /// <param name="parent"></param>
-        private void buildFormIntoParent(DevExpress.XtraEditors.XtraForm form, System.Windows.Forms.Control parent)
-        {
-            form.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            form.TopLevel = false;
-            form.Parent = parent;
-            form.Dock = DockStyle.Fill;
-            form.Show();
-        }
-
-        /// <summary>
-        /// 销毁窗口列表中的所有窗口
-        /// </summary>
-        private void disposeAllClassifyForm()
-        {
-            foreach(DevExpress.XtraEditors.XtraForm form in m_formList)
-            {
-                if(form!=null && form.IsDisposed == false)
-                    form.Dispose();
-            }
         }
     }
 }

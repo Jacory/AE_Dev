@@ -183,6 +183,12 @@
     <Compile Include="Form\AttributeTableForm.designer.cs">
       <DependentUpon>AttributeTableForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form\BufferAnalysisForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\BufferAnalysisForm.Designer.cs">
+      <DependentUpon>BufferAnalysisForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form\ClassificationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -340,6 +346,9 @@
     <EmbeddedResource Include="Form\AttributeTableForm.resx">
       <DependentUpon>AttributeTableForm.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\BufferAnalysisForm.resx">
+      <DependentUpon>BufferAnalysisForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\ClassificationForm.resx">
       <DependentUpon>ClassificationForm.cs</DependentUpon>
