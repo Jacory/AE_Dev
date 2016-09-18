@@ -934,40 +934,40 @@
             this.editLayer_ToolStripMenuItem,
             this.layerProperty_ToolStripMenuItem});
             this.tocControlLayer_ContextMenu.Name = "tocControlContextMenu";
-            this.tocControlLayer_ContextMenu.Size = new System.Drawing.Size(153, 136);
+            this.tocControlLayer_ContextMenu.Size = new System.Drawing.Size(149, 114);
             this.tocControlLayer_ContextMenu.Opened += new System.EventHandler(this.tocControlLayer_ContextMenu_Opened);
             // 
             // openAttTable_ToolStripMenuItem
             // 
             this.openAttTable_ToolStripMenuItem.Name = "openAttTable_ToolStripMenuItem";
-            this.openAttTable_ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.openAttTable_ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.openAttTable_ToolStripMenuItem.Text = "打开属性表";
             this.openAttTable_ToolStripMenuItem.Click += new System.EventHandler(this.openAttTable_ToolStripMenuItem_Click);
             // 
             // removeLayer_ToolStripMenuItem
             // 
             this.removeLayer_ToolStripMenuItem.Name = "removeLayer_ToolStripMenuItem";
-            this.removeLayer_ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.removeLayer_ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.removeLayer_ToolStripMenuItem.Text = "移除图层";
             this.removeLayer_ToolStripMenuItem.Click += new System.EventHandler(this.removeLayer_ToolStripMenuItem_Click);
             // 
             // zoomToLayer_ToolStripMenuItem
             // 
             this.zoomToLayer_ToolStripMenuItem.Name = "zoomToLayer_ToolStripMenuItem";
-            this.zoomToLayer_ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.zoomToLayer_ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.zoomToLayer_ToolStripMenuItem.Text = "缩放至到图层";
             this.zoomToLayer_ToolStripMenuItem.Click += new System.EventHandler(this.zoomToLayer_ToolStripMenuItem_Click);
             // 
             // editLayer_ToolStripMenuItem
             // 
             this.editLayer_ToolStripMenuItem.Name = "editLayer_ToolStripMenuItem";
-            this.editLayer_ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.editLayer_ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.editLayer_ToolStripMenuItem.Text = "编辑图层";
             // 
             // layerProperty_ToolStripMenuItem
             // 
             this.layerProperty_ToolStripMenuItem.Name = "layerProperty_ToolStripMenuItem";
-            this.layerProperty_ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.layerProperty_ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.layerProperty_ToolStripMenuItem.Text = "图层属性";
             // 
             // mapControl_contextMenuStrip

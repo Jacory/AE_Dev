@@ -24,12 +24,12 @@ namespace AE_Dev_J
         public AxTOCControl getTocControl() { return m_tocControl; }
         public AxMapControl getMapControl() { return m_mapControl; }
 
-        public string drawflag = ""; //用于为clipform绘制矩形框,值不为空时表示mapcontrol处于包络线绘制状态
-        public int drawSampleflag = 0; //用于监督分类选取样本，值为1时表示mapcontrol处于polygon绘制状态
-        public int trackPolyonState = 0; //指示mapcontrol是否处于trackpolygon状态，0为退出状态，1表示正在绘制，2表示完成绘制但没有退出
+        public string drawflag = ""; // 用于为clipform绘制矩形框,值不为空时表示mapcontrol处于包络线绘制状态
+        public int drawSampleflag = 0; // 用于监督分类选取样本，值为1时表示mapcontrol处于polygon绘制状态
+        public int trackPolyonState = 0; // 指示mapcontrol是否处于trackpolygon状态，0为退出状态，1表示正在绘制，2表示完成绘制但没有退出
 
-        public delegate void CreateSampleEventHander(IGeometry geometry); //声明创建监督分类样本的委托
-        public event CreateSampleEventHander CreateSample;//创建监督分类样本事件
+        public delegate void CreateSampleEventHander(IGeometry geometry); // 声明创建监督分类样本的委托
+        public event CreateSampleEventHander CreateSample;// 创建监督分类样本事件
 
         #region 私有成员变量
 
