@@ -113,6 +113,7 @@
             this.removeLayer_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.zoomToLayer_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editLayer_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.layerProperty_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mapControl_contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.indentify_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pan_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -122,19 +123,22 @@
             this.tocControl_contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.addData_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.map_toolbarManager = new DevExpress.XtraBars.BarManager(this.components);
-            this.map_edittools = new DevExpress.XtraBars.Bar();
-            this.m_edittool = new DevExpress.XtraBars.BarButtonItem();
+            this.featureEditToolbar = new DevExpress.XtraBars.Bar();
+            this.editor_ToolbarMenuItem = new DevExpress.XtraBars.BarSubItem();
+            this.startEdit_ToolbarItem = new DevExpress.XtraBars.BarButtonItem();
+            this.saveEdit_ToolbarItem = new DevExpress.XtraBars.BarButtonItem();
+            this.stopEdit_ToolbarItem = new DevExpress.XtraBars.BarButtonItem();
+            this.featureEdit_ToolbarItem = new DevExpress.XtraBars.BarButtonItem();
             this.m_sketchtool = new DevExpress.XtraBars.BarButtonItem();
-            this.m_savetool = new DevExpress.XtraBars.BarButtonItem();
-            this.m_stoptool = new DevExpress.XtraBars.BarButtonItem();
-            this.m_undotool = new DevExpress.XtraBars.BarButtonItem();
-            this.m_redotool = new DevExpress.XtraBars.BarButtonItem();
-            this.m_editinglayer = new DevExpress.XtraBars.BarStaticItem();
+            this.undo_ToolbarItem = new DevExpress.XtraBars.BarButtonItem();
+            this.redo_ToolbarItem = new DevExpress.XtraBars.BarButtonItem();
+            this.targetLayer_ToolbarText = new DevExpress.XtraBars.BarStaticItem();
+            this.targetLayer_combo_ToolbarItem = new DevExpress.XtraBars.BarEditItem();
+            this.repositoryItemComboBox3 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
+            this.createFeature_ToolbarItem = new DevExpress.XtraBars.BarButtonItem();
             this.mapToolBar = new DevExpress.XtraBars.Bar();
             this.fixedZoomIn_mapToolbarItem = new DevExpress.XtraBars.BarButtonItem();
-            this.fixedZoomOut_mapToolbarItem = new DevExpress.XtraBars.BarButtonItem();
             this.zoomIn_mapToolbarItem = new DevExpress.XtraBars.BarButtonItem();
-            this.zoomOut_mapToolbarItem = new DevExpress.XtraBars.BarButtonItem();
             this.fullExtent_mapToolbarItem = new DevExpress.XtraBars.BarButtonItem();
             this.identify_mapToolbarItem = new DevExpress.XtraBars.BarButtonItem();
             this.measure_mapToolbarItem = new DevExpress.XtraBars.BarButtonItem();
@@ -145,33 +149,13 @@
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
-            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
-            this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
-            this.barLinkContainerItem1 = new DevExpress.XtraBars.BarLinkContainerItem();
-            this.barDockingMenuItem2 = new DevExpress.XtraBars.BarDockingMenuItem();
-            this.barDockingMenuItem1 = new DevExpress.XtraBars.BarDockingMenuItem();
-            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
-            this.SelectSampleButton = new DevExpress.XtraBars.BarButtonItem();
-            this.Sample_EditingLayer = new DevExpress.XtraBars.BarStaticItem();
-            this.SampleManagerButton = new DevExpress.XtraBars.BarButtonItem();
-            this.Sample_Open = new DevExpress.XtraBars.BarButtonItem();
-            this.Sample_Save = new DevExpress.XtraBars.BarButtonItem();
-            this.Sample_Merge = new DevExpress.XtraBars.BarButtonItem();
-            this.Sample_Split = new DevExpress.XtraBars.BarButtonItem();
-            this.Sample_Delet = new DevExpress.XtraBars.BarButtonItem();
-            this.Sample_Clear = new DevExpress.XtraBars.BarButtonItem();
-            this.Sample_CreateFile = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
-            this.SampleLayerCombox = new DevExpress.XtraBars.BarEditItem();
-            this.Sample_LayerCombox = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
-            this.zoomOutTool = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.LayerNameComboBox = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.repositoryItemComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.repositoryItemImageComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
+            this.Sample_LayerCombox = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
             this.repositoryItemCheckedComboBoxEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckedComboBoxEdit();
+            this.repositoryItemComboBox2 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
+            this.barButtonItem10 = new DevExpress.XtraBars.BarButtonItem();
             this.bar2 = new DevExpress.XtraBars.Bar();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl)).BeginInit();
             this.splitContainerControl.SuspendLayout();
@@ -202,12 +186,14 @@
             this.mapControl_contextMenuStrip.SuspendLayout();
             this.tocControl_contextMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.map_toolbarManager)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Sample_LayerCombox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LayerNameComboBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageComboBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Sample_LayerCombox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckedComboBoxEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainerControl
@@ -223,7 +209,7 @@
             this.splitContainerControl.Panel2.Controls.Add(this.m_mapControl);
             this.splitContainerControl.Panel2.Controls.Add(this.EditToolsBarDockControl);
             this.splitContainerControl.Panel2.Text = "Panel2";
-            this.splitContainerControl.Size = new System.Drawing.Size(961, 461);
+            this.splitContainerControl.Size = new System.Drawing.Size(970, 461);
             this.splitContainerControl.SplitterPosition = 224;
             this.splitContainerControl.TabIndex = 0;
             this.splitContainerControl.Text = "splitContainerControl1";
@@ -329,7 +315,7 @@
             this.m_mapControl.Location = new System.Drawing.Point(0, 62);
             this.m_mapControl.Name = "m_mapControl";
             this.m_mapControl.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("m_mapControl.OcxState")));
-            this.m_mapControl.Size = new System.Drawing.Size(720, 387);
+            this.m_mapControl.Size = new System.Drawing.Size(729, 387);
             this.m_mapControl.TabIndex = 0;
             this.m_mapControl.OnMouseDown += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMouseDownEventHandler(this.m_mapControl_OnMouseDown);
             this.m_mapControl.OnMouseUp += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMouseUpEventHandler(this.m_mapControl_OnMouseUp);
@@ -343,7 +329,7 @@
             this.EditToolsBarDockControl.Dock = System.Windows.Forms.DockStyle.Top;
             this.EditToolsBarDockControl.Location = new System.Drawing.Point(0, 0);
             this.EditToolsBarDockControl.Name = "EditToolsBarDockControl";
-            this.EditToolsBarDockControl.Size = new System.Drawing.Size(720, 62);
+            this.EditToolsBarDockControl.Size = new System.Drawing.Size(729, 62);
             this.EditToolsBarDockControl.Text = "standaloneBarDockControl1";
             // 
             // ribbonMenu
@@ -400,7 +386,7 @@
             this.repositoryItemPopupContainerEdit1,
             this.repositoryItemMemoExEdit2});
             this.ribbonMenu.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013;
-            this.ribbonMenu.Size = new System.Drawing.Size(961, 145);
+            this.ribbonMenu.Size = new System.Drawing.Size(970, 145);
             this.ribbonMenu.StatusBar = this.ribbonStatusBar;
             this.ribbonMenu.Toolbar.ItemLinks.Add(this.iNewProject);
             this.ribbonMenu.Toolbar.ItemLinks.Add(this.iOpenProject);
@@ -864,7 +850,7 @@
             this.ribbonStatusBar.Location = new System.Drawing.Point(0, 606);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbonMenu;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(961, 27);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(970, 27);
             // 
             // galleryImageCollection
             // 
@@ -945,41 +931,44 @@
             this.openAttTable_ToolStripMenuItem,
             this.removeLayer_ToolStripMenuItem,
             this.zoomToLayer_ToolStripMenuItem,
-            this.editLayer_ToolStripMenuItem});
+            this.editLayer_ToolStripMenuItem,
+            this.layerProperty_ToolStripMenuItem});
             this.tocControlLayer_ContextMenu.Name = "tocControlContextMenu";
-            this.tocControlLayer_ContextMenu.Size = new System.Drawing.Size(149, 92);
+            this.tocControlLayer_ContextMenu.Size = new System.Drawing.Size(153, 136);
             this.tocControlLayer_ContextMenu.Opened += new System.EventHandler(this.tocControlLayer_ContextMenu_Opened);
             // 
             // openAttTable_ToolStripMenuItem
             // 
-            this.openAttTable_ToolStripMenuItem.Image = global::AE_Dev_J.Properties.Resources.attributeTable;
             this.openAttTable_ToolStripMenuItem.Name = "openAttTable_ToolStripMenuItem";
-            this.openAttTable_ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.openAttTable_ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.openAttTable_ToolStripMenuItem.Text = "打开属性表";
             this.openAttTable_ToolStripMenuItem.Click += new System.EventHandler(this.openAttTable_ToolStripMenuItem_Click);
             // 
             // removeLayer_ToolStripMenuItem
             // 
-            this.removeLayer_ToolStripMenuItem.Image = global::AE_Dev_J.Properties.Resources.removeLayer;
             this.removeLayer_ToolStripMenuItem.Name = "removeLayer_ToolStripMenuItem";
-            this.removeLayer_ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.removeLayer_ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.removeLayer_ToolStripMenuItem.Text = "移除图层";
             this.removeLayer_ToolStripMenuItem.Click += new System.EventHandler(this.removeLayer_ToolStripMenuItem_Click);
             // 
             // zoomToLayer_ToolStripMenuItem
             // 
-            this.zoomToLayer_ToolStripMenuItem.Image = global::AE_Dev_J.Properties.Resources.zoomToLayer;
             this.zoomToLayer_ToolStripMenuItem.Name = "zoomToLayer_ToolStripMenuItem";
-            this.zoomToLayer_ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.zoomToLayer_ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.zoomToLayer_ToolStripMenuItem.Text = "缩放至到图层";
             this.zoomToLayer_ToolStripMenuItem.Click += new System.EventHandler(this.zoomToLayer_ToolStripMenuItem_Click);
             // 
             // editLayer_ToolStripMenuItem
             // 
             this.editLayer_ToolStripMenuItem.Name = "editLayer_ToolStripMenuItem";
-            this.editLayer_ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.editLayer_ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.editLayer_ToolStripMenuItem.Text = "编辑图层";
-            this.editLayer_ToolStripMenuItem.Click += new System.EventHandler(this.editLayer_ToolStripMenuItem_Click);
+            // 
+            // layerProperty_ToolStripMenuItem
+            // 
+            this.layerProperty_ToolStripMenuItem.Name = "layerProperty_ToolStripMenuItem";
+            this.layerProperty_ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.layerProperty_ToolStripMenuItem.Text = "图层属性";
             // 
             // mapControl_contextMenuStrip
             // 
@@ -1036,7 +1025,6 @@
             // 
             // addData_toolStripMenuItem
             // 
-            this.addData_toolStripMenuItem.Image = global::AE_Dev_J.Properties.Resources.addLayer;
             this.addData_toolStripMenuItem.Name = "addData_toolStripMenuItem";
             this.addData_toolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.addData_toolStripMenuItem.Text = "添加图层";
@@ -1045,8 +1033,11 @@
             // map_toolbarManager
             // 
             this.map_toolbarManager.Bars.AddRange(new DevExpress.XtraBars.Bar[] {
-            this.map_edittools,
+            this.featureEditToolbar,
             this.mapToolBar});
+            this.map_toolbarManager.Categories.AddRange(new DevExpress.XtraBars.BarManagerCategory[] {
+            new DevExpress.XtraBars.BarManagerCategory("Feature Edit", new System.Guid("a7eb19c5-5e0c-4725-97f7-78839034a9ca")),
+            new DevExpress.XtraBars.BarManagerCategory("Map Tool", new System.Guid("f48e74a2-e23d-4260-a751-032d7f109c76"))});
             this.map_toolbarManager.DockControls.Add(this.barDockControlTop);
             this.map_toolbarManager.DockControls.Add(this.barDockControlBottom);
             this.map_toolbarManager.DockControls.Add(this.barDockControlLeft);
@@ -1055,132 +1046,161 @@
             this.map_toolbarManager.DockManager = this.dockManager1;
             this.map_toolbarManager.Form = this;
             this.map_toolbarManager.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.m_edittool,
+            this.editor_ToolbarMenuItem,
+            this.startEdit_ToolbarItem,
+            this.saveEdit_ToolbarItem,
+            this.stopEdit_ToolbarItem,
+            this.featureEdit_ToolbarItem,
             this.m_sketchtool,
-            this.m_savetool,
-            this.m_stoptool,
-            this.m_undotool,
-            this.m_redotool,
-            this.m_editinglayer,
-            this.barButtonItem2,
-            this.barSubItem1,
-            this.barLinkContainerItem1,
-            this.barDockingMenuItem1,
-            this.barDockingMenuItem2,
-            this.barButtonItem3,
-            this.SelectSampleButton,
-            this.Sample_EditingLayer,
-            this.SampleManagerButton,
-            this.Sample_Open,
-            this.Sample_Save,
-            this.Sample_Merge,
-            this.Sample_Split,
-            this.Sample_Delet,
-            this.Sample_Clear,
-            this.Sample_CreateFile,
-            this.barButtonItem5,
-            this.barButtonItem6,
-            this.SampleLayerCombox,
-            this.zoomOutTool,
-            this.barButtonItem7,
-            this.barButtonItem4,
-            this.zoomOut_mapToolbarItem,
+            this.undo_ToolbarItem,
+            this.redo_ToolbarItem,
+            this.targetLayer_ToolbarText,
             this.zoomIn_mapToolbarItem,
             this.fullExtent_mapToolbarItem,
             this.fixedZoomIn_mapToolbarItem,
-            this.fixedZoomOut_mapToolbarItem,
             this.identify_mapToolbarItem,
             this.measure_mapToolbarItem,
             this.pan_mapToolbarItem,
-            this.null_mapToolbarItem});
-            this.map_toolbarManager.MaxItemId = 64;
+            this.null_mapToolbarItem,
+            this.targetLayer_combo_ToolbarItem,
+            this.createFeature_ToolbarItem});
+            this.map_toolbarManager.MaxItemId = 88;
             this.map_toolbarManager.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.LayerNameComboBox,
             this.repositoryItemComboBox1,
             this.repositoryItemImageComboBox1,
             this.Sample_LayerCombox,
-            this.repositoryItemCheckedComboBoxEdit1});
+            this.repositoryItemCheckedComboBoxEdit1,
+            this.repositoryItemComboBox2,
+            this.repositoryItemComboBox3});
             // 
-            // map_edittools
+            // featureEditToolbar
             // 
-            this.map_edittools.BarName = "Tools";
-            this.map_edittools.DockCol = 0;
-            this.map_edittools.DockRow = 0;
-            this.map_edittools.DockStyle = DevExpress.XtraBars.BarDockStyle.Standalone;
-            this.map_edittools.FloatLocation = new System.Drawing.Point(306, 194);
-            this.map_edittools.FloatSize = new System.Drawing.Size(186, 31);
-            this.map_edittools.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.m_edittool),
+            this.featureEditToolbar.BarName = "Tools";
+            this.featureEditToolbar.DockCol = 0;
+            this.featureEditToolbar.DockRow = 0;
+            this.featureEditToolbar.DockStyle = DevExpress.XtraBars.BarDockStyle.Standalone;
+            this.featureEditToolbar.FloatLocation = new System.Drawing.Point(308, 309);
+            this.featureEditToolbar.FloatSize = new System.Drawing.Size(186, 31);
+            this.featureEditToolbar.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.editor_ToolbarMenuItem),
+            new DevExpress.XtraBars.LinkPersistInfo(this.featureEdit_ToolbarItem),
             new DevExpress.XtraBars.LinkPersistInfo(this.m_sketchtool),
-            new DevExpress.XtraBars.LinkPersistInfo(this.m_savetool),
-            new DevExpress.XtraBars.LinkPersistInfo(this.m_stoptool),
-            new DevExpress.XtraBars.LinkPersistInfo(this.m_undotool),
-            new DevExpress.XtraBars.LinkPersistInfo(this.m_redotool),
-            new DevExpress.XtraBars.LinkPersistInfo(this.m_editinglayer)});
-            this.map_edittools.StandaloneBarDockControl = this.EditToolsBarDockControl;
-            this.map_edittools.Text = "EditTools";
-            this.map_edittools.Visible = false;
+            new DevExpress.XtraBars.LinkPersistInfo(this.undo_ToolbarItem),
+            new DevExpress.XtraBars.LinkPersistInfo(this.redo_ToolbarItem),
+            new DevExpress.XtraBars.LinkPersistInfo(this.targetLayer_ToolbarText),
+            new DevExpress.XtraBars.LinkPersistInfo(this.targetLayer_combo_ToolbarItem),
+            new DevExpress.XtraBars.LinkPersistInfo(this.createFeature_ToolbarItem)});
+            this.featureEditToolbar.StandaloneBarDockControl = this.EditToolsBarDockControl;
+            this.featureEditToolbar.Text = "EditTools";
             // 
-            // m_edittool
+            // editor_ToolbarMenuItem
             // 
-            this.m_edittool.Caption = "Edit";
-            this.m_edittool.Glyph = ((System.Drawing.Image)(resources.GetObject("m_edittool.Glyph")));
-            this.m_edittool.Id = 0;
-            this.m_edittool.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("m_edittool.LargeGlyph")));
-            this.m_edittool.Name = "m_edittool";
-            this.m_edittool.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.m_edittool_ItemClick);
+            this.editor_ToolbarMenuItem.Caption = "Editor";
+            this.editor_ToolbarMenuItem.CategoryGuid = new System.Guid("a7eb19c5-5e0c-4725-97f7-78839034a9ca");
+            this.editor_ToolbarMenuItem.Id = 84;
+            this.editor_ToolbarMenuItem.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.startEdit_ToolbarItem),
+            new DevExpress.XtraBars.LinkPersistInfo(this.saveEdit_ToolbarItem),
+            new DevExpress.XtraBars.LinkPersistInfo(this.stopEdit_ToolbarItem)});
+            this.editor_ToolbarMenuItem.Name = "editor_ToolbarMenuItem";
+            // 
+            // startEdit_ToolbarItem
+            // 
+            this.startEdit_ToolbarItem.Caption = "Start Editing";
+            this.startEdit_ToolbarItem.CategoryGuid = new System.Guid("a7eb19c5-5e0c-4725-97f7-78839034a9ca");
+            this.startEdit_ToolbarItem.Id = 74;
+            this.startEdit_ToolbarItem.Name = "startEdit_ToolbarItem";
+            this.startEdit_ToolbarItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.startEdit_ToolbarItem_ItemClick);
+            // 
+            // saveEdit_ToolbarItem
+            // 
+            this.saveEdit_ToolbarItem.Caption = "Save Editing";
+            this.saveEdit_ToolbarItem.CategoryGuid = new System.Guid("a7eb19c5-5e0c-4725-97f7-78839034a9ca");
+            this.saveEdit_ToolbarItem.Id = 75;
+            this.saveEdit_ToolbarItem.Name = "saveEdit_ToolbarItem";
+            this.saveEdit_ToolbarItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.saveEdit_ToolbarItem_ItemClick);
+            // 
+            // stopEdit_ToolbarItem
+            // 
+            this.stopEdit_ToolbarItem.Caption = "Stop Editing";
+            this.stopEdit_ToolbarItem.CategoryGuid = new System.Guid("a7eb19c5-5e0c-4725-97f7-78839034a9ca");
+            this.stopEdit_ToolbarItem.Glyph = ((System.Drawing.Image)(resources.GetObject("stopEdit_ToolbarItem.Glyph")));
+            this.stopEdit_ToolbarItem.Id = 3;
+            this.stopEdit_ToolbarItem.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("stopEdit_ToolbarItem.LargeGlyph")));
+            this.stopEdit_ToolbarItem.Name = "stopEdit_ToolbarItem";
+            this.stopEdit_ToolbarItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.stopEdit_ToolbarItem_ItemClick);
+            // 
+            // featureEdit_ToolbarItem
+            // 
+            this.featureEdit_ToolbarItem.Caption = "Edit";
+            this.featureEdit_ToolbarItem.CategoryGuid = new System.Guid("a7eb19c5-5e0c-4725-97f7-78839034a9ca");
+            this.featureEdit_ToolbarItem.Glyph = ((System.Drawing.Image)(resources.GetObject("featureEdit_ToolbarItem.Glyph")));
+            this.featureEdit_ToolbarItem.Id = 0;
+            this.featureEdit_ToolbarItem.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("featureEdit_ToolbarItem.LargeGlyph")));
+            this.featureEdit_ToolbarItem.Name = "featureEdit_ToolbarItem";
+            this.featureEdit_ToolbarItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.featureEditor_ToolbarItem_ItemClick);
             // 
             // m_sketchtool
             // 
             this.m_sketchtool.Caption = "Sketch";
+            this.m_sketchtool.CategoryGuid = new System.Guid("a7eb19c5-5e0c-4725-97f7-78839034a9ca");
             this.m_sketchtool.Glyph = ((System.Drawing.Image)(resources.GetObject("m_sketchtool.Glyph")));
             this.m_sketchtool.Id = 1;
             this.m_sketchtool.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("m_sketchtool.LargeGlyph")));
             this.m_sketchtool.Name = "m_sketchtool";
-            this.m_sketchtool.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.m_sketchtool_ItemClick);
+            this.m_sketchtool.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.sketch_ToolbarItem_ItemClick);
             // 
-            // m_savetool
+            // undo_ToolbarItem
             // 
-            this.m_savetool.Caption = "Save";
-            this.m_savetool.Glyph = ((System.Drawing.Image)(resources.GetObject("m_savetool.Glyph")));
-            this.m_savetool.Id = 2;
-            this.m_savetool.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("m_savetool.LargeGlyph")));
-            this.m_savetool.Name = "m_savetool";
-            this.m_savetool.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.m_savetool_ItemClick);
+            this.undo_ToolbarItem.Caption = "Undo";
+            this.undo_ToolbarItem.CategoryGuid = new System.Guid("a7eb19c5-5e0c-4725-97f7-78839034a9ca");
+            this.undo_ToolbarItem.Glyph = ((System.Drawing.Image)(resources.GetObject("undo_ToolbarItem.Glyph")));
+            this.undo_ToolbarItem.Id = 4;
+            this.undo_ToolbarItem.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("undo_ToolbarItem.LargeGlyph")));
+            this.undo_ToolbarItem.Name = "undo_ToolbarItem";
+            this.undo_ToolbarItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.undoEdit_ToolbarItem_ItemClick);
             // 
-            // m_stoptool
+            // redo_ToolbarItem
             // 
-            this.m_stoptool.Caption = "Stop";
-            this.m_stoptool.Glyph = ((System.Drawing.Image)(resources.GetObject("m_stoptool.Glyph")));
-            this.m_stoptool.Id = 3;
-            this.m_stoptool.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("m_stoptool.LargeGlyph")));
-            this.m_stoptool.Name = "m_stoptool";
-            this.m_stoptool.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.m_stoptool_ItemClick);
+            this.redo_ToolbarItem.Caption = "Redo";
+            this.redo_ToolbarItem.CategoryGuid = new System.Guid("a7eb19c5-5e0c-4725-97f7-78839034a9ca");
+            this.redo_ToolbarItem.Glyph = ((System.Drawing.Image)(resources.GetObject("redo_ToolbarItem.Glyph")));
+            this.redo_ToolbarItem.Id = 5;
+            this.redo_ToolbarItem.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("redo_ToolbarItem.LargeGlyph")));
+            this.redo_ToolbarItem.Name = "redo_ToolbarItem";
+            this.redo_ToolbarItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.redo_ToolbarItem_ItemClick);
             // 
-            // m_undotool
+            // targetLayer_ToolbarText
             // 
-            this.m_undotool.Caption = "Undo";
-            this.m_undotool.Glyph = ((System.Drawing.Image)(resources.GetObject("m_undotool.Glyph")));
-            this.m_undotool.Id = 4;
-            this.m_undotool.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("m_undotool.LargeGlyph")));
-            this.m_undotool.Name = "m_undotool";
-            this.m_undotool.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.m_undotool_ItemClick);
+            this.targetLayer_ToolbarText.Caption = "Target Layer :";
+            this.targetLayer_ToolbarText.CategoryGuid = new System.Guid("a7eb19c5-5e0c-4725-97f7-78839034a9ca");
+            this.targetLayer_ToolbarText.Id = 6;
+            this.targetLayer_ToolbarText.Name = "targetLayer_ToolbarText";
+            this.targetLayer_ToolbarText.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
-            // m_redotool
+            // targetLayer_combo_ToolbarItem
             // 
-            this.m_redotool.Caption = "Redo";
-            this.m_redotool.Glyph = ((System.Drawing.Image)(resources.GetObject("m_redotool.Glyph")));
-            this.m_redotool.Id = 5;
-            this.m_redotool.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("m_redotool.LargeGlyph")));
-            this.m_redotool.Name = "m_redotool";
-            this.m_redotool.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.m_redotool_ItemClick);
+            this.targetLayer_combo_ToolbarItem.Caption = "current layer";
+            this.targetLayer_combo_ToolbarItem.CategoryGuid = new System.Guid("a7eb19c5-5e0c-4725-97f7-78839034a9ca");
+            this.targetLayer_combo_ToolbarItem.Edit = this.repositoryItemComboBox3;
+            this.targetLayer_combo_ToolbarItem.Id = 83;
+            this.targetLayer_combo_ToolbarItem.Name = "targetLayer_combo_ToolbarItem";
+            this.targetLayer_combo_ToolbarItem.Width = 100;
             // 
-            // m_editinglayer
+            // repositoryItemComboBox3
             // 
-            this.m_editinglayer.Caption = "当前图层：";
-            this.m_editinglayer.Id = 6;
-            this.m_editinglayer.Name = "m_editinglayer";
-            this.m_editinglayer.TextAlignment = System.Drawing.StringAlignment.Near;
+            this.repositoryItemComboBox3.AutoHeight = false;
+            this.repositoryItemComboBox3.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemComboBox3.Name = "repositoryItemComboBox3";
+            // 
+            // createFeature_ToolbarItem
+            // 
+            this.createFeature_ToolbarItem.Caption = "barButtonItem2";
+            this.createFeature_ToolbarItem.Id = 87;
+            this.createFeature_ToolbarItem.Name = "createFeature_ToolbarItem";
+            this.createFeature_ToolbarItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.createFeature_ToolbarItem_ItemClick);
             // 
             // mapToolBar
             // 
@@ -1188,51 +1208,38 @@
             this.mapToolBar.DockCol = 0;
             this.mapToolBar.DockRow = 1;
             this.mapToolBar.DockStyle = DevExpress.XtraBars.BarDockStyle.Standalone;
-            this.mapToolBar.FloatLocation = new System.Drawing.Point(272, 309);
+            this.mapToolBar.FloatLocation = new System.Drawing.Point(373, 350);
             this.mapToolBar.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.fixedZoomIn_mapToolbarItem),
-            new DevExpress.XtraBars.LinkPersistInfo(this.fixedZoomOut_mapToolbarItem),
             new DevExpress.XtraBars.LinkPersistInfo(this.zoomIn_mapToolbarItem),
-            new DevExpress.XtraBars.LinkPersistInfo(this.zoomOut_mapToolbarItem),
             new DevExpress.XtraBars.LinkPersistInfo(this.fullExtent_mapToolbarItem),
             new DevExpress.XtraBars.LinkPersistInfo(this.identify_mapToolbarItem),
             new DevExpress.XtraBars.LinkPersistInfo(this.measure_mapToolbarItem),
             new DevExpress.XtraBars.LinkPersistInfo(this.pan_mapToolbarItem),
             new DevExpress.XtraBars.LinkPersistInfo(this.null_mapToolbarItem)});
             this.mapToolBar.StandaloneBarDockControl = this.EditToolsBarDockControl;
-            this.mapToolBar.Text = "Custom 3";
+            this.mapToolBar.Text = "map toolbar";
             // 
             // fixedZoomIn_mapToolbarItem
             // 
             this.fixedZoomIn_mapToolbarItem.Caption = "fixed zoom in";
+            this.fixedZoomIn_mapToolbarItem.CategoryGuid = new System.Guid("f48e74a2-e23d-4260-a751-032d7f109c76");
             this.fixedZoomIn_mapToolbarItem.Id = 58;
             this.fixedZoomIn_mapToolbarItem.Name = "fixedZoomIn_mapToolbarItem";
             this.fixedZoomIn_mapToolbarItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.fixedZoomIn_mapToolbarItem_ItemClick);
             // 
-            // fixedZoomOut_mapToolbarItem
-            // 
-            this.fixedZoomOut_mapToolbarItem.Caption = "fixed zoom out";
-            this.fixedZoomOut_mapToolbarItem.Id = 59;
-            this.fixedZoomOut_mapToolbarItem.Name = "fixedZoomOut_mapToolbarItem";
-            this.fixedZoomOut_mapToolbarItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.fixedZoomOut_mapToolbarItem_ItemClick);
-            // 
             // zoomIn_mapToolbarItem
             // 
             this.zoomIn_mapToolbarItem.Caption = "zoom in";
+            this.zoomIn_mapToolbarItem.CategoryGuid = new System.Guid("f48e74a2-e23d-4260-a751-032d7f109c76");
             this.zoomIn_mapToolbarItem.Id = 56;
             this.zoomIn_mapToolbarItem.Name = "zoomIn_mapToolbarItem";
             this.zoomIn_mapToolbarItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.zoomIn_mapToolbarItem_ItemClick);
             // 
-            // zoomOut_mapToolbarItem
-            // 
-            this.zoomOut_mapToolbarItem.Caption = "zoom out";
-            this.zoomOut_mapToolbarItem.Id = 55;
-            this.zoomOut_mapToolbarItem.Name = "zoomOut_mapToolbarItem";
-            this.zoomOut_mapToolbarItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.zoomOutTool_ItemClick);
-            // 
             // fullExtent_mapToolbarItem
             // 
             this.fullExtent_mapToolbarItem.Caption = "full extent";
+            this.fullExtent_mapToolbarItem.CategoryGuid = new System.Guid("f48e74a2-e23d-4260-a751-032d7f109c76");
             this.fullExtent_mapToolbarItem.Id = 57;
             this.fullExtent_mapToolbarItem.Name = "fullExtent_mapToolbarItem";
             this.fullExtent_mapToolbarItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.fullExtent_mapToolbarItem_ItemClick);
@@ -1240,6 +1247,7 @@
             // identify_mapToolbarItem
             // 
             this.identify_mapToolbarItem.Caption = "identify";
+            this.identify_mapToolbarItem.CategoryGuid = new System.Guid("f48e74a2-e23d-4260-a751-032d7f109c76");
             this.identify_mapToolbarItem.Id = 60;
             this.identify_mapToolbarItem.Name = "identify_mapToolbarItem";
             this.identify_mapToolbarItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.identify_mapToolbarItem_ItemClick);
@@ -1247,6 +1255,7 @@
             // measure_mapToolbarItem
             // 
             this.measure_mapToolbarItem.Caption = "measure";
+            this.measure_mapToolbarItem.CategoryGuid = new System.Guid("f48e74a2-e23d-4260-a751-032d7f109c76");
             this.measure_mapToolbarItem.Id = 61;
             this.measure_mapToolbarItem.Name = "measure_mapToolbarItem";
             this.measure_mapToolbarItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.measure_mapToolbarItem_ItemClick);
@@ -1254,6 +1263,7 @@
             // pan_mapToolbarItem
             // 
             this.pan_mapToolbarItem.Caption = "pan";
+            this.pan_mapToolbarItem.CategoryGuid = new System.Guid("f48e74a2-e23d-4260-a751-032d7f109c76");
             this.pan_mapToolbarItem.Id = 62;
             this.pan_mapToolbarItem.Name = "pan_mapToolbarItem";
             this.pan_mapToolbarItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.pan_mapToolbarItem_ItemClick);
@@ -1261,6 +1271,7 @@
             // null_mapToolbarItem
             // 
             this.null_mapToolbarItem.Caption = "null";
+            this.null_mapToolbarItem.CategoryGuid = new System.Guid("f48e74a2-e23d-4260-a751-032d7f109c76");
             this.null_mapToolbarItem.Id = 63;
             this.null_mapToolbarItem.Name = "null_mapToolbarItem";
             this.null_mapToolbarItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.null_mapToolbarItem_ItemClick);
@@ -1270,14 +1281,14 @@
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Size = new System.Drawing.Size(961, 0);
+            this.barDockControlTop.Size = new System.Drawing.Size(970, 0);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.barDockControlBottom.Location = new System.Drawing.Point(0, 633);
-            this.barDockControlBottom.Size = new System.Drawing.Size(961, 0);
+            this.barDockControlBottom.Size = new System.Drawing.Size(970, 0);
             // 
             // barDockControlLeft
             // 
@@ -1290,7 +1301,7 @@
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(961, 0);
+            this.barDockControlRight.Location = new System.Drawing.Point(970, 0);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 633);
             // 
             // dockManager1
@@ -1305,140 +1316,6 @@
             "System.Windows.Forms.StatusStrip",
             "DevExpress.XtraBars.Ribbon.RibbonStatusBar",
             "DevExpress.XtraBars.Ribbon.RibbonControl"});
-            // 
-            // barButtonItem2
-            // 
-            this.barButtonItem2.Id = 41;
-            this.barButtonItem2.Name = "barButtonItem2";
-            // 
-            // barSubItem1
-            // 
-            this.barSubItem1.Caption = "barSubItem1";
-            this.barSubItem1.Id = 8;
-            this.barSubItem1.Name = "barSubItem1";
-            // 
-            // barLinkContainerItem1
-            // 
-            this.barLinkContainerItem1.Caption = "barLinkContainerItem1";
-            this.barLinkContainerItem1.Id = 9;
-            this.barLinkContainerItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barDockingMenuItem2)});
-            this.barLinkContainerItem1.Name = "barLinkContainerItem1";
-            // 
-            // barDockingMenuItem2
-            // 
-            this.barDockingMenuItem2.Caption = "barDockingMenuItem2";
-            this.barDockingMenuItem2.Id = 11;
-            this.barDockingMenuItem2.Name = "barDockingMenuItem2";
-            // 
-            // barDockingMenuItem1
-            // 
-            this.barDockingMenuItem1.Caption = "barDockingMenuItem1";
-            this.barDockingMenuItem1.Id = 10;
-            this.barDockingMenuItem1.Name = "barDockingMenuItem1";
-            // 
-            // barButtonItem3
-            // 
-            this.barButtonItem3.Caption = "barButtonItem3";
-            this.barButtonItem3.Id = 12;
-            this.barButtonItem3.Name = "barButtonItem3";
-            // 
-            // SelectSampleButton
-            // 
-            this.SelectSampleButton.Id = 42;
-            this.SelectSampleButton.Name = "SelectSampleButton";
-            // 
-            // Sample_EditingLayer
-            // 
-            this.Sample_EditingLayer.Border = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.Sample_EditingLayer.Caption = "当前图层：";
-            this.Sample_EditingLayer.Id = 14;
-            this.Sample_EditingLayer.Name = "Sample_EditingLayer";
-            this.Sample_EditingLayer.TextAlignment = System.Drawing.StringAlignment.Near;
-            // 
-            // SampleManagerButton
-            // 
-            this.SampleManagerButton.Id = 43;
-            this.SampleManagerButton.Name = "SampleManagerButton";
-            // 
-            // Sample_Open
-            // 
-            this.Sample_Open.Id = 44;
-            this.Sample_Open.Name = "Sample_Open";
-            // 
-            // Sample_Save
-            // 
-            this.Sample_Save.Id = 45;
-            this.Sample_Save.Name = "Sample_Save";
-            // 
-            // Sample_Merge
-            // 
-            this.Sample_Merge.Id = 46;
-            this.Sample_Merge.Name = "Sample_Merge";
-            // 
-            // Sample_Split
-            // 
-            this.Sample_Split.Id = 47;
-            this.Sample_Split.Name = "Sample_Split";
-            // 
-            // Sample_Delet
-            // 
-            this.Sample_Delet.Id = 48;
-            this.Sample_Delet.Name = "Sample_Delet";
-            // 
-            // Sample_Clear
-            // 
-            this.Sample_Clear.Id = 49;
-            this.Sample_Clear.Name = "Sample_Clear";
-            // 
-            // Sample_CreateFile
-            // 
-            this.Sample_CreateFile.Id = 50;
-            this.Sample_CreateFile.Name = "Sample_CreateFile";
-            // 
-            // barButtonItem5
-            // 
-            this.barButtonItem5.Caption = "barButtonItem5";
-            this.barButtonItem5.Id = 32;
-            this.barButtonItem5.Name = "barButtonItem5";
-            // 
-            // barButtonItem6
-            // 
-            this.barButtonItem6.Caption = "barButtonItem6";
-            this.barButtonItem6.Id = 33;
-            this.barButtonItem6.Name = "barButtonItem6";
-            // 
-            // SampleLayerCombox
-            // 
-            this.SampleLayerCombox.Caption = "SampleLayerCombox";
-            this.SampleLayerCombox.Edit = this.Sample_LayerCombox;
-            this.SampleLayerCombox.Id = 39;
-            this.SampleLayerCombox.Name = "SampleLayerCombox";
-            this.SampleLayerCombox.Width = 131;
-            // 
-            // Sample_LayerCombox
-            // 
-            this.Sample_LayerCombox.Name = "Sample_LayerCombox";
-            // 
-            // zoomOutTool
-            // 
-            this.zoomOutTool.Border = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.zoomOutTool.Caption = "Zoom Out";
-            this.zoomOutTool.Id = 51;
-            this.zoomOutTool.Name = "zoomOutTool";
-            this.zoomOutTool.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.zoomOutTool_ItemClick);
-            // 
-            // barButtonItem7
-            // 
-            this.barButtonItem7.Caption = "Zoom In";
-            this.barButtonItem7.Id = 52;
-            this.barButtonItem7.Name = "barButtonItem7";
-            // 
-            // barButtonItem4
-            // 
-            this.barButtonItem4.Caption = "barButtonItem4";
-            this.barButtonItem4.Id = 53;
-            this.barButtonItem4.Name = "barButtonItem4";
             // 
             // LayerNameComboBox
             // 
@@ -1461,12 +1338,30 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.repositoryItemImageComboBox1.Name = "repositoryItemImageComboBox1";
             // 
+            // Sample_LayerCombox
+            // 
+            this.Sample_LayerCombox.Name = "Sample_LayerCombox";
+            // 
             // repositoryItemCheckedComboBoxEdit1
             // 
             this.repositoryItemCheckedComboBoxEdit1.AutoHeight = false;
             this.repositoryItemCheckedComboBoxEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.repositoryItemCheckedComboBoxEdit1.Name = "repositoryItemCheckedComboBoxEdit1";
+            // 
+            // repositoryItemComboBox2
+            // 
+            this.repositoryItemComboBox2.AutoHeight = false;
+            this.repositoryItemComboBox2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemComboBox2.Name = "repositoryItemComboBox2";
+            this.repositoryItemComboBox2.Sorted = true;
+            // 
+            // barButtonItem10
+            // 
+            this.barButtonItem10.Caption = "Stop Editing";
+            this.barButtonItem10.Id = 67;
+            this.barButtonItem10.Name = "barButtonItem10";
             // 
             // bar2
             // 
@@ -1481,7 +1376,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(961, 633);
+            this.ClientSize = new System.Drawing.Size(970, 633);
             this.Controls.Add(this.splitContainerControl);
             this.Controls.Add(this.popupControlContainer1);
             this.Controls.Add(this.popupControlContainer2);
@@ -1527,12 +1422,14 @@
             this.mapControl_contextMenuStrip.ResumeLayout(false);
             this.tocControl_contextMenuStrip.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.map_toolbarManager)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Sample_LayerCombox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LayerNameComboBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageComboBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Sample_LayerCombox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckedComboBoxEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1617,57 +1514,32 @@
         private System.Windows.Forms.ToolStripMenuItem editLayer_ToolStripMenuItem;
         private DevExpress.XtraBars.StandaloneBarDockControl EditToolsBarDockControl;
         private DevExpress.XtraBars.BarManager map_toolbarManager;
-        private DevExpress.XtraBars.Bar map_edittools;
+        private DevExpress.XtraBars.Bar featureEditToolbar;
         private DevExpress.XtraBars.BarDockControl barDockControlTop;
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
-        private DevExpress.XtraBars.BarButtonItem m_edittool;
+        private DevExpress.XtraBars.BarButtonItem featureEdit_ToolbarItem;
         private DevExpress.XtraBars.BarButtonItem m_sketchtool;
-        private DevExpress.XtraBars.BarButtonItem m_savetool;
-        private DevExpress.XtraBars.BarButtonItem m_stoptool;
-        private DevExpress.XtraBars.BarButtonItem m_undotool;
-        private DevExpress.XtraBars.BarButtonItem m_redotool;
+        private DevExpress.XtraBars.BarButtonItem stopEdit_ToolbarItem;
+        private DevExpress.XtraBars.BarButtonItem undo_ToolbarItem;
+        private DevExpress.XtraBars.BarButtonItem redo_ToolbarItem;
         private System.Windows.Forms.ToolStripMenuItem fullExtent_ToolStripMenuItem;
-        private DevExpress.XtraBars.BarStaticItem m_editinglayer;
+        private DevExpress.XtraBars.BarStaticItem targetLayer_ToolbarText;
         private ESRI.ArcGIS.Controls.AxTOCControl m_tocControl;
         private ESRI.ArcGIS.Controls.AxLicenseControl axLicenseControl1;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
-        private DevExpress.XtraBars.BarSubItem barSubItem1;
-        private DevExpress.XtraBars.BarLinkContainerItem barLinkContainerItem1;
-        private DevExpress.XtraBars.BarDockingMenuItem barDockingMenuItem2;
-        private DevExpress.XtraBars.BarDockingMenuItem barDockingMenuItem1;
-        private DevExpress.XtraBars.BarButtonItem SelectSampleButton;
-        private DevExpress.XtraBars.BarStaticItem Sample_EditingLayer;
-        private DevExpress.XtraBars.BarButtonItem SampleManagerButton;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem3;
         private DevExpress.XtraBars.Docking.DockManager dockManager1;
         private DevExpress.XtraBars.Bar bar2;
-        private DevExpress.XtraBars.BarButtonItem Sample_Open;
-        private DevExpress.XtraBars.BarButtonItem Sample_Save;
-        private DevExpress.XtraBars.BarButtonItem Sample_Merge;
-        private DevExpress.XtraBars.BarButtonItem Sample_Split;
-        private DevExpress.XtraBars.BarButtonItem Sample_Delet;
-        private DevExpress.XtraBars.BarButtonItem Sample_Clear;
-        private DevExpress.XtraBars.BarButtonItem Sample_CreateFile;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem5;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem6;
         private DevExpress.XtraEditors.Repository.RepositoryItemComboBox LayerNameComboBox;
         private DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox repositoryItemImageComboBox1;
         private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBox1;
-        private DevExpress.XtraBars.BarEditItem SampleLayerCombox;
         private DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox Sample_LayerCombox;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckedComboBoxEdit repositoryItemCheckedComboBoxEdit1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
         private DevExpress.XtraBars.BarButtonItem iRoiTool;
         private DevExpress.XtraBars.BarButtonItem iViewSpectralTool;
-        private DevExpress.XtraBars.BarButtonItem zoomOutTool;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem7;
         private DevExpress.XtraBars.Bar mapToolBar;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem4;
-        private DevExpress.XtraBars.BarButtonItem zoomOut_mapToolbarItem;
         private DevExpress.XtraBars.BarButtonItem fixedZoomIn_mapToolbarItem;
-        private DevExpress.XtraBars.BarButtonItem fixedZoomOut_mapToolbarItem;
         private DevExpress.XtraBars.BarButtonItem zoomIn_mapToolbarItem;
         private DevExpress.XtraBars.BarButtonItem fullExtent_mapToolbarItem;
         private DevExpress.XtraBars.BarButtonItem identify_mapToolbarItem;
@@ -1676,6 +1548,15 @@
         private DevExpress.XtraBars.BarButtonItem iBufferAnalysis;
         private DevExpress.XtraBars.BarButtonItem iSymDiff;
         private DevExpress.XtraBars.BarButtonItem null_mapToolbarItem;
+        private System.Windows.Forms.ToolStripMenuItem layerProperty_ToolStripMenuItem;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem10;
+        private DevExpress.XtraBars.BarButtonItem startEdit_ToolbarItem;
+        private DevExpress.XtraBars.BarButtonItem saveEdit_ToolbarItem;
+        private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBox2;
+        private DevExpress.XtraBars.BarEditItem targetLayer_combo_ToolbarItem;
+        private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBox3;
+        private DevExpress.XtraBars.BarSubItem editor_ToolbarMenuItem;
+        private DevExpress.XtraBars.BarButtonItem createFeature_ToolbarItem;
 
     }
 }

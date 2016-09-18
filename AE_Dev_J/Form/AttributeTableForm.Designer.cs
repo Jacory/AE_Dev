@@ -41,13 +41,13 @@
             this.att_navBarGroup1 = new DevExpress.XtraNavBar.NavBarGroup();
             this.att_chartbaritem = new DevExpress.XtraNavBar.NavBarItem();
             this.att_navBarGroup2 = new DevExpress.XtraNavBar.NavBarGroup();
-            this.att_xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
+            this.att_xtraTabControl = new DevExpress.XtraTab.XtraTabControl();
             ((System.ComponentModel.ISupportInitialize)(this.attForm_dockManager)).BeginInit();
             this.tool_dockPanel.SuspendLayout();
             this.att_dockPaneltools.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.att_xtraTabControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.att_xtraTabControl)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonPage1
@@ -156,16 +156,17 @@
             this.att_navBarGroup2.Expanded = true;
             this.att_navBarGroup2.Name = "att_navBarGroup2";
             // 
-            // att_xtraTabControl1
+            // att_xtraTabControl
             // 
-            this.att_xtraTabControl1.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InAllTabPageHeaders;
-            this.att_xtraTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.att_xtraTabControl1.HeaderLocation = DevExpress.XtraTab.TabHeaderLocation.Bottom;
-            this.att_xtraTabControl1.Location = new System.Drawing.Point(193, 0);
-            this.att_xtraTabControl1.Name = "att_xtraTabControl1";
-            this.att_xtraTabControl1.Size = new System.Drawing.Size(584, 523);
-            this.att_xtraTabControl1.TabIndex = 0;
-            this.att_xtraTabControl1.CloseButtonClick += new System.EventHandler(this.xtraTabControl1_CloseButtonClick);
+            this.att_xtraTabControl.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InAllTabPageHeaders;
+            this.att_xtraTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.att_xtraTabControl.HeaderLocation = DevExpress.XtraTab.TabHeaderLocation.Bottom;
+            this.att_xtraTabControl.Location = new System.Drawing.Point(193, 0);
+            this.att_xtraTabControl.Name = "att_xtraTabControl";
+            this.att_xtraTabControl.Size = new System.Drawing.Size(584, 523);
+            this.att_xtraTabControl.TabIndex = 0;
+            this.att_xtraTabControl.SelectedPageChanged += new DevExpress.XtraTab.TabPageChangedEventHandler(this.att_xtraTabControl_SelectedPageChanged);
+            this.att_xtraTabControl.CloseButtonClick += new System.EventHandler(this.xtraTabControl_CloseButtonClick);
             // 
             // AttributeTableForm
             // 
@@ -177,7 +178,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(777, 523);
-            this.Controls.Add(this.att_xtraTabControl1);
+            this.Controls.Add(this.att_xtraTabControl);
             this.Controls.Add(this.att_dockPaneltools);
             this.Name = "AttributeTableForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -188,7 +189,7 @@
             this.att_dockPaneltools.ResumeLayout(false);
             this.dockPanel1_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.att_xtraTabControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.att_xtraTabControl)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -202,7 +203,7 @@
         private DevExpress.XtraBars.Docking.ControlContainer dockPanel2_Container;
         private DevExpress.XtraBars.Docking.DockPanel att_dockPaneltools;
         private DevExpress.XtraBars.Docking.ControlContainer dockPanel1_Container;
-        private DevExpress.XtraTab.XtraTabControl att_xtraTabControl1;
+        private DevExpress.XtraTab.XtraTabControl att_xtraTabControl;
         private DevExpress.XtraNavBar.NavBarControl navBarControl1;
         private DevExpress.XtraNavBar.NavBarGroup att_navBarGroup1;
         private DevExpress.XtraNavBar.NavBarGroup att_navBarGroup2;

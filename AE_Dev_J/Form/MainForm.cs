@@ -1,18 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using System.IO;
-using System.Threading;
-using System.Threading.Tasks;
 
-using DevExpress.Skins;
-using DevExpress.LookAndFeel;
-using DevExpress.UserSkins;
 using DevExpress.XtraEditors;
 using DevExpress.XtraBars.Helpers;
 
@@ -20,14 +10,9 @@ using ESRI.ArcGIS.Controls;
 using ESRI.ArcGIS.Geodatabase;
 using ESRI.ArcGIS.DataSourcesRaster;
 using ESRI.ArcGIS.Carto;
-using ESRI.ArcGIS.CartoUI;
-using ESRI.ArcGIS.Display;
 using ESRI.ArcGIS.SystemUI;
-using ESRI.ArcGIS.DataSourcesFile;
-using ESRI.ArcGIS.GeoAnalyst;
 using ESRI.ArcGIS.esriSystem;
 using ESRI.ArcGIS.Geometry;
-using ESRI.ArcGIS.SpatialAnalyst;
 
 using AE_Dev_J.Form;
 using AE_Dev_J.Class;
@@ -153,6 +138,8 @@ namespace AE_Dev_J
             this.KeyPreview = true;
 
             m_globalSetting = new GlobalSettings();
+
+            pEngineEditor = new EngineEditorClass(); // 初始化编辑器对象
         }
 
         /// <summary>
@@ -457,46 +444,58 @@ namespace AE_Dev_J
 
         #endregion Home and Skin 菜单事件
 
-        #region 编辑ToolBar 工具条事件
+        #region Feature Editor ToolBar 工具条事件
 
-        /// <summary>
-        /// 矢量“编辑”工具
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void m_edittool_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void startEdit_ToolbarItem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (pEngineEditor.EditState==esriEngineEditState.esriEngineStateEditing)
+            IBasicMap map = null;
+            ILayer selectedLayer = null;
+            object unk = null;
+            object data = null;
+            esriTOCControlItem item = esriTOCControlItem.esriTOCControlItemNone;
+            m_tocControl.GetSelectedItem(ref item, ref map, ref selectedLayer, ref unk, ref data);
+
+            if (item == esriTOCControlItem.esriTOCControlItemLayer)
             {
-                ICommand t_editcommand = new ESRI.ArcGIS.Controls.ControlsEditingEditToolClass();
-                t_editcommand.OnCreate(m_mapControl.Object);
-                m_mapControl.CurrentTool = t_editcommand as ITool;
-                t_editcommand.OnClick();
+                // 启动编辑
+                if (pEngineEditor.EditState != esriEngineEditState.esriEngineStateNotEditing)
+                    return;
+
+                IFeatureLayer featurelayer = selectedLayer as IFeatureLayer;
+                IDataset dataset = featurelayer.FeatureClass as IDataset;
+                IWorkspace workspace = dataset.Workspace;
+
+                pEngineEditor.StartEditing(workspace, m_mapControl.Map);
+                ((IEngineEditLayers)pEngineEditor).SetTargetLayer(featurelayer, -1);
+
+                pEngineEditor.StartOperation();
+
+                // 设置目标图层
+                IEngineEditLayers pEditLayer = pEngineEditor as IEngineEditLayers;
+                pEditLayer.SetTargetLayer(featurelayer, 0);
+                targetLayer_ToolbarText.Caption += " " + featurelayer.Name;
+
+                featureEditor_ToolbarItem_ItemClick(null, null);
+
+                featureEditToolbar.Visible = true;
             }
+            ICommand pcommand = new ControlsEditingStartCommand();
+            pcommand.OnCreate(m_mapControl.Object);
+            pcommand.OnClick();
         }
 
-        /// <summary>
-        /// 矢量“草图”工具
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void m_sketchtool_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void saveEdit_ToolbarItem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (pEngineEditor.EditState == esriEngineEditState.esriEngineStateEditing)
             {
-                ICommand t_sketchcommand = new ControlsEditingSketchToolClass();
-                t_sketchcommand.OnCreate(m_mapControl.Object);
-                m_mapControl.CurrentTool = t_sketchcommand as ITool;
-                t_sketchcommand.OnClick();
+                ICommand savecommand = new ControlsEditingSaveCommandClass();
+                savecommand.OnCreate(m_mapControl.Object);
+                m_mapControl.CurrentTool = savecommand as ITool;
+                savecommand.OnClick();
             }
         }
 
-        /// <summary>
-        /// 停止编辑所选图层
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void m_stoptool_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void stopEdit_ToolbarItem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (pEngineEditor != null && pEngineEditor.HasEdits() == false)
             {
@@ -513,43 +512,39 @@ namespace AE_Dev_J
                     pEngineEditor.StopEditing(false);
                 }
             }
-            //恢复光标
-            ICommand t_editcommand = new ESRI.ArcGIS.Controls.ControlsEditingEditToolClass();
-            t_editcommand.OnCreate(m_mapControl.Object);
-            m_mapControl.CurrentTool = t_editcommand as ITool;
-            t_editcommand.OnClick();
 
-            m_editinglayer.Caption = "当前图层：";
-            map_edittools.Visible = false;
-            
+            ICommand pcommand = new ControlsEditingStopCommand();
+            pcommand.OnCreate(m_mapControl.Object);
+            pcommand.OnClick();
         }
 
-        /// <summary>
-        /// 保存编辑内容
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void m_savetool_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void featureEditor_ToolbarItem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (pEngineEditor.EditState == esriEngineEditState.esriEngineStateEditing)
             {
-                ICommand savecommand = new ControlsEditingSaveCommandClass();
-                savecommand.OnCreate(m_mapControl.Object);
-                m_mapControl.CurrentTool = savecommand as ITool;
-                savecommand.OnClick();
+                ICommand t_editcommand = new ESRI.ArcGIS.Controls.ControlsEditingEditToolClass();
+                t_editcommand.OnCreate(m_mapControl.Object);
+                m_mapControl.CurrentTool = t_editcommand as ITool;
+                t_editcommand.OnClick();
             }
         }
 
-        /// <summary>
-        /// 撤销操作
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void m_undotool_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void sketch_ToolbarItem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (pEngineEditor.EditState == esriEngineEditState.esriEngineStateEditing)
+            {
+                ICommand t_sketchcommand = new ControlsEditingSketchToolClass();
+                t_sketchcommand.OnCreate(m_mapControl.Object);
+                m_mapControl.CurrentTool = t_sketchcommand as ITool;
+                t_sketchcommand.OnClick();
+            }
+        }
+
+        private void undoEdit_ToolbarItem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (pEngineEditor != null && pEngineEditor.EditState == esriEngineEditState.esriEngineStateEditing)
             {
-                m_redotool.Enabled = true;
+                redo_ToolbarItem.Enabled = true;
                 IWorkspaceEdit workspaceedit = (IWorkspaceEdit)pEngineEditor.EditWorkspace;
 
                 bool bHasUndo = true;
@@ -563,16 +558,11 @@ namespace AE_Dev_J
             }
         }
 
-        /// <summary>
-        /// 恢复操作
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void m_redotool_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void redo_ToolbarItem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (pEngineEditor.EditState == esriEngineEditState.esriEngineStateEditing)
             {
-                m_redotool.Enabled = true;
+                redo_ToolbarItem.Enabled = true;
                 IWorkspaceEdit workspaceedit = (IWorkspaceEdit)pEngineEditor.EditWorkspace;
 
                 bool bHasRedo = true;
@@ -584,9 +574,9 @@ namespace AE_Dev_J
                     ((IActiveView)m_mapControl.Map).Refresh();
                 }
             }
-        }
+        } 
 
-        #endregion 编辑ToolBar 工具条事件
+        #endregion Feature Editor ToolBar 工具条事件
 
         #region 地图浏览ToolBar事件
 
@@ -737,51 +727,6 @@ namespace AE_Dev_J
         }
 
         /// <summary>
-        /// 编辑所选图层
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void editLayer_ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            pEngineEditor = new EngineEditorClass();
-            IBasicMap map = null;
-            ILayer selectedLayer = null;
-            object unk = null;
-            object data = null;
-            esriTOCControlItem item = esriTOCControlItem.esriTOCControlItemNone;
-            m_tocControl.GetSelectedItem(ref item, ref map, ref selectedLayer, ref unk, ref data);
-
-            if (item == esriTOCControlItem.esriTOCControlItemLayer)
-            {
-                //启动编辑
-                if (pEngineEditor.EditState!=esriEngineEditState.esriEngineStateNotEditing)
-                {
-                    return;
-                }
-                IFeatureLayer featurelayer = selectedLayer as IFeatureLayer;
-                IDataset dataset = featurelayer.FeatureClass as IDataset;
-                IWorkspace workspace = dataset.Workspace;
-
-                pEngineEditor.StartEditing(workspace,m_mapControl.Map);
-                ((IEngineEditLayers)pEngineEditor).SetTargetLayer(featurelayer,-1);
-
-                pEngineEditor.StartOperation();
-
-                //设置目标图层
-                IEngineEditLayers pEditLayer = pEngineEditor as IEngineEditLayers;
-                pEditLayer.SetTargetLayer(featurelayer,0);
-                m_editinglayer.Caption += " "+featurelayer.Name;
-
-                ICommand t_editcommand = new ESRI.ArcGIS.Controls.ControlsEditingEditToolClass();
-                t_editcommand.OnCreate(m_mapControl.Object);
-                m_mapControl.CurrentTool = t_editcommand as ITool;
-                t_editcommand.OnClick();
-
-                map_edittools.Visible = true;
-            }
-        }
-
-        /// <summary>
         /// 当右键菜单弹出时
         /// </summary>
         /// <param name="sender"></param>
@@ -863,6 +808,7 @@ namespace AE_Dev_J
                 }
             }
         }
+        
         /// <summary>
         /// 添加图层
         /// </summary>
@@ -1140,8 +1086,8 @@ namespace AE_Dev_J
                 m_mapControl.CurrentTool = t_editcommand as ITool;
                 t_editcommand.OnClick();
 
-                m_editinglayer.Caption = "当前图层：";
-                map_edittools.Visible = false;
+                targetLayer_ToolbarText.Caption = "当前图层：";
+                featureEditToolbar.Visible = false;
 
                 //移除图层并解除图层锁
                 for (int i = m_mapControl.Map.LayerCount - 1; i >= 0; i--)
@@ -1189,6 +1135,13 @@ namespace AE_Dev_J
         {
             BufferAnalysisForm buf = new BufferAnalysisForm(this.getMapControl());
             buf.Show();
+        }
+
+        private void createFeature_ToolbarItem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ICommand pcommand = new ControlsEditingTargetToolControl();
+            pcommand.OnCreate(m_mapControl.Object);
+            IToolControl ptoolcontrol = pcommand as IToolControl;
         }
 
     }
